@@ -1,0 +1,22 @@
+# 知微KB系统 — Python 依赖
+# 由实际 import 推导,版本 pin 到当前环境。Python 3.10+。
+
+# Web 服务 (kb_core/server.py)
+fastapi==0.136.1
+uvicorn==0.47.0
+pydantic==2.13.4
+
+# 检索 — 向量索引
+numpy==2.4.4
+faiss-cpu==1.14.2
+
+# 中文分词 (PPR 引擎 / 锚点术语)
+jieba==0.42.1
+
+# 文档处理 (plan_writer / pipeline)
+python-docx==1.2.0
+pypdf==6.11.0
+
+# LLM 调用 (向量重排提示 / 引用提示)
+httpx==0.28.1
+requests==2.34.2

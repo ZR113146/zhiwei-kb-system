@@ -1,0 +1,1 @@
+{"query": "GB/T 32837-2016 天然石材防护剂", "observed_at": "2026-06-17T19:50:00", "issue": "Material standard query is outranked by construction safety standards such as JGJ80/JGJ162.", "expected": "GBT32837 should rank near the top when querying the exact official code or standard name.", "phase": "M4_ranking", "source": "manual_status_update_validation"}

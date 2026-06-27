@@ -1,0 +1,35 @@
+{
+  "timestamp": "2026-06-04 08:42:26",
+  "search": {
+    "match_rate": 0.9423,
+    "recall_pair": 0.9423,
+    "mrr": 0.8974,
+    "zero_result_rate": 0.0,
+    "total_queries": 52,
+    "non_image_queries": 52
+  },
+  "ppr": {
+    "disambiguation": {
+      "total": 8,
+      "hits": 7,
+      "rate": 0.875
+    },
+    "multi_hop": {
+      "total": 7,
+      "hits": 6,
+      "rate": 0.8571
+    },
+    "rare_terms": {
+      "total": 8,
+      "hits": 4,
+      "rate": 0.5
+    },
+    "graph_health": {
+      "n_terms": 65651,
+      "n_files": 168,
+      "total_nodes": 65819,
+      "edges": 829335,
+      "avg_out_degree": 12.632480845683995
+    }
+  }
+}

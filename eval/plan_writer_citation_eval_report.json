@@ -1,0 +1,28 @@
+{
+  "generated_at": "2026-06-21T13:37:35",
+  "total": 4,
+  "ok": 4,
+  "failures": [],
+  "rows": [
+    {
+      "name": "resolve_for_chapter_returns_citations",
+      "ok": true,
+      "detail": "rows=2 citations=1"
+    },
+    {
+      "name": "resolve_citation_attaches_kb_citation",
+      "ok": true,
+      "detail": "{\"in_clause\": true, \"clause_exists\": true, \"audit_status\": \"pass\", \"clause_type\": \"normative\", \"source_file\": \"_seg0_GB 50202-2018 建筑地基工程施工质量验收标准.md\"}"
+    },
+    {
+      "name": "write_citation_audit_summary_outputs_files",
+      "ok": true,
+      "detail": "{\"json\": \"D:\\\\zhiwei-kb-system\\\\eval\\\\plan_writer_citation_summary_sample.json\", \"md\": \"D:\\\\zhiwei-kb-system\\\\eval\\\\plan_writer_citation_summary_sample.md\"}"
+    },
+    {
+      "name": "append_citation_audit_summary_to_docx_outputs_docx",
+      "ok": true,
+      "detail": "{\"docx\": \"D:\\\\zhiwei-kb-system\\\\eval\\\\plan_writer_citation_sample_with_summary.docx\", \"has_heading\": true}"
+    }
+  ]
+}

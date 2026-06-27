@@ -1,0 +1,72 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ── 密钥 / 本地环境(绝不入库)──
+环境变量.txt
+.env
+.env.*
+*.key
+**/secrets.*
+
+# ── 知识库本体 / 大体积资料(不入库,仅推核心代码与工具)──
+# data/ 全为知识库文档与索引产物;自研插件 zhiwei-kb-search 通过 git add -f 单独保留
+data/
+projects/
+docs/
+plan_writer/standards_index.json
+
+# ── 生成的检索索引产物(由 pipeline 重建,不入库)──
+data/kb_json/
+data/vectordb/
+data/images/
+data/staging/
+data/work_json/
+*.faiss
+*.npy
+
+# ── pipeline 运行期生成的 JSON(配置类 kb_term_map.json 除外)──
+pipeline/batch_failed.json
+pipeline/kb_bigram.json
+pipeline/kb_feedback_report.json
+pipeline/kb_feedback_suggestions.json
+pipeline/kb_ppr_baseline.json
+pipeline/kb_ppr_grid_results.json
+pipeline/kb_search_baseline.json
+pipeline/kb_tag_scores.json
+pipeline/kb_tag_scores_phase4.json
+pipeline/kb_term_bge_suggestions.json
+pipeline/kb_term_candidates.json
+pipeline/kb_term_map_v3.json
+pipeline/kb_vector_map.json
+
+# ── 运行期日志/指标(随每次检索追加,不入库)──
+kb_core/.changelog.jsonl
+kb_core/.metrics_search.jsonl
+pipeline/kb_search_log.jsonl
+.vscode/
+
+# ── plan_writer 渲染期生成的流程图配置/产物 ──
+**/.mermaid_config.json
+**/.mermaid_theme.css
+projects/**/content/*.png
+
+# ── 编辑器/工具本地状态(个人环境噪音,不入库)──
+.codebase-memory/
+data/index/.claudian/
+data/index/.obsidian/app.json
+data/index/.obsidian/appearance.json
+data/index/.obsidian/backlink.json
+data/index/.obsidian/core-plugins.json
+data/index/.obsidian/community-plugins.json
+data/index/.obsidian/graph.json
+data/index/.obsidian/workspace.json
+data/index/.obsidian/workspace*.json
+# 第三方 Obsidian 插件(可重新安装,不入库);自研 zhiwei-kb-search 插件保留
+data/index/.obsidian/plugins/ob-table-enhancer/
+data/index/.obsidian/plugins/realclaudian/
+data/index/.obsidian/plugins/table-editor-obsidian/

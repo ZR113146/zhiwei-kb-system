@@ -1,0 +1,33 @@
+{
+  "total": 1,
+  "matched": 1,
+  "needs_review": 0,
+  "audit_status": {
+    "pass": 1,
+    "warn": 0,
+    "fail": 0,
+    "unknown": 0
+  },
+  "version_status": {
+    "effective": 1
+  },
+  "clause_type": {
+    "normative": 1
+  },
+  "items": [
+    {
+      "para": 1,
+      "code": "GB50202-2018",
+      "clause_ref": "5.1.3",
+      "claimed": "50 ~m",
+      "in_clause": true,
+      "standard_name": "建筑地基工程施工质量验收标准",
+      "official_code": "GB 50202-2018",
+      "clause_type": "normative",
+      "version_status": "effective",
+      "audit_status": "pass",
+      "source_file": "_seg0_GB 50202-2018 建筑地基工程施工质量验收标准.md",
+      "review_reasons": []
+    }
+  ]
+}

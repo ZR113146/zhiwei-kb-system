@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Zhiwei KB Citation",
+  "type": "object",
+  "required": ["standard_code", "clause_no", "quote_text", "source_file", "version_status", "audit_status"],
+  "properties": {
+    "standard_code": {"type": "string"},
+    "official_code": {"type": "string"},
+    "standard_name": {"type": "string"},
+    "clause_no": {"type": "string"},
+    "clause_type": {"enum": ["normative", "commentary", "appendix", "table", "image", "unknown"]},
+    "quote_text": {"type": "string"},
+    "source_file": {"type": "string"},
+    "version_status": {
+      "type": "object",
+      "properties": {
+        "status": {"enum": ["effective", "superseded", "abolished", "draft", "unknown"]},
+        "standard_code": {"type": "string"},
+        "standard_name": {"type": "string"},
+        "year": {"type": ["integer", "null"]}
+      }
+    },
+    "audit_status": {"enum": ["pass", "warn", "fail", "unknown"]},
+    "audit_messages": {"type": "array", "items": {"type": "string"}},
+    "confidence": {"type": "string"},
+    "source": {"type": "string"}
+  }
+}

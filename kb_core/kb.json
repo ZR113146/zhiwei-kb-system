@@ -1,0 +1,50 @@
+{
+  "_comment": "Zhiwei KB unified configuration. All paths should be resolved from this file.",
+  "_rule": "Do not hardcode KB paths in scripts; read paths from kb.json.",
+  "paths": {
+    "root": "data",
+    "staging": "data/staging",
+    "work_json": "data/work_json",
+    "kb_json": "data/kb_json",
+    "kb_md_lib": "data/md_lib_v2",
+    "kb_images": "data/images",
+    "kb_md": "data/index",
+    "md_manifest": "data/md_manifest.json",
+    "manifest": "data/kb_json/manifest.json",
+    "standards_index": "plan_writer/standards_index.json",
+    "vectordb": "data/vectordb",
+    "build_index_script": "pipeline/build_index.py",
+    "kb_term_map": "pipeline/kb_term_map.json",
+    "kb_term_index": "data/kb_json/kb_term_index.json",
+    "kb_ppr_graph": "data/kb_json/kb_ppr_graph.json",
+    "kb_phrase_model": "data/kb_json/kb_phrase_model.json",
+    "kb_word_vectors": "data/kb_json/kb_word_vectors_v2.npy",
+    "kb_word_vocab": "data/kb_json/kb_word_vocab.json",
+    "kb_sentence_vectors": "data/kb_json/kb_sentence_vectors.faiss",
+    "kb_sentence_meta": "data/kb_json/kb_sentence_meta.json"
+  },
+  "api": {
+    "siliconflow_key_env": "SILICONFLOW_API_KEY",
+    "embed_model": "BAAI/bge-m3",
+    "embed_url": "https://api.siliconflow.cn/v1/embeddings"
+  },
+    "search": {
+      "default_mode": "hybrid",
+      "default_vector_weight": 0.3,
+      "max_results": 10,
+      "min_similarity": 0.3,
+      "tuning": "data/kb_json/search_tuning.json",
+      "clause_refine": true,
+      "support_guard": {
+        "enabled": false,
+        "mode": "annotate",
+        "truth_path": "eval/truth_queries_seed.jsonl",
+        "top_k": 10
+      }
+    },
+  "pipeline": {
+    "min_standards_threshold": 50,
+    "max_extract_retries": 3,
+    "max_index_build_timeout": 300
+  }
+}

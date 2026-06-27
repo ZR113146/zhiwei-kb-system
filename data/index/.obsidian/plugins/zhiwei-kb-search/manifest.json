@@ -1,0 +1,9 @@
+{
+  "id": "zhiwei-kb-search",
+  "name": "知微规范证据台",
+  "version": "1.2.0",
+  "minAppVersion": "0.15.0",
+  "description": "在 Obsidian 中检索、阅读、引用和核验知微建筑规范知识库。",
+  "author": "知微",
+  "isDesktopOnly": true
+}

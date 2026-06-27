@@ -1,0 +1,3213 @@
+{
+  "summary": {
+    "generated_at": "2026-06-19T15:49:33",
+    "kb_status": {
+      "standards": 262,
+      "clauses": 33206,
+      "standards_in_index": 262,
+      "indexed_clauses": 33206,
+      "code_mapped": 116,
+      "md_files": 176,
+      "md_with_codes": 124,
+      "standard_status_coverage": {
+        "records": 121,
+        "aliases": 44,
+        "known_status": 111,
+        "unknown_status": 10,
+        "coverage_ratio": 0.9174,
+        "by_status": {
+          "unknown": 10,
+          "effective": 107,
+          "abolished": 3,
+          "superseded": 1
+        }
+      },
+      "search_tuning": {
+        "score_threshold": 10.0,
+        "rerank_enabled": false,
+        "rerank_top_k": 30,
+        "path": "D:\\zhiwei-kb-system\\data/kb_json/search_tuning.json"
+      }
+    },
+    "total": 20,
+    "overall": {
+      "count": 20,
+      "TruthSupport@1": 0.0,
+      "TruthSupport@3": 0.0,
+      "Clause@3": 0.2,
+      "Fact@3": 0.05,
+      "ForbiddenHitRate": 0.05,
+      "DeletedClauseErrorRate": 0.05,
+      "StaleVersionErrorRate": 0.0,
+      "TableCellHitRate": 0.0,
+      "UnsupportedHighScoreRate": 0.95,
+      "AvgLatency": 2234.82,
+      "Errors": 0
+    },
+    "by_query_type": {
+      "appendix_intent": {
+        "count": 1,
+        "TruthSupport@1": 0.0,
+        "TruthSupport@3": 0.0,
+        "Clause@3": 0.0,
+        "Fact@3": 0.0,
+        "ForbiddenHitRate": 0.0,
+        "DeletedClauseErrorRate": 0.0,
+        "StaleVersionErrorRate": 0.0,
+        "TableCellHitRate": null,
+        "UnsupportedHighScoreRate": 1.0,
+        "AvgLatency": 5.7,
+        "Errors": 0
+      },
+      "broad_technical": {
+        "count": 4,
+        "TruthSupport@1": 0.0,
+        "TruthSupport@3": 0.0,
+        "Clause@3": 0.75,
+        "Fact@3": 0.0,
+        "ForbiddenHitRate": 0.0,
+        "DeletedClauseErrorRate": 0.0,
+        "StaleVersionErrorRate": 0.0,
+        "TableCellHitRate": null,
+        "UnsupportedHighScoreRate": 0.75,
+        "AvgLatency": 1761.54,
+        "Errors": 0
+      },
+      "clause_lookup": {
+        "count": 1,
+        "TruthSupport@1": 0.0,
+        "TruthSupport@3": 0.0,
+        "Clause@3": 0.0,
+        "Fact@3": 1.0,
+        "ForbiddenHitRate": 0.0,
+        "DeletedClauseErrorRate": 0.0,
+        "StaleVersionErrorRate": 0.0,
+        "TableCellHitRate": null,
+        "UnsupportedHighScoreRate": 1.0,
+        "AvgLatency": 3956.8,
+        "Errors": 0
+      },
+      "clause_support": {
+        "count": 2,
+        "TruthSupport@1": 0.0,
+        "TruthSupport@3": 0.0,
+        "Clause@3": 0.0,
+        "Fact@3": 0.0,
+        "ForbiddenHitRate": 0.0,
+        "DeletedClauseErrorRate": 0.0,
+        "StaleVersionErrorRate": 0.0,
+        "TableCellHitRate": null,
+        "UnsupportedHighScoreRate": 1.0,
+        "AvgLatency": 5.71,
+        "Errors": 0
+      },
+      "deleted_clause": {
+        "count": 1,
+        "TruthSupport@1": 0.0,
+        "TruthSupport@3": 0.0,
+        "Clause@3": 0.0,
+        "Fact@3": 0.0,
+        "ForbiddenHitRate": 0.0,
+        "DeletedClauseErrorRate": 0.0,
+        "StaleVersionErrorRate": 0.0,
+        "TableCellHitRate": null,
+        "UnsupportedHighScoreRate": 1.0,
+        "AvgLatency": 3839.77,
+        "Errors": 0
+      },
+      "explanation_vs_normative": {
+        "count": 1,
+        "TruthSupport@1": 0.0,
+        "TruthSupport@3": 0.0,
+        "Clause@3": 1.0,
+        "Fact@3": 0.0,
+        "ForbiddenHitRate": 0.0,
+        "DeletedClauseErrorRate": 0.0,
+        "StaleVersionErrorRate": 0.0,
+        "TableCellHitRate": null,
+        "UnsupportedHighScoreRate": 1.0,
+        "AvgLatency": 4168.39,
+        "Errors": 0
+      },
+      "fact_support": {
+        "count": 2,
+        "TruthSupport@1": 0.0,
+        "TruthSupport@3": 0.0,
+        "Clause@3": 0.0,
+        "Fact@3": 0.0,
+        "ForbiddenHitRate": 0.0,
+        "DeletedClauseErrorRate": 0.0,
+        "StaleVersionErrorRate": 0.0,
+        "TableCellHitRate": null,
+        "UnsupportedHighScoreRate": 1.0,
+        "AvgLatency": 5.59,
+        "Errors": 0
+      },
+      "nearby_clause": {
+        "count": 1,
+        "TruthSupport@1": 0.0,
+        "TruthSupport@3": 0.0,
+        "Clause@3": 0.0,
+        "Fact@3": 0.0,
+        "ForbiddenHitRate": 0.0,
+        "DeletedClauseErrorRate": 0.0,
+        "StaleVersionErrorRate": 0.0,
+        "TableCellHitRate": null,
+        "UnsupportedHighScoreRate": 1.0,
+        "AvgLatency": 67.76,
+        "Errors": 0
+      },
+      "nearby_not_applicable": {
+        "count": 2,
+        "TruthSupport@1": 0.0,
+        "TruthSupport@3": 0.0,
+        "Clause@3": 0.0,
+        "Fact@3": 0.0,
+        "ForbiddenHitRate": 0.0,
+        "DeletedClauseErrorRate": 0.0,
+        "StaleVersionErrorRate": 0.0,
+        "TableCellHitRate": null,
+        "UnsupportedHighScoreRate": 1.0,
+        "AvgLatency": 2416.03,
+        "Errors": 0
+      },
+      "parameter_clause": {
+        "count": 1,
+        "TruthSupport@1": 0.0,
+        "TruthSupport@3": 0.0,
+        "Clause@3": 0.0,
+        "Fact@3": 0.0,
+        "ForbiddenHitRate": 0.0,
+        "DeletedClauseErrorRate": 1.0,
+        "StaleVersionErrorRate": 0.0,
+        "TableCellHitRate": null,
+        "UnsupportedHighScoreRate": 1.0,
+        "AvgLatency": 8988.55,
+        "Errors": 0
+      },
+      "standard_name": {
+        "count": 1,
+        "TruthSupport@1": 0.0,
+        "TruthSupport@3": 0.0,
+        "Clause@3": 0.0,
+        "Fact@3": 0.0,
+        "ForbiddenHitRate": 1.0,
+        "DeletedClauseErrorRate": 0.0,
+        "StaleVersionErrorRate": 0.0,
+        "TableCellHitRate": null,
+        "UnsupportedHighScoreRate": 1.0,
+        "AvgLatency": 4413.47,
+        "Errors": 0
+      },
+      "subitem_clause": {
+        "count": 1,
+        "TruthSupport@1": 0.0,
+        "TruthSupport@3": 0.0,
+        "Clause@3": 0.0,
+        "Fact@3": 0.0,
+        "ForbiddenHitRate": 0.0,
+        "DeletedClauseErrorRate": 0.0,
+        "StaleVersionErrorRate": 0.0,
+        "TableCellHitRate": null,
+        "UnsupportedHighScoreRate": 1.0,
+        "AvgLatency": 3219.95,
+        "Errors": 0
+      },
+      "table_cell": {
+        "count": 1,
+        "TruthSupport@1": 0.0,
+        "TruthSupport@3": 0.0,
+        "Clause@3": 0.0,
+        "Fact@3": 0.0,
+        "ForbiddenHitRate": 0.0,
+        "DeletedClauseErrorRate": 0.0,
+        "StaleVersionErrorRate": 0.0,
+        "TableCellHitRate": 0.0,
+        "UnsupportedHighScoreRate": 1.0,
+        "AvgLatency": 10.11,
+        "Errors": 0
+      },
+      "version_status": {
+        "count": 1,
+        "TruthSupport@1": 0.0,
+        "TruthSupport@3": 0.0,
+        "Clause@3": 0.0,
+        "Fact@3": 0.0,
+        "ForbiddenHitRate": 0.0,
+        "DeletedClauseErrorRate": 0.0,
+        "StaleVersionErrorRate": 0.0,
+        "TableCellHitRate": null,
+        "UnsupportedHighScoreRate": 1.0,
+        "AvgLatency": 4125.12,
+        "Errors": 0
+      }
+    },
+    "by_failure_category": {
+      "clause_location_failure": 11,
+      "fact_support_failure": 4,
+      "recall_failure": 3,
+      "version_or_forbidden_failure": 2
+    }
+  },
+  "rows": [
+    {
+      "line": 1,
+      "id": "truth_0001",
+      "query": "临时室外消防给水系统 1000m2",
+      "query_type": "parameter_clause",
+      "review_status": "approved",
+      "result_count": 10,
+      "first_support_rank": null,
+      "truth_support_at_1": false,
+      "truth_support_at_3": false,
+      "clause_at_3": false,
+      "fact_at_3": false,
+      "version_ok_at_3": false,
+      "forbidden_hit_at_3": false,
+      "deleted_clause_hit_at_3": true,
+      "stale_hit_at_3": false,
+      "answerability_at_3": false,
+      "unsupported_high_score": true,
+      "reasons_at_1": [
+        "standard_not_hit",
+        "clause_not_hit",
+        "required_fact_not_hit"
+      ],
+      "reasons_at_3": [
+        "clause_not_hit",
+        "required_fact_not_hit",
+        "deleted_clause_hit"
+      ],
+      "elapsed_ms": 8988.55,
+      "error": "",
+      "top_results": [
+        {
+          "rank": 1,
+          "standard_code": "GB50084",
+          "heading": "5.0.5 仓库及类似场所采用早期抑制快速响应喷头时,系统的设计基本参数不应低于表 5.0.5 的规定。",
+          "score": 163.41624,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "ppr+legacy",
+            "ppr_candidates": 0,
+            "legacy_candidates": 20,
+            "merged_candidates": 20,
+            "raw_ppr_max": 0,
+            "raw_legacy_max": 82.2,
+            "ppr_skipped": false,
+            "elapsed_ms": 8985.0,
+            "expansion": {
+              "code_normalized": [],
+              "term_map": [
+                "消防",
+                "防火",
+                "防火分区",
+                "疏散",
+                "排烟",
+                "喷淋",
+                "消火栓",
+                "火灾报警",
+                "气体灭火",
+                "自动喷水灭火",
+                "湿式系统",
+                "干式系统",
+                "预作用系统",
+                "雨淋系统",
+                "水喷雾"
+              ]
+            },
+            "rank_source": "legacy",
+            "final_score": 47.05800000000001,
+            "standard_status": "unknown"
+          },
+          "text_preview": "# 5.0.5 仓库及类似场所采用早期抑制快速响应喷头时,系统的设计基本参数不应低于表 5.0.5 的规定。  表 5.0.5 采用早期抑制快速响应喷头的系统设计基本参数  <table><tr><td>储物类别</td><td>最大净空高度(m)</td><td>最大储物高度(m)</td><td>喷头流量系数K</td><td>喷头设置方式</td><t"
+        },
+        {
+          "rank": 2,
+          "standard_code": "GBT50720",
+          "heading": "5.3.5、5.3.6 （本条删除）",
+          "score": 135.50549999999998,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "ppr+legacy",
+            "ppr_candidates": 0,
+            "legacy_candidates": 20,
+            "merged_candidates": 20,
+            "raw_ppr_max": 0,
+            "raw_legacy_max": 82.2,
+            "ppr_skipped": false,
+            "elapsed_ms": 8985.0,
+            "expansion": {
+              "code_normalized": [],
+              "term_map": [
+                "消防",
+                "防火",
+                "防火分区",
+                "疏散",
+                "排烟",
+                "喷淋",
+                "消火栓",
+                "火灾报警",
+                "气体灭火",
+                "自动喷水灭火",
+                "湿式系统",
+                "干式系统",
+                "预作用系统",
+                "雨淋系统",
+                "水喷雾"
+              ]
+            },
+            "rank_source": "legacy",
+            "final_score": 47.05800000000001,
+            "standard_status": "unknown"
+          },
+          "text_preview": "5.3.5、5.3.6 （本条删除）  5.3.5A、5.3.6A 这两条分别确定了临时用房、在建工程临时室外消火栓持续供水时间和设计流量的计取标准。  临时用房及在建工程临时室外消火栓持续供水时间和设计流量的计取标准借鉴了建筑行业施工现场临时消火栓用水经验取值,并参考了现行国家标准《建筑设计防火规范》GB 50016 中的相关规定。  调查发现,临时用房火"
+        },
+        {
+          "rank": 3,
+          "standard_code": "GB50016",
+          "heading": "5.3 防火分区和层数",
+          "score": 118.314,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "ppr+legacy",
+            "ppr_candidates": 0,
+            "legacy_candidates": 20,
+            "merged_candidates": 20,
+            "raw_ppr_max": 0,
+            "raw_legacy_max": 82.2,
+            "ppr_skipped": false,
+            "elapsed_ms": 8985.0,
+            "expansion": {
+              "code_normalized": [],
+              "term_map": [
+                "消防",
+                "防火",
+                "防火分区",
+                "疏散",
+                "排烟",
+                "喷淋",
+                "消火栓",
+                "火灾报警",
+                "气体灭火",
+                "自动喷水灭火",
+                "湿式系统",
+                "干式系统",
+                "预作用系统",
+                "雨淋系统",
+                "水喷雾"
+              ]
+            },
+            "rank_source": "legacy",
+            "final_score": 47.05800000000001,
+            "standard_status": "unknown"
+          },
+          "text_preview": "# 5.3 防火分区和层数  5.3.1 除本规范另有规定外,不同耐火等级建筑的允许建筑高度或层数、防火分区最大允许建筑面积应符合表5.3.1的规定。  表 5.3.1 不同耐火等级建筑的允许建筑高度或层数、防火分区最大允许建筑面积  <table><tr><td>名称</td><td>耐火等级</td><td>允许建筑高度或层数</td><td>防火分区的"
+        },
+        {
+          "rank": 4,
+          "standard_code": "GB55037",
+          "heading": "8.1 消防给水和灭火设施",
+          "score": 90.6,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "ppr+legacy",
+            "ppr_candidates": 0,
+            "legacy_candidates": 20,
+            "merged_candidates": 20,
+            "raw_ppr_max": 0,
+            "raw_legacy_max": 82.2,
+            "ppr_skipped": false,
+            "elapsed_ms": 8985.0,
+            "expansion": {
+              "code_normalized": [],
+              "term_map": [
+                "消防",
+                "防火",
+                "防火分区",
+                "疏散",
+                "排烟",
+                "喷淋",
+                "消火栓",
+                "火灾报警",
+                "气体灭火",
+                "自动喷水灭火",
+                "湿式系统",
+                "干式系统",
+                "预作用系统",
+                "雨淋系统",
+                "水喷雾"
+              ]
+            },
+            "rank_source": "legacy",
+            "final_score": 47.05800000000001,
+            "standard_status": "unknown"
+          },
+          "text_preview": "# 8.1 消防给水和灭火设施  8.1.1 本条规定了建筑有关消防给水、灭火设施和灭火器材的功能要求。  建筑消防给水主要由消防水源、给水管道、控制阀门和消防水泵等构成，灭火设施和器材包括室内和室外消火栓系统、自动灭火系统或装置、灭火器及其他灭火器材等。建筑应设置与建筑的规模和火灾危险性等相适应的消防给水设施、灭火设施和器材。  8.1.2 本条规定了建筑"
+        },
+        {
+          "rank": 5,
+          "standard_code": "",
+          "heading": "(4) 联动调试及检测",
+          "score": 89.082,
+          "rank_source": "legacy",
+          "standard_status": "unknown",
+          "trace": {
+            "branch": "ppr+legacy",
+            "ppr_candidates": 0,
+            "legacy_candidates": 20,
+            "merged_candidates": 20,
+            "raw_ppr_max": 0,
+            "raw_legacy_max": 82.2,
+            "ppr_skipped": false,
+            "elapsed_ms": 8985.0,
+            "expansion": {
+              "code_normalized": [],
+              "term_map": [
+                "消防",
+                "防火",
+                "防火分区",
+                "疏散",
+                "排烟",
+                "喷淋",
+                "消火栓",
+                "火灾报警",
+                "气体灭火",
+                "自动喷水灭火",
+                "湿式系统",
+                "干式系统",
+                "预作用系统",
+                "雨淋系统",
+                "水喷雾"
+              ]
+            },
+            "rank_source": "legacy",
+            "final_score": 47.05800000000001,
+            "standard_status": "unknown"
+          },
+          "text_preview": "# (4) 联动调试及检测  1）湿式系统：将系统控制装置设置为“自动”控制方式，启动一只喷头或者开启末端试水装置，流量保持在0.94～1.5L/s，水流指示器、报警阀、压力开关、水力警铃和消防水泵等及时动作，并有相应组件的动作信号反馈到消防联动控制设备。  2）干式系统：将系统控制装置设置为“自动”控制方式，启动一只喷头或者模拟一只喷头的排气量排气，报警阀"
+        },
+        {
+          "rank": 6,
+          "standard_code": "GB51251",
+          "heading": "4.6 排烟系统设计计算",
+          "score": 78.94800000000001,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "ppr+legacy",
+            "ppr_candidates": 0,
+            "legacy_candidates": 20,
+            "merged_candidates": 20,
+            "raw_ppr_max": 0,
+            "raw_legacy_max": 82.2,
+            "ppr_skipped": false,
+            "elapsed_ms": 8985.0,
+            "expansion": {
+              "code_normalized": [],
+              "term_map": [
+                "消防",
+                "防火",
+                "防火分区",
+                "疏散",
+                "排烟",
+                "喷淋",
+                "消火栓",
+                "火灾报警",
+                "气体灭火",
+                "自动喷水灭火",
+                "湿式系统",
+                "干式系统",
+                "预作用系统",
+                "雨淋系统",
+                "水喷雾"
+              ]
+            },
+            "rank_source": "legacy",
+            "final_score": 47.05800000000001,
+            "standard_status": "unknown"
+          },
+          "text_preview": "# 4.6 排烟系统设计计算  4.6.1 本条规定了排烟系统排烟量的确定方法。综合考虑实际工程中由于风管(道)及排烟阀(口)的漏风及风机制造标准中允许风量的偏差等各种风量损耗的影响,规定设计风量不小于计算风量的1.2倍。本条为强制性条文,必须严格执行。   4.6.2 储烟仓是指在排烟设计中聚集并排出烟气的区域。为了保证人员安全疏散和消防扑救，必须控制烟层"
+        },
+        {
+          "rank": 7,
+          "standard_code": "GB50352",
+          "heading": "8.1.5 给水排水管道敷设应符合下列规定：",
+          "score": 71.20620000000001,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "ppr+legacy",
+            "ppr_candidates": 0,
+            "legacy_candidates": 20,
+            "merged_candidates": 20,
+            "raw_ppr_max": 0,
+            "raw_legacy_max": 82.2,
+            "ppr_skipped": false,
+            "elapsed_ms": 8985.0,
+            "expansion": {
+              "code_normalized": [],
+              "term_map": [
+                "消防",
+                "防火",
+                "防火分区",
+                "疏散",
+                "排烟",
+                "喷淋",
+                "消火栓",
+                "火灾报警",
+                "气体灭火",
+                "自动喷水灭火",
+                "湿式系统",
+                "干式系统",
+                "预作用系统",
+                "雨淋系统",
+                "水喷雾"
+              ]
+            },
+            "rank_source": "legacy",
+            "final_score": 47.05800000000001,
+            "standard_status": "unknown"
+          },
+          "text_preview": "# 8.1.5 给水排水管道敷设应符合下列规定：  1 给水排水管道不应穿过变配电房、电梯机房、智能化系统机房、音像库房等遇水会损坏设备和引发事故的房间，以及博物馆类建筑的藏品库房、档案馆类建筑的档案库区、图书馆类建筑的书库等；并应避免在生产设备、遇水会引起爆炸燃烧的原料和产品、配电柜上方通过；   2 排水横管不得穿越食品、药品及其原料的加工及贮藏部位，并"
+        },
+        {
+          "rank": 8,
+          "standard_code": "",
+          "heading": "应对措施：",
+          "score": 68.28600000000002,
+          "rank_source": "legacy",
+          "standard_status": "unknown",
+          "trace": {
+            "branch": "ppr+legacy",
+            "ppr_candidates": 0,
+            "legacy_candidates": 20,
+            "merged_candidates": 20,
+            "raw_ppr_max": 0,
+            "raw_legacy_max": 82.2,
+            "ppr_skipped": false,
+            "elapsed_ms": 8985.0,
+            "expansion": {
+              "code_normalized": [],
+              "term_map": [
+                "消防",
+                "防火",
+                "防火分区",
+                "疏散",
+                "排烟",
+                "喷淋",
+                "消火栓",
+                "火灾报警",
+                "气体灭火",
+                "自动喷水灭火",
+                "湿式系统",
+                "干式系统",
+                "预作用系统",
+                "雨淋系统",
+                "水喷雾"
+              ]
+            },
+            "rank_source": "legacy",
+            "final_score": 47.05800000000001,
+            "standard_status": "unknown"
+          },
+          "text_preview": "# 应对措施：  大型建筑群的消防负荷计算，可按一个着火点，即最不利情况的那个防火分区着火，向相邻的周边方向蔓延，同时考虑各栋单体人员疏散的情况，即总消防负荷=本防火分区与相关联的防火分区的消防用电设备的计算负荷+火灾时必须用的消防负荷（如消火栓泵、喷淋泵等）。  "
+        },
+        {
+          "rank": 9,
+          "standard_code": "GB50242",
+          "heading": "9.3 消防水泵接合器及室外消火栓安装",
+          "score": 56.00088000000001,
+          "rank_source": "legacy",
+          "standard_status": "unknown",
+          "trace": {
+            "branch": "ppr+legacy",
+            "ppr_candidates": 0,
+            "legacy_candidates": 20,
+            "merged_candidates": 20,
+            "raw_ppr_max": 0,
+            "raw_legacy_max": 82.2,
+            "ppr_skipped": false,
+            "elapsed_ms": 8985.0,
+            "expansion": {
+              "code_normalized": [],
+              "term_map": [
+                "消防",
+                "防火",
+                "防火分区",
+                "疏散",
+                "排烟",
+                "喷淋",
+                "消火栓",
+                "火灾报警",
+                "气体灭火",
+                "自动喷水灭火",
+                "湿式系统",
+                "干式系统",
+                "预作用系统",
+                "雨淋系统",
+                "水喷雾"
+              ]
+            },
+            "rank_source": "legacy",
+            "final_score": 47.05800000000001,
+            "standard_status": "unknown"
+          },
+          "text_preview": "# 2.0.6 建筑中水系统 intermediate water system of building  以建筑物的冷却水、沐浴排水、盥洗排水、洗衣排水等为水源，经过物理、化学方法的工艺处理，用于厕所冲洗便器、绿化、洗车、道路浇洒、空调冷却及水景等的供水系统为建筑中水系统。  "
+        },
+        {
+          "rank": 10,
+          "standard_code": "",
+          "heading": "第 6 章 消防给水及灭火设施 …… (78)",
+          "score": 47.05800000000001,
+          "rank_source": "legacy",
+          "standard_status": "unknown",
+          "trace": {
+            "branch": "ppr+legacy",
+            "ppr_candidates": 0,
+            "legacy_candidates": 20,
+            "merged_candidates": 20,
+            "raw_ppr_max": 0,
+            "raw_legacy_max": 82.2,
+            "ppr_skipped": false,
+            "elapsed_ms": 8985.0,
+            "expansion": {
+              "code_normalized": [],
+              "term_map": [
+                "消防",
+                "防火",
+                "防火分区",
+                "疏散",
+                "排烟",
+                "喷淋",
+                "消火栓",
+                "火灾报警",
+                "气体灭火",
+                "自动喷水灭火",
+                "湿式系统",
+                "干式系统",
+                "预作用系统",
+                "雨淋系统",
+                "水喷雾"
+              ]
+            },
+            "rank_source": "legacy",
+            "final_score": 47.05800000000001,
+            "standard_status": "unknown"
+          },
+          "text_preview": "# 第 6 章 消防给水及灭火设施 …… (78)  6.1 消火栓系统 …… (78)   6.2 自动喷水灭火系统 …… (101)   6.3 气体消防系统 …… (117)   6.4 灭火器配置 …… (120)  "
+        }
+      ],
+      "failure_category": "version_or_forbidden_failure"
+    },
+    {
+      "line": 2,
+      "id": "truth_0002",
+      "query": "GB/T 50720-2011 第5.1.4条还能作为临时消防给水依据吗",
+      "query_type": "deleted_clause",
+      "review_status": "approved",
+      "result_count": 10,
+      "first_support_rank": null,
+      "truth_support_at_1": false,
+      "truth_support_at_3": false,
+      "clause_at_3": false,
+      "fact_at_3": false,
+      "version_ok_at_3": true,
+      "forbidden_hit_at_3": false,
+      "deleted_clause_hit_at_3": false,
+      "stale_hit_at_3": false,
+      "answerability_at_3": false,
+      "unsupported_high_score": true,
+      "reasons_at_1": [
+        "clause_not_hit",
+        "required_fact_not_hit"
+      ],
+      "reasons_at_3": [
+        "clause_not_hit",
+        "required_fact_not_hit"
+      ],
+      "elapsed_ms": 3839.77,
+      "error": "",
+      "top_results": [
+        {
+          "rank": 1,
+          "standard_code": "GBT50720",
+          "heading": "建设工程施工现场消防安全技术标准",
+          "score": 47.38000000000001,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "legacy",
+            "final_score": 47.38000000000001,
+            "standard_status": "effective"
+          },
+          "text_preview": "# 建设工程施工现场消防安全技术标准  GB/T 50720—2011  (2025 年版)  条文说明  # 修订说明  《建设工程施工现场消防安全技术规范》GB 50720—2011，经住房和城乡建设部2011年6月6日以第1042号公告批准发布。  为便于广大设计、施工、科研、学校等单位有关人员在使用本规范时能正确理解和执行条文规定，《建设工程施工现场"
+        },
+        {
+          "rank": 2,
+          "standard_code": "GBT10801.1",
+          "heading": "推荐性 GB/T (28件)",
+          "score": 20.7,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "legacy",
+            "final_score": 20.7,
+            "standard_status": "effective"
+          },
+          "text_preview": "## 推荐性 GB/T (28件)  - [[_seg0_GB_T 10801.1-2025 绝热用模塑聚苯乙烯泡沫塑料(EPS)|GB_T 10801.1-2025 绝热用模塑聚苯乙烯泡沫塑料(EPS)]] - [[_seg0_GB_T 11836-2009 混凝土和钢筋混凝土排水管|GB_T 11836-2009 混凝土和钢筋混凝土排水管]] - [[_"
+        },
+        {
+          "rank": 3,
+          "standard_code": "GB50015",
+          "heading": "3.3.2 当采用中水为生活杂用水时,生活杂用水系统的水质应符合现行国家标准《城市污水再生利用 城市杂用水水质》GB/T",
+          "score": 17.16,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "legacy",
+            "final_score": 17.16,
+            "standard_status": "effective"
+          },
+          "text_preview": "# 3.3.2 当采用中水为生活杂用水时,生活杂用水系统的水质应符合现行国家标准《城市污水再生利用 城市杂用水水质》GB/T  18920 的规定。  3.3.3 当采用回用雨水为生活杂用水时，生活杂用水系统的水质应符合所供用途的水质要求，并应符合现行国家标准《建筑与小区雨水控制及利用工程技术规范》GB 50400的规定。   3.3.4 卫生器具和用水设备"
+        },
+        {
+          "rank": 4,
+          "standard_code": "JGJ80",
+          "heading": "6.2 移动式操作平台",
+          "score": 16.96848,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "legacy",
+            "final_score": 16.96848,
+            "standard_status": "effective"
+          },
+          "text_preview": "# 6.2 移动式操作平台  6.2.1 移动式操作平台面积不宜大于 $10 ~m^{2}$ ，高度不宜大于 5 m，高宽比不应大于 2:1，施工荷载不应大于 $1.5 ~kN/m^{2}$ 。   6.2.2 移动式操作平台的轮子与平台架体连接应牢固，立柱底端离地面不得大于80mm，行走轮和导向轮应配有制动器或刹车闸等制动措施。   6.2.3 移动式行走"
+        },
+        {
+          "rank": 5,
+          "standard_code": "CECS164",
+          "heading": "3.1.2 管材的质量密度是按国家标准《埋地用聚乙烯(PE)结构壁管道系统 第1部分:聚乙烯双壁波纹管材》GB/T 19472.1的规定取用。",
+          "score": 15.6,
+          "rank_source": "legacy",
+          "standard_status": "unknown",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "legacy",
+            "final_score": 15.6,
+            "standard_status": "unknown"
+          },
+          "text_preview": "# 3.1.2 管材的质量密度是按国家标准《埋地用聚乙烯(PE)结构壁管道系统 第1部分:聚乙烯双壁波纹管材》GB/T 19472.1的规定取用。  根据美国 Massachusetts 大学对聚乙烯管的研究结论,从第一次加载起,不论时间过了多久,每次施加新的荷载,管材总是按短期强度性能反应;聚乙烯管材是黏弹性材料,具有两个与时间关联的特性,即蠕变和应力松弛"
+        },
+        {
+          "rank": 6,
+          "standard_code": "GBT25614",
+          "heading": "8.8.2 机械设备噪声管理",
+          "score": 15.276,
+          "rank_source": "legacy",
+          "standard_status": "unknown",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "legacy",
+            "final_score": 15.276,
+            "standard_status": "unknown"
+          },
+          "text_preview": "# 8.8.2 机械设备噪声管理  土方机械机外发射噪声按现行国家标准《土方机械 声功率级的测定 动态试验条件》GB/T 25614 规定的方法测试时，发射声功率级值应不大于表 8-145 的规定。  装有司机室的土方机械在司机位置处的发射噪声按现行国家标准《土方机械 司机位置发射声压级的测定 动态试验条件》GB/T 25615 规定的方法测试时，司机位置发"
+        },
+        {
+          "rank": 7,
+          "standard_code": "GB50084",
+          "heading": "8 管道",
+          "score": 14.28204,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "legacy",
+            "final_score": 14.28204,
+            "standard_status": "effective"
+          },
+          "text_preview": "# 8 管道  8.0.1 配水管道的工作压力不应大于 1.20 MPa，并不应设置其他用水设施。   8.0.2 配水管道可采用内外壁热镀锌钢管、涂覆钢管、铜管、不锈钢管和氯化聚氯乙烯(PVC-C)管。当报警阀入口前管道采用不防腐的钢管时，应在报警阀前设置过滤器。   8.0.3 自动喷水灭火系统采用氯化聚氯乙烯(PVC-C)管材及管件时，设置场所的火灾危"
+        },
+        {
+          "rank": 8,
+          "standard_code": "",
+          "heading": "原因分析：",
+          "score": 13.097999999999999,
+          "rank_source": "bm25_body",
+          "standard_status": "unknown",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "bm25_body",
+            "final_score": 13.097999999999999,
+            "standard_status": "unknown"
+          },
+          "text_preview": "[正文匹配: 原因分析：]"
+        },
+        {
+          "rank": 9,
+          "standard_code": "GB50208",
+          "heading": "4.4.4 对本条说明如下：",
+          "score": 12.91208,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "legacy",
+            "final_score": 12.91208,
+            "standard_status": "effective"
+          },
+          "text_preview": "# 4.4.4 对本条说明如下：  1 采用多组分涂料时，由于各组分的配料计量不准和搅拌不均匀，将会影响混合料的充分化学反应，造成涂料性能指标下降。一般配成的涂料固化时间比较短，应按照一次用量确定配料的多少，在固化前用完；已固化的涂料不能和未固化的涂料混合使用。当涂料黏度过大以及涂料固化过快或过慢时，可分别加入适量的稀释剂、缓凝剂或促凝剂，调节黏度或固化时间"
+        },
+        {
+          "rank": 10,
+          "standard_code": "GBT50708",
+          "heading": "25.1.2.1 胶合木",
+          "score": 12.618,
+          "rank_source": "legacy",
+          "standard_status": "unknown",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "legacy",
+            "final_score": 12.618,
+            "standard_status": "unknown"
+          },
+          "text_preview": "# 25.1.2.1 胶合木  层板胶合木，又称胶合木，或结构用集成材，是一种根据木材强度分级，将四层或四层以上的厚度不大于45mm（硬松木或硬质阔叶材时厚度不大于35mm）的木质层板沿顺纹方向叠层胶合而成的木制品。胶合木常用于承重梁、柱以及大跨木拱或木桁架等构件。  理论上，采用层板胶合木的生产工艺，可以制备出任何尺寸的构件。但是考虑工业化生产的要求以及对"
+        }
+      ],
+      "failure_category": "clause_location_failure"
+    },
+    {
+      "line": 3,
+      "id": "truth_0003",
+      "query": "混凝土养护要求应引用 GB50204 哪一条",
+      "query_type": "nearby_clause",
+      "review_status": "approved",
+      "result_count": 1,
+      "first_support_rank": null,
+      "truth_support_at_1": false,
+      "truth_support_at_3": false,
+      "clause_at_3": false,
+      "fact_at_3": false,
+      "version_ok_at_3": true,
+      "forbidden_hit_at_3": false,
+      "deleted_clause_hit_at_3": false,
+      "stale_hit_at_3": false,
+      "answerability_at_3": false,
+      "unsupported_high_score": true,
+      "reasons_at_1": [
+        "clause_not_hit",
+        "required_fact_not_hit"
+      ],
+      "reasons_at_3": [
+        "clause_not_hit",
+        "required_fact_not_hit"
+      ],
+      "elapsed_ms": 67.76,
+      "error": "",
+      "top_results": [
+        {
+          "rank": 1,
+          "standard_code": "GB50204",
+          "heading": "10 混凝土结构子分部工程",
+          "score": 120.0,
+          "rank_source": "clause_index",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "direct",
+            "source": "clause_index",
+            "rank_source": "clause_index",
+            "final_score": 120.0,
+            "standard_status": "effective"
+          },
+          "text_preview": "# 10 混凝土结构子分部工程"
+        }
+      ],
+      "failure_category": "clause_location_failure"
+    },
+    {
+      "line": 4,
+      "id": "truth_0004",
+      "query": "GB50209 6.1.8 大于1.0mm 表格值",
+      "query_type": "table_cell",
+      "review_status": "approved",
+      "result_count": 1,
+      "first_support_rank": null,
+      "truth_support_at_1": false,
+      "truth_support_at_3": false,
+      "clause_at_3": false,
+      "fact_at_3": false,
+      "version_ok_at_3": true,
+      "forbidden_hit_at_3": false,
+      "deleted_clause_hit_at_3": false,
+      "stale_hit_at_3": false,
+      "answerability_at_3": false,
+      "unsupported_high_score": true,
+      "reasons_at_1": [
+        "clause_not_hit",
+        "required_fact_not_hit"
+      ],
+      "reasons_at_3": [
+        "clause_not_hit",
+        "required_fact_not_hit"
+      ],
+      "elapsed_ms": 10.11,
+      "error": "",
+      "top_results": [
+        {
+          "rank": 1,
+          "standard_code": "GB50209",
+          "heading": "GB50209-2010",
+          "score": 92.7,
+          "rank_source": "clause_index_fallback",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "direct",
+            "source": "clause_index_fallback",
+            "rank_source": "clause_index_fallback",
+            "final_score": 92.7,
+            "standard_status": "effective"
+          },
+          "text_preview": "# 1 总 则  1.0.1 为了加强建筑工程质量管理,保证工程质量,统一建筑地面工程施工质量的验收,制定本规范。   1.0.2 本规范适用于建筑地面工程(含室外散水、明沟、踏步、台阶和坡道)施工质量的验收。不适用于超净、屏蔽、绝缘、防止放射线以及防腐蚀等特殊要求的建筑地面工程施工质量验收。   1.0.3 建筑地面工程施工中采用的承包合同文件、设计文件及"
+        }
+      ],
+      "failure_category": "clause_location_failure"
+    },
+    {
+      "line": 5,
+      "id": "truth_0005",
+      "query": "CJJ/T 287-2018 第5.2.10条 5℃ 冬季保护",
+      "query_type": "nearby_not_applicable",
+      "review_status": "approved",
+      "result_count": 4,
+      "first_support_rank": null,
+      "truth_support_at_1": false,
+      "truth_support_at_3": false,
+      "clause_at_3": false,
+      "fact_at_3": false,
+      "version_ok_at_3": true,
+      "forbidden_hit_at_3": false,
+      "deleted_clause_hit_at_3": false,
+      "stale_hit_at_3": false,
+      "answerability_at_3": false,
+      "unsupported_high_score": true,
+      "reasons_at_1": [
+        "clause_not_hit",
+        "required_fact_not_hit"
+      ],
+      "reasons_at_3": [
+        "clause_not_hit",
+        "required_fact_not_hit"
+      ],
+      "elapsed_ms": 2897.71,
+      "error": "",
+      "top_results": [
+        {
+          "rank": 1,
+          "standard_code": "CJJT287",
+          "heading": "引用标准名录",
+          "score": 36.492,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "legacy",
+            "final_score": 36.492,
+            "standard_status": "effective"
+          },
+          "text_preview": "# 引用标准名录  1 《城市古树名木养护和复壮工程技术规范》GB/T 51168   2 《大型游乐设施安全规范》GB 8408   3 《城市公共厕所卫生标准》GB/T 17217   4 《主要花卉产品等级 第7部分：草坪》GB/T 18247.7   5 《城市污水再生利用 景观环境用水水质》GB/T 18921   6 《城市道路绿化规划与设计规范"
+        },
+        {
+          "rank": 2,
+          "standard_code": "GBT50328",
+          "heading": "2.3.6 工程验收与档案管理",
+          "score": 12.188,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "legacy",
+            "final_score": 12.188,
+            "standard_status": "effective"
+          },
+          "text_preview": "# 2.3.6 工程验收与档案管理  1.设计单位项目负责人应参加工程竣工验收，验收合格后应在相关验收文件上签字并加盖公司公章。   2.建立工程项目全过程的设计成果资料档案，资料齐全、内容完整。   3.应建立完善设计文件资料管理制度，档案应由专人管理，管理人员应经专门培训。   4.设计单位应依据现行国家标准《建设工程文件归档整理规范》（GB/T5032"
+        },
+        {
+          "rank": 3,
+          "standard_code": "GB50242",
+          "heading": "主控项目",
+          "score": 10.352160000000001,
+          "rank_source": "legacy",
+          "standard_status": "unknown",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "legacy",
+            "final_score": 10.352160000000001,
+            "standard_status": "unknown"
+          },
+          "text_preview": "# 主控项目  5.2.1 隐蔽或埋地的排水管道在隐蔽前作灌水试验，主要是防止管道本身及管道接口渗漏。灌水高度不低于底层卫生器具的上边缘或底层地面高度，主要是按施工程序确定的，安装室内排水管道一般均采取先地下后地上的施工方法。从工艺要求看，铺完管道后，经试验检查无质量问题，为保护管道不被砸碰和不影响土建及其他工序，必须进行回填。如果先隐蔽，待一层主管做完再补"
+        },
+        {
+          "rank": 4,
+          "standard_code": "GB50202",
+          "heading": "5.4 筏形与箱形基础",
+          "score": 10.017000000000001,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "legacy",
+            "final_score": 10.017000000000001,
+            "standard_status": "effective"
+          },
+          "text_preview": "# 5.4 筏形与箱形基础  5.4.1 施工前应对放线尺寸进行检验。   5.4.2 施工中应对轴线、预埋件、预留洞中心线位置、钢筋位置及钢筋保护层厚度进行检验。   5.4.3 施工结束后，应对筏形和箱形基础的混凝土强度、轴线位置、基础顶面标高及平整度进行验收。   5.4.4 筏形和箱形基础质量检验标准应符合表 5.4.4 的规定。  表 5.4.4 "
+        }
+      ],
+      "failure_category": "clause_location_failure"
+    },
+    {
+      "line": 6,
+      "id": "truth_0006",
+      "query": "CJJ/T 287-2018 第5.2.10条 1.2m 树干包裹",
+      "query_type": "nearby_not_applicable",
+      "review_status": "approved",
+      "result_count": 9,
+      "first_support_rank": null,
+      "truth_support_at_1": false,
+      "truth_support_at_3": false,
+      "clause_at_3": false,
+      "fact_at_3": false,
+      "version_ok_at_3": true,
+      "forbidden_hit_at_3": false,
+      "deleted_clause_hit_at_3": false,
+      "stale_hit_at_3": false,
+      "answerability_at_3": false,
+      "unsupported_high_score": true,
+      "reasons_at_1": [
+        "clause_not_hit",
+        "required_fact_not_hit"
+      ],
+      "reasons_at_3": [
+        "clause_not_hit",
+        "required_fact_not_hit"
+      ],
+      "elapsed_ms": 1934.36,
+      "error": "",
+      "top_results": [
+        {
+          "rank": 1,
+          "standard_code": "CJJT287",
+          "heading": "引用标准名录",
+          "score": 34.202,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "legacy",
+            "final_score": 34.202,
+            "standard_status": "effective"
+          },
+          "text_preview": "# 引用标准名录  1 《城市古树名木养护和复壮工程技术规范》GB/T 51168   2 《大型游乐设施安全规范》GB 8408   3 《城市公共厕所卫生标准》GB/T 17217   4 《主要花卉产品等级 第7部分：草坪》GB/T 18247.7   5 《城市污水再生利用 景观环境用水水质》GB/T 18921   6 《城市道路绿化规划与设计规范"
+        },
+        {
+          "rank": 2,
+          "standard_code": "",
+          "heading": "35.4.6 古建筑屋面荷载及瓦件重量参考",
+          "score": 25.998,
+          "rank_source": "legacy",
+          "standard_status": "unknown",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "legacy",
+            "final_score": 25.998,
+            "standard_status": "unknown"
+          },
+          "text_preview": "# 35.4.6 古建筑屋面荷载及瓦件重量参考  古建筑各种屋面做法的荷载及瓦件重量见表 35-24～表 35-47。  总说明：①各种屋脊和吻兽都包括了灰浆的重量；②灰浆的种类考虑了多种做法，使用时只要确定了灰浆的种类和脊（或吻兽）的规格，就能查出相应的屋脊（或吻兽）的重量；③表35-24除可用于瓦下垫层的重量计算外，还可用于平台屋面及天沟等无瓦屋面的重量"
+        },
+        {
+          "rank": 3,
+          "standard_code": "CJJ82",
+          "heading": "园林绿化工程施工及验收规范",
+          "score": 16.4886005,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "legacy",
+            "final_score": 16.4886005,
+            "standard_status": "effective"
+          },
+          "text_preview": "# 园林绿化工程施工及验收规范  CJJ 82 - 2012  条文说明  # 修订说明  《园林绿化工程施工及验收规范》CJJ 82-2012，经住房和城乡建设部2012年12月24日以第1559号公告批准、发布。  本规范是在《城市绿化工程施工及验收规范》CJJ/T 82-99的基础上修订而成。上一版的主编单位是天津市园林局，主要起草人员是陈威、孙义干、"
+        },
+        {
+          "rank": 4,
+          "standard_code": "GB50084",
+          "heading": "7.1.5 边墙型扩大覆盖面积洒水喷头的最大保护跨度和配水支管上的洒水喷头间距，应按洒水喷头工作压力下能够喷湿对面墙和邻近端墙距溅水盘1.2m高度以下的墙面确定，且保护面积内的喷水强度应符合本规范表5.0.1的规定。",
+          "score": 14.688,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "legacy",
+            "final_score": 14.688,
+            "standard_status": "effective"
+          },
+          "text_preview": "# 7.1.5 边墙型扩大覆盖面积洒水喷头的最大保护跨度和配水支管上的洒水喷头间距，应按洒水喷头工作压力下能够喷湿对面墙和邻近端墙距溅水盘1.2m高度以下的墙面确定，且保护面积内的喷水强度应符合本规范表5.0.1的规定。  "
+        },
+        {
+          "rank": 5,
+          "standard_code": "GBT50328",
+          "heading": "2.3.6 工程验收与档案管理",
+          "score": 11.288,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "legacy",
+            "final_score": 11.288,
+            "standard_status": "effective"
+          },
+          "text_preview": "# 2.3.6 工程验收与档案管理  1.设计单位项目负责人应参加工程竣工验收，验收合格后应在相关验收文件上签字并加盖公司公章。   2.建立工程项目全过程的设计成果资料档案，资料齐全、内容完整。   3.应建立完善设计文件资料管理制度，档案应由专人管理，管理人员应经专门培训。   4.设计单位应依据现行国家标准《建设工程文件归档整理规范》（GB/T5032"
+        },
+        {
+          "rank": 6,
+          "standard_code": "",
+          "heading": "25.1.2.2 正交胶合木",
+          "score": 11.202,
+          "rank_source": "legacy",
+          "standard_status": "unknown",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "legacy",
+            "final_score": 11.202,
+            "standard_status": "unknown"
+          },
+          "text_preview": "# 25.1.2.2 正交胶合木  正交胶合木（Cross Laminated Timber，CLT）也被称作交叉层积材，是一种以厚度为15～45mm的层板相互叠层正交组坯后胶合而成的木制品。正交胶合木的构造满足对称原则、奇数层原则和垂直正交原则，一般由3层、5层、7层或9层层板组成。其加工工艺与层板胶合木类似，主要的区别之处就在于相邻层板之间的纹理方向是相"
+        },
+        {
+          "rank": 7,
+          "standard_code": "GB50021",
+          "heading": "10.3 静力触探试验",
+          "score": 11.000280000000002,
+          "rank_source": "legacy",
+          "standard_status": "unknown",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "legacy",
+            "final_score": 11.000280000000002,
+            "standard_status": "unknown"
+          },
+          "text_preview": "# 10.3 静力触探试验  10.3.1 静力触探试验适用于软土、一般黏性土、粉土、砂土和含少量碎石的土。静力触探可根据工程需要采用单桥探头、双桥探头或带孔隙水压力量测的单、双桥探头，可测定比贯入阻力 $(p_{s})$ 、锥尖阻力 $(q_{c})$ 、侧壁摩阻力 $(f_{s})$ 和贯入时的孔隙水压力 $(u)$ 。  10.3.2 静力触探试验的技"
+        },
+        {
+          "rank": 8,
+          "standard_code": "",
+          "heading": "问题描述：",
+          "score": 10.592,
+          "rank_source": "legacy",
+          "standard_status": "unknown",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "legacy",
+            "final_score": 10.592,
+            "standard_status": "unknown"
+          },
+          "text_preview": "# 问题描述：  1）变电所电气与建筑、结构专业间配合不到位。   2）设置在地下一层的变电所，很多情况下会设置在塔楼的下方，一是可以避免设置在车位区域减少车位数量；二是塔楼下方由于首层没有覆土，层高比较高。塔楼区域以外，一般设有1.0～1.2m的室外覆土，这些区域的地下一层净高不满足变电所净高的要求。  "
+        },
+        {
+          "rank": 9,
+          "standard_code": "JGJ130",
+          "heading": "6.2.4 脚手板的设置应符合下列规定：",
+          "score": 10.486,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "legacy",
+            "final_score": 10.486,
+            "standard_status": "effective"
+          },
+          "text_preview": "# 6.2.4 脚手板的设置应符合下列规定：  1 作业层脚手板应铺满、铺稳、铺实。   2 冲压钢脚手板、木脚手板、竹串片脚手板等，应设置在三根横向水平杆上。当脚手板长度小于2m时，可采用两根横向水平杆支承，但应将脚手板两端与横向水平杆可靠固定，严防倾翻。脚手板的铺设应采用对接平铺或搭接铺设。脚手板对接平铺时，接头处应设两根横向水平杆，脚手板外伸长度应取1"
+        }
+      ],
+      "failure_category": "clause_location_failure"
+    },
+    {
+      "line": 7,
+      "id": "truth_0007",
+      "query": "CJJ/T 287-2018 第5.2.8条 0.1m 苗木保护",
+      "query_type": "subitem_clause",
+      "review_status": "approved",
+      "result_count": 10,
+      "first_support_rank": null,
+      "truth_support_at_1": false,
+      "truth_support_at_3": false,
+      "clause_at_3": false,
+      "fact_at_3": false,
+      "version_ok_at_3": true,
+      "forbidden_hit_at_3": false,
+      "deleted_clause_hit_at_3": false,
+      "stale_hit_at_3": false,
+      "answerability_at_3": false,
+      "unsupported_high_score": true,
+      "reasons_at_1": [
+        "clause_not_hit",
+        "required_fact_not_hit"
+      ],
+      "reasons_at_3": [
+        "clause_not_hit",
+        "required_fact_not_hit"
+      ],
+      "elapsed_ms": 3219.95,
+      "error": "",
+      "top_results": [
+        {
+          "rank": 1,
+          "standard_code": "CJJT287",
+          "heading": "4.1 园林绿化养护管理分级",
+          "score": 108.338,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "legacy",
+            "final_score": 108.338,
+            "standard_status": "effective"
+          },
+          "text_preview": "# 4.1 园林绿化养护管理分级  4.1.1 园林绿化养护管理分级应分为一级养护管理、二级养护管理、三级养护管理。  4.1.2 园林绿化养护管理分级质量应符合表 4.1.2 的规定。  表 4.1.2 园林绿化养护管理分级质量  <table><tr><td rowspan=\"2\">序号</td><td rowspan=\"2\">项目</td><td co"
+        },
+        {
+          "rank": 2,
+          "standard_code": "CJJ82",
+          "heading": "附录 A 园林绿化单位（子单位）工程、分部（子分部）工程、分项工程划分",
+          "score": 89.37011300000002,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "legacy",
+            "final_score": 89.37011300000002,
+            "standard_status": "effective"
+          },
+          "text_preview": "# 附录 A 园林绿化单位（子单位）工程、分部（子分部）工程、分项工程划分  表 A 园林绿化单位（子单位）工程、分部   (子分部) 工程、分项工程划分  <table><tr><td>单位(子单位)工程</td><td colspan=\"2\">分部(子分部)工程</td><td>分项工程</td></tr><tr><td rowspan=\"11\">绿化工"
+        },
+        {
+          "rank": 3,
+          "standard_code": "GB50858",
+          "heading": "A.2 栽 植 花 木",
+          "score": 68.5,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "legacy",
+            "final_score": 68.5,
+            "standard_status": "effective"
+          },
+          "text_preview": "# A.2 栽 植 花 木  栽植花木工程量清单项目设置、项目特征描述的内容、计量单位、工程量计算规则应按表 A.2 的规定执行。  表 A.2 栽植花木(编码:050102)  <table><tr><td>项目编码</td><td>项目名称</td><td>项目特征</td><td>计量单位</td><td>工程量计算规则</td><td>工作内容</t"
+        },
+        {
+          "rank": 4,
+          "standard_code": "CJT24",
+          "heading": "4.3.1 园林绿化常用乔木类苗木规格",
+          "score": 66.44,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "legacy",
+            "final_score": 66.44,
+            "standard_status": "effective"
+          },
+          "text_preview": "# 4.3.1 园林绿化常用乔木类苗木规格  4.3.1.1 常绿针叶乔木主要规格应符合附录 A 中 A.1 的规定。   4.3.1.2 常绿阔叶乔木主要规格应符合 A.2 的规定。   4.3.1.3 落叶针叶乔木主要规格应符合 A.3 的规定。   4.3.1.4 落叶阔叶乔木主要规格应符合 A.4 的规定。  "
+        },
+        {
+          "rank": 5,
+          "standard_code": "GB55014",
+          "heading": "8 道路绿化",
+          "score": 60.1984,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "legacy",
+            "final_score": 60.1984,
+            "standard_status": "effective"
+          },
+          "text_preview": "# 8 道路绿化  8.0.1 城市道路绿化以改善城市生态环境、丰富城市景观、提供舒适出行为主要功能。道路绿化要促进交通功能发挥，满足交通安全视距要求和行车净空要求，保障车行、慢行等使用者安全；道路绿化需保障慢行交通舒适出行，为行人和自行车提供良好遮阴环境；道路绿化是城市园林绿化的重要组成部分，是突出城市风貌和景观特色的重要方面，保障道路绿化的绿量，对于改善"
+        },
+        {
+          "rank": 6,
+          "standard_code": "CJJ75",
+          "heading": "树种和地被植物选择",
+          "score": 50.438184,
+          "rank_source": "legacy",
+          "standard_status": "unknown",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "legacy",
+            "final_score": 50.438184,
+            "standard_status": "unknown"
+          },
+          "text_preview": "# 树种和地被植物选择  道路绿化应选择适应道路环境条件 生长稳定 观赏价值高和环境效益好的植物种类   寒冷积雪地区的城市 分车绿带 行道树绿带种植的乔木应选择落叶树种   行道树应选择深根性 分枝点高 冠大荫浓 生长健壮 适应城市道路环境条件 且落果对行人不会造成危害的树种   花灌木应选择花繁叶茂 花期长 生长健壮和便于管理的树种   绿篱植物和观叶灌"
+        },
+        {
+          "rank": 7,
+          "standard_code": "CJJT91",
+          "heading": "7.4.8 大树移植 big tree transplanting",
+          "score": 50.025999999999996,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "legacy",
+            "final_score": 50.025999999999996,
+            "standard_status": "effective"
+          },
+          "text_preview": "# 7.4.8 大树移植 big tree transplanting  胸径大于 20cm 的落叶乔木和胸径大于 15cm 的常绿乔木移栽到异地的活动。  "
+        },
+        {
+          "rank": 8,
+          "standard_code": "",
+          "heading": "35.13.2.2 透水混凝土铺装施工",
+          "score": 42.9,
+          "rank_source": "legacy",
+          "standard_status": "unknown",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "legacy",
+            "final_score": 42.9,
+            "standard_status": "unknown"
+          },
+          "text_preview": "35.13.2.2 透水混凝土铺装施工  流程…… 949  35.13.2.3 透水混凝土铺装的技术要点 与质量要求……950  35.13.3 砖类铺装 950  35.13.3.1 砖类铺装种类…… 950  35.13.3.2 水泥砖铺装 951  35.13.3.3 陶土砖铺装……952  35.13.3.4 透水砖铺装……952  35.13.3"
+        },
+        {
+          "rank": 9,
+          "standard_code": "CJT340",
+          "heading": "A.5 取样深度",
+          "score": 42.5,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "legacy",
+            "final_score": 42.5,
+            "standard_status": "effective"
+          },
+          "text_preview": "# A.5 取样深度  A.5.1 一般情况:分层取样组成土壤混合样,即不同取样点同一层次取的样品混合后作为该层次的土壤混合样;如果土壤0.30 m以下取样困难或差异不大,可以选择一个有代表性取样点组成该层的混合样。  A.5.2 绿化植物种植前的绿地本底调查:种植草本植物或小灌木的绿地取0 m\\~0.30 m一层;种高大乔灌木的绿地取0 m\\~0.30 m"
+        },
+        {
+          "rank": 10,
+          "standard_code": "GB55032",
+          "heading": "附录 C 市政工程的单位工程、分部工程、分项工程划分",
+          "score": 40.5,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "legacy",
+            "final_score": 40.5,
+            "standard_status": "effective"
+          },
+          "text_preview": "# 附录 C 市政工程的单位工程、分部工程、分项工程划分  C.0.1 市政工程的单位工程、分部工程、分项工程划分应符合表 C.0.1 的规定。  表 C.0.1 市政工程的单位工程、分部工程、分项工程划分  <table><tr><td>序号</td><td>单位工程(子单位工程)</td><td>分部工程</td><td>子分部工程</td><td>分项"
+        }
+      ],
+      "failure_category": "clause_location_failure"
+    },
+    {
+      "line": 8,
+      "id": "truth_0008",
+      "query": "天然石材防护剂 GB/T 32837-2016",
+      "query_type": "standard_name",
+      "review_status": "approved",
+      "result_count": 10,
+      "first_support_rank": null,
+      "truth_support_at_1": false,
+      "truth_support_at_3": false,
+      "clause_at_3": false,
+      "fact_at_3": false,
+      "version_ok_at_3": true,
+      "forbidden_hit_at_3": true,
+      "deleted_clause_hit_at_3": false,
+      "stale_hit_at_3": false,
+      "answerability_at_3": false,
+      "unsupported_high_score": true,
+      "reasons_at_1": [
+        "standard_not_hit",
+        "clause_not_hit",
+        "required_fact_not_hit",
+        "forbidden_hit"
+      ],
+      "reasons_at_3": [
+        "standard_not_hit",
+        "clause_not_hit",
+        "required_fact_not_hit",
+        "forbidden_hit"
+      ],
+      "elapsed_ms": 4413.47,
+      "error": "",
+      "top_results": [
+        {
+          "rank": 1,
+          "standard_code": "JGJ80",
+          "heading": "4.1 临边作业",
+          "score": 82.998,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "legacy",
+            "final_score": 82.998,
+            "standard_status": "effective"
+          },
+          "text_preview": "# 4.1 临边作业  4.1.1 本条是强制性条文。国家标准《高处作业分级》GB 3608-2008对“高处作业”的规定是：“凡距坠落高度基准面2m或2m以上有可能坠落的高处进行的作业”。临空高度在2m及以上的临边部位，如楼面、屋面周边，阳台、雨篷、挑檐边，坑、沟、槽周边等具有较大的高处坠落隐患，因此，通过设置防护栏杆、密目式安全立网及踢脚板或工具式栏板可"
+        },
+        {
+          "rank": 2,
+          "standard_code": "JGJ162",
+          "heading": "8 安全管理",
+          "score": 66.872,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "legacy",
+            "final_score": 66.872,
+            "standard_status": "effective"
+          },
+          "text_preview": "# 8 安全管理  8.0.1 从事模板作业的人员，应经安全技术培训。从事高处作业人员，应定期体检，不符合要求的不得从事高处作业。   8.0.2 安装和拆除模板时，操作人员应配戴安全帽、系安全带、穿防滑鞋。安全帽和安全带应定期检查，不合格者严禁使用。   8.0.3 模板及配件进场应有出厂合格证或当年的检验报告，安装前应对所用部件（立柱、楞梁、吊环、扣件等"
+        },
+        {
+          "rank": 3,
+          "standard_code": "JGJ59",
+          "heading": "3.13 高处作业",
+          "score": 66.606,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "legacy",
+            "final_score": 66.606,
+            "standard_status": "effective"
+          },
+          "text_preview": "# 3.13 高处作业  3.13.1 高处作业检查评定应符合现行国家标准《安全网》GB 5725、《安全帽》GB 2118、《安全带》GB 6095 和现行行业标准《建筑施工高处作业安全技术规范》JGJ 80 的规定。   3.13.2 高处作业检查评定项目应包括：安全帽、安全网、安全带、临边防护、洞口防护、通道口防护、攀登作业、悬空作业、移动式操作平台、"
+        },
+        {
+          "rank": 4,
+          "standard_code": "",
+          "heading": "(3) 洞口作业",
+          "score": 62.0,
+          "rank_source": "legacy",
+          "standard_status": "unknown",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "legacy",
+            "final_score": 62.0,
+            "standard_status": "unknown"
+          },
+          "text_preview": "# (3) 洞口作业  1）在地面、楼面、屋面和墙面等有可能使人和物料坠落，其坠落高度大于或等于2m的开口处的高处作业。   2）电梯井口应设置防护门，其高度不应小于1.5m，防护门底端距地面高度不应大于50mm，并应设置挡脚板（图28-283）。  ![](images/7d7d3f780c082b728e6f8f0a7a892a67e3bf5712e4c"
+        },
+        {
+          "rank": 5,
+          "standard_code": "JGJ130",
+          "heading": "9 安全管理",
+          "score": 59.171,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "legacy",
+            "final_score": 59.171,
+            "standard_status": "effective"
+          },
+          "text_preview": "# 9 安全管理  9.0.1 扣件式钢管脚手架安装与拆除人员必须是经考核合格的专业架子工。架子工应持证上岗。   9.0.2 搭拆脚手架人员必须戴安全帽、系安全带、穿防滑鞋。   9.0.3 脚手架的构配件质量与搭设质量，应按本规范第8章的规定进行检查验收，并应确认合格后使用。   9.0.4 钢管上严禁打孔。   9.0.5 作业层上的施工荷载应符合设计"
+        },
+        {
+          "rank": 6,
+          "standard_code": "GBT32837",
+          "heading": "天然石材防护剂",
+          "score": 56.620000000000005,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "legacy",
+            "final_score": 56.620000000000005,
+            "standard_status": "effective"
+          },
+          "text_preview": "# 天然石材防护剂  "
+        },
+        {
+          "rank": 7,
+          "standard_code": "",
+          "heading": "3. 防护措施",
+          "score": 51.8,
+          "rank_source": "legacy",
+          "standard_status": "unknown",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "legacy",
+            "final_score": 51.8,
+            "standard_status": "unknown"
+          },
+          "text_preview": "# 3. 防护措施  (1) 严禁在雨天、雪天和五级风及其以上时施工。   （2）屋面周边和预留孔洞部位，必须按临边、洞口防护规定设置安全护栏和安全网；屋面坡度大于 $25\\%$ 时，应采取防滑措施。   （3）施工人员应根据需要配备防护用品，包括防护服、防滑鞋、安全帽、安全带等；任何情况下，无可靠安全措施，均不得施工。   （4）从事高处作业人员要定期体检"
+        },
+        {
+          "rank": 8,
+          "standard_code": "GB50858",
+          "heading": "D. 5 安全文明施工及其他措施项目",
+          "score": 50.7,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "legacy",
+            "final_score": 50.7,
+            "standard_status": "effective"
+          },
+          "text_preview": "# D. 5 安全文明施工及其他措施项目  安全文明施工及其他措施项目工程量清单项目设置、计量单位、工作内容及包含范围应按表 D.5 的规定执行。  表 D.5 安全文明施工及其他措施项目(编码:050405)  <table><tr><td>项目编码</td><td>项目名称</td><td>工作内容及包含范围</td></tr><tr><td>05040"
+        },
+        {
+          "rank": 9,
+          "standard_code": "",
+          "heading": "6.11.1 安全防护与保护措施",
+          "score": 49.9,
+          "rank_source": "legacy",
+          "standard_status": "unknown",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "legacy",
+            "final_score": 49.9,
+            "standard_status": "unknown"
+          },
+          "text_preview": "# 6.11.1 安全防护与保护措施  1.隧道内应设置警示标志和消防器材，洞内灭火器采用专用挂具，悬挂于防护护栏上。  2.隧道内应设计应急照明及通讯联络装置，在断电及发生危险时，可提供人员应急照明及通讯联络，保障作业人员能够迅速安全撤离。   3.洞内循环水管、排水管等管线敷设应根据盾构设计及相关规范确定。无要求时，宜敷设于通道对侧，水管支架间距宜为 3"
+        },
+        {
+          "rank": 10,
+          "standard_code": "GB50755",
+          "heading": "16.4 洞口和临边防护",
+          "score": 47.689,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "legacy",
+            "final_score": 47.689,
+            "standard_status": "effective"
+          },
+          "text_preview": "# 16.4 洞口和临边防护  16.4.1 边长或直径为 20cm～40cm 的洞口应采用刚性盖板固定防护；边长或直径为 40cm～150cm 的洞口应架设钢管脚手架、满铺脚手板等；边长或直径在 150cm 以上的洞口应张设密目安全网防护并加护栏。   16.4.2 建筑物楼层钢梁吊装完毕后，应及时分区铺设安全网。   16.4.3 楼层周边钢梁吊装完成后"
+        }
+      ],
+      "failure_category": "version_or_forbidden_failure"
+    },
+    {
+      "line": 9,
+      "id": "truth_0009",
+      "query": "JGJ 79-2012 第4.3.2条 大于0.5m",
+      "query_type": "fact_support",
+      "review_status": "approved",
+      "result_count": 1,
+      "first_support_rank": null,
+      "truth_support_at_1": false,
+      "truth_support_at_3": false,
+      "clause_at_3": false,
+      "fact_at_3": false,
+      "version_ok_at_3": true,
+      "forbidden_hit_at_3": false,
+      "deleted_clause_hit_at_3": false,
+      "stale_hit_at_3": false,
+      "answerability_at_3": false,
+      "unsupported_high_score": true,
+      "reasons_at_1": [
+        "clause_not_hit",
+        "required_fact_not_hit"
+      ],
+      "reasons_at_3": [
+        "clause_not_hit",
+        "required_fact_not_hit"
+      ],
+      "elapsed_ms": 5.86,
+      "error": "",
+      "top_results": [
+        {
+          "rank": 1,
+          "standard_code": "JGJ79",
+          "heading": "8.1 一般规定",
+          "score": 106.0,
+          "rank_source": "clause_index",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "direct",
+            "source": "clause_index",
+            "rank_source": "clause_index",
+            "final_score": 106.0,
+            "standard_status": "effective"
+          },
+          "text_preview": "# 8.1 一般规定  8.1.1 注浆加固适用于建筑地基的局部加固处理，适用于砂土、粉土、黏性土和人工填土等地基加固。加固材料可选用水泥浆液、硅化浆液和碱液等固化剂。   8.1.2 注浆加固设计前，应进行室内浆液配比试验和现场注浆试验，确定设计参数，检验施工方法和设备。   8.1.3 注浆加固应保证加固地基在平面和深度连成一体，满足土体渗透性、地基土的"
+        }
+      ],
+      "failure_category": "clause_location_failure"
+    },
+    {
+      "line": 10,
+      "id": "truth_0010",
+      "query": "JGJ33-2012 第4.1.5条 地面承载力荷载值",
+      "query_type": "fact_support",
+      "review_status": "approved",
+      "result_count": 1,
+      "first_support_rank": null,
+      "truth_support_at_1": false,
+      "truth_support_at_3": false,
+      "clause_at_3": false,
+      "fact_at_3": false,
+      "version_ok_at_3": true,
+      "forbidden_hit_at_3": false,
+      "deleted_clause_hit_at_3": false,
+      "stale_hit_at_3": false,
+      "answerability_at_3": false,
+      "unsupported_high_score": true,
+      "reasons_at_1": [
+        "clause_not_hit",
+        "required_fact_not_hit"
+      ],
+      "reasons_at_3": [
+        "clause_not_hit",
+        "required_fact_not_hit"
+      ],
+      "elapsed_ms": 5.32,
+      "error": "",
+      "top_results": [
+        {
+          "rank": 1,
+          "standard_code": "JGJ33",
+          "heading": "7 桩工机械",
+          "score": 103.0,
+          "rank_source": "clause_index",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "direct",
+            "source": "clause_index",
+            "rank_source": "clause_index",
+            "final_score": 103.0,
+            "standard_status": "effective"
+          },
+          "text_preview": "# 7 桩工机械"
+        }
+      ],
+      "failure_category": "clause_location_failure"
+    },
+    {
+      "line": 11,
+      "id": "truth_0011",
+      "query": "GB 50666-2011 第4.5.2条 模板拆除强度",
+      "query_type": "clause_support",
+      "review_status": "approved",
+      "result_count": 1,
+      "first_support_rank": null,
+      "truth_support_at_1": false,
+      "truth_support_at_3": false,
+      "clause_at_3": false,
+      "fact_at_3": false,
+      "version_ok_at_3": true,
+      "forbidden_hit_at_3": false,
+      "deleted_clause_hit_at_3": false,
+      "stale_hit_at_3": false,
+      "answerability_at_3": false,
+      "unsupported_high_score": true,
+      "reasons_at_1": [
+        "clause_not_hit",
+        "required_fact_not_hit"
+      ],
+      "reasons_at_3": [
+        "clause_not_hit",
+        "required_fact_not_hit"
+      ],
+      "elapsed_ms": 5.88,
+      "error": "",
+      "top_results": [
+        {
+          "rank": 1,
+          "standard_code": "GB50666",
+          "heading": "4 模板工程",
+          "score": 111.00000000000001,
+          "rank_source": "clause_index",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "direct",
+            "source": "clause_index",
+            "rank_source": "clause_index",
+            "final_score": 111.00000000000001,
+            "standard_status": "effective"
+          },
+          "text_preview": "# 4 模板工程"
+        }
+      ],
+      "failure_category": "clause_location_failure"
+    },
+    {
+      "line": 12,
+      "id": "truth_0012",
+      "query": "GB 50202-2018 附录A 能否作为正文规范依据",
+      "query_type": "appendix_intent",
+      "review_status": "approved",
+      "result_count": 1,
+      "first_support_rank": null,
+      "truth_support_at_1": false,
+      "truth_support_at_3": false,
+      "clause_at_3": false,
+      "fact_at_3": false,
+      "version_ok_at_3": true,
+      "forbidden_hit_at_3": false,
+      "deleted_clause_hit_at_3": false,
+      "stale_hit_at_3": false,
+      "answerability_at_3": false,
+      "unsupported_high_score": true,
+      "reasons_at_1": [
+        "clause_not_hit",
+        "required_fact_not_hit"
+      ],
+      "reasons_at_3": [
+        "clause_not_hit",
+        "required_fact_not_hit"
+      ],
+      "elapsed_ms": 5.7,
+      "error": "",
+      "top_results": [
+        {
+          "rank": 1,
+          "standard_code": "GB50202",
+          "heading": "6 特殊土地基基础工程",
+          "score": 106.0,
+          "rank_source": "clause_index",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "direct",
+            "source": "clause_index",
+            "rank_source": "clause_index",
+            "final_score": 106.0,
+            "standard_status": "effective"
+          },
+          "text_preview": "# 6 特殊土地基基础工程"
+        }
+      ],
+      "failure_category": "clause_location_failure"
+    },
+    {
+      "line": 13,
+      "id": "truth_0013",
+      "query": "GB 50209-2010 第6.1.5条 成品保护",
+      "query_type": "clause_support",
+      "review_status": "approved",
+      "result_count": 1,
+      "first_support_rank": null,
+      "truth_support_at_1": false,
+      "truth_support_at_3": false,
+      "clause_at_3": false,
+      "fact_at_3": false,
+      "version_ok_at_3": true,
+      "forbidden_hit_at_3": false,
+      "deleted_clause_hit_at_3": false,
+      "stale_hit_at_3": false,
+      "answerability_at_3": false,
+      "unsupported_high_score": true,
+      "reasons_at_1": [
+        "clause_not_hit",
+        "required_fact_not_hit"
+      ],
+      "reasons_at_3": [
+        "clause_not_hit",
+        "required_fact_not_hit"
+      ],
+      "elapsed_ms": 5.54,
+      "error": "",
+      "top_results": [
+        {
+          "rank": 1,
+          "standard_code": "GB50209",
+          "heading": "6 板块面层铺设",
+          "score": 103.0,
+          "rank_source": "clause_index",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "direct",
+            "source": "clause_index",
+            "rank_source": "clause_index",
+            "final_score": 103.0,
+            "standard_status": "effective"
+          },
+          "text_preview": "# 6 板块面层铺设"
+        }
+      ],
+      "failure_category": "clause_location_failure"
+    },
+    {
+      "line": 14,
+      "id": "truth_0014",
+      "query": "DB323700 江苏省城市轨道交通工程设计标准 现行吗",
+      "query_type": "version_status",
+      "review_status": "candidate",
+      "result_count": 9,
+      "first_support_rank": null,
+      "truth_support_at_1": false,
+      "truth_support_at_3": false,
+      "clause_at_3": false,
+      "fact_at_3": false,
+      "version_ok_at_3": true,
+      "forbidden_hit_at_3": false,
+      "deleted_clause_hit_at_3": false,
+      "stale_hit_at_3": false,
+      "answerability_at_3": false,
+      "unsupported_high_score": true,
+      "reasons_at_1": [
+        "standard_not_hit",
+        "clause_not_hit",
+        "required_fact_not_hit"
+      ],
+      "reasons_at_3": [
+        "standard_not_hit",
+        "clause_not_hit",
+        "required_fact_not_hit"
+      ],
+      "elapsed_ms": 4125.12,
+      "error": "",
+      "top_results": [
+        {
+          "rank": 1,
+          "standard_code": "DB32T3700",
+          "heading": "江苏省城市轨道交通工程设计标准",
+          "score": 59.149640000000005,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "legacy",
+            "final_score": 59.149640000000005,
+            "standard_status": "effective"
+          },
+          "text_preview": "# 江苏省城市轨道交通工程设计标准  "
+        },
+        {
+          "rank": 2,
+          "standard_code": "GB50911",
+          "heading": "1 基坑工程自身风险等级",
+          "score": 15.768119999999998,
+          "rank_source": "bm25_body",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "bm25_body",
+            "final_score": 15.768119999999998,
+            "standard_status": "effective"
+          },
+          "text_preview": "[正文匹配: 1 基坑工程自身风险等级]"
+        },
+        {
+          "rank": 3,
+          "standard_code": "CJJ37",
+          "heading": "Addition: Explanation of Provisions 69",
+          "score": 13.83,
+          "rank_source": "bm25_body",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "bm25_body",
+            "final_score": 13.83,
+            "standard_status": "effective"
+          },
+          "text_preview": "[正文匹配: Addition: Explanation of Provisions 69]"
+        },
+        {
+          "rank": 4,
+          "standard_code": "",
+          "heading": "8.原位测试",
+          "score": 13.469999999999999,
+          "rank_source": "bm25_body",
+          "standard_status": "unknown",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "bm25_body",
+            "final_score": 13.469999999999999,
+            "standard_status": "unknown"
+          },
+          "text_preview": "[正文匹配: 8.原位测试]"
+        },
+        {
+          "rank": 5,
+          "standard_code": "",
+          "heading": "5.6.2.1 城市区域环境噪声标准",
+          "score": 11.466,
+          "rank_source": "bm25_body",
+          "standard_status": "unknown",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "bm25_body",
+            "final_score": 11.466,
+            "standard_status": "unknown"
+          },
+          "text_preview": "[正文匹配: 5.6.2.1 城市区域环境噪声标准]"
+        },
+        {
+          "rank": 6,
+          "standard_code": "GB50217",
+          "heading": "1.0.3 系原条文 1.0.3 保留条文。",
+          "score": 11.120040000000001,
+          "rank_source": "bm25_body",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "bm25_body",
+            "final_score": 11.120040000000001,
+            "standard_status": "effective"
+          },
+          "text_preview": "[正文匹配: 1.0.3 系原条文 1.0.3 保留条文。]"
+        },
+        {
+          "rank": 7,
+          "standard_code": "JGJT163",
+          "heading": "附录 B 半柱面照度的计算、测量和使用",
+          "score": 10.884,
+          "rank_source": "bm25_body",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "bm25_body",
+            "final_score": 10.884,
+            "standard_status": "effective"
+          },
+          "text_preview": "[正文匹配: 附录 B 半柱面照度的计算、测量和使用]"
+        },
+        {
+          "rank": 8,
+          "standard_code": "GBT45793",
+          "heading": "参 考 文 献",
+          "score": 10.626,
+          "rank_source": "bm25_body",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "bm25_body",
+            "final_score": 10.626,
+            "standard_status": "effective"
+          },
+          "text_preview": "[正文匹配: 参 考 文 献]"
+        },
+        {
+          "rank": 9,
+          "standard_code": "GB55037",
+          "heading": "一、基本情况",
+          "score": 10.422,
+          "rank_source": "bm25_body",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "bm25_body",
+            "final_score": 10.422,
+            "standard_status": "effective"
+          },
+          "text_preview": "[正文匹配: 一、基本情况]"
+        }
+      ],
+      "failure_category": "recall_failure"
+    },
+    {
+      "line": 15,
+      "id": "truth_0015",
+      "query": "DB323700 第1.0.1条",
+      "query_type": "clause_lookup",
+      "review_status": "candidate",
+      "result_count": 1,
+      "first_support_rank": null,
+      "truth_support_at_1": false,
+      "truth_support_at_3": false,
+      "clause_at_3": false,
+      "fact_at_3": true,
+      "version_ok_at_3": true,
+      "forbidden_hit_at_3": false,
+      "deleted_clause_hit_at_3": false,
+      "stale_hit_at_3": false,
+      "answerability_at_3": false,
+      "unsupported_high_score": true,
+      "reasons_at_1": [
+        "standard_not_hit",
+        "clause_not_hit"
+      ],
+      "reasons_at_3": [
+        "standard_not_hit",
+        "clause_not_hit"
+      ],
+      "elapsed_ms": 3956.8,
+      "error": "",
+      "top_results": [
+        {
+          "rank": 1,
+          "standard_code": "GB50011",
+          "heading": "3.10.3 建筑结构的抗震性能化设计应符合下列要求：",
+          "score": 10.464999999999998,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "legacy",
+            "reason": "code",
+            "rank_source": "legacy",
+            "final_score": 10.464999999999998,
+            "standard_status": "effective"
+          },
+          "text_preview": "# 3.10.3 建筑结构的抗震性能化设计应符合下列要求：  1 选定地震动水准。对设计使用年限50年的结构，可选用本规范的多遇地震、设防地震和罕遇地震的地震作用，其中，设防地震的加速度应按本规范表 3.2.2的设计基本地震加速度采用，设防地震的地震影响系数最大值，6 度、7 度（0.10g）、7 度(0.15g)、8 度(0.20g)、8 度(0.30g)"
+        }
+      ],
+      "failure_category": "recall_failure"
+    },
+    {
+      "line": 16,
+      "id": "truth_0016",
+      "query": "钢筋保护层厚度 施工要求",
+      "query_type": "broad_technical",
+      "review_status": "candidate",
+      "result_count": 5,
+      "first_support_rank": null,
+      "truth_support_at_1": false,
+      "truth_support_at_3": false,
+      "clause_at_3": true,
+      "fact_at_3": false,
+      "version_ok_at_3": true,
+      "forbidden_hit_at_3": false,
+      "deleted_clause_hit_at_3": false,
+      "stale_hit_at_3": false,
+      "answerability_at_3": false,
+      "unsupported_high_score": true,
+      "reasons_at_1": [
+        "required_fact_not_hit"
+      ],
+      "reasons_at_3": [
+        "required_fact_not_hit"
+      ],
+      "elapsed_ms": 0.74,
+      "error": "",
+      "top_results": [
+        {
+          "rank": 1,
+          "standard_code": "GB50003",
+          "heading": "4.3.3: 保护层厚度 = 0mm ",
+          "score": 85.60000000000001,
+          "rank_source": "param_index",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "direct",
+            "source": "param_index",
+            "rank_source": "param_index",
+            "final_score": 85.60000000000001,
+            "standard_status": "effective"
+          },
+          "text_preview": "4.3.3 设计使用年限为 50a 时，砌体中钢筋的保护层厚度，应符合下列规定："
+        },
+        {
+          "rank": 2,
+          "standard_code": "GB50108",
+          "heading": ": 保护层厚度 = 50mm ",
+          "score": 84.0,
+          "rank_source": "param_index",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "direct",
+            "source": "param_index",
+            "rank_source": "param_index",
+            "final_score": 84.0,
+            "standard_status": "effective"
+          },
+          "text_preview": "Ⅱ 设 计"
+        },
+        {
+          "rank": 3,
+          "standard_code": "GB50108",
+          "heading": ": 保护层厚度 = 50mm ",
+          "score": 84.0,
+          "rank_source": "param_index",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "direct",
+            "source": "param_index",
+            "rank_source": "param_index",
+            "final_score": 84.0,
+            "standard_status": "effective"
+          },
+          "text_preview": "IV 施工"
+        },
+        {
+          "rank": 4,
+          "standard_code": "GB50108",
+          "heading": "8.3: 保护层厚度 = 70mm ",
+          "score": 84.0,
+          "rank_source": "param_index",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "direct",
+            "source": "param_index",
+            "rank_source": "param_index",
+            "final_score": 84.0,
+            "standard_status": "effective"
+          },
+          "text_preview": "8.3 地下连续墙"
+        },
+        {
+          "rank": 5,
+          "standard_code": "GB50108",
+          "heading": ": 保护层厚度 = 40mm ",
+          "score": 84.0,
+          "rank_source": "param_index",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "direct",
+            "source": "param_index",
+            "rank_source": "param_index",
+            "final_score": 84.0,
+            "standard_status": "effective"
+          },
+          "text_preview": "Ⅱ 设 计"
+        }
+      ],
+      "failure_category": "fact_support_failure"
+    },
+    {
+      "line": 17,
+      "id": "truth_0017",
+      "query": "给排水 施工要求",
+      "query_type": "broad_technical",
+      "review_status": "candidate",
+      "result_count": 10,
+      "first_support_rank": 8,
+      "truth_support_at_1": false,
+      "truth_support_at_3": false,
+      "clause_at_3": true,
+      "fact_at_3": false,
+      "version_ok_at_3": true,
+      "forbidden_hit_at_3": false,
+      "deleted_clause_hit_at_3": false,
+      "stale_hit_at_3": false,
+      "answerability_at_3": false,
+      "unsupported_high_score": true,
+      "reasons_at_1": [
+        "required_fact_not_hit"
+      ],
+      "reasons_at_3": [
+        "required_fact_not_hit"
+      ],
+      "elapsed_ms": 2395.4,
+      "error": "",
+      "top_results": [
+        {
+          "rank": 1,
+          "standard_code": "GB50268",
+          "heading": "4.1.9 给排水管道铺设完毕并经检验合格后，应及时回填沟槽。回填前，应符合下列规定：",
+          "score": 228.13439512500003,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "ppr+legacy",
+            "ppr_candidates": 0,
+            "legacy_candidates": 20,
+            "merged_candidates": 20,
+            "raw_ppr_max": 0,
+            "raw_legacy_max": 111.4,
+            "ppr_skipped": false,
+            "elapsed_ms": 2398.0,
+            "expansion": {
+              "code_normalized": [],
+              "term_map": [
+                "给水",
+                "排水",
+                "管道",
+                "给水管",
+                "排水管",
+                "检查井",
+                "化粪池",
+                "水泵",
+                "水箱",
+                "地漏",
+                "PPR管",
+                "PVC管",
+                "PE管",
+                "钢管",
+                "铸铁管"
+              ]
+            },
+            "rank_source": "legacy",
+            "final_score": 106.06200000000001,
+            "standard_status": "unknown"
+          },
+          "text_preview": "# 4.1.9 给排水管道铺设完毕并经检验合格后，应及时回填沟槽。回填前，应符合下列规定：  1 预制钢筋混凝土管道的现浇筑基础的混凝土强度、水泥砂浆接口的水泥砂浆强度不应小于 5MPa；   2 现浇钢筋混凝土管渠的强度应达到设计要求；   3 混合结构的矩形或拱形管渠，砌体的水泥砂浆强度应达到设计要求；   4 井室、雨水口及其他附属构筑物的现浇混凝土强"
+        },
+        {
+          "rank": 2,
+          "standard_code": "DBE3720",
+          "heading": "36.1.1 建筑给水排水及供暖工程设计图例",
+          "score": 189.54000000000002,
+          "rank_source": "legacy",
+          "standard_status": "unknown",
+          "trace": {
+            "branch": "ppr+legacy",
+            "ppr_candidates": 0,
+            "legacy_candidates": 20,
+            "merged_candidates": 20,
+            "raw_ppr_max": 0,
+            "raw_legacy_max": 111.4,
+            "ppr_skipped": false,
+            "elapsed_ms": 2398.0,
+            "expansion": {
+              "code_normalized": [],
+              "term_map": [
+                "给水",
+                "排水",
+                "管道",
+                "给水管",
+                "排水管",
+                "检查井",
+                "化粪池",
+                "水泵",
+                "水箱",
+                "地漏",
+                "PPR管",
+                "PVC管",
+                "PE管",
+                "钢管",
+                "铸铁管"
+              ]
+            },
+            "rank_source": "legacy",
+            "final_score": 106.06200000000001,
+            "standard_status": "unknown"
+          },
+          "text_preview": "# 36.1.1 建筑给水排水及供暖工程设计图例  建筑给水排水及供暖工程按专业系统和类别划分为 14 个子分部工程，主要包括给水系统、排水系统、热水系统、卫生器具、供暖系统、建筑中水系统及雨水利用系统、监测与控制仪表等。  常用的设计图例可分为管道、管道附件、管道连接、管件、阀门、给水配件、消防设施、卫生设备及水池、小型给水排水构筑物、给水排水设备和仪表图"
+        },
+        {
+          "rank": 3,
+          "standard_code": "CJJ143",
+          "heading": "4.7.1 塑料排水管道分为刚性连接和柔性连接两种方式。不同",
+          "score": 157.75500000000002,
+          "rank_source": "legacy",
+          "standard_status": "unknown",
+          "trace": {
+            "branch": "ppr+legacy",
+            "ppr_candidates": 0,
+            "legacy_candidates": 20,
+            "merged_candidates": 20,
+            "raw_ppr_max": 0,
+            "raw_legacy_max": 111.4,
+            "ppr_skipped": false,
+            "elapsed_ms": 2398.0,
+            "expansion": {
+              "code_normalized": [],
+              "term_map": [
+                "给水",
+                "排水",
+                "管道",
+                "给水管",
+                "排水管",
+                "检查井",
+                "化粪池",
+                "水泵",
+                "水箱",
+                "地漏",
+                "PPR管",
+                "PVC管",
+                "PE管",
+                "钢管",
+                "铸铁管"
+              ]
+            },
+            "rank_source": "legacy",
+            "final_score": 106.06200000000001,
+            "standard_status": "unknown"
+          },
+          "text_preview": "# 4.7.1 塑料排水管道分为刚性连接和柔性连接两种方式。不同  种类管道的连接方式可按表 4.7.1 选用。  表 4.7.1 塑料排水管道常用连接方式  <table><tr><td rowspan=\"2\">管道类型</td><td colspan=\"3\">柔性连接</td><td colspan=\"5\">刚性连接</td></tr><tr><td>承"
+        },
+        {
+          "rank": 4,
+          "standard_code": "GB50352",
+          "heading": "8.1.5 给水排水管道敷设应符合下列规定：",
+          "score": 151.56180000000003,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "ppr+legacy",
+            "ppr_candidates": 0,
+            "legacy_candidates": 20,
+            "merged_candidates": 20,
+            "raw_ppr_max": 0,
+            "raw_legacy_max": 111.4,
+            "ppr_skipped": false,
+            "elapsed_ms": 2398.0,
+            "expansion": {
+              "code_normalized": [],
+              "term_map": [
+                "给水",
+                "排水",
+                "管道",
+                "给水管",
+                "排水管",
+                "检查井",
+                "化粪池",
+                "水泵",
+                "水箱",
+                "地漏",
+                "PPR管",
+                "PVC管",
+                "PE管",
+                "钢管",
+                "铸铁管"
+              ]
+            },
+            "rank_source": "legacy",
+            "final_score": 106.06200000000001,
+            "standard_status": "unknown"
+          },
+          "text_preview": "# 8.1.5 给水排水管道敷设应符合下列规定：  1 给水排水管道不应穿过变配电房、电梯机房、智能化系统机房、音像库房等遇水会损坏设备和引发事故的房间，以及博物馆类建筑的藏品库房、档案馆类建筑的档案库区、图书馆类建筑的书库等；并应避免在生产设备、遇水会引起爆炸燃烧的原料和产品、配电柜上方通过；   2 排水横管不得穿越食品、药品及其原料的加工及贮藏部位，并"
+        },
+        {
+          "rank": 5,
+          "standard_code": "GB50015",
+          "heading": "3.13 小区室外给水",
+          "score": 136.80933750000003,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "ppr+legacy",
+            "ppr_candidates": 0,
+            "legacy_candidates": 20,
+            "merged_candidates": 20,
+            "raw_ppr_max": 0,
+            "raw_legacy_max": 111.4,
+            "ppr_skipped": false,
+            "elapsed_ms": 2398.0,
+            "expansion": {
+              "code_normalized": [],
+              "term_map": [
+                "给水",
+                "排水",
+                "管道",
+                "给水管",
+                "排水管",
+                "检查井",
+                "化粪池",
+                "水泵",
+                "水箱",
+                "地漏",
+                "PPR管",
+                "PVC管",
+                "PE管",
+                "钢管",
+                "铸铁管"
+              ]
+            },
+            "rank_source": "legacy",
+            "final_score": 106.06200000000001,
+            "standard_status": "unknown"
+          },
+          "text_preview": "# 3.13 小区室外给水  3.13.1 小区的室外给水系统的水量应满足小区内全部用水的要求。   3.13.2 由城镇管网直接供水的小区给水系统，应充分利用城镇给水管网的水压直接供水。当城镇给水管网的水压、水量不足时，应设置贮水调节和加压装置。   3.13.3 小区的加压给水系统，应根据小区的规模、建筑高度、建筑物的分布和物业管理等因素确定加压站的数量"
+        },
+        {
+          "rank": 6,
+          "standard_code": "GB50242",
+          "heading": "附录 A 建筑给水排水及采暖工程分部、分项工程划分",
+          "score": 131.247792,
+          "rank_source": "legacy",
+          "standard_status": "unknown",
+          "trace": {
+            "branch": "ppr+legacy",
+            "ppr_candidates": 0,
+            "legacy_candidates": 20,
+            "merged_candidates": 20,
+            "raw_ppr_max": 0,
+            "raw_legacy_max": 111.4,
+            "ppr_skipped": false,
+            "elapsed_ms": 2398.0,
+            "expansion": {
+              "code_normalized": [],
+              "term_map": [
+                "给水",
+                "排水",
+                "管道",
+                "给水管",
+                "排水管",
+                "检查井",
+                "化粪池",
+                "水泵",
+                "水箱",
+                "地漏",
+                "PPR管",
+                "PVC管",
+                "PE管",
+                "钢管",
+                "铸铁管"
+              ]
+            },
+            "rank_source": "legacy",
+            "final_score": 106.06200000000001,
+            "standard_status": "unknown"
+          },
+          "text_preview": "# 附录 A 建筑给水排水及采暖工程分部、分项工程划分  建筑给水排水及采暖工程的分部、子分部和分项工程可按附表 A 划分。  附表 A 建筑给水、排水及采暖工程分部、分项工程划分表  <table><tr><td>分部工程</td><td>序号</td><td>子分部工程</td><td>分项工程</td></tr><tr><td rowspan=\"10\""
+        },
+        {
+          "rank": 7,
+          "standard_code": "TCECS143",
+          "heading": "2.1.9 检查井 manhole",
+          "score": 114.46500000000002,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "ppr+legacy",
+            "ppr_candidates": 0,
+            "legacy_candidates": 20,
+            "merged_candidates": 20,
+            "raw_ppr_max": 0,
+            "raw_legacy_max": 111.4,
+            "ppr_skipped": false,
+            "elapsed_ms": 2398.0,
+            "expansion": {
+              "code_normalized": [],
+              "term_map": [
+                "给水",
+                "排水",
+                "管道",
+                "给水管",
+                "排水管",
+                "检查井",
+                "化粪池",
+                "水泵",
+                "水箱",
+                "地漏",
+                "PPR管",
+                "PVC管",
+                "PE管",
+                "钢管",
+                "铸铁管"
+              ]
+            },
+            "rank_source": "legacy",
+            "final_score": 106.06200000000001,
+            "standard_status": "unknown"
+          },
+          "text_preview": "# 2.1.9 检查井 manhole  在一个排水管网系统中，同一管道每隔一定距离或支、干线连接节点处，根据工艺需要设置的地下小室构筑物。小室设有不同形式的排水流槽、连接地面的井筒通道、踏步或爬梯和防护井盖等。  # 2.2 符号  "
+        },
+        {
+          "rank": 8,
+          "standard_code": "CECS164",
+          "heading": "7 管道与检查井连接",
+          "score": 111.89999999999999,
+          "rank_source": "legacy",
+          "standard_status": "unknown",
+          "trace": {
+            "branch": "ppr+legacy",
+            "ppr_candidates": 0,
+            "legacy_candidates": 20,
+            "merged_candidates": 20,
+            "raw_ppr_max": 0,
+            "raw_legacy_max": 111.4,
+            "ppr_skipped": false,
+            "elapsed_ms": 2398.0,
+            "expansion": {
+              "code_normalized": [],
+              "term_map": [
+                "给水",
+                "排水",
+                "管道",
+                "给水管",
+                "排水管",
+                "检查井",
+                "化粪池",
+                "水泵",
+                "水箱",
+                "地漏",
+                "PPR管",
+                "PVC管",
+                "PE管",
+                "钢管",
+                "铸铁管"
+              ]
+            },
+            "rank_source": "legacy",
+            "final_score": 106.06200000000001,
+            "standard_status": "unknown"
+          },
+          "text_preview": "# 7 管道与检查井连接  7.0.1 目前国内排水管道检查井还是以砖砌井室为多,有些城市已开始采用混凝土井室。砖砌与混凝土井室与PE管道连接一般均为刚性接头。如井室与管道连接要做成柔性接头,则须开发各种专用连接管件,如图E7.0.1的形式。目前生产厂开发这类产品的为数还不多。  ![](images/f3057fd7df13ddb26fb09ba88bb5"
+        },
+        {
+          "rank": 9,
+          "standard_code": "GB50014",
+          "heading": "附录 C 排水管道和其他地下管线(构筑物)的最小净距",
+          "score": 111.50999999999999,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "ppr+legacy",
+            "ppr_candidates": 0,
+            "legacy_candidates": 20,
+            "merged_candidates": 20,
+            "raw_ppr_max": 0,
+            "raw_legacy_max": 111.4,
+            "ppr_skipped": false,
+            "elapsed_ms": 2398.0,
+            "expansion": {
+              "code_normalized": [],
+              "term_map": [
+                "给水",
+                "排水",
+                "管道",
+                "给水管",
+                "排水管",
+                "检查井",
+                "化粪池",
+                "水泵",
+                "水箱",
+                "地漏",
+                "PPR管",
+                "PVC管",
+                "PE管",
+                "钢管",
+                "铸铁管"
+              ]
+            },
+            "rank_source": "legacy",
+            "final_score": 106.06200000000001,
+            "standard_status": "unknown"
+          },
+          "text_preview": "# 附录 C 排水管道和其他地下管线(构筑物)的最小净距  表 C 排水管道和其他地下管线(构筑物)的最小净距(m)  <table><tr><td colspan=\"3\">名称</td><td>水平净距</td><td>垂直净距</td></tr><tr><td rowspan=\"2\" colspan=\"2\">建筑物</td><td>管道埋深浅于建筑物基础"
+        },
+        {
+          "rank": 10,
+          "standard_code": "DB064",
+          "heading": "原因分析：",
+          "score": 106.06200000000001,
+          "rank_source": "legacy",
+          "standard_status": "unknown",
+          "trace": {
+            "branch": "ppr+legacy",
+            "ppr_candidates": 0,
+            "legacy_candidates": 20,
+            "merged_candidates": 20,
+            "raw_ppr_max": 0,
+            "raw_legacy_max": 111.4,
+            "ppr_skipped": false,
+            "elapsed_ms": 2398.0,
+            "expansion": {
+              "code_normalized": [],
+              "term_map": [
+                "给水",
+                "排水",
+                "管道",
+                "给水管",
+                "排水管",
+                "检查井",
+                "化粪池",
+                "水泵",
+                "水箱",
+                "地漏",
+                "PPR管",
+                "PVC管",
+                "PE管",
+                "钢管",
+                "铸铁管"
+              ]
+            },
+            "rank_source": "legacy",
+            "final_score": 106.06200000000001,
+            "standard_status": "unknown"
+          },
+          "text_preview": "# 原因分析：  排水管道设计表达在本层，实际在本层楼板下敷设，下一层如为电气用房，设计上容易疏忽，  ![](images/f94bed283b4db064f0fe00eb09b09b4e87de5407d815f3911d8dd2d5df74a00c.jpg)  <details> <summary>text_image</summary>  1/W-1"
+        }
+      ],
+      "failure_category": "fact_support_failure"
+    },
+    {
+      "line": 18,
+      "id": "truth_0018",
+      "query": "基坑支护 验收标准",
+      "query_type": "broad_technical",
+      "review_status": "candidate",
+      "result_count": 0,
+      "first_support_rank": null,
+      "truth_support_at_1": false,
+      "truth_support_at_3": false,
+      "clause_at_3": false,
+      "fact_at_3": false,
+      "version_ok_at_3": true,
+      "forbidden_hit_at_3": false,
+      "deleted_clause_hit_at_3": false,
+      "stale_hit_at_3": false,
+      "answerability_at_3": false,
+      "unsupported_high_score": false,
+      "reasons_at_1": [
+        "no_results",
+        "standard_not_hit",
+        "clause_not_hit",
+        "required_fact_not_hit"
+      ],
+      "reasons_at_3": [
+        "no_results",
+        "standard_not_hit",
+        "clause_not_hit",
+        "required_fact_not_hit"
+      ],
+      "elapsed_ms": 2293.53,
+      "error": "",
+      "top_results": [],
+      "failure_category": "recall_failure"
+    },
+    {
+      "line": 19,
+      "id": "truth_0019",
+      "query": "脚手架 验收标准",
+      "query_type": "broad_technical",
+      "review_status": "candidate",
+      "result_count": 1,
+      "first_support_rank": null,
+      "truth_support_at_1": false,
+      "truth_support_at_3": false,
+      "clause_at_3": true,
+      "fact_at_3": false,
+      "version_ok_at_3": true,
+      "forbidden_hit_at_3": false,
+      "deleted_clause_hit_at_3": false,
+      "stale_hit_at_3": false,
+      "answerability_at_3": false,
+      "unsupported_high_score": true,
+      "reasons_at_1": [
+        "required_fact_not_hit"
+      ],
+      "reasons_at_3": [
+        "required_fact_not_hit"
+      ],
+      "elapsed_ms": 2356.5,
+      "error": "",
+      "top_results": [
+        {
+          "rank": 1,
+          "standard_code": "JGJT231",
+          "heading": "2.1.2 支撑脚手架 shoring scaffold",
+          "score": 62.498,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "legacy",
+            "reason": "std_name",
+            "rank_source": "legacy",
+            "final_score": 62.498,
+            "standard_status": "effective"
+          },
+          "text_preview": "# 2.1.2 支撑脚手架 shoring scaffold  支承于地面或结构上可承受各种荷载，具有安全防护功能，为建筑施工提供支撑和作业平台的承插型盘扣式钢管脚手架，包括混凝土施工用模板支撑脚手架和结构安装支撑架，简称支撑架。  "
+        }
+      ],
+      "failure_category": "fact_support_failure"
+    },
+    {
+      "line": 20,
+      "id": "truth_0020",
+      "query": "条文说明 能作为验收依据吗",
+      "query_type": "explanation_vs_normative",
+      "review_status": "candidate",
+      "result_count": 10,
+      "first_support_rank": null,
+      "truth_support_at_1": false,
+      "truth_support_at_3": false,
+      "clause_at_3": true,
+      "fact_at_3": false,
+      "version_ok_at_3": true,
+      "forbidden_hit_at_3": false,
+      "deleted_clause_hit_at_3": false,
+      "stale_hit_at_3": false,
+      "answerability_at_3": false,
+      "unsupported_high_score": true,
+      "reasons_at_1": [
+        "required_fact_not_hit"
+      ],
+      "reasons_at_3": [
+        "required_fact_not_hit"
+      ],
+      "elapsed_ms": 4168.39,
+      "error": "",
+      "top_results": [
+        {
+          "rank": 1,
+          "standard_code": "GB50303",
+          "heading": "3.4.3 当验收建筑电气工程时，应核查下列各项质量控制资料，且资料内容应真实、齐全、完整：",
+          "score": 169.01859000000005,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "ppr+legacy",
+            "ppr_candidates": 0,
+            "legacy_candidates": 20,
+            "merged_candidates": 20,
+            "raw_ppr_max": 0,
+            "raw_legacy_max": 87.9,
+            "ppr_skipped": false,
+            "elapsed_ms": 4167.0,
+            "expansion": {
+              "code_normalized": [],
+              "term_map": [
+                "验收",
+                "检验批",
+                "分项工程",
+                "分部工程",
+                "单位工程",
+                "竣工资料",
+                "隐蔽工程",
+                "主控项目",
+                "一般项目",
+                "观感质量",
+                "功能检测",
+                "安全功能检测",
+                "室内环境检测",
+                "系统调试",
+                "竣工预验收"
+              ]
+            },
+            "rank_source": "legacy",
+            "final_score": 106.19999999999999,
+            "standard_status": "effective"
+          },
+          "text_preview": "# 3.4.3 当验收建筑电气工程时，应核查下列各项质量控制资料，且资料内容应真实、齐全、完整：  1 设计文件和图纸会审记录及设计变更与工程洽商记录；   2 主要设备、器具、材料的合格证和进场验收记录；   3 隐蔽工程检查记录；   4 电气设备交接试验检验记录；   5 电动机检查(抽芯)记录；   6 接地电阻测试记录；   7 绝缘电阻测试记录；"
+        },
+        {
+          "rank": 2,
+          "standard_code": "GB50300",
+          "heading": "5 建筑工程质量验收",
+          "score": 152.87483399999994,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "ppr+legacy",
+            "ppr_candidates": 0,
+            "legacy_candidates": 20,
+            "merged_candidates": 20,
+            "raw_ppr_max": 0,
+            "raw_legacy_max": 87.9,
+            "ppr_skipped": false,
+            "elapsed_ms": 4167.0,
+            "expansion": {
+              "code_normalized": [],
+              "term_map": [
+                "验收",
+                "检验批",
+                "分项工程",
+                "分部工程",
+                "单位工程",
+                "竣工资料",
+                "隐蔽工程",
+                "主控项目",
+                "一般项目",
+                "观感质量",
+                "功能检测",
+                "安全功能检测",
+                "室内环境检测",
+                "系统调试",
+                "竣工预验收"
+              ]
+            },
+            "rank_source": "legacy",
+            "final_score": 106.19999999999999,
+            "standard_status": "effective"
+          },
+          "text_preview": "# 5 建筑工程质量验收  5.0.1 检验批质量验收合格应符合下列规定：  1 主控项目的质量经抽样检验均应合格；   2 一般项目的质量经抽样检验合格。当采用计数抽样时，合格点率应符合有关专业验收规范的规定，且不得存在严重缺陷。对于计数抽样的一般项目，正常检验一次、二次抽样可按本标准附录 D 判定；   3 具有完整的施工操作依据、质量验收记录。  5."
+        },
+        {
+          "rank": 3,
+          "standard_code": "GB50210",
+          "heading": "15 分部工程质量验收",
+          "score": 131.86800000000002,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "ppr+legacy",
+            "ppr_candidates": 0,
+            "legacy_candidates": 20,
+            "merged_candidates": 20,
+            "raw_ppr_max": 0,
+            "raw_legacy_max": 87.9,
+            "ppr_skipped": false,
+            "elapsed_ms": 4167.0,
+            "expansion": {
+              "code_normalized": [],
+              "term_map": [
+                "验收",
+                "检验批",
+                "分项工程",
+                "分部工程",
+                "单位工程",
+                "竣工资料",
+                "隐蔽工程",
+                "主控项目",
+                "一般项目",
+                "观感质量",
+                "功能检测",
+                "安全功能检测",
+                "室内环境检测",
+                "系统调试",
+                "竣工预验收"
+              ]
+            },
+            "rank_source": "legacy",
+            "final_score": 106.19999999999999,
+            "standard_status": "effective"
+          },
+          "text_preview": "# 15 分部工程质量验收  15.0.1 建筑装饰装修工程质量验收程序和组织应符合现行国家标准《建筑工程施工质量验收统一标准》GB 50300 的规定。   15.0.2 建筑装饰装修工程的子分部工程、分项工程应按本标准附录 A 划分。   15.0.3 建筑装饰装修工程施工过程中，应按本标准的要求对隐蔽工程进行验收，并应按本标准附录 B 的格式记录。  "
+        },
+        {
+          "rank": 4,
+          "standard_code": "GB50203",
+          "heading": "11 子分部工程验收",
+          "score": 123.141684,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "ppr+legacy",
+            "ppr_candidates": 0,
+            "legacy_candidates": 20,
+            "merged_candidates": 20,
+            "raw_ppr_max": 0,
+            "raw_legacy_max": 87.9,
+            "ppr_skipped": false,
+            "elapsed_ms": 4167.0,
+            "expansion": {
+              "code_normalized": [],
+              "term_map": [
+                "验收",
+                "检验批",
+                "分项工程",
+                "分部工程",
+                "单位工程",
+                "竣工资料",
+                "隐蔽工程",
+                "主控项目",
+                "一般项目",
+                "观感质量",
+                "功能检测",
+                "安全功能检测",
+                "室内环境检测",
+                "系统调试",
+                "竣工预验收"
+              ]
+            },
+            "rank_source": "legacy",
+            "final_score": 106.19999999999999,
+            "standard_status": "effective"
+          },
+          "text_preview": "# 11 子分部工程验收  11.0.1 砌体工程验收前，应提供下列文件和记录：  1 设计变更文件；   2 施工执行的技术标准；   3 原材料出厂合格证书、产品性能检测报告和进场复验报告；   4 混凝土及砂浆配合比通知单；   5 混凝土及砂浆试件抗压强度试验报告单；   6 砌体工程施工记录；   7 隐蔽工程验收记录；   8 分项工程检验批的主"
+        },
+        {
+          "rank": 5,
+          "standard_code": "GB50207",
+          "heading": "9 屋面工程验收",
+          "score": 121.01616,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "ppr+legacy",
+            "ppr_candidates": 0,
+            "legacy_candidates": 20,
+            "merged_candidates": 20,
+            "raw_ppr_max": 0,
+            "raw_legacy_max": 87.9,
+            "ppr_skipped": false,
+            "elapsed_ms": 4167.0,
+            "expansion": {
+              "code_normalized": [],
+              "term_map": [
+                "验收",
+                "检验批",
+                "分项工程",
+                "分部工程",
+                "单位工程",
+                "竣工资料",
+                "隐蔽工程",
+                "主控项目",
+                "一般项目",
+                "观感质量",
+                "功能检测",
+                "安全功能检测",
+                "室内环境检测",
+                "系统调试",
+                "竣工预验收"
+              ]
+            },
+            "rank_source": "legacy",
+            "final_score": 106.19999999999999,
+            "standard_status": "effective"
+          },
+          "text_preview": "# 9 屋面工程验收  9.0.1 屋面工程施工质量验收的程序和组织，应符合现行国家标准《建筑工程施工质量验收统一标准》GB 50300 的有关规定。   9.0.2 检验批质量验收合格应符合下列规定：  1 主控项目的质量应经抽查检验合格；  2 一般项目的质量应经抽查检验合格；有允许偏差值的项目，其抽查点应有 80% 及其以上在允许偏差范围内，且最大偏差"
+        },
+        {
+          "rank": 6,
+          "standard_code": "GB50208",
+          "heading": "9 子分部工程质量验收",
+          "score": 117.98237999999999,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "ppr+legacy",
+            "ppr_candidates": 0,
+            "legacy_candidates": 20,
+            "merged_candidates": 20,
+            "raw_ppr_max": 0,
+            "raw_legacy_max": 87.9,
+            "ppr_skipped": false,
+            "elapsed_ms": 4167.0,
+            "expansion": {
+              "code_normalized": [],
+              "term_map": [
+                "验收",
+                "检验批",
+                "分项工程",
+                "分部工程",
+                "单位工程",
+                "竣工资料",
+                "隐蔽工程",
+                "主控项目",
+                "一般项目",
+                "观感质量",
+                "功能检测",
+                "安全功能检测",
+                "室内环境检测",
+                "系统调试",
+                "竣工预验收"
+              ]
+            },
+            "rank_source": "legacy",
+            "final_score": 106.19999999999999,
+            "standard_status": "effective"
+          },
+          "text_preview": "# 9 子分部工程质量验收  9.0.1 地下防水工程质量验收的程序和组织，应符合现行国家标准《建筑工程施工质量验收统一标准》GB 50300 的有关规定。   9.0.2 检验批的合格判定应符合下列规定：  1 主控项目的质量经抽样检验全部合格；   2 一般项目的质量经抽样检验 80% 以上检测点合格，其余不得有影响使用功能的缺陷；对有允许偏差的检验项目"
+        },
+        {
+          "rank": 7,
+          "standard_code": "CJJ82",
+          "heading": "6.2 质量验收",
+          "score": 115.87677675000002,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "ppr+legacy",
+            "ppr_candidates": 0,
+            "legacy_candidates": 20,
+            "merged_candidates": 20,
+            "raw_ppr_max": 0,
+            "raw_legacy_max": 87.9,
+            "ppr_skipped": false,
+            "elapsed_ms": 4167.0,
+            "expansion": {
+              "code_normalized": [],
+              "term_map": [
+                "验收",
+                "检验批",
+                "分项工程",
+                "分部工程",
+                "单位工程",
+                "竣工资料",
+                "隐蔽工程",
+                "主控项目",
+                "一般项目",
+                "观感质量",
+                "功能检测",
+                "安全功能检测",
+                "室内环境检测",
+                "系统调试",
+                "竣工预验收"
+              ]
+            },
+            "rank_source": "legacy",
+            "final_score": 106.19999999999999,
+            "standard_status": "effective"
+          },
+          "text_preview": "# 6.2 质量验收  6.2.1 本规范的分项、分部、单位工程质量等级均应为“合格”。   6.2.2 检验批质量验收应符合下列规定：  1 主控项目和一般项目的质量经抽样检验应合格。  2 应具有完整的施工操作依据、质量检查记录。  6.2.3 分项工程质量验收应符合下列规定：  1 分项工程质量验收的项目和要求，应符合本规范附录 B 的规定。   2 "
+        },
+        {
+          "rank": 8,
+          "standard_code": "GB50411",
+          "heading": "18 建筑节能分部工程质量验收",
+          "score": 111.38700000000001,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "ppr+legacy",
+            "ppr_candidates": 0,
+            "legacy_candidates": 20,
+            "merged_candidates": 20,
+            "raw_ppr_max": 0,
+            "raw_legacy_max": 87.9,
+            "ppr_skipped": false,
+            "elapsed_ms": 4167.0,
+            "expansion": {
+              "code_normalized": [],
+              "term_map": [
+                "验收",
+                "检验批",
+                "分项工程",
+                "分部工程",
+                "单位工程",
+                "竣工资料",
+                "隐蔽工程",
+                "主控项目",
+                "一般项目",
+                "观感质量",
+                "功能检测",
+                "安全功能检测",
+                "室内环境检测",
+                "系统调试",
+                "竣工预验收"
+              ]
+            },
+            "rank_source": "legacy",
+            "final_score": 106.19999999999999,
+            "standard_status": "effective"
+          },
+          "text_preview": "# 18 建筑节能分部工程质量验收  18.0.1 建筑节能分部工程的质量验收，应在施工单位自检合格，且检验批、分项工程全部验收合格的基础上，进行外墙节能构造、外窗气密性能现场实体检验和设备系统节能性能检测，确认建筑节能工程质量达到验收条件后方可进行。   18.0.2 参加建筑节能工程验收的各方人员应具备相应的资格，其程序和组织应符合下列规定：  1 节能"
+        },
+        {
+          "rank": 9,
+          "standard_code": "GB55032",
+          "heading": "4.2 验收要求",
+          "score": 106.3332,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "ppr+legacy",
+            "ppr_candidates": 0,
+            "legacy_candidates": 20,
+            "merged_candidates": 20,
+            "raw_ppr_max": 0,
+            "raw_legacy_max": 87.9,
+            "ppr_skipped": false,
+            "elapsed_ms": 4167.0,
+            "expansion": {
+              "code_normalized": [],
+              "term_map": [
+                "验收",
+                "检验批",
+                "分项工程",
+                "分部工程",
+                "单位工程",
+                "竣工资料",
+                "隐蔽工程",
+                "主控项目",
+                "一般项目",
+                "观感质量",
+                "功能检测",
+                "安全功能检测",
+                "室内环境检测",
+                "系统调试",
+                "竣工预验收"
+              ]
+            },
+            "rank_source": "legacy",
+            "final_score": 106.19999999999999,
+            "standard_status": "effective"
+          },
+          "text_preview": "# 4.2 验收要求  4.2.1 工程施工质量应符合国家现行强制性工程建设规范的规定，并应符合工程勘察设计文件的要求和合同约定。   4.2.2 检验批质量应按主控项目和一般项目验收，并应符合下列规定：  1 主控项目和一般项目的确定应符合国家现行强制性工程建设规范和现行相关标准的规定；  2 主控项目的质量经抽样检验应全部合格；  3 一般项目的质量应符"
+        },
+        {
+          "rank": 10,
+          "standard_code": "GBT50328",
+          "heading": "附录 A 建筑工程文件归档范围",
+          "score": 106.19999999999999,
+          "rank_source": "legacy",
+          "standard_status": "effective",
+          "trace": {
+            "branch": "ppr+legacy",
+            "ppr_candidates": 0,
+            "legacy_candidates": 20,
+            "merged_candidates": 20,
+            "raw_ppr_max": 0,
+            "raw_legacy_max": 87.9,
+            "ppr_skipped": false,
+            "elapsed_ms": 4167.0,
+            "expansion": {
+              "code_normalized": [],
+              "term_map": [
+                "验收",
+                "检验批",
+                "分项工程",
+                "分部工程",
+                "单位工程",
+                "竣工资料",
+                "隐蔽工程",
+                "主控项目",
+                "一般项目",
+                "观感质量",
+                "功能检测",
+                "安全功能检测",
+                "室内环境检测",
+                "系统调试",
+                "竣工预验收"
+              ]
+            },
+            "rank_source": "legacy",
+            "final_score": 106.19999999999999,
+            "standard_status": "effective"
+          },
+          "text_preview": "# 附录 A 建筑工程文件归档范围  A.0.1 建筑工程文件的归档范围应符合表 A.0.1 的规定。  表 A.0.1 建筑工程文件归档范围  <table><tr><td rowspan=\"2\">类别</td><td rowspan=\"2\">归 档 文 件</td><td colspan=\"5\">保 存 单 位</td></tr><tr><td>建设单位"
+        }
+      ],
+      "failure_category": "fact_support_failure"
+    }
+  ]
+}
