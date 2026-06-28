@@ -6,11 +6,25 @@
 
 ## 一、跨切面发现（最重要，影响框架设计）
 
-### 🔴 F1 — PPR 半退役但仍在线，且依赖的图已脱离自动维护【框架岔路，需用户拍板】
-- **实测确认**：所有 NL 查询走 `ppr+legacy` 分支，`_run_nl_branch` 仍调 `kb_ppr_engine.discover`，结果含 `merged`(PPR 融合) 来源 → **PPR 在线活跃,非"下架"**。
-- **但** `pipeline_orchestrator.py` 不再重建 `kb_ppr_graph.json`（grep 零命中）。该图冻结于 2026-06-01，搜索索引是 06-18 重建 → **PPR 在用 17 天前的旧图，新入库规范在 PPR 路径不可见**。
-- 配套的 `kb_ppr_graph.py`/`kb_ppr_grid_search.py`/`kb_ppr_quality.py`/`kb_term_bge_augment.py` 整簇脱离自动链路。
-- **框架决策**：PPR 要么(A)重新纳入 orchestrator 自动重建、要么(B)彻底退役改纯 legacy+向量。这是叠加需求未清理的典型，必须设计阶段定。
+### 🔴 F1 — PPR 整体退役【已决策：退役，三轮消融数据支撑】
+
+**决策：彻底退役 PPR(图扩散层 + 格种子层一起)，NL 检索改纯 legacy 关键词 + 向量语义。** 留第5步实施(快照守护)。
+
+**现状**：所有 NL 查询走 `ppr+legacy` 分支，`_run_nl_branch` 调 `kb_ppr_engine.discover`(结果含 `merged` 来源)→ PPR 在线活跃。但 `pipeline_orchestrator.py` 不再重建 `kb_ppr_graph.json`(grep 零命中)，图冻结 2026-06-01、搜索索引 06-18 重建 → PPR 用 17 天旧图。配套 `kb_ppr_graph.py`/`kb_ppr_grid_search.py`/`kb_ppr_quality.py`/`kb_term_bge_augment.py` 整簇脱链。
+
+**退役依据（三轮消融，真实数据）**：
+1. **golden 精确型查询消融**：PPR on/off 召回逐位相同 → 精确查询零贡献。
+2. **真实探索查询消融**(从 3885 条真实日志取 80 条，93% 是自然语言)：78% 正常查询 on/off top-5 Jaccard 0.908(90% 完全相同)→ 正常查询近乎零贡献；仅拼音/残缺输入(占去重查询 22%)有差异。
+3. **三档精细消融**(full=格种子+直投+图扩散 / noprop=格种子+直投 / off=无PPR)，覆盖拼音/自然语言长句/多关键词堆叠：
+   - **`noprop~off` 全部 Jaccard=1.00** → 格种子层在最终召回上**无可观测独立贡献**(砍掉图扩散只留格种子，结果与完全关掉 PPR 一致)。
+   - 自然语言长句、多关键词堆叠：full/noprop/off **三档全相同** → 图扩散在有效查询零贡献。
+   - 拼音查询(`gangjieg`)图扩散虽改变召回，但召回的是**噪声**(钢结构查询返回装饰装修/排水管)，非有效宽召回。
+
+**关键结论**：PPR 两层均无保留价值。最初"宽召回防丢目标"的设计意图，实测被向量+legacy 完全覆盖；对退化输入(拼音)只产噪声。**库扩大/多库只会放大图重建成本与噪声，且巨图与"分库隔离"意图相悖** → 规模化是退役理由而非保留理由。拼音/残缺输入若是真实需求，用独立查询规范化(拼音→汉字)解决，比图扩散干净。
+
+**退役清单(第5步)**：① `_run_nl_branch` 摘除 `_run_ppr`/`discover` 调用，NL 走 legacy+向量(附带白赚：消除困扰全程的 ThreadPool 跨进程非确定性，NL 分支恢复确定性)；② 归档 `kb_ppr_engine.py` + `kb_ppr_graph.py`/`kb_ppr_grid_search.py`/`kb_ppr_quality.py`/`kb_term_bge_augment.py`；③ 删 12MB `kb_ppr_graph.json` + 相关产物；④ 清 kb.json 的 `kb_ppr_graph`/`kb_phrase_model`/`kb_word_vectors`/`kb_word_vocab` 配置 key(确认仅 PPR 用后)。
+
+**唯一未测盲区(低风险)**：主观相关性排序的细微差别——但有效查询 full/off Jaccard=1.00(结果完全相同)，无排序差异空间，盲区基本不构成风险。
 
 ### 🟡 F2 — 数据/代码混杂普遍（~12 个 pipeline 脚本 + plan_writer 2 处）
 用 `os.path.dirname(__file__)` 把运行态 JSON/jsonl 写进代码目录：`batch_failed.json`/`kb_search_log.jsonl`/`kb_tag_scores.json`/`kb_*_suggestions.json` 等；plan_writer 的 `standard_tags.json`/`project_type_map.json` 写死同目录读取。**这是"代码与产物拆不开"的根因**，框架改造的 contracts/ + data/ 分层要解决它。
@@ -41,7 +55,7 @@
 | 文件/簇 | 理由 |
 |---|---|
 | `kb_core/__verify_chain.py` | 临时验证脚本，已被 eval/snapshot_regression.py 取代，仅注释提及 |
-| PPR 实验簇 `kb_ppr_graph`/`kb_ppr_grid_search`/`kb_ppr_quality`/`kb_term_bge_augment` | ⚠️**取决于 F1 决策**——若 PPR 退役则归档，若保留则需重新接入。**不能在 F1 定之前动** |
+| PPR 簇 `kb_ppr_engine`/`kb_ppr_graph`/`kb_ppr_grid_search`/`kb_ppr_quality`/`kb_term_bge_augment` | **F1 已决策退役**(三轮消融证零有效贡献)。第5步先摘 `_run_nl_branch` 调用，再归档整簇。⚠️注意 `kb_ppr_engine` 当前仍被 `_run_nl_branch` + `kb_quality.py` import，归档前必须先断引用 |
 | 向量构建 `kb_sentence_extract`/`kb_sentence_vectors`/`kb_word_vectors_v2` | 手动重建工具，产物部分仍在线消费，归档但留脚本 |
 | `tag_trainer_v3`/`kb_table_merge` | 离线训练/数据清洗一次性工具 |
 | plan_writer `build.py`/`patch.py`/`date_shift.py`/`diff_docx.py` | 零 import 的独立手动 CLI；diff_docx 还有 D:\Desktop 越级失效路径 |
