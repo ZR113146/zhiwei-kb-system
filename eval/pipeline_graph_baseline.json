@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "n_terms": 65651,
+  "n_files": 176,
+  "total": 65827,
+  "total_edges": 829102,
+  "tf_edges": 493563,
+  "tt_edges": 335539,
+  "edge_counts_by_type": {
+    "cooc": 39744,
+    "bigram": 293251,
+    "heading": 43238,
+    "term": 473929,
+    "bm25": 511013
+  },
+  "edges_sha256": "15a68833d9960de7548e9383b63e7e99b5a1835e153196747d64f765404fba45",
+  "words_sha256": "ab146429a6255b21a45d14448cd7a7869a809e268a68be3881355529a01d7b9a",
+  "files_sha256": "d45a8a8bbacc0a4311474e07728302082512f67368f3a875e8bc562f6fd43e9d"
+}

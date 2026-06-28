@@ -1,0 +1,246 @@
+{
+  "schema": 1,
+  "sample_size": 40,
+  "rows": [
+    {
+      "file": "_seg0_CECS 164-2004 埋地聚乙烯排水管管道工程技术规程.json",
+      "count": 56,
+      "sha256": "8cf3116f536bab2ddb157970d2a0d56762b0941a8091cd3acbbd38b1dd68ed1f",
+      "error": ""
+    },
+    {
+      "file": "_seg0_CECS 453-2016 轻质泡沫土轨道交通填筑技术规程.json",
+      "count": 57,
+      "sha256": "1d4a056d336c4f5e4766516c89e1f775fc255ed436075295935d2855b6ae787b",
+      "error": ""
+    },
+    {
+      "file": "_seg0_CJJ 143-2010 埋地塑料排水管道工程技术规范.json",
+      "count": 59,
+      "sha256": "b05a92f72dd61839082a80b81b52fa9be0fba47b5bcc22d9dcd2418f0999b616",
+      "error": ""
+    },
+    {
+      "file": "_seg0_CJJ 37-2012 城市道路工程设计规范(2016年版).json",
+      "count": 155,
+      "sha256": "f1e4fe1a56edb5ce87b530192157d15ff6eedef0714b6dfdac9faec925fe2abc",
+      "error": ""
+    },
+    {
+      "file": "_seg0_CJJ 82-2012 园林绿化工程施工及验收规范.json",
+      "count": 58,
+      "sha256": "299c57c77bca3572583a0995ba26c527f773f787f22b65b548e4a09b15199b98",
+      "error": ""
+    },
+    {
+      "file": "_seg0_CJJ_T 171-2012 风景园林标志标准.json",
+      "count": 22,
+      "sha256": "251c159e4ea048234e49d7134f573a298dabc6de2161ee96adec44047e45169b",
+      "error": ""
+    },
+    {
+      "file": "_seg0_CJJ_T 177-2012 气泡混合轻质土填筑工程技术规程.json",
+      "count": 50,
+      "sha256": "4cb0e7cee960667fbb68e84fc52d61a289fb4ea8df5714932c25044387f2c2de",
+      "error": ""
+    },
+    {
+      "file": "_seg0_CJJ_T 287-2018 园林绿化养护标准.json",
+      "count": 46,
+      "sha256": "fa9f2fab1ed1a3d3027e3e43c0308f9f0466131e2bc68efd3b2fdc3bf7e1c606",
+      "error": ""
+    },
+    {
+      "file": "_seg0_CJJ_T 91-2017 风景园林基本术语标准.json",
+      "count": 301,
+      "sha256": "62555fac1e952a5bc6ce3b8f908c32286fa620833b97e870f02c031bbbf50c89",
+      "error": ""
+    },
+    {
+      "file": "_seg0_CJ_T 24-2018 园林绿化木本苗.json",
+      "count": 27,
+      "sha256": "08edbb5875de23d9521ca2beabb6ea4243ad6a4c16e5717148d7caea381c090e",
+      "error": ""
+    },
+    {
+      "file": "_seg0_CJ_T 340-2016 绿化种植土壤.json",
+      "count": 62,
+      "sha256": "26e3b8f4a9a17fe18bdb3dfb90b0c1376c1c216e35df1c94a89e7332358e8939",
+      "error": ""
+    },
+    {
+      "file": "_seg0_GB 12523-2011 建筑施工场界环境噪声排放标准.json",
+      "count": 28,
+      "sha256": "65e38c61c2e1c52b3e391489044755767b907943995d70632800dd03dec2b2f7",
+      "error": ""
+    },
+    {
+      "file": "_seg0_GB 12523-2025 建筑施工噪声排放标准.json",
+      "count": 24,
+      "sha256": "45155d3b20988575d923ea8f4bcca040a4d4f67c87d5a39a3e0abc8517f3d8b8",
+      "error": ""
+    },
+    {
+      "file": "_seg0_GB 1499.1-2024 钢筋混凝土用钢 第1部分：热轧光圆钢筋.json",
+      "count": 35,
+      "sha256": "112928bb4483b07b53044af3e1c0b60242c743d0d300a67e304f5e4c89ebc1dd",
+      "error": ""
+    },
+    {
+      "file": "_seg0_GB 1499.2-2024 钢筋混凝土用钢 第2部分：热轧带肋钢筋.json",
+      "count": 54,
+      "sha256": "a90834b9be665d63314b7227d29ffc40ffdb98db20d17fb24e986b75050eab77",
+      "error": ""
+    },
+    {
+      "file": "_seg0_GB 16297-1996 大气污染物综合排放标准.json",
+      "count": 28,
+      "sha256": "ed577d7510c8c41547fd4c23a00ed6e79bede81831cad8b2be1c74ad81d18586",
+      "error": ""
+    },
+    {
+      "file": "_seg0_GB 46520-2025 建筑用绝热材料及制品燃烧性能安全技术规范.json",
+      "count": 13,
+      "sha256": "990dae0532e460742df1b290a75e3c987f9a5d0e7ba17fecee2983a69f9d9f53",
+      "error": ""
+    },
+    {
+      "file": "_seg0_GB 50003-2011 砌体结构设计规范.json",
+      "count": 107,
+      "sha256": "bb8289305621612d4c1b7940ebcf0ef04401dfae402179ed8d08dd1e824284c8",
+      "error": ""
+    },
+    {
+      "file": "_seg0_GB 50037-2013 建筑地面设计规范.json",
+      "count": 31,
+      "sha256": "d6fcbe56c031cd1c172dce547efeb26ffdfe690d0ac1f88625bf558931681674",
+      "error": ""
+    },
+    {
+      "file": "_seg0_GB 50084-2017 自动喷水灭火系统设计规范.json",
+      "count": 88,
+      "sha256": "ec31c605b08defcf4ce8192241943c2ebcda3ab5da608fb62659deac9aba9221",
+      "error": ""
+    },
+    {
+      "file": "_seg0_GB 50108-2008 地下工程防水技术规范.json",
+      "count": 161,
+      "sha256": "8aaccbfe503ead60a164760349583719a8af8b7380b45a5125d6b4ecbd85c19d",
+      "error": ""
+    },
+    {
+      "file": "_seg0_GB 50164-2011 混凝土质量控制标准.json",
+      "count": 53,
+      "sha256": "29f537914ac3f3b2b7a5c0e84ba10919759b2025f7d3c68f1eb1bbd6e004f94e",
+      "error": ""
+    },
+    {
+      "file": "_seg0_GB 50168-2018 电气装置安装工程电缆线路施工及验收标准.json",
+      "count": 39,
+      "sha256": "f1939d81c2887c398d635102901a36e882c57b5cf93e94dfdabf9a5fe1fa0fa6",
+      "error": ""
+    },
+    {
+      "file": "_seg0_GB 50202-2018 建筑地基工程施工质量验收标准.json",
+      "count": 136,
+      "sha256": "6ff4914b72e03248c62dc7bdaa630e75a9d9cb647153bdbedb7bbb7a70ee7322",
+      "error": ""
+    },
+    {
+      "file": "_seg0_GB 50203-2011 砌体结构工程施工质量验收规范.json",
+      "count": 50,
+      "sha256": "c209d739f06efa2c461d05e6fd8263d56f1dc522b17730e416e4846c6ed107a2",
+      "error": ""
+    },
+    {
+      "file": "_seg0_GB 50204-2015 混凝土结构工程施工质量验收规范.json",
+      "count": 66,
+      "sha256": "572618f49c92304851f8c5d25a9604041cf226ef588fe5b40efb66cf7287f582",
+      "error": ""
+    },
+    {
+      "file": "_seg0_GB 50207-2012 屋面工程质量验收规范.json",
+      "count": 156,
+      "sha256": "5c2d0f5f3481adfa06cc1c0ce9d4bc4b07a31cfd4a03eadd086d1a6f43e99997",
+      "error": ""
+    },
+    {
+      "file": "_seg0_GB 50208-2011 地下防水工程质量验收规范.json",
+      "count": 122,
+      "sha256": "88e57686bab59fb31f94726ac4732acc295c9709986f2bd83cff78082b916e5d",
+      "error": ""
+    },
+    {
+      "file": "_seg0_GB 50209-2010 建筑地面工程施工质量验收规范.json",
+      "count": 236,
+      "sha256": "74846fe66ef59dbb81a8cc33499495a10e469ceedf22468dd7a692d900cb8437",
+      "error": ""
+    },
+    {
+      "file": "_seg0_GB 50210-2018 建筑装饰装修工程质量验收标准.json",
+      "count": 203,
+      "sha256": "3f97202d5b3888a0a724702cbf17c84401e4cfa7ea2f4328b8c12451aa8edfac",
+      "error": ""
+    },
+    {
+      "file": "_seg0_GB 50217-2018 电力工程电缆设计标准.json",
+      "count": 129,
+      "sha256": "7448f7db68cac6e32eba9956bd0909b91b94b52dcd33975e1fb77076818a1fab",
+      "error": ""
+    },
+    {
+      "file": "_seg0_GB 50242-2002 建筑给水排水及采暖工程施工质量验收规范.json",
+      "count": 108,
+      "sha256": "1d5bde86b5373a9f0d21add7f921bef9f6c4c7a2755ce4442e4c4f684df3ffd5",
+      "error": ""
+    },
+    {
+      "file": "_seg0_GB 50300-2013 建筑工程施工质量验收统一标准.json",
+      "count": 7,
+      "sha256": "037f96ea0499b4fa307e25928a0e1217093bf11ee46d67aa96f84fe8f45c52a0",
+      "error": ""
+    },
+    {
+      "file": "_seg0_GB 50303-2002 建筑电气工程施工质量验收规范.json",
+      "count": 63,
+      "sha256": "5c0e58f1e3c247189e4d139c1b4fc876a4daf2d1cfe28b2a1ef1531f80b35248",
+      "error": ""
+    },
+    {
+      "file": "_seg0_GB 50303-2015 建筑电气工程施工质量验收规范.json",
+      "count": 122,
+      "sha256": "7af59b0a7465375b145e2696507f997972f4f836b2c1bb056bf0501352fe2676",
+      "error": ""
+    },
+    {
+      "file": "_seg0_GB 50345-2012 屋面工程技术规范.json",
+      "count": 67,
+      "sha256": "3581209a1a1d5c54ea91bf4552502823dcae43e59fe90f33bc5aa34064554d1d",
+      "error": ""
+    },
+    {
+      "file": "_seg0_GB 50352-2019 民用建筑设计统一标准.json",
+      "count": 97,
+      "sha256": "2ddbe5d48fb2dabaa14a9c330833ee5341ffc64a4b692c9618b145c5c98788f9",
+      "error": ""
+    },
+    {
+      "file": "_seg0_GB 50500-2013 建设工程工程量清单计价规范.json",
+      "count": 162,
+      "sha256": "1089f1c5e8714b39caa69cfe57086df098c85953a05f18281944921fb6c9d60a",
+      "error": ""
+    },
+    {
+      "file": "_seg0_GB 50755-2012 钢结构工程施工规范.json",
+      "count": 173,
+      "sha256": "74fb4b0ffd27b5b1e20ce20b0eafeea1138f9f7ec2bf4bdabbc9f6b6d5efc268",
+      "error": ""
+    },
+    {
+      "file": "_seg0_GB 50858-2013 园林绿化工程工程量计算规范.json",
+      "count": 30,
+      "sha256": "771be7b15f270c802c292a252d1e9f61a26a721e3b235f897d331a6240b6434a",
+      "error": ""
+    }
+  ]
+}
