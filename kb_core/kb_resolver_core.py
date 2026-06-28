@@ -403,31 +403,6 @@ class KBResolver(LegacySearchMixin, NamingMixin, ClauseReadMixin, QueryClassifie
         '前言', '目次', '目录', '总则', '术语', '基本规定',
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    @staticmethod
-
-
-
-
-
-
     def _rebuild_index_lite(self):
         """索引损坏或缺失时自动重建 (v6.18: 含type标注+噪音过滤, 与正式索引一致)"""
         import re as _re
