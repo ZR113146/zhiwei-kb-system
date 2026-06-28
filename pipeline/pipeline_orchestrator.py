@@ -289,17 +289,22 @@ def phase_c(session):
         if os.path.exists(term_index_script):
             subprocess.run([sys.executable, term_index_script, '--incremental'],
                           capture_output=True, timeout=120, cwd=SCRIPTS_DIR)
-        # v6.23: 短语模型 (含term_map白名单, PPR图依赖)
+        # v6.24: 短语模型 (含term_map白名单, PPR图依赖)
         phrase_script = os.path.join(SCRIPTS_DIR, 'kb_build_phrase_model.py')
         if os.path.exists(phrase_script):
             subprocess.run([sys.executable, phrase_script],
                           capture_output=True, timeout=120, cwd=SCRIPTS_DIR)
-        # v6.24: PPR 图已从在线搜索下架, 不再自动重建
         # v6.23: BM25正文索引
         bm25_script = os.path.join(SCRIPTS_DIR, 'kb_body_bm25.py')
         if os.path.exists(bm25_script):
             subprocess.run([sys.executable, bm25_script],
-                          capture_output=True, timeout=120, cwd=SCRIPTS_DIR)
+                          capture_output=True, timeout=600, cwd=SCRIPTS_DIR)
+        # v9.0: PPR 图重建 (F1 翻转: PPR 保留, 撤销 v6.24 下架; 解决17天旧图陈腐)。
+        # 依赖 phrase_model + term_index + bm25 + search_index, 均已在上面重建; 仅全量。
+        ppr_graph_script = os.path.join(SCRIPTS_DIR, 'kb_ppr_graph.py')
+        if os.path.exists(ppr_graph_script):
+            subprocess.run([sys.executable, ppr_graph_script],
+                          capture_output=True, timeout=300, cwd=SCRIPTS_DIR)
         # v6.23: 条款编号索引 (精确查询直通车)
         clause_script = os.path.join(SCRIPTS_DIR, 'kb_clause_index.py')
         if os.path.exists(clause_script):
