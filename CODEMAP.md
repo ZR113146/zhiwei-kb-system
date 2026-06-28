@@ -20,7 +20,7 @@
 |---|---|---|---|
 | A1 `_load_paths` ×3 | `_common.py`/`clause_vector_search.py`/`kb_ppr_engine.py` 各自重解析 kb.json | 统一用 `kb.py: load_config()` 为唯一正主（或提到 contracts 的 config 加载器），三处改 import | 快照+集成 |
 | A2 `normalize_code` ×2 | `_common.py` + `standard_status.py` 两份 | 定一个正主（standard_status 更底层），另一处 import | 快照（编码归一化是检索关键路径） |
-| A3 `extract_code` ×3 | `_common`/`kb_ppr_graph`/`pipeline_orchestrator` | 正主留 `_common`/contracts，其余 import；kb_ppr_graph 随 PPR 退役一起走 | 快照 |
+| A3 `extract_code` ×3 | `_common`/`kb_ppr_graph`/`pipeline_orchestrator` | 正主留 `_common`/contracts，其余 import；kb_ppr_graph 保留(PPR 保留)，按需 import | 快照 |
 | A4 `extract_code_from_result` ×3 | eval 三脚本各写一遍 | 合并到一个 eval 共享工具模块 | eval 自测 |
 | A5 `_load`/`_load_jsonl` ×6 | 散落自写 JSON 加载 | 收归 contracts 一个轻量 io 工具（仅标准库 json 包装，不引依赖） | 对应脚本 |
 
@@ -45,14 +45,14 @@
 
 > C1 是最大的可移植性债务，也是风险最高的改造（影响所有导入）。**建议单独成一个子阶段、最后做、全套安全网兜底**。
 
-### D. PPR 退役【体量精简，F1 已决策】
+### D. PPR 保留 + 修复加固【F1 翻转：消融纠错后证 PPR 有 ~3 点召回贡献，保留】
 
 | 改造点 | 现状 | 目标 | 安全网 |
 |---|---|---|---|
-| D1 断 `_run_nl_branch` PPR 调用 | 调 kb_ppr_engine.discover | 删 PPR 分支，NL 走 legacy+向量 | 快照（确认召回不退）+ **白赚：消除线程非确定性** |
-| D2 断 `kb_quality.py` PPR 引用 | import get_engine | 去掉或改 | 无（kb_quality 是手动工具） |
-| D3 归档 PPR 簇 | kb_ppr_engine + 4 脚本 | 移 archive/（D1/D2 断引用后） | — |
-| D4 删图产物 + 清配置 | 12MB kb_ppr_graph.json + 4 个 kb.json key | 删 + 清 key | 集成 |
+| D1 修图重建 | orchestrator 不再重建 kb_ppr_graph，用 17 天旧图 | orchestrator 自动重建 kb_ppr_graph（新规范纳入 PPR 路径） | 集成（kb_self_test）+ 图特征化 |
+| D2 解决线程非确定性 | ThreadPool(legacy∥ppr) as_completed 顺序致 ppr+legacy ~16% 跨进程漂移 | 固定合并顺序/串行化，使分支确定 | snapshot（确认 recall 不退 + 漂移消除） |
+| D3 PPR 簇去留 | engine/graph 活跃；grid_search/quality/term_bge_augment 疑一次性 | engine/graph **保留**；后三者单独评估是否归档 | — |
+| ~~删图/清配置~~ | — | **取消**（保留 PPR，图与配置 key 都要留） | — |
 
 ### E. 死代码/死配置清理【体量精简】
 
@@ -75,7 +75,7 @@
   ↓
 阶段2: B 组路径治理 (依赖 contracts/ 已建好) + B3 修 bug
   ↓
-阶段3: D 组 PPR 退役 (独立, 可与阶段1/2 并行)
+阶段3: D 组 PPR 修复加固 (独立, 可与阶段1/2 并行)
   ↓
 阶段4 (最高风险, 最后做): C1 sys.path 收敛 (影响所有导入, 全套安全网)
   ↓
@@ -90,7 +90,7 @@
 
 | 盲区 | 涉及改造点 | 需补 |
 |---|---|---|
-| pipeline 30+ 脚本 | B4 数据归位、D PPR | 关键脚本特征化测试（像 build_graph/extract_headings 那样） |
+| pipeline 30+ 脚本 | B4 数据归位、D PPR 修图重建 | 关键脚本特征化测试（像 build_graph/extract_headings 那样） |
 | plan_writer 渲染/编排 | B2/E5 | content_generator/render 的输出特征化 |
 | kb_auditor 锚点提取 | B3 | jieba 术语加载的断言（修复 B5 后才有意义） |
 
@@ -100,7 +100,7 @@
 
 ## 五、预期收益（量化）
 
-- **体量**：PPR 退役归档 ~8 脚本（pipeline 6326 行可减约 1/4）；死函数/死配置清理。
+- **体量**：死函数/死配置清理（PPR 簇已决保留，不再计入精简）。
 - **造轮子**：`_load_paths` 3→1、`normalize_code` 2→1、`extract_code` 3→1、JSON 加载 6→1。
 - **跨平台**：37 处 sys.path → 单一引导；清除个人环境残留。
 - **可信**：5 个潜伏 bug 修复（含静默失效的 clause_rerank）。
@@ -111,7 +111,7 @@
 ## 六、评审决议（已冻结 2026-06-28）
 
 1. **C1 = 方案甲：做成可 `pip install -e .` 的标准包**（加 pyproject.toml）。一次性消灭 37 处 sys.path.insert，Claude Code + Codex 双平台都能 `import kb_core` 直接用。改动面大但治本，放阶段4最后做、全套安全网兜底。
-2. **阶段化认可**：低风险(A/E)先行 → B 路径治理 → D PPR 退役(可并行) → C1 打包(最后) → 收尾。
+2. **阶段化认可**：低风险(A/E)先行 → B 路径治理 → D PPR 修复加固(可并行) → C1 打包(最后) → 收尾。
 3. **先补网再改认可**：动 pipeline/plan_writer 盲区前先补特征化测试。
 4. 改造点清单认可。
 

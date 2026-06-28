@@ -6,25 +6,18 @@
 
 ## 一、跨切面发现（最重要，影响框架设计）
 
-### 🔴 F1 — PPR 整体退役【已决策：退役，三轮消融数据支撑】
+### 🔴 F1 — PPR 保留 + 修图重建【已决策：保留，消融纠错后翻转】
 
-**决策：彻底退役 PPR(图扩散层 + 格种子层一起)，NL 检索改纯 legacy 关键词 + 向量语义。** 留第5步实施(快照守护)。
+> ⚠️ **决策翻转记录**：先前基于消融数据定为"退役"，但那几轮消融**查询集选偏了**（偏 direct/param 精确型，PPR 本就不参与）。用 snapshot 完整查询集（92 条含 truth+技术查询）重测：**PPR 关闭后 recall@5 从 0.6087 稳定降到 0.5761（~3 点）**——PPR 对 NL/技术查询确有真实召回贡献，**非死重**。已纠正。
 
-**现状**：所有 NL 查询走 `ppr+legacy` 分支，`_run_nl_branch` 调 `kb_ppr_engine.discover`(结果含 `merged` 来源)→ PPR 在线活跃。但 `pipeline_orchestrator.py` 不再重建 `kb_ppr_graph.json`(grep 零命中)，图冻结 2026-06-01、搜索索引 06-18 重建 → PPR 用 17 天旧图。配套 `kb_ppr_graph.py`/`kb_ppr_grid_search.py`/`kb_ppr_quality.py`/`kb_term_bge_augment.py` 整簇脱链。
+**决策：保留 PPR。** 改造方向从"退役"转为"修复加固"：
+1. **修图重建**：让 `pipeline_orchestrator.py` 重新自动重建 `kb_ppr_graph.json`（解决 17 天旧图陈腐——新入库规范当前在 PPR 路径不可见）。
+2. **解决线程非确定性**：`_run_nl_branch` 的 ThreadPool(legacy∥ppr) `as_completed` 完成顺序 + PPR 时序导致 ppr+legacy 分支 ~16% 跨进程漂移（见 zhiwei-kb-search-nondeterminism）。加固使其确定（如固定合并顺序、或串行化）。
+3. PPR 簇脚本（kb_ppr_engine/kb_ppr_graph/grid_search/quality/term_bge_augment）**不归档、不删图、不清配置**。
 
-**退役依据（三轮消融，真实数据）**：
-1. **golden 精确型查询消融**：PPR on/off 召回逐位相同 → 精确查询零贡献。
-2. **真实探索查询消融**(从 3885 条真实日志取 80 条，93% 是自然语言)：78% 正常查询 on/off top-5 Jaccard 0.908(90% 完全相同)→ 正常查询近乎零贡献；仅拼音/残缺输入(占去重查询 22%)有差异。
-3. **三档精细消融**(full=格种子+直投+图扩散 / noprop=格种子+直投 / off=无PPR)，覆盖拼音/自然语言长句/多关键词堆叠：
-   - **`noprop~off` 全部 Jaccard=1.00** → 格种子层在最终召回上**无可观测独立贡献**(砍掉图扩散只留格种子，结果与完全关掉 PPR 一致)。
-   - 自然语言长句、多关键词堆叠：full/noprop/off **三档全相同** → 图扩散在有效查询零贡献。
-   - 拼音查询(`gangjieg`)图扩散虽改变召回，但召回的是**噪声**(钢结构查询返回装饰装修/排水管)，非有效宽召回。
+**消融纠错教训**：① 头几轮用 100 条纯 golden（精确型为主），PPR 不生效的查询占多，误判"零贡献"；② monkeypatch `discover→[]` 与代码删除 `_run_ppr` 在 snapshot 全集上其实**结果一致（都 0.5761）**——证明删除本身正确，错的是"删除无害"的前提。③ snapshot 完整集（含技术查询子集）才覆盖到 PPR 真正生效的场景。**只用偏精确的查询集评估宽召回组件 = 系统性盲区。**
 
-**关键结论**：PPR 两层均无保留价值。最初"宽召回防丢目标"的设计意图，实测被向量+legacy 完全覆盖；对退化输入(拼音)只产噪声。**库扩大/多库只会放大图重建成本与噪声，且巨图与"分库隔离"意图相悖** → 规模化是退役理由而非保留理由。拼音/残缺输入若是真实需求，用独立查询规范化(拼音→汉字)解决，比图扩散干净。
-
-**退役清单(第5步)**：① `_run_nl_branch` 摘除 `_run_ppr`/`discover` 调用，NL 走 legacy+向量(附带白赚：消除困扰全程的 ThreadPool 跨进程非确定性，NL 分支恢复确定性)；② 归档 `kb_ppr_engine.py` + `kb_ppr_graph.py`/`kb_ppr_grid_search.py`/`kb_ppr_quality.py`/`kb_term_bge_augment.py`；③ 删 12MB `kb_ppr_graph.json` + 相关产物；④ 清 kb.json 的 `kb_ppr_graph`/`kb_phrase_model`/`kb_word_vectors`/`kb_word_vocab` 配置 key(确认仅 PPR 用后)。
-
-**唯一未测盲区(低风险)**：主观相关性排序的细微差别——但有效查询 full/off Jaccard=1.00(结果完全相同)，无排序差异空间，盲区基本不构成风险。
+**仍存的代价（保留后要管理，非退役理由）**：17 天旧图（修图重建解决）、线程非确定性（加固解决）、12MB 图产物、多库时巨图与分库隔离的张力（未来多库时再评估，非当前阻碍）。
 
 ### 🟡 F2 — 数据/代码混杂普遍（~12 个 pipeline 脚本 + plan_writer 2 处）
 用 `os.path.dirname(__file__)` 把运行态 JSON/jsonl 写进代码目录：`batch_failed.json`/`kb_search_log.jsonl`/`kb_tag_scores.json`/`kb_*_suggestions.json` 等；plan_writer 的 `standard_tags.json`/`project_type_map.json` 写死同目录读取。**这是"代码与产物拆不开"的根因**，框架改造的 contracts/ + data/ 分层要解决它。
@@ -55,7 +48,7 @@
 | 文件/簇 | 理由 |
 |---|---|
 | `kb_core/__verify_chain.py` | 临时验证脚本，已被 eval/snapshot_regression.py 取代，仅注释提及 |
-| PPR 簇 `kb_ppr_engine`/`kb_ppr_graph`/`kb_ppr_grid_search`/`kb_ppr_quality`/`kb_term_bge_augment` | **F1 已决策退役**(三轮消融证零有效贡献)。第5步先摘 `_run_nl_branch` 调用，再归档整簇。⚠️注意 `kb_ppr_engine` 当前仍被 `_run_nl_branch` + `kb_quality.py` import，归档前必须先断引用 |
+| PPR 簇 `kb_ppr_engine`/`kb_ppr_graph`/`kb_ppr_grid_search`/`kb_ppr_quality`/`kb_term_bge_augment` | **F1 已翻转为保留**(消融纠错后证 PPR 有 ~3 点召回贡献)。**不归档**。改造方向：修图重建(orchestrator 自动重建 kb_ppr_graph)+ 解决线程非确定性。grid_search/quality/term_bge_augment 若确为一次性调参实验可单独评估归档，但 engine/graph 是活跃检索路径 |
 | 向量构建 `kb_sentence_extract`/`kb_sentence_vectors`/`kb_word_vectors_v2` | 手动重建工具，产物部分仍在线消费，归档但留脚本 |
 | `tag_trainer_v3`/`kb_table_merge` | 离线训练/数据清洗一次性工具 |
 | plan_writer `build.py`/`patch.py`/`date_shift.py`/`diff_docx.py` | 零 import 的独立手动 CLI；diff_docx 还有 D:\Desktop 越级失效路径 |
