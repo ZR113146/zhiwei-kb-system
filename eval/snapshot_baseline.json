@@ -30,16 +30,16 @@
   },
   "aggregate": {
     "count": 92,
-    "recall_at_5": 0.6087,
-    "mrr": 0.5339,
-    "ndcg": 0.5523,
+    "recall_at_5": 0.5978,
+    "mrr": 0.5176,
+    "ndcg": 0.5374,
     "no_result_rate": 0.087,
     "errors": 0,
     "ppr_branch": {
       "count": 47,
-      "recall_at_5": 0.5957,
-      "mrr": 0.4493,
-      "ndcg": 0.4853
+      "recall_at_5": 0.5745,
+      "mrr": 0.4174,
+      "ndcg": 0.4562
     }
   },
   "search": [
@@ -96,7 +96,7 @@
           "file": "_seg1_DB32_T 3700-2019 江苏省城市轨道交通工程设计标准_p0001-0133.md",
           "source": "",
           "heading": "江苏省城市轨道交通工程设计标准",
-          "score": 51.58,
+          "score": 51.95,
           "standard_code": "DB32T3700",
           "confidence": "mid"
         },
@@ -104,32 +104,32 @@
           "file": "_seg0_GB 50911-2013 城市轨道交通工程监测技术规范.md",
           "source": "",
           "heading": "引用标准名录",
-          "score": 34.11,
+          "score": 30.72,
           "standard_code": "GB50911",
           "confidence": "mid"
         },
         {
-          "file": "_seg0_JGJ_T 163-2008 城市夜景照明设计规范.md",
+          "file": "_seg0_TCECS 1000-2021 工程建设标准编写导则.md",
           "source": "",
-          "heading": "城市夜景照明设计规范",
-          "score": 15.39,
-          "standard_code": "JGJT163",
+          "heading": "5.1.3 部分包覆钢混凝土组合梁截面受弯承载力，当符合本规程第4.1.2条规定的截面分类3的规定时，应采用下列方法之一计算：",
+          "score": 16.54,
+          "standard_code": "TCECS1000",
           "confidence": "low"
         },
         {
-          "file": "_seg0_江苏省住宅工程质量易发问题防治技术措施与指导手册.md",
-          "source": "bm25_body",
-          "heading": "4.推荐做法：",
-          "score": 14.12,
-          "standard_code": "",
+          "file": "_seg0_GB 50217-2018 电力工程电缆设计标准.md",
+          "source": "",
+          "heading": "3.4.10 系新增条文。",
+          "score": 16.18,
+          "standard_code": "GB50217",
           "confidence": "low"
         },
         {
-          "file": "_seg1_城市轨道交通工程建设安全生产标准化管理技术指南_p0001-0152.md",
-          "source": "bm25_body",
-          "heading": "8.原位测试",
-          "score": 13.47,
-          "standard_code": "",
+          "file": "📋 地方.md",
+          "source": "",
+          "heading": "地方 DB (2件)",
+          "score": 14.55,
+          "standard_code": "DB32T3700",
           "confidence": "low"
         }
       ],
@@ -168,7 +168,7 @@
           "file": "_seg1_DB32_T 3700-2019 江苏省城市轨道交通工程设计标准_p0001-0133.md",
           "source": "merged",
           "heading": "江苏省城市轨道交通工程设计标准",
-          "score": 88.75,
+          "score": 89.38,
           "standard_code": "DB32T3700",
           "confidence": "high"
         },
@@ -176,15 +176,15 @@
           "file": "_seg0_GB 50911-2013 城市轨道交通工程监测技术规范.md",
           "source": "merged",
           "heading": "7.8 净空收敛监测",
-          "score": 61.34,
+          "score": 51.46,
           "standard_code": "GB50911",
-          "confidence": "high"
+          "confidence": "mid"
         },
         {
           "file": "_seg1_城市轨道交通工程建设安全生产标准化管理技术指南_p0001-0152.md",
           "source": "merged",
           "heading": "10.4 互联网+地铁工程施工质量安全大数据管理成套技术. ..288",
-          "score": 39.06,
+          "score": 39.23,
           "standard_code": "",
           "confidence": "mid"
         },
@@ -192,16 +192,16 @@
           "file": "_seg0_GB 55037-2022 建筑防火通用规范.md",
           "source": "legacy",
           "heading": "1.0.2 本条明确了本规范的适用范围。",
-          "score": 35.79,
+          "score": 35.85,
           "standard_code": "GB55037",
           "confidence": "mid"
         },
         {
-          "file": "_seg0_CJJ 37-2012 城市道路工程设计规范(2016年版).md",
+          "file": "_seg1_GB 50014-2021 室外排水设计标准_p0001-0141.md",
           "source": "merged",
-          "heading": "12.3 路面",
-          "score": 27.48,
-          "standard_code": "CJJ37",
+          "heading": "1.0.2 本条规定了本标准的适用范围。",
+          "score": 32.96,
+          "standard_code": "GB50014",
           "confidence": "mid"
         }
       ],
@@ -220,7 +220,7 @@
           "file": "_seg1_DB32_T 3700-2019 江苏省城市轨道交通工程设计标准_p0001-0133.md",
           "source": "merged",
           "heading": "江苏省城市轨道交通工程设计标准",
-          "score": 93.35,
+          "score": 89.38,
           "standard_code": "DB32T3700",
           "confidence": "high"
         },
@@ -228,32 +228,32 @@
           "file": "_seg0_GB 50911-2013 城市轨道交通工程监测技术规范.md",
           "source": "merged",
           "heading": "11 监测成果及信息反馈",
-          "score": 61.34,
+          "score": 56.19,
           "standard_code": "GB50911",
-          "confidence": "high"
+          "confidence": "mid"
         },
         {
           "file": "_seg0_GB 55037-2022 建筑防火通用规范.md",
           "source": "merged",
           "heading": "1.0.1 本条明确了制定本规范的目的。",
-          "score": 37.74,
+          "score": 37.8,
           "standard_code": "GB55037",
           "confidence": "mid"
         },
         {
-          "file": "_seg1_GB 50014-2021 室外排水设计标准_p0001-0141.md",
+          "file": "_seg0_GB 50217-2018 电力工程电缆设计标准.md",
           "source": "ppr_graph",
-          "heading": "2.0.7 年径流总量控制率 volume capture ratio of annual rainfall",
-          "score": 33.23,
-          "standard_code": "GB50014",
+          "heading": "2.0.1 阻燃电缆 flame retardant cables",
+          "score": 31.97,
+          "standard_code": "GB50217",
           "confidence": "mid"
         },
         {
-          "file": "_seg0_CJJ 37-2012 城市道路工程设计规范(2016年版).md",
+          "file": "_seg0_JGJ_T 104-2011 建筑工程冬期施工规程.md",
           "source": "merged",
-          "heading": "9 行人和非机动车交通 133",
-          "score": 27.29,
-          "standard_code": "CJJ37",
+          "heading": "1.0.1 保留原条文 1.0.1，仅作适当文字修改。",
+          "score": 31.4,
+          "standard_code": "JGJT104",
           "confidence": "mid"
         }
       ],
@@ -272,7 +272,7 @@
           "file": "_seg1_DB32_T 3700-2019 江苏省城市轨道交通工程设计标准_p0001-0133.md",
           "source": "merged",
           "heading": "江苏省城市轨道交通工程设计标准",
-          "score": 93.35,
+          "score": 89.38,
           "standard_code": "DB32T3700",
           "confidence": "high"
         },
@@ -280,7 +280,7 @@
           "file": "_seg1_GB 50014-2021 室外排水设计标准_p0001-0141.md",
           "source": "ppr_graph",
           "heading": "2.0.7 年径流总量控制率 volume capture ratio of annual rainfall",
-          "score": 33.16,
+          "score": 32.49,
           "standard_code": "GB50014",
           "confidence": "mid"
         },
@@ -288,24 +288,24 @@
           "file": "_seg0_GB 50217-2018 电力工程电缆设计标准.md",
           "source": "ppr_graph",
           "heading": "2.0.1 阻燃电缆 flame retardant cables",
-          "score": 31.91,
+          "score": 31.97,
           "standard_code": "GB50217",
+          "confidence": "mid"
+        },
+        {
+          "file": "📋 地方.md",
+          "source": "legacy",
+          "heading": "地方 DB (2件)",
+          "score": 22.73,
+          "standard_code": "DB32T3700",
           "confidence": "mid"
         },
         {
           "file": "_seg0_GB 50911-2013 城市轨道交通工程监测技术规范.md",
           "source": "merged",
           "heading": "1 基坑工程自身风险等级",
-          "score": 20.79,
+          "score": 20.94,
           "standard_code": "GB50911",
-          "confidence": "mid"
-        },
-        {
-          "file": "_seg1_城市轨道交通工程建设安全生产标准化管理技术指南_p0001-0152.md",
-          "source": "merged",
-          "heading": "8.原位测试",
-          "score": 20.2,
-          "standard_code": "",
           "confidence": "mid"
         }
       ],
@@ -606,7 +606,7 @@
           "file": "_seg1_DB32_T 3700-2019 江苏省城市轨道交通工程设计标准_p0001-0133.md",
           "source": "merged",
           "heading": "江苏省城市轨道交通工程设计标准",
-          "score": 89.93,
+          "score": 90.55,
           "standard_code": "DB32T3700",
           "confidence": "high"
         },
@@ -614,7 +614,7 @@
           "file": "_seg1_GB 50014-2021 室外排水设计标准_p0001-0141.md",
           "source": "ppr_graph",
           "heading": "2.0.7 年径流总量控制率 volume capture ratio of annual rainfall",
-          "score": 33.57,
+          "score": 33.23,
           "standard_code": "GB50014",
           "confidence": "mid"
         },
@@ -622,7 +622,7 @@
           "file": "_seg1_GB 50017-2017 钢结构设计标准_p0001-0178.md",
           "source": "ppr_graph",
           "heading": "2.1.3 二阶 $P - \\Delta$ 弹性分析 second-order $P - \\Delta$ elastic analysis",
-          "score": 31.52,
+          "score": 31.79,
           "standard_code": "GB50017",
           "confidence": "mid"
         },
@@ -630,16 +630,16 @@
           "file": "_seg0_GB 50911-2013 城市轨道交通工程监测技术规范.md",
           "source": "merged",
           "heading": "1 基坑工程自身风险等级",
-          "score": 23.65,
+          "score": 23.82,
           "standard_code": "GB50911",
           "confidence": "mid"
         },
         {
-          "file": "_seg0_CJJ 37-2012 城市道路工程设计规范(2016年版).md",
-          "source": "merged",
-          "heading": "Addition: Explanation of Provisions 69",
-          "score": 20.75,
-          "standard_code": "CJJ37",
+          "file": "📋 地方.md",
+          "source": "legacy",
+          "heading": "地方 DB (2件)",
+          "score": 22.73,
+          "standard_code": "DB32T3700",
           "confidence": "mid"
         }
       ],
@@ -678,7 +678,7 @@
           "file": "_seg1_DB32_T 3700-2019 江苏省城市轨道交通工程设计标准_p0001-0133.md",
           "source": "merged",
           "heading": "江苏省城市轨道交通工程设计标准",
-          "score": 118.3,
+          "score": 118.93,
           "standard_code": "DB32T3700",
           "confidence": "high"
         },
@@ -686,7 +686,7 @@
           "file": "_seg0_GB 50911-2013 城市轨道交通工程监测技术规范.md",
           "source": "merged",
           "heading": "9 监测项目控制值和预警 151",
-          "score": 75.75,
+          "score": 70.59,
           "standard_code": "GB50911",
           "confidence": "high"
         },
@@ -694,24 +694,24 @@
           "file": "_seg1_城市轨道交通工程建设安全生产标准化管理技术指南_p0001-0152.md",
           "source": "merged",
           "heading": "3.2.3 危险源辨识和隐患清单",
-          "score": 60.13,
+          "score": 60.36,
           "standard_code": "",
           "confidence": "high"
-        },
-        {
-          "file": "_seg0_CJJ 37-2012 城市道路工程设计规范(2016年版).md",
-          "source": "merged",
-          "heading": "12.2.4 土质路基压实度应符合表 12.2.4 规定。对以下情形，可通过试验路检验或综合论证，在保证路基强度和稳定性要求的前提下，适当降低路基压实度标准。",
-          "score": 47.96,
-          "standard_code": "CJJ37",
-          "confidence": "mid"
         },
         {
           "file": "_seg0_GB 55037-2022 建筑防火通用规范.md",
           "source": "legacy",
           "heading": "7.1.3 本条规定了建筑中安全疏散距离的确定原则和基本性能要求。",
-          "score": 42.22,
+          "score": 42.28,
           "standard_code": "GB55037",
+          "confidence": "mid"
+        },
+        {
+          "file": "_seg0_GB_T 3280-2015 不锈钢冷轧钢板和钢带.md",
+          "source": "legacy",
+          "heading": "5.1.1 钢板和钢带的尺寸范围",
+          "score": 40.75,
+          "standard_code": "GBT3280",
           "confidence": "mid"
         }
       ],
@@ -810,7 +810,7 @@
           "file": "_seg0_TCECS 1229-2023 花岗岩瓷砖应用技术规程.md",
           "source": "merged",
           "heading": "花岗岩瓷砖应用技术规程",
-          "score": 258.89,
+          "score": 246.24,
           "standard_code": "TCECS1229",
           "confidence": "high"
         },
@@ -818,7 +818,7 @@
           "file": "_seg0_JGJ_T 104-2011 建筑工程冬期施工规程.md",
           "source": "ppr_graph",
           "heading": "2.0.11 负温养护法 curing method at subzero temperature",
-          "score": 138.26,
+          "score": 139.27,
           "standard_code": "JGJT104",
           "confidence": "high"
         },
@@ -826,7 +826,7 @@
           "file": "_seg0_JGJ 18-2012 钢筋焊接及验收规程.md",
           "source": "ppr_graph",
           "heading": "2.1.3 细晶粒热轧钢筋 hot rolled bars of fine grains",
-          "score": 75.45,
+          "score": 75.99,
           "standard_code": "JGJ18",
           "confidence": "high"
         },
@@ -834,7 +834,7 @@
           "file": "_seg0_JGJ_T 29-2015 建筑涂饰工程施工及验收规程.md",
           "source": "ppr_graph",
           "heading": "4 基层",
-          "score": 53.21,
+          "score": 53.64,
           "standard_code": "JGJT29",
           "confidence": "mid"
         },
@@ -862,7 +862,7 @@
           "file": "_seg0_TCECS 1229-2023 花岗岩瓷砖应用技术规程.md",
           "source": "merged",
           "heading": "花岗岩瓷砖应用技术规程",
-          "score": 266.69,
+          "score": 254.04,
           "standard_code": "TCECS1229",
           "confidence": "high"
         },
@@ -870,7 +870,7 @@
           "file": "_seg0_JGJ_T 104-2011 建筑工程冬期施工规程.md",
           "source": "ppr_graph",
           "heading": "2.0.11 负温养护法 curing method at subzero temperature",
-          "score": 136.28,
+          "score": 136.3,
           "standard_code": "JGJT104",
           "confidence": "high"
         },
@@ -878,7 +878,7 @@
           "file": "_seg0_JGJ 18-2012 钢筋焊接及验收规程.md",
           "source": "ppr_graph",
           "heading": "2.1.3 细晶粒热轧钢筋 hot rolled bars of fine grains",
-          "score": 74.59,
+          "score": 74.49,
           "standard_code": "JGJ18",
           "confidence": "high"
         },
@@ -886,16 +886,16 @@
           "file": "_seg0_JGJ_T 29-2015 建筑涂饰工程施工及验收规程.md",
           "source": "ppr_graph",
           "heading": "4 基层",
-          "score": 52.22,
+          "score": 52.14,
           "standard_code": "JGJT29",
           "confidence": "mid"
         },
         {
-          "file": "_seg2_建筑施工手册（第六版）第1册_p0182-0362.md",
-          "source": "merged",
-          "heading": "1.14.1.1 总承包管理模式概述",
-          "score": 31.4,
-          "standard_code": "",
+          "file": "_seg0_GB 50208-2011 地下防水工程质量验收规范.md",
+          "source": "legacy",
+          "heading": "4.1.1 从本规范表 3.0.2-1 或表 3.0.2-2 可以看出，防水混凝土是主体结构或衬砌结构的一道重要防线。",
+          "score": 32.34,
+          "standard_code": "GB50208",
           "confidence": "mid"
         }
       ],
@@ -914,7 +914,7 @@
           "file": "_seg0_TCECS 1229-2023 花岗岩瓷砖应用技术规程.md",
           "source": "merged",
           "heading": "花岗岩瓷砖应用技术规程",
-          "score": 258.89,
+          "score": 246.24,
           "standard_code": "TCECS1229",
           "confidence": "high"
         },
@@ -922,7 +922,7 @@
           "file": "_seg0_JGJ_T 104-2011 建筑工程冬期施工规程.md",
           "source": "ppr_graph",
           "heading": "2.0.11 负温养护法 curing method at subzero temperature",
-          "score": 135.4,
+          "score": 134.81,
           "standard_code": "JGJT104",
           "confidence": "high"
         },
@@ -930,7 +930,7 @@
           "file": "_seg0_JGJ 18-2012 钢筋焊接及验收规程.md",
           "source": "ppr_graph",
           "heading": "2.1.3 细晶粒热轧钢筋 hot rolled bars of fine grains",
-          "score": 73.9,
+          "score": 73.48,
           "standard_code": "JGJ18",
           "confidence": "high"
         },
@@ -938,16 +938,16 @@
           "file": "_seg0_JGJ_T 29-2015 建筑涂饰工程施工及验收规程.md",
           "source": "ppr_graph",
           "heading": "4 基层",
-          "score": 51.99,
+          "score": 51.68,
           "standard_code": "JGJT29",
           "confidence": "mid"
         },
         {
-          "file": "_seg0_TCECS 590-2019 岩溶空洞泡沫混凝土充填技术规程.md",
-          "source": "ppr_graph",
-          "heading": "2.0.1 岩溶 karst",
-          "score": 25.35,
-          "standard_code": "TCECS590",
+          "file": "📋 协会.md",
+          "source": "legacy",
+          "heading": "中国工程建设标准化协会 TCECS (7件)",
+          "score": 20.18,
+          "standard_code": "TCECS1000",
           "confidence": "mid"
         }
       ],
@@ -966,7 +966,7 @@
           "file": "_seg0_建筑工程设计常见问题汇编 给排水分册 2021 年.md",
           "source": "legacy",
           "heading": "原因分析：",
-          "score": 255.96,
+          "score": 255.86,
           "standard_code": "DB064",
           "confidence": "high"
         },
@@ -974,7 +974,7 @@
           "file": "_seg1_GB 50268-2008 给水排水管道工程施工及验收规范_p0001-0128.md",
           "source": "legacy",
           "heading": "4.1.9 给排水管道铺设完毕并经检验合格后，应及时回填沟槽。回填前，应符合下列规定：",
-          "score": 220.59,
+          "score": 218.06,
           "standard_code": "GB50268",
           "confidence": "high"
         },
@@ -998,7 +998,7 @@
           "file": "_seg0_GB 50242-2002 建筑给水排水及采暖工程施工质量验收规范.md",
           "source": "legacy",
           "heading": "附录 A 建筑给水排水及采暖工程分部、分项工程划分",
-          "score": 133.34,
+          "score": 133.31,
           "standard_code": "GB50242",
           "confidence": "high"
         }
@@ -1018,7 +1018,7 @@
           "file": "_seg1_GB 50268-2008 给水排水管道工程施工及验收规范_p0001-0128.md",
           "source": "legacy",
           "heading": "4.1.9 给排水管道铺设完毕并经检验合格后，应及时回填沟槽。回填前，应符合下列规定：",
-          "score": 219.59,
+          "score": 216.22,
           "standard_code": "GB50268",
           "confidence": "high"
         },
@@ -1050,7 +1050,7 @@
           "file": "_seg0_GB 50242-2002 建筑给水排水及采暖工程施工质量验收规范.md",
           "source": "merged",
           "heading": "附录 A 建筑给水排水及采暖工程分部、分项工程划分",
-          "score": 129.71,
+          "score": 129.69,
           "standard_code": "GB50242",
           "confidence": "high"
         }
@@ -1070,7 +1070,7 @@
           "file": "_seg1_GB 50268-2008 给水排水管道工程施工及验收规范_p0001-0128.md",
           "source": "legacy",
           "heading": "4.1.9 给排水管道铺设完毕并经检验合格后，应及时回填沟槽。回填前，应符合下列规定：",
-          "score": 225.96,
+          "score": 221.95,
           "standard_code": "GB50268",
           "confidence": "high"
         },
@@ -1084,7 +1084,7 @@
         },
         {
           "file": "_seg0_CJJ 143-2010 埋地塑料排水管道工程技术规范.md",
-          "source": "merged",
+          "source": "legacy",
           "heading": "4.7.1 塑料排水管道分为刚性连接和柔性连接两种方式。不同",
           "score": 157.76,
           "standard_code": "CJJ143",
@@ -1102,7 +1102,7 @@
           "file": "_seg0_GB 50242-2002 建筑给水排水及采暖工程施工质量验收规范.md",
           "source": "merged",
           "heading": "附录 A 建筑给水排水及采暖工程分部、分项工程划分",
-          "score": 129.62,
+          "score": 129.59,
           "standard_code": "GB50242",
           "confidence": "high"
         }
@@ -1133,7 +1133,7 @@
           "file": "_seg1_GB 50268-2008 给水排水管道工程施工及验收规范_p0001-0128.md",
           "source": "legacy",
           "heading": "4.1.9 给排水管道铺设完毕并经检验合格后，应及时回填沟槽。回填前，应符合下列规定：",
-          "score": 225.05,
+          "score": 221.95,
           "standard_code": "GB50268",
           "confidence": "high"
         },
@@ -1157,7 +1157,7 @@
           "file": "_seg0_GB 50242-2002 建筑给水排水及采暖工程施工质量验收规范.md",
           "source": "merged",
           "heading": "附录 A 建筑给水排水及采暖工程分部、分项工程划分",
-          "score": 138.14,
+          "score": 138.11,
           "standard_code": "GB50242",
           "confidence": "high"
         },
@@ -1185,7 +1185,7 @@
           "file": "_seg1_GB 50268-2008 给水排水管道工程施工及验收规范_p0001-0128.md",
           "source": "legacy",
           "heading": "4.1.9 给排水管道铺设完毕并经检验合格后，应及时回填沟槽。回填前，应符合下列规定：",
-          "score": 241.5,
+          "score": 237.92,
           "standard_code": "GB50268",
           "confidence": "high"
         },
@@ -1209,7 +1209,7 @@
           "file": "_seg0_GB 50242-2002 建筑给水排水及采暖工程施工质量验收规范.md",
           "source": "merged",
           "heading": "主控项目",
-          "score": 144.38,
+          "score": 144.35,
           "standard_code": "GB50242",
           "confidence": "high"
         },
@@ -1248,7 +1248,7 @@
           "file": "_seg0_TCECS 1229-2023 花岗岩瓷砖应用技术规程.md",
           "source": "merged",
           "heading": "花岗岩瓷砖应用技术规程",
-          "score": 279.14,
+          "score": 267.15,
           "standard_code": "TCECS1229",
           "confidence": "high"
         },
@@ -1256,7 +1256,7 @@
           "file": "_seg0_JGJ_T 104-2011 建筑工程冬期施工规程.md",
           "source": "ppr_graph",
           "heading": "2.0.11 负温养护法 curing method at subzero temperature",
-          "score": 136.68,
+          "score": 136.61,
           "standard_code": "JGJT104",
           "confidence": "high"
         },
@@ -1264,7 +1264,7 @@
           "file": "_seg0_JGJ 18-2012 钢筋焊接及验收规程.md",
           "source": "ppr_graph",
           "heading": "2.1.3 细晶粒热轧钢筋 hot rolled bars of fine grains",
-          "score": 73.41,
+          "score": 73.32,
           "standard_code": "JGJ18",
           "confidence": "high"
         },
@@ -1272,7 +1272,7 @@
           "file": "_seg0_JGJ_T 29-2015 建筑涂饰工程施工及验收规程.md",
           "source": "ppr_graph",
           "heading": "4 基层",
-          "score": 52.62,
+          "score": 52.61,
           "standard_code": "JGJT29",
           "confidence": "mid"
         },
@@ -1280,7 +1280,7 @@
           "file": "_seg0_TCECS 590-2019 岩溶空洞泡沫混凝土充填技术规程.md",
           "source": "ppr_graph",
           "heading": "2.0.1 岩溶 karst",
-          "score": 27.42,
+          "score": 27.34,
           "standard_code": "TCECS590",
           "confidence": "mid"
         }
@@ -1320,7 +1320,7 @@
           "file": "_seg0_TCECS 1229-2023 花岗岩瓷砖应用技术规程.md",
           "source": "merged",
           "heading": "花岗岩瓷砖应用技术规程",
-          "score": 293.84,
+          "score": 281.19,
           "standard_code": "TCECS1229",
           "confidence": "high"
         },
@@ -1328,7 +1328,7 @@
           "file": "_seg0_JGJ_T 104-2011 建筑工程冬期施工规程.md",
           "source": "ppr_graph",
           "heading": "2.0.11 负温养护法 curing method at subzero temperature",
-          "score": 144.39,
+          "score": 144.05,
           "standard_code": "JGJT104",
           "confidence": "high"
         },
@@ -1336,7 +1336,7 @@
           "file": "_seg0_JGJ 18-2012 钢筋焊接及验收规程.md",
           "source": "ppr_graph",
           "heading": "2.1.3 细晶粒热轧钢筋 hot rolled bars of fine grains",
-          "score": 78.62,
+          "score": 78.52,
           "standard_code": "JGJ18",
           "confidence": "high"
         },
@@ -1344,7 +1344,7 @@
           "file": "_seg0_JGJ_T 29-2015 建筑涂饰工程施工及验收规程.md",
           "source": "ppr_graph",
           "heading": "4 基层",
-          "score": 55.4,
+          "score": 55.39,
           "standard_code": "JGJT29",
           "confidence": "mid"
         },
@@ -1452,7 +1452,7 @@
           "file": "_seg0_JGJ_T 331-2014 建筑地面工程防滑技术规程.md",
           "source": "legacy",
           "heading": "6.1 基层要求",
-          "score": 69.8,
+          "score": 70.1,
           "standard_code": "JGJT331",
           "confidence": "high"
         },
@@ -1460,7 +1460,7 @@
           "file": "_seg1_CJJ 2-2008 城市桥梁工程施工与质量验收规范_p0001-0151.md",
           "source": "legacy",
           "heading": "11.5.7 台背填土质量检验应符合国家现行标准《城镇道路工程施工与质量验收规范》CJJ 1 有关规定，且应符合下列规定：",
-          "score": 66.86,
+          "score": 69.09,
           "standard_code": "CJJ2",
           "confidence": "high"
         },
@@ -1468,7 +1468,7 @@
           "file": "_seg0_TCECS 1229-2023 花岗岩瓷砖应用技术规程.md",
           "source": "legacy",
           "heading": "6.5 市政地面施工",
-          "score": 56.24,
+          "score": 56.47,
           "standard_code": "TCECS1229",
           "confidence": "mid"
         },
@@ -1476,7 +1476,7 @@
           "file": "_seg8_建筑施工手册（第六版）第5册_p0705-0880.md",
           "source": "merged",
           "heading": "34.7.2.1 适用范围",
-          "score": 39.34,
+          "score": 39.39,
           "standard_code": "",
           "confidence": "mid"
         },
@@ -1484,7 +1484,7 @@
           "file": "_seg0_CJJ_T 177-2012 气泡混合轻质土填筑工程技术规程.md",
           "source": "legacy",
           "heading": "引用标准名录",
-          "score": 33.4,
+          "score": 33.54,
           "standard_code": "CJJT177",
           "confidence": "mid"
         }
@@ -1496,7 +1496,7 @@
       "source": "golden",
       "query_type": "clause",
       "branch": "ppr+legacy",
-      "result_count": 4,
+      "result_count": 5,
       "first_rank": 1,
       "has_expected": true,
       "results": [
@@ -1504,7 +1504,7 @@
           "file": "_seg0_JGJ_T 331-2014 建筑地面工程防滑技术规程.md",
           "source": "legacy",
           "heading": "6.1 基层要求",
-          "score": 77.6,
+          "score": 77.9,
           "standard_code": "JGJT331",
           "confidence": "high"
         },
@@ -1512,7 +1512,7 @@
           "file": "_seg1_CJJ 2-2008 城市桥梁工程施工与质量验收规范_p0001-0151.md",
           "source": "legacy",
           "heading": "11.5.7 台背填土质量检验应符合国家现行标准《城镇道路工程施工与质量验收规范》CJJ 1 有关规定，且应符合下列规定：",
-          "score": 66.86,
+          "score": 69.09,
           "standard_code": "CJJ2",
           "confidence": "high"
         },
@@ -1520,15 +1520,23 @@
           "file": "_seg0_TCECS 1229-2023 花岗岩瓷砖应用技术规程.md",
           "source": "legacy",
           "heading": "6.5 市政地面施工",
-          "score": 61.71,
+          "score": 61.96,
           "standard_code": "TCECS1229",
           "confidence": "high"
+        },
+        {
+          "file": "_seg0_GB 50202-2018 建筑地基工程施工质量验收标准.md",
+          "source": "merged",
+          "heading": "3.0.1 根据地基基础工程验收阶段的不同,施工质量验收的程序也有所不同。",
+          "score": 38.8,
+          "standard_code": "GB50202",
+          "confidence": "mid"
         },
         {
           "file": "_seg0_CJJ_T 177-2012 气泡混合轻质土填筑工程技术规程.md",
           "source": "legacy",
           "heading": "引用标准名录",
-          "score": 33.4,
+          "score": 33.54,
           "standard_code": "CJJT177",
           "confidence": "mid"
         }
@@ -1548,7 +1556,7 @@
           "file": "_seg0_JGJ_T 331-2014 建筑地面工程防滑技术规程.md",
           "source": "legacy",
           "heading": "6.1 基层要求",
-          "score": 69.8,
+          "score": 70.1,
           "standard_code": "JGJT331",
           "confidence": "high"
         },
@@ -1556,7 +1564,7 @@
           "file": "_seg0_TCECS 1229-2023 花岗岩瓷砖应用技术规程.md",
           "source": "legacy",
           "heading": "6.5 市政地面施工",
-          "score": 61.71,
+          "score": 61.96,
           "standard_code": "TCECS1229",
           "confidence": "high"
         },
@@ -1564,7 +1572,7 @@
           "file": "_seg1_CJJ 2-2008 城市桥梁工程施工与质量验收规范_p0001-0151.md",
           "source": "legacy",
           "heading": "11.5.7 台背填土质量检验应符合国家现行标准《城镇道路工程施工与质量验收规范》CJJ 1 有关规定，且应符合下列规定：",
-          "score": 56.72,
+          "score": 58.95,
           "standard_code": "CJJ2",
           "confidence": "mid"
         },
@@ -1572,16 +1580,16 @@
           "file": "_seg0_CJJ_T 177-2012 气泡混合轻质土填筑工程技术规程.md",
           "source": "legacy",
           "heading": "引用标准名录",
-          "score": 33.4,
+          "score": 33.54,
           "standard_code": "CJJT177",
           "confidence": "mid"
         },
         {
-          "file": "_seg1_CJJ 1-2008 城镇道路工程施工与质量验收规范_p0001-0126.md",
+          "file": "📋 城镇.md",
           "source": "legacy",
-          "heading": "城镇道路工程施工与质量验收规范",
-          "score": 25.08,
-          "standard_code": "CJJ1",
+          "heading": "城镇 CJJ (10件)",
+          "score": 20.45,
+          "standard_code": "CJJ143",
           "confidence": "mid"
         }
       ],
@@ -1626,10 +1634,18 @@
         },
         {
           "file": "_seg1_GB 50021-2001 岩土工程勘察规范(2009 年版)_p0001-0165.md",
-          "source": "legacy",
+          "source": "merged",
           "heading": "4.1.11 详细勘察应按单体建筑物或建筑群提出详细的岩土工程资料和设计、施工所需的岩土参数；对建筑地基作出岩土工程评价，并对地基类型、基础形式、地基处理、基坑支护、工程降水和不良地质作用的防治等提出建议。主要应进行下列工作：",
           "score": 224.67,
           "standard_code": "GB50021",
+          "confidence": "high"
+        },
+        {
+          "file": "_seg1_GB 50007-2011 建筑地基基础设计规范_p0001-0174.md",
+          "source": "merged",
+          "heading": "7.2 利用与处理",
+          "score": 189.44,
+          "standard_code": "GB50007",
           "confidence": "high"
         },
         {
@@ -1641,18 +1657,10 @@
           "confidence": "high"
         },
         {
-          "file": "_seg1_GB 50007-2011 建筑地基基础设计规范_p0001-0174.md",
-          "source": "merged",
-          "heading": "7.2 利用与处理",
-          "score": 186.3,
-          "standard_code": "GB50007",
-          "confidence": "high"
-        },
-        {
           "file": "_seg0_GB 50202-2018 建筑地基工程施工质量验收标准.md",
           "source": "merged",
           "heading": "A.3 地基处理工程验槽",
-          "score": 152.14,
+          "score": 148.35,
           "standard_code": "GB50202",
           "confidence": "high"
         }
@@ -1670,7 +1678,7 @@
       "results": [
         {
           "file": "_seg1_GB 50021-2001 岩土工程勘察规范(2009 年版)_p0001-0165.md",
-          "source": "legacy",
+          "source": "merged",
           "heading": "4.1.11 详细勘察应按单体建筑物或建筑群提出详细的岩土工程资料和设计、施工所需的岩土参数；对建筑地基作出岩土工程评价，并对地基类型、基础形式、地基处理、基坑支护、工程降水和不良地质作用的防治等提出建议。主要应进行下列工作：",
           "score": 253.36,
           "standard_code": "GB50021",
@@ -1704,7 +1712,7 @@
           "file": "_seg0_GB 50202-2018 建筑地基工程施工质量验收标准.md",
           "source": "merged",
           "heading": "A.3 地基处理工程验槽",
-          "score": 157.55,
+          "score": 160.8,
           "standard_code": "GB50202",
           "confidence": "high"
         }
@@ -1757,7 +1765,7 @@
         },
         {
           "file": "_seg1_JGJ 94-2008 建筑桩基技术规范_p0001-0164.md",
-          "source": "legacy",
+          "source": "merged",
           "heading": "3.1.9 软土地基上的多层建筑物，当天然地基承载力基本满足要求时，可采用减沉复合疏桩基础。",
           "score": 196.32,
           "standard_code": "JGJ94",
@@ -1767,7 +1775,7 @@
           "file": "_seg0_GB 50202-2018 建筑地基工程施工质量验收标准.md",
           "source": "merged",
           "heading": "A.3 地基处理工程验槽",
-          "score": 167.99,
+          "score": 164.76,
           "standard_code": "GB50202",
           "confidence": "high"
         }
@@ -1787,13 +1795,13 @@
           "file": "_seg1_GB 50007-2011 建筑地基基础设计规范_p0001-0174.md",
           "source": "merged",
           "heading": "2.1.9 地基处理 ground treatment, ground improvement",
-          "score": 278.62,
+          "score": 278.61,
           "standard_code": "GB50007",
           "confidence": "high"
         },
         {
           "file": "_seg1_GB 50021-2001 岩土工程勘察规范(2009 年版)_p0001-0165.md",
-          "source": "legacy",
+          "source": "merged",
           "heading": "4.1.11 详细勘察应按单体建筑物或建筑群提出详细的岩土工程资料和设计、施工所需的岩土参数；对建筑地基作出岩土工程评价，并对地基类型、基础形式、地基处理、基坑支护、工程降水和不良地质作用的防治等提出建议。主要应进行下列工作：",
           "score": 253.36,
           "standard_code": "GB50021",
@@ -1811,13 +1819,13 @@
           "file": "_seg0_GB 50202-2018 建筑地基工程施工质量验收标准.md",
           "source": "merged",
           "heading": "6.2.3 湿陷性黄土场地上的土和灰土挤密桩地基，除应符合本标准第4.12节的规定外，尚应符合下列规定：",
-          "score": 224.49,
+          "score": 220.26,
           "standard_code": "GB50202",
           "confidence": "high"
         },
         {
           "file": "_seg1_JGJ 94-2008 建筑桩基技术规范_p0001-0164.md",
-          "source": "legacy",
+          "source": "merged",
           "heading": "3.1.9 软土地基上的多层建筑物，当天然地基承载力基本满足要求时，可采用减沉复合疏桩基础。",
           "score": 196.32,
           "standard_code": "JGJ94",
@@ -1850,7 +1858,7 @@
           "file": "_seg0_TCECS 1229-2023 花岗岩瓷砖应用技术规程.md",
           "source": "legacy",
           "heading": "6.5 市政地面施工",
-          "score": 69.06,
+          "score": 69.36,
           "standard_code": "TCECS1229",
           "confidence": "high"
         },
@@ -1858,7 +1866,7 @@
           "file": "_seg0_JGJ_T 331-2014 建筑地面工程防滑技术规程.md",
           "source": "legacy",
           "heading": "6.1 基层要求",
-          "score": 67.45,
+          "score": 67.75,
           "standard_code": "JGJT331",
           "confidence": "high"
         },
@@ -1866,24 +1874,24 @@
           "file": "_seg1_CJJ 2-2008 城市桥梁工程施工与质量验收规范_p0001-0151.md",
           "source": "merged",
           "heading": "11.5.7 台背填土质量检验应符合国家现行标准《城镇道路工程施工与质量验收规范》CJJ 1 有关规定，且应符合下列规定：",
-          "score": 49.84,
+          "score": 60.04,
           "standard_code": "CJJ2",
-          "confidence": "mid"
+          "confidence": "high"
         },
         {
           "file": "_seg0_CJJ_T 177-2012 气泡混合轻质土填筑工程技术规程.md",
           "source": "legacy",
           "heading": "引用标准名录",
-          "score": 34.54,
+          "score": 34.68,
           "standard_code": "CJJT177",
           "confidence": "mid"
         },
         {
-          "file": "_seg1_CJJ 1-2008 城镇道路工程施工与质量验收规范_p0001-0126.md",
-          "source": "merged",
-          "heading": "城镇道路工程施工与质量验收规范",
-          "score": 25.08,
-          "standard_code": "CJJ1",
+          "file": "_seg0_GB 51249-2017 建筑钢结构防火技术规范.md",
+          "source": "legacy",
+          "heading": "9.2.5 混凝土、砂浆、砌块的抗压强度应符合本规范第4.1.6条的规定，其允许偏差为-10%。",
+          "score": 27.42,
+          "standard_code": "GB51249",
           "confidence": "mid"
         }
       ],
@@ -1922,7 +1930,7 @@
           "file": "_seg0_TCECS 1229-2023 花岗岩瓷砖应用技术规程.md",
           "source": "legacy",
           "heading": "5.2.7 加工完成并经检验合格的金属件应采取防受力变形、防损伤和防水防腐的包装措施并贮存于干燥处，装卸和运输应防止损伤和淋雨，并应提供加工成品的质检合格证明、说明书和装箱单等随行文件。",
-          "score": 84.0,
+          "score": 84.3,
           "standard_code": "TCECS1229",
           "confidence": "high"
         },
@@ -1930,23 +1938,15 @@
           "file": "_seg0_JGJ_T 331-2014 建筑地面工程防滑技术规程.md",
           "source": "legacy",
           "heading": "6.1 基层要求",
-          "score": 79.06,
+          "score": 79.39,
           "standard_code": "JGJT331",
-          "confidence": "high"
-        },
-        {
-          "file": "_seg1_CJJ 1-2008 城镇道路工程施工与质量验收规范_p0001-0126.md",
-          "source": "merged",
-          "heading": "7.5.2 稳定土的颗粒范围和技术指标宜符合表 7.5.2 的规定。",
-          "score": 73.91,
-          "standard_code": "CJJ1",
           "confidence": "high"
         },
         {
           "file": "_seg0_CJJ_T 177-2012 气泡混合轻质土填筑工程技术规程.md",
           "source": "legacy",
           "heading": "3.2.2 强度等级应按抗压强度划分，抗压强度的每组平均值和每块最小值不应小于表 3.2.2 的规定。",
-          "score": 66.41,
+          "score": 66.62,
           "standard_code": "CJJT177",
           "confidence": "high"
         },
@@ -1954,8 +1954,16 @@
           "file": "_seg1_CJJ 2-2008 城市桥梁工程施工与质量验收规范_p0001-0151.md",
           "source": "merged",
           "heading": "11.5.7 台背填土质量检验应符合国家现行标准《城镇道路工程施工与质量验收规范》CJJ 1 有关规定，且应符合下列规定：",
-          "score": 51.54,
+          "score": 61.76,
           "standard_code": "CJJ2",
+          "confidence": "high"
+        },
+        {
+          "file": "_seg1_CJJ 1-2008 城镇道路工程施工与质量验收规范_p0001-0126.md",
+          "source": "merged",
+          "heading": "7.5.2 稳定土的颗粒范围和技术指标宜符合表 7.5.2 的规定。",
+          "score": 42.39,
+          "standard_code": "CJJ1",
           "confidence": "mid"
         }
       ],
@@ -2054,15 +2062,15 @@
           "file": "_seg1_CJJ 2-2008 城市桥梁工程施工与质量验收规范_p0001-0151.md",
           "source": "merged",
           "heading": "14.2.7 焊缝外观质量应符合表 14.2.7 的规定。",
-          "score": 82.53,
+          "score": 43.13,
           "standard_code": "CJJ2",
-          "confidence": "high"
+          "confidence": "mid"
         },
         {
           "file": "_seg8_建筑施工手册（第六版）第5册_p0705-0880.md",
           "source": "legacy",
           "heading": "34.7.2.1 适用范围",
-          "score": 37.43,
+          "score": 37.46,
           "standard_code": "",
           "confidence": "mid"
         },
@@ -2086,7 +2094,7 @@
           "file": "_seg0_GB 50209-2010 建筑地面工程施工质量验收规范.md",
           "source": "legacy",
           "heading": "8 分部(子分部)工程验收 …… (123)",
-          "score": 25.32,
+          "score": 25.4,
           "standard_code": "GB50209",
           "confidence": "mid"
         }
@@ -2098,15 +2106,15 @@
       "source": "golden",
       "query_type": "clause",
       "branch": "ppr+legacy",
-      "result_count": 5,
-      "first_rank": 4,
+      "result_count": 4,
+      "first_rank": null,
       "has_expected": true,
       "results": [
         {
           "file": "_seg0_JGJ_T 104-2011 建筑工程冬期施工规程.md",
           "source": "merged",
           "heading": "1.0.1 保留原条文 1.0.1，仅作适当文字修改。",
-          "score": 36.32,
+          "score": 36.37,
           "standard_code": "JGJT104",
           "confidence": "mid"
         },
@@ -2127,18 +2135,10 @@
           "confidence": "mid"
         },
         {
-          "file": "_seg1_CJJ 2-2008 城市桥梁工程施工与质量验收规范_p0001-0151.md",
-          "source": "merged",
-          "heading": "城市桥梁工程施工与质量验收规范",
-          "score": 25.88,
-          "standard_code": "CJJ2",
-          "confidence": "mid"
-        },
-        {
           "file": "_seg0_GB 50911-2013 城市轨道交通工程监测技术规范.md",
           "source": "merged",
           "heading": "11 监测成果及信息反馈",
-          "score": 24.84,
+          "score": 24.95,
           "standard_code": "GB50911",
           "confidence": "mid"
         }
@@ -2150,32 +2150,24 @@
       "source": "golden",
       "query_type": "clause",
       "branch": "ppr+legacy",
-      "result_count": 5,
-      "first_rank": 1,
+      "result_count": 4,
+      "first_rank": 4,
       "has_expected": true,
       "results": [
         {
-          "file": "_seg1_CJJ 2-2008 城市桥梁工程施工与质量验收规范_p0001-0151.md",
-          "source": "merged",
-          "heading": "城市桥梁工程施工与质量验收规范",
-          "score": 25.88,
-          "standard_code": "CJJ2",
+          "file": "_seg2_城市轨道交通工程建设安全生产标准化管理技术指南_p0153-0304.md",
+          "source": "legacy",
+          "heading": "10.1.4 适用范围及应用条件",
+          "score": 23.8,
+          "standard_code": "GB6067",
           "confidence": "mid"
         },
         {
           "file": "_seg0_JGJ_T 104-2011 建筑工程冬期施工规程.md",
           "source": "ppr_graph",
           "heading": "2.0.11 负温养护法 curing method at subzero temperature",
-          "score": 23.63,
+          "score": 21.62,
           "standard_code": "JGJT104",
-          "confidence": "mid"
-        },
-        {
-          "file": "_seg2_城市轨道交通工程建设安全生产标准化管理技术指南_p0153-0304.md",
-          "source": "legacy",
-          "heading": "10.1.4 适用范围及应用条件",
-          "score": 23.33,
-          "standard_code": "GB6067",
           "confidence": "mid"
         },
         {
@@ -2187,12 +2179,12 @@
           "confidence": "mid"
         },
         {
-          "file": "_seg0_TCECS 1229-2023 花岗岩瓷砖应用技术规程.md",
+          "file": "📋 城镇.md",
           "source": "legacy",
-          "heading": "6.5 市政地面施工",
-          "score": 13.81,
-          "standard_code": "TCECS1229",
-          "confidence": "low"
+          "heading": "城镇 CJJ (10件)",
+          "score": 20.05,
+          "standard_code": "CJJ143",
+          "confidence": "mid"
         }
       ],
       "error": ""
@@ -2218,7 +2210,7 @@
           "file": "_seg0_JGJ 130-2011 建筑施工扣件式钢管脚手架安全技术规范.md",
           "source": "legacy",
           "heading": "4 满堂脚手架与满堂支撑架扣件节点半刚性论证",
-          "score": 225.09,
+          "score": 225.08,
           "standard_code": "JGJ130",
           "confidence": "high"
         },
@@ -2226,7 +2218,7 @@
           "file": "_seg0_GB 55023-2022 施工脚手架通用规范.md",
           "source": "legacy",
           "heading": "3 支撑脚手架 shoring scaffold",
-          "score": 222.6,
+          "score": 222.59,
           "standard_code": "GB55023",
           "confidence": "high"
         },
@@ -2234,7 +2226,7 @@
           "file": "_seg6_建筑施工手册（第六版）第1册_p0544-0724.md",
           "source": "legacy",
           "heading": "3.4.10.2 常用模板脚手架软件",
-          "score": 143.34,
+          "score": 143.33,
           "standard_code": "",
           "confidence": "high"
         },
@@ -2242,7 +2234,7 @@
           "file": "_seg11_建筑施工手册（第六版）第2册_p1051-1224.md",
           "source": "legacy",
           "heading": "5）脚手架上吊挂的安全设施自重荷载标准值",
-          "score": 113.92,
+          "score": 111.51,
           "standard_code": "",
           "confidence": "high"
         }
@@ -2262,8 +2254,16 @@
           "file": "_seg6_建筑施工手册（第六版）第1册_p0544-0724.md",
           "source": "legacy",
           "heading": "3.4.10.2 常用模板脚手架软件",
-          "score": 142.86,
+          "score": 142.85,
           "standard_code": "",
+          "confidence": "high"
+        },
+        {
+          "file": "_seg0_JGJ_T 231-2021 建筑施工承插型盘扣式钢管脚手架安全技术标准.md",
+          "source": "legacy",
+          "heading": "2.1.2 支撑脚手架 shoring scaffold",
+          "score": 113.37,
+          "standard_code": "JGJT231",
           "confidence": "high"
         },
         {
@@ -2272,14 +2272,6 @@
           "heading": "3.4.1 危大工程管理",
           "score": 111.15,
           "standard_code": "",
-          "confidence": "high"
-        },
-        {
-          "file": "_seg0_JGJ_T 231-2021 建筑施工承插型盘扣式钢管脚手架安全技术标准.md",
-          "source": "legacy",
-          "heading": "2.1.2 支撑脚手架 shoring scaffold",
-          "score": 109.65,
-          "standard_code": "JGJT231",
           "confidence": "high"
         },
         {
@@ -2312,9 +2304,9 @@
       "results": [
         {
           "file": "_seg6_建筑施工手册（第六版）第1册_p0544-0724.md",
-          "source": "legacy",
+          "source": "merged",
           "heading": "3.4.10.2 常用模板脚手架软件",
-          "score": 142.85,
+          "score": 142.83,
           "standard_code": "",
           "confidence": "high"
         },
@@ -2330,7 +2322,7 @@
           "file": "_seg0_JGJ_T 231-2021 建筑施工承插型盘扣式钢管脚手架安全技术标准.md",
           "source": "legacy",
           "heading": "2.1.2 支撑脚手架 shoring scaffold",
-          "score": 114.96,
+          "score": 114.93,
           "standard_code": "JGJT231",
           "confidence": "high"
         },
@@ -2338,7 +2330,7 @@
           "file": "_seg11_建筑施工手册（第六版）第2册_p1051-1224.md",
           "source": "merged",
           "heading": "5）脚手架上吊挂的安全设施自重荷载标准值",
-          "score": 113.66,
+          "score": 113.62,
           "standard_code": "",
           "confidence": "high"
         },
@@ -2366,7 +2358,7 @@
           "file": "_seg0_JGJ_T 231-2021 建筑施工承插型盘扣式钢管脚手架安全技术标准.md",
           "source": "",
           "heading": "2.1.2 支撑脚手架 shoring scaffold",
-          "score": 62.5,
+          "score": 62.51,
           "standard_code": "JGJT231",
           "confidence": "high"
         }
@@ -2391,18 +2383,10 @@
           "confidence": "high"
         },
         {
-          "file": "_seg0_JGJ_T 231-2021 建筑施工承插型盘扣式钢管脚手架安全技术标准.md",
-          "source": "legacy",
-          "heading": "2.1.2 支撑脚手架 shoring scaffold",
-          "score": 118.73,
-          "standard_code": "JGJT231",
-          "confidence": "high"
-        },
-        {
           "file": "_seg11_建筑施工手册（第六版）第2册_p1051-1224.md",
           "source": "merged",
           "heading": "5）脚手架上吊挂的安全设施自重荷载标准值",
-          "score": 117.19,
+          "score": 117.17,
           "standard_code": "",
           "confidence": "high"
         },
@@ -2412,6 +2396,14 @@
           "heading": "3.4.1 危大工程管理",
           "score": 116.61,
           "standard_code": "",
+          "confidence": "high"
+        },
+        {
+          "file": "_seg0_JGJ_T 231-2021 建筑施工承插型盘扣式钢管脚手架安全技术标准.md",
+          "source": "legacy",
+          "heading": "2.1.2 支撑脚手架 shoring scaffold",
+          "score": 114.66,
+          "standard_code": "JGJT231",
           "confidence": "high"
         },
         {
@@ -2438,7 +2430,7 @@
           "file": "_seg6_建筑施工手册（第六版）第1册_p0544-0724.md",
           "source": "legacy",
           "heading": "3.4.10.2 常用模板脚手架软件",
-          "score": 142.68,
+          "score": 142.67,
           "standard_code": "",
           "confidence": "high"
         },
@@ -2454,7 +2446,7 @@
           "file": "_seg0_JGJ_T 231-2021 建筑施工承插型盘扣式钢管脚手架安全技术标准.md",
           "source": "legacy",
           "heading": "2.1.2 支撑脚手架 shoring scaffold",
-          "score": 118.74,
+          "score": 118.71,
           "standard_code": "JGJT231",
           "confidence": "high"
         },
@@ -2462,7 +2454,7 @@
           "file": "_seg11_建筑施工手册（第六版）第2册_p1051-1224.md",
           "source": "merged",
           "heading": "5）脚手架上吊挂的安全设施自重荷载标准值",
-          "score": 109.94,
+          "score": 109.91,
           "standard_code": "",
           "confidence": "high"
         },
@@ -2470,7 +2462,7 @@
           "file": "_seg0_GB 55023-2022 施工脚手架通用规范.md",
           "source": "legacy",
           "heading": "3 支撑脚手架 shoring scaffold",
-          "score": 96.75,
+          "score": 96.65,
           "standard_code": "GB55023",
           "confidence": "high"
         }
@@ -2490,7 +2482,7 @@
           "file": "_seg0_JGJ 130-2011 建筑施工扣件式钢管脚手架安全技术规范.md",
           "source": "",
           "heading": "4.2.6 脚手架的风荷载体型系数 $\\mu_{\\mathrm{s}}$ 主要按照现行国家标准《建筑结构荷载规范》GB50009的规定。",
-          "score": 196.78,
+          "score": 194.29,
           "standard_code": "JGJ130",
           "confidence": "high"
         },
@@ -2498,7 +2490,7 @@
           "file": "_seg0_GB 55023-2022 施工脚手架通用规范.md",
           "source": "",
           "heading": "3 支撑脚手架 shoring scaffold",
-          "score": 157.57,
+          "score": 157.55,
           "standard_code": "GB55023",
           "confidence": "high"
         }
@@ -2510,31 +2502,31 @@
       "source": "golden",
       "query_type": "version",
       "branch": "ppr+legacy",
-      "result_count": 5,
-      "first_rank": 1,
+      "result_count": 4,
+      "first_rank": 2,
       "has_expected": true,
       "results": [
-        {
-          "file": "_seg1_CJJ 2-2008 城市桥梁工程施工与质量验收规范_p0001-0151.md",
-          "source": "merged",
-          "heading": "城市桥梁工程施工与质量验收规范",
-          "score": 25.88,
-          "standard_code": "CJJ2",
-          "confidence": "mid"
-        },
         {
           "file": "_seg2_城市轨道交通工程建设安全生产标准化管理技术指南_p0153-0304.md",
           "source": "legacy",
           "heading": "10.1.4 适用范围及应用条件",
-          "score": 23.33,
+          "score": 23.8,
           "standard_code": "GB6067",
+          "confidence": "mid"
+        },
+        {
+          "file": "📋 城镇.md",
+          "source": "legacy",
+          "heading": "城镇 CJJ (10件)",
+          "score": 20.05,
+          "standard_code": "CJJ143",
           "confidence": "mid"
         },
         {
           "file": "_seg0_TCECS 1229-2023 花岗岩瓷砖应用技术规程.md",
           "source": "legacy",
           "heading": "6.5 市政地面施工",
-          "score": 18.15,
+          "score": 18.3,
           "standard_code": "TCECS1229",
           "confidence": "low"
         },
@@ -2542,16 +2534,8 @@
           "file": "_seg0_GB 50911-2013 城市轨道交通工程监测技术规范.md",
           "source": "merged",
           "heading": "1 基坑工程自身风险等级",
-          "score": 16.38,
+          "score": 16.53,
           "standard_code": "GB50911",
-          "confidence": "low"
-        },
-        {
-          "file": "_seg0_GB 50208-2011 地下防水工程质量验收规范.md",
-          "source": "legacy",
-          "heading": "9 子分部工程质量验收 163",
-          "score": 16.29,
-          "standard_code": "GB50208",
           "confidence": "low"
         }
       ],
@@ -2590,15 +2574,15 @@
           "file": "_seg1_CJJ 2-2008 城市桥梁工程施工与质量验收规范_p0001-0151.md",
           "source": "merged",
           "heading": "6.5.9 钢筋成形和安装允许偏差应符合表 6.5.9 的规定。",
-          "score": 91.94,
+          "score": 49.56,
           "standard_code": "CJJ2",
-          "confidence": "high"
+          "confidence": "mid"
         },
         {
           "file": "_seg0_GB 50911-2013 城市轨道交通工程监测技术规范.md",
           "source": "merged",
           "heading": "9 监测项目控制值和预警 151",
-          "score": 46.38,
+          "score": 46.57,
           "standard_code": "GB50911",
           "confidence": "mid"
         },
@@ -2611,10 +2595,10 @@
           "confidence": "mid"
         },
         {
-          "file": "_seg1_建筑施工手册（第六版）第4册_p0001-0187.md",
+          "file": "_seg11_建筑施工手册（第六版）第1册_p1087-1263.md",
           "source": "legacy",
-          "heading": "24.7.1 砖砌体和钢筋混凝土构造柱组",
-          "score": 38.09,
+          "heading": "（4）岩石饱和单轴抗压强度试验",
+          "score": 29.9,
           "standard_code": "",
           "confidence": "mid"
         },
@@ -2738,13 +2722,13 @@
           "file": "_seg0_GB 12523-2025 建筑施工噪声排放标准.md",
           "source": "legacy",
           "heading": "建筑施工噪声排放标准",
-          "score": 104.83,
+          "score": 104.95,
           "standard_code": "GB12523",
           "confidence": "high"
         },
         {
           "file": "_seg0_GB 50300-2013 建筑工程施工质量验收统一标准.md",
-          "source": "merged",
+          "source": "legacy",
           "heading": "附录 B 建筑工程的分部工程、分项工程划分",
           "score": 91.52,
           "standard_code": "GB50300",
@@ -2790,7 +2774,7 @@
           "file": "_seg0_GB 12523-2025 建筑施工噪声排放标准.md",
           "source": "legacy",
           "heading": "建筑施工噪声排放标准",
-          "score": 106.48,
+          "score": 106.63,
           "standard_code": "GB12523",
           "confidence": "high"
         },
@@ -2842,7 +2826,7 @@
           "file": "_seg0_GB 12523-2025 建筑施工噪声排放标准.md",
           "source": "legacy",
           "heading": "建筑施工噪声排放标准",
-          "score": 106.48,
+          "score": 106.63,
           "standard_code": "GB12523",
           "confidence": "high"
         },
@@ -2883,35 +2867,35 @@
           "confidence": "high"
         },
         {
-          "file": "_seg0_GB 50208-2011 地下防水工程质量验收规范.md",
-          "source": "merged",
-          "heading": "4.2.5 对本条说明如下：",
-          "score": 44.2,
-          "standard_code": "GB50208",
-          "confidence": "mid"
-        },
-        {
           "file": "_seg0_TCECS 1000-2021 工程建设标准编写导则.md",
           "source": "legacy",
           "heading": "5.1.3 部分包覆钢混凝土组合梁截面受弯承载力，当符合本规程第4.1.2条规定的截面分类3的规定时，应采用下列方法之一计算：",
-          "score": 43.68,
+          "score": 43.98,
           "standard_code": "TCECS1000",
+          "confidence": "mid"
+        },
+        {
+          "file": "_seg0_GB 50208-2011 地下防水工程质量验收规范.md",
+          "source": "merged",
+          "heading": "4.2.5 对本条说明如下：",
+          "score": 39.52,
+          "standard_code": "GB50208",
           "confidence": "mid"
         },
         {
           "file": "_seg0_GB 50755-2012 钢结构工程施工规范.md",
           "source": "legacy",
           "heading": "制订说明",
-          "score": 29.14,
+          "score": 29.36,
           "standard_code": "GB50755",
           "confidence": "mid"
         },
         {
-          "file": "_seg0_TCECS 1229-2023 花岗岩瓷砖应用技术规程.md",
+          "file": "_seg0_CJJ 143-2010 埋地塑料排水管道工程技术规范.md",
           "source": "legacy",
-          "heading": "4.5 市政地面设计",
-          "score": 28.57,
-          "standard_code": "TCECS1229",
+          "heading": "制定说明",
+          "score": 28.83,
+          "standard_code": "CJJ143",
           "confidence": "mid"
         }
       ],
@@ -2927,43 +2911,43 @@
       "has_expected": true,
       "results": [
         {
-          "file": "_seg0_JGJ_T 104-2011 建筑工程冬期施工规程.md",
-          "source": "ppr_graph",
-          "heading": "2.0.11 负温养护法 curing method at subzero temperature",
-          "score": 76.87,
-          "standard_code": "JGJT104",
-          "confidence": "high"
-        },
-        {
           "file": "_seg0_TCECS 1000-2021 工程建设标准编写导则.md",
           "source": "legacy",
           "heading": "5.1.3 部分包覆钢混凝土组合梁截面受弯承载力，当符合本规程第4.1.2条规定的截面分类3的规定时，应采用下列方法之一计算：",
-          "score": 42.39,
+          "score": 42.89,
           "standard_code": "TCECS1000",
           "confidence": "mid"
         },
         {
-          "file": "_seg0_GB 55037-2022 建筑防火通用规范.md",
+          "file": "_seg0_JGJ 59-2011 建筑施工安全检查标准.md",
           "source": "ppr_graph",
-          "heading": "2.1 目标与功能",
-          "score": 33.32,
-          "standard_code": "GB55037",
+          "heading": "2.0.4 临边 temporary edges",
+          "score": 30.53,
+          "standard_code": "JGJ59",
           "confidence": "mid"
         },
         {
-          "file": "_seg0_JGJ_T 163-2008 城市夜景照明设计规范.md",
+          "file": "_seg4_建筑施工手册（第六版）第6册_p0389-0582.md",
           "source": "ppr_graph",
-          "heading": "2.0.2 夜景照明 nightscape lighting",
-          "score": 31.52,
-          "standard_code": "JGJT163",
+          "heading": "1. 锅炉蒸汽严密性试验",
+          "score": 27.71,
+          "standard_code": "",
           "confidence": "mid"
         },
         {
-          "file": "_seg0_GB 50217-2018 电力工程电缆设计标准.md",
-          "source": "merged",
-          "heading": "3.4.10 系新增条文。",
-          "score": 28.04,
-          "standard_code": "GB50217",
+          "file": "_seg0_JGJ 162-2008 建筑施工模板安全技术规范.md",
+          "source": "legacy",
+          "heading": "建筑施工模板安全技术规范",
+          "score": 21.13,
+          "standard_code": "JGJ162",
+          "confidence": "mid"
+        },
+        {
+          "file": "_seg0_CJJ 143-2010 埋地塑料排水管道工程技术规范.md",
+          "source": "legacy",
+          "heading": "制定说明",
+          "score": 20.62,
+          "standard_code": "CJJ143",
           "confidence": "mid"
         }
       ],
@@ -2982,23 +2966,23 @@
           "file": "_seg0_JTG_T F20-2015 公路路面基层施工技术细则.md",
           "source": "legacy",
           "heading": "5.4.2 具有足够的摊铺能力和压实功率时,可增加碾压厚度,具体的摊铺厚度应根据试验结果确定。大厚度的摊铺施工时,应增加相应的拌和能力。",
-          "score": 59.43,
+          "score": 54.21,
           "standard_code": "JTGTF20",
           "confidence": "mid"
         },
         {
-          "file": "_seg0_JGJ_T 104-2011 建筑工程冬期施工规程.md",
+          "file": "_seg0_GB 55037-2022 建筑防火通用规范.md",
           "source": "ppr_graph",
-          "heading": "2.0.11 负温养护法 curing method at subzero temperature",
-          "score": 42.15,
-          "standard_code": "JGJT104",
+          "heading": "2.1 目标与功能",
+          "score": 42.95,
+          "standard_code": "GB55037",
           "confidence": "mid"
         },
         {
           "file": "_seg1_JGJ 79-2012 建筑地基处理技术规范_p0001-0128.md",
           "source": "legacy",
           "heading": "建筑地基处理技术规范",
-          "score": 40.92,
+          "score": 41.01,
           "standard_code": "JGJ79",
           "confidence": "mid"
         },
@@ -3042,11 +3026,11 @@
       "has_expected": true,
       "results": [
         {
-          "file": "_seg0_JGJ_T 104-2011 建筑工程冬期施工规程.md",
+          "file": "_seg0_GB 55037-2022 建筑防火通用规范.md",
           "source": "ppr_graph",
-          "heading": "2.0.11 负温养护法 curing method at subzero temperature",
-          "score": 50.68,
-          "standard_code": "JGJT104",
+          "heading": "2.1 目标与功能",
+          "score": 43.6,
+          "standard_code": "GB55037",
           "confidence": "mid"
         },
         {
@@ -3058,6 +3042,14 @@
           "confidence": "mid"
         },
         {
+          "file": "_seg0_JGJ_T 29-2015 建筑涂饰工程施工及验收规程.md",
+          "source": "merged",
+          "heading": "建筑涂饰工程施工及验收规程",
+          "score": 34.5,
+          "standard_code": "JGJT29",
+          "confidence": "mid"
+        },
+        {
           "file": "_seg0_GB_T 50328-2014 建设工程文件归档规范.md",
           "source": "legacy",
           "heading": "建设工程文件归档规范",
@@ -3066,18 +3058,10 @@
           "confidence": "mid"
         },
         {
-          "file": "_seg0_JGJ_T 29-2015 建筑涂饰工程施工及验收规程.md",
-          "source": "legacy",
-          "heading": "建筑涂饰工程施工及验收规程",
-          "score": 34.5,
-          "standard_code": "JGJT29",
-          "confidence": "mid"
-        },
-        {
           "file": "_seg0_CJJ_T 287-2018 园林绿化养护标准.md",
           "source": "legacy",
           "heading": "4 园林绿化养护管理分级及质量要求",
-          "score": 33.53,
+          "score": 33.89,
           "standard_code": "CJJT287",
           "confidence": "mid"
         }
@@ -3094,10 +3078,18 @@
       "has_expected": true,
       "results": [
         {
+          "file": "_seg1_GB 50011-2010 建筑抗震设计规范_p0001-0144.md",
+          "source": "ppr_graph",
+          "heading": "2.1.1 抗震设防烈度 seismic precautionary intensity",
+          "score": 108.21,
+          "standard_code": "GB50011",
+          "confidence": "high"
+        },
+        {
           "file": "_seg0_GB 50208-2011 地下防水工程质量验收规范.md",
           "source": "legacy",
           "heading": "4.2.5 对本条说明如下：",
-          "score": 61.56,
+          "score": 61.71,
           "standard_code": "GB50208",
           "confidence": "high"
         },
@@ -3105,32 +3097,24 @@
           "file": "_seg0_JTG_T F20-2015 公路路面基层施工技术细则.md",
           "source": "legacy",
           "heading": "4.1.8 确定无机结合料稳定材料最大干密度指标时宜采用重型击实方法,也可采用振动压实方法。",
-          "score": 59.69,
+          "score": 59.79,
           "standard_code": "JTGTF20",
           "confidence": "mid"
         },
         {
-          "file": "_seg0_JGJ_T 104-2011 建筑工程冬期施工规程.md",
+          "file": "_seg0_GB 55037-2022 建筑防火通用规范.md",
           "source": "ppr_graph",
-          "heading": "2.0.11 负温养护法 curing method at subzero temperature",
-          "score": 51.95,
-          "standard_code": "JGJT104",
+          "heading": "2.1 目标与功能",
+          "score": 47.49,
+          "standard_code": "GB55037",
           "confidence": "mid"
         },
         {
           "file": "_seg0_GB 50203-2011 砌体结构工程施工质量验收规范.md",
           "source": "legacy",
           "heading": "6.2 主控项目",
-          "score": 45.23,
+          "score": 45.42,
           "standard_code": "GB50203",
-          "confidence": "mid"
-        },
-        {
-          "file": "_seg0_GB 50242-2002 建筑给水排水及采暖工程施工质量验收规范.md",
-          "source": "legacy",
-          "heading": "一般项目",
-          "score": 39.24,
-          "standard_code": "GB50242",
           "confidence": "mid"
         }
       ],
@@ -3160,7 +3144,7 @@
           "file": "_seg1_建筑施工手册（第六版）第6册_p0001-0194.md",
           "source": "merged",
           "heading": "36.1.2 通风与空调工程设计图例",
-          "score": 134.62,
+          "score": 134.63,
           "standard_code": "DB18E5",
           "confidence": "high"
         },
@@ -3176,7 +3160,7 @@
           "file": "_seg0_GB 12523-2025 建筑施工噪声排放标准.md",
           "source": "legacy",
           "heading": "建筑施工噪声排放标准",
-          "score": 103.67,
+          "score": 103.81,
           "standard_code": "GB12523",
           "confidence": "high"
         },
@@ -3248,7 +3232,7 @@
           "file": "_seg0_GB 12523-2025 建筑施工噪声排放标准.md",
           "source": "legacy",
           "heading": "建筑施工噪声排放标准",
-          "score": 136.27,
+          "score": 136.42,
           "standard_code": "GB12523",
           "confidence": "high"
         },
@@ -3364,7 +3348,7 @@
           "file": "_seg6_建筑施工手册（第六版）第3册_p0586-0780.md",
           "source": "merged",
           "heading": "18.16.6.4 补偿收缩混凝土的施工",
-          "score": 210.87,
+          "score": 210.82,
           "standard_code": "GB50164",
           "confidence": "high"
         },
@@ -3372,7 +3356,7 @@
           "file": "_seg0_GB 50204-2015 混凝土结构工程施工质量验收规范.md",
           "source": "legacy",
           "heading": "7.4.1 混凝土的强度等级必须符合设计要求。用于检验混凝土强度的试件应在浇筑地点随机抽取。",
-          "score": 194.32,
+          "score": 194.2,
           "standard_code": "GB50204",
           "confidence": "high"
         },
@@ -3396,7 +3380,7 @@
           "file": "_seg0_GB 1499.1-2024 钢筋混凝土用钢 第1部分：热轧光圆钢筋.md",
           "source": "legacy",
           "heading": "钢筋混凝土用钢",
-          "score": 146.13,
+          "score": 146.03,
           "standard_code": "GB1499.1",
           "confidence": "high"
         }
@@ -3416,7 +3400,7 @@
           "file": "_seg6_建筑施工手册（第六版）第3册_p0586-0780.md",
           "source": "merged",
           "heading": "18.16.6.4 补偿收缩混凝土的施工",
-          "score": 196.05,
+          "score": 196.0,
           "standard_code": "GB50164",
           "confidence": "high"
         },
@@ -3424,7 +3408,7 @@
           "file": "_seg0_GB 50204-2015 混凝土结构工程施工质量验收规范.md",
           "source": "legacy",
           "heading": "7.4.1 混凝土的强度等级必须符合设计要求。用于检验混凝土强度的试件应在浇筑地点随机抽取。",
-          "score": 194.32,
+          "score": 194.2,
           "standard_code": "GB50204",
           "confidence": "high"
         },
@@ -3440,7 +3424,7 @@
           "file": "_seg0_GB 1499.1-2024 钢筋混凝土用钢 第1部分：热轧光圆钢筋.md",
           "source": "legacy",
           "heading": "钢筋混凝土用钢",
-          "score": 146.13,
+          "score": 146.03,
           "standard_code": "GB1499.1",
           "confidence": "high"
         },
@@ -3468,7 +3452,7 @@
           "file": "_seg6_建筑施工手册（第六版）第3册_p0586-0780.md",
           "source": "merged",
           "heading": "18.16.6.4 补偿收缩混凝土的施工",
-          "score": 196.05,
+          "score": 196.0,
           "standard_code": "GB50164",
           "confidence": "high"
         },
@@ -3476,7 +3460,7 @@
           "file": "_seg0_GB 50204-2015 混凝土结构工程施工质量验收规范.md",
           "source": "legacy",
           "heading": "7.4.1 混凝土的强度等级必须符合设计要求。用于检验混凝土强度的试件应在浇筑地点随机抽取。",
-          "score": 182.39,
+          "score": 182.26,
           "standard_code": "GB50204",
           "confidence": "high"
         },
@@ -3492,7 +3476,7 @@
           "file": "_seg0_GB 1499.1-2024 钢筋混凝土用钢 第1部分：热轧光圆钢筋.md",
           "source": "legacy",
           "heading": "钢筋混凝土用钢",
-          "score": 146.13,
+          "score": 146.03,
           "standard_code": "GB1499.1",
           "confidence": "high"
         },
@@ -3517,43 +3501,43 @@
       "has_expected": false,
       "results": [
         {
-          "file": "_seg1_GB 50268-2008 给水排水管道工程施工及验收规范_p0001-0128.md",
-          "source": "legacy",
-          "heading": "4.1.9 给排水管道铺设完毕并经检验合格后，应及时回填沟槽。回填前，应符合下列规定：",
-          "score": 182.23,
-          "standard_code": "GB50268",
-          "confidence": "high"
-        },
-        {
-          "file": "_seg1_建筑施工手册（第六版）第6册_p0001-0194.md",
+          "file": "_seg0_GB 50084-2017 自动喷水灭火系统设计规范.md",
           "source": "merged",
-          "heading": "36.1.1 建筑给水排水及供暖工程设计图例",
-          "score": 179.98,
-          "standard_code": "DBE3720",
+          "heading": "5.0.5 仓库及类似场所采用早期抑制快速响应喷头时,系统的设计基本参数不应低于表 5.0.5 的规定。",
+          "score": 157.08,
+          "standard_code": "GB50084",
           "confidence": "high"
         },
         {
-          "file": "_seg0_CJJ 143-2010 埋地塑料排水管道工程技术规范.md",
+          "file": "_seg0_GB_T 50720-2011 建设工程施工现场消防安全技术标准(2025 年版).md",
           "source": "legacy",
-          "heading": "4.7.1 塑料排水管道分为刚性连接和柔性连接两种方式。不同",
-          "score": 152.29,
-          "standard_code": "CJJ143",
+          "heading": "5.3.5、5.3.6 （本条删除）",
+          "score": 149.76,
+          "standard_code": "GBT50720",
           "confidence": "high"
         },
         {
-          "file": "_seg1_GB 50015-2019 建筑给水排水设计标准_p0001-0145.md",
+          "file": "_seg1_GB 50016-2014 建筑设计防火规范(2018 年版)_p0001-0155.md",
           "source": "merged",
-          "heading": "3.13 小区室外给水",
-          "score": 135.14,
-          "standard_code": "GB50015",
+          "heading": "5.3 防火分区和层数",
+          "score": 118.01,
+          "standard_code": "GB50016",
           "confidence": "high"
         },
         {
           "file": "_seg0_建筑工程设计常见问题汇编 给排水分册 2021 年.md",
           "source": "merged",
-          "heading": "原因分析：",
-          "score": 126.19,
-          "standard_code": "DB064",
+          "heading": "第 6 章 消防给水及灭火设施 …… (78)",
+          "score": 107.58,
+          "standard_code": "",
+          "confidence": "high"
+        },
+        {
+          "file": "_seg0_GB 55037-2022 建筑防火通用规范.md",
+          "source": "merged",
+          "heading": "8.1 消防给水和灭火设施",
+          "score": 96.34,
+          "standard_code": "GB55037",
           "confidence": "high"
         }
       ],
@@ -3605,14 +3589,6 @@
           "confidence": "high"
         },
         {
-          "file": "_seg0_GB 50208-2011 地下防水工程质量验收规范.md",
-          "source": "",
-          "heading": "4.1.3 对本条说明如下：",
-          "score": 106.32,
-          "standard_code": "GB50208",
-          "confidence": "high"
-        },
-        {
           "file": "_seg0_GB 50204-2015 混凝土结构工程施工质量验收规范.md",
           "source": "",
           "heading": "7.4.1 混凝土的强度等级必须符合设计要求。用于检验混凝土强度的试件应在浇筑地点随机抽取。",
@@ -3621,10 +3597,18 @@
           "confidence": "high"
         },
         {
-          "file": "_seg0_GB 50164-2011 混凝土质量控制标准.md",
+          "file": "_seg0_GB 50208-2011 地下防水工程质量验收规范.md",
           "source": "",
-          "heading": "6.6 浇筑成型",
-          "score": 90.89,
+          "heading": "4.1.3 对本条说明如下：",
+          "score": 102.18,
+          "standard_code": "GB50208",
+          "confidence": "high"
+        },
+        {
+          "file": "_seg6_建筑施工手册（第六版）第3册_p0586-0780.md",
+          "source": "",
+          "heading": "18.16.6.4 补偿收缩混凝土的施工",
+          "score": 83.6,
           "standard_code": "GB50164",
           "confidence": "high"
         }
@@ -3801,19 +3785,19 @@
       "has_expected": false,
       "results": [
         {
-          "file": "_seg0_GB 50202-2018 建筑地基工程施工质量验收标准.md",
-          "source": "",
-          "heading": "3.0.2 本条给出了验收时需要提供的材料,验收材料应提交齐全。",
-          "score": 45.02,
-          "standard_code": "GB50202",
-          "confidence": "mid"
-        },
-        {
           "file": "_seg0_GB 50204-2015 混凝土结构工程施工质量验收规范.md",
           "source": "",
           "heading": "4.2.7 模板的起拱应符合现行国家标准《混凝土结构工程施工规范》GB 50666 的规定，并应符合设计及施工方案的要求。",
           "score": 42.64,
           "standard_code": "GB50204",
+          "confidence": "mid"
+        },
+        {
+          "file": "_seg0_GB 50202-2018 建筑地基工程施工质量验收标准.md",
+          "source": "",
+          "heading": "3.0.2 本条给出了验收时需要提供的材料,验收材料应提交齐全。",
+          "score": 40.49,
+          "standard_code": "GB50202",
           "confidence": "mid"
         },
         {
@@ -3828,7 +3812,7 @@
           "file": "_seg0_GB 50500-2013 建设工程工程量清单计价规范.md",
           "source": "",
           "heading": "建设工程工程量清单计价规范",
-          "score": 33.56,
+          "score": 33.6,
           "standard_code": "GB50500",
           "confidence": "mid"
         },
@@ -3896,7 +3880,7 @@
           "file": "_seg0_GB 50303-2015 建筑电气工程施工质量验收规范.md",
           "source": "legacy",
           "heading": "3.4.3 当验收建筑电气工程时，应核查下列各项质量控制资料，且资料内容应真实、齐全、完整：",
-          "score": 169.02,
+          "score": 169.14,
           "standard_code": "GB50303",
           "confidence": "high"
         },
@@ -3904,7 +3888,7 @@
           "file": "_seg0_GB 50300-2013 建筑工程施工质量验收统一标准.md",
           "source": "legacy",
           "heading": "5 建筑工程质量验收",
-          "score": 151.17,
+          "score": 151.26,
           "standard_code": "GB50300",
           "confidence": "high"
         },
@@ -3920,7 +3904,7 @@
           "file": "_seg0_GB 50203-2011 砌体结构工程施工质量验收规范.md",
           "source": "legacy",
           "heading": "11 子分部工程验收",
-          "score": 121.6,
+          "score": 121.68,
           "standard_code": "GB50203",
           "confidence": "high"
         },
@@ -3928,7 +3912,7 @@
           "file": "_seg0_GB 50208-2011 地下防水工程质量验收规范.md",
           "source": "legacy",
           "heading": "9 子分部工程质量验收",
-          "score": 117.98,
+          "score": 118.09,
           "standard_code": "GB50208",
           "confidence": "high"
         }
@@ -3948,7 +3932,7 @@
           "file": "_seg8_建筑施工手册（第六版）第4册_p0749-0933.md",
           "source": "merged",
           "heading": "28.13.3 绿色施工措施",
-          "score": 160.55,
+          "score": 160.47,
           "standard_code": "",
           "confidence": "high"
         },
@@ -4068,7 +4052,7 @@
           "file": "_seg6_建筑施工手册（第六版）第1册_p0544-0724.md",
           "source": "",
           "heading": "3.4.10.2 常用模板脚手架软件",
-          "score": 74.99,
+          "score": 75.17,
           "standard_code": "",
           "confidence": "high"
         },
@@ -4081,12 +4065,12 @@
           "confidence": "high"
         },
         {
-          "file": "_seg1_城市轨道交通工程建设安全生产标准化管理技术指南_p0001-0152.md",
+          "file": "_seg2_建筑施工手册（第六版）第3册_p0196-0390.md",
           "source": "",
-          "heading": "3.4.1 危大工程管理",
-          "score": 56.1,
+          "heading": "16.3.4 飞模",
+          "score": 62.96,
           "standard_code": "",
-          "confidence": "mid"
+          "confidence": "high"
         }
       ],
       "error": ""
@@ -4104,7 +4088,7 @@
           "file": "_seg4_建筑施工手册（第六版）第3册_p0391-0585.md",
           "source": "merged",
           "heading": "17.5.5 钢筋加工质量检验",
-          "score": 186.41,
+          "score": 186.34,
           "standard_code": "GBT50010",
           "confidence": "high"
         },
@@ -4120,7 +4104,7 @@
           "file": "_seg0_GB 50204-2015 混凝土结构工程施工质量验收规范.md",
           "source": "merged",
           "heading": "5.2 材料",
-          "score": 133.38,
+          "score": 133.34,
           "standard_code": "GB50204",
           "confidence": "high"
         },
@@ -4128,7 +4112,7 @@
           "file": "_seg1_GB 50666-2011 混凝土结构工程施工规范_p0001-0110.md",
           "source": "legacy",
           "heading": "5.4 钢筋连接与安装",
-          "score": 113.93,
+          "score": 113.91,
           "standard_code": "GB50666",
           "confidence": "high"
         },

@@ -27,7 +27,7 @@ KB_MD_DIR = os.path.expanduser(_cfg['paths']['kb_md'])
 KB_JSON_DIR = os.path.expanduser(_cfg['paths'].get('kb_json', os.path.join(KB_MD_DIR, '..', 'kb_json')))
 SEARCH_INDEX_PATH = os.path.join(KB_JSON_DIR, 'kb_search_index.json')
 TERM_INDEX_PATH = os.path.join(KB_JSON_DIR, 'kb_term_index.json')
-TERM_MAP_PATH = os.path.join(os.path.dirname(__file__), 'kb_term_map.json')
+TERM_MAP_PATH = os.path.join(os.path.dirname(__file__), '..', 'contracts', 'term_map.json')
 
 
 def load_known_terms():

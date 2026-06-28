@@ -19,7 +19,9 @@ import changelog; changelog.record(__file__, sys.argv)
 
 # v6.18: 原文锚点查询 — jieba + 术语词典用于从规范原文提取技术关键词
 import jieba
-_TERM_MAP_PATH = os.path.join(os.path.dirname(__file__), '..', '..', 'pipeline', 'scripts', 'kb_term_map.json')
+# 修复 B5: 原指向不存在的 ../../pipeline/scripts/kb_term_map.json (被 os.path.exists 静默吞,
+# 致 jieba 术语词典从不加载、锚点提取静默退化)。改指 contracts/term_map.json (从 plan_writer/ 上溯一级)。
+_TERM_MAP_PATH = os.path.join(os.path.dirname(__file__), '..', 'contracts', 'term_map.json')
 _anchor_terms_loaded = False
 
 def _load_jieba_terms():

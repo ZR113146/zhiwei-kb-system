@@ -15,8 +15,24 @@ import changelog; changelog.record(__file__, sys.argv)
 # === 加载规范标签和项目类型映射 ===
 REF_DIR = os.path.dirname(__file__)
 
+# 已知契约文件 → kb.json paths key (contracts/ 寻址)。
+_CONTRACT_KEYS = {
+    'standard_tags.json': 'standard_tags',
+    'project_type_map.json': 'project_type_map',
+}
+
 def _load_json(filename):
-    path = os.path.join(REF_DIR, filename)
+    # 优先经 kb.json 寻址到 contracts/; 失败回退原同目录(兼容)。
+    path = ''
+    key = _CONTRACT_KEYS.get(filename)
+    if key:
+        try:
+            from kb import load_config
+            path = load_config().get('paths', {}).get(key, '')
+        except Exception:
+            path = ''
+    if not path or not os.path.exists(path):
+        path = os.path.join(REF_DIR, filename)
     if os.path.exists(path):
         with open(path, 'r', encoding='utf-8') as f:
             return json.load(f)

@@ -13,7 +13,7 @@ from collections import defaultdict
 
 KNOWLEDGE = os.path.join(os.path.dirname(__file__), '..', 'data', 'index')
 SEARCH_INDEX = os.path.join(os.path.dirname(__file__), '..', 'data', 'kb_json', 'kb_search_index.json')
-TERM_MAP = os.path.join(os.path.dirname(__file__), 'kb_term_map.json')
+TERM_MAP = os.path.join(os.path.dirname(__file__), '..', 'contracts', 'term_map.json')
 TERM_INDEX = os.path.join(os.path.dirname(__file__), '..', 'data', 'kb_json', 'kb_term_index.json')
 OUTPUT = os.path.join(os.path.dirname(__file__), '..', 'data', 'kb_json', 'kb_body_bm25.json')
 

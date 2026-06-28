@@ -258,8 +258,8 @@ class KB:
         s = r.stats()
         # 类别分布
         try:
-            tag_path = os.path.join(os.path.dirname(KB_DIR), 'plan_writer', 'standard_tags.json')
-            if os.path.exists(tag_path):
+            tag_path = self.P.get('standard_tags', '')  # contracts/ 经 kb.json 寻址
+            if tag_path and os.path.exists(tag_path):
                 with open(tag_path, 'r', encoding='utf-8') as f:
                     tags = json.load(f)
                 categories = {k: len(v) if isinstance(v, list) else 0

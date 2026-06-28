@@ -8,7 +8,7 @@ from collections import Counter
 import jieba
 
 KB_DIR = os.path.join(os.path.dirname(__file__), '..', 'data', 'index')
-TERM_MAP_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'kb_term_map.json')
+TERM_MAP_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'contracts', 'term_map.json')
 OUTPUT = os.path.join(KB_DIR, 'kb_phrase_model.json')
 
 def build():

@@ -10,7 +10,7 @@ from collections import Counter, defaultdict
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 FEEDBACK_LOG = os.path.join(SCRIPT_DIR, 'kb_feedback.jsonl')
-TERM_MAP = os.path.join(SCRIPT_DIR, 'kb_term_map.json')
+TERM_MAP = os.path.join(SCRIPT_DIR, '..', 'contracts', 'term_map.json')
 SUGGESTIONS = os.path.join(SCRIPT_DIR, 'kb_feedback_suggestions.json')
 
 

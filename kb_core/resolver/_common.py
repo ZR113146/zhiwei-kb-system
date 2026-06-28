@@ -269,9 +269,10 @@ def normalize_code_token(token):
 
 
 # ── 术语映射表 (v6.14) ──
+# 路径锚到 contracts/ (与 kb.json 的 kb_term_map 值一致)。_common 是 resolver 底层,
+# 不能 import kb(会成环), 故用 _ROOT_DIR 直接拼 contracts/ 而非走 load_config。
 _TERM_MAP = None
-_TERM_MAP_PATH = os.path.join(os.path.dirname(_KB_DIR),
-                               'pipeline', 'kb_term_map.json')
+_TERM_MAP_PATH = os.path.join(_ROOT_DIR, 'contracts', 'term_map.json')
 
 
 def _load_term_map():
@@ -338,8 +339,7 @@ def _expand_term_map(kw_list):
 # ---- Index ----
 
 # ---- v3 术语映射表 (专业分组 + 参数维度) ----
-_TERM_MAP_V3_PATH = os.path.join(os.path.dirname(_KB_DIR),
-                                  'pipeline', 'kb_term_map_v3.json')
+_TERM_MAP_V3_PATH = os.path.join(_ROOT_DIR, 'contracts', 'term_map_v3.json')
 _TERM_MAP_V3 = None
 _GNAME_TO_G = None
 

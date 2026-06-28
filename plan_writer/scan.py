@@ -13,6 +13,11 @@ def _load_relevance_keywords():
     Falls back to generic construction keywords if no project config exists."""
     try:
         ref_dir = os.path.dirname(__file__)
+        try:
+            from kb import load_config
+            _paths = load_config().get('paths', {})
+        except Exception:
+            _paths = {}
         project_json = os.path.join(os.path.dirname(__file__), '..', 'content', 'project.json')
         keywords = set()
 
@@ -24,7 +29,7 @@ def _load_relevance_keywords():
                 ptypes = ['\u56ed\u6797\u666f\u89c2']  # default fallback
 
             # Load category→keyword mapping from standard_tags
-            tag_path = os.path.join(ref_dir, 'standard_tags.json')
+            tag_path = _paths.get('standard_tags', '') or os.path.join(ref_dir, 'standard_tags.json')
             cat_keywords = {}
             if os.path.exists(tag_path):
                 with open(tag_path, 'r', encoding='utf-8') as f:
@@ -34,7 +39,7 @@ def _load_relevance_keywords():
                     cat_keywords[cat] = kws
 
             # Load project type→categories from project_type_map
-            pmap_path = os.path.join(ref_dir, 'project_type_map.json')
+            pmap_path = _paths.get('project_type_map', '') or os.path.join(ref_dir, 'project_type_map.json')
             if os.path.exists(pmap_path):
                 with open(pmap_path, 'r', encoding='utf-8') as f:
                     pmap = json.load(f)

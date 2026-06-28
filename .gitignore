@@ -41,7 +41,6 @@ pipeline/kb_tag_scores.json
 pipeline/kb_tag_scores_phase4.json
 pipeline/kb_term_bge_suggestions.json
 pipeline/kb_term_candidates.json
-pipeline/kb_term_map_v3.json
 pipeline/kb_vector_map.json
 
 # ── 运行期日志/指标(随每次检索追加,不入库)──
