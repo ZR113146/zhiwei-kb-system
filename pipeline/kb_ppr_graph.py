@@ -170,27 +170,8 @@ def load_bm25_index():
 
 # ═══════════════════════════════ 构建图 ═══════════════════════════════
 
-def build_graph(pm, ti, si, bi):
-    """构建统一图: NODES + EDGES"""
-    print('[5/6] 构建图...')
-
-    # ── 节点 ──
-    words = pm['words']
-    w2id = pm['w2id']
-    n_terms = len(words)
-
-    # 文件节点: 使用搜索索引的文件列表
-    all_files = si['files']
-    fname_to_fid = {f: i for i, f in enumerate(all_files)}
-    n_files = len(all_files)
-    total = n_terms + n_files
-    print(f'  NODES: {n_terms}词 + {n_files}文件 = {total}')
-
-    # ── 边 (邻接表) ──
-    # 阶段1: 收集原始边 (term_src → target, weight)
-    raw = defaultdict(list)  # src → [(tgt, weight_type, raw_weight)]
-
-    # 1a. T→T 共现边 (强信号)
+def _add_cooc_edges(raw, ti, w2id):
+    """1a. T→T 共现边 (强信号)。就地写入 raw, 返回新增边数。"""
     t0 = time.time()
     cooc_added = 0
     for w1, w2, prob in ti['cooc']:
@@ -202,8 +183,11 @@ def build_graph(pm, ti, si, bi):
         raw[i2].append((i1, 'cooc', prob * COOC_WEIGHT_SCALE))
         cooc_added += 2
     print(f'  共现边: {cooc_added:,} ({time.time()-t0:.1f}s)')
+    return cooc_added
 
-    # 1b. T→T Bigram边 (弱, top-10)
+
+def _add_bigram_edges(raw, pm):
+    """1b. T→T Bigram边 (弱, top-K)。就地写入 raw, 返回新增边数。"""
     t0 = time.time()
     bigram_by_src = defaultdict(list)
     for wi, wj, freq in pm['bigrams']:
@@ -219,8 +203,11 @@ def build_graph(pm, ti, si, bi):
             raw[src].append((tgt, 'bigram', prob))
             bigram_added += 1
     print(f'  Bigram边 (top-{BIGRAM_TOP_K}): {bigram_added:,} ({time.time()-t0:.1f}s)')
+    return bigram_added
 
-    # 1c_v2. T→T V2语义边 (上下文词向量余弦, 来自预计算建议, 弱桥接边)
+
+def _add_v2_semantic_edges(raw, w2id):
+    """1c_v2. T→T V2语义边 (上下文词向量余弦, 弱桥接边)。返回新增边数。"""
     t0 = time.time()
     v2_added = 0
     v2_sug_path = os.path.join(os.path.dirname(__file__), 'kb_term_bge_suggestions.json')
@@ -239,8 +226,11 @@ def build_graph(pm, ti, si, bi):
             raw[i2].append((i1, 'v2_semantic', cos * 0.06))
             v2_added += 2
     print(f'  V2语义边 (cos>0.7): {v2_added:,} ({time.time()-t0:.1f}s)')
+    return v2_added
 
-    # 1c. T→F 标题边 (×HEADING_BOOST 语义权重, 最强信号)
+
+def _add_heading_edges(raw, si, w2id, n_terms, fname_to_fid):
+    """1c. T→F 标题边 (×HEADING_BOOST 语义权重, 最强信号)。返回新增边数。"""
     t0 = time.time()
     heading_added = 0
     heading_tokens = si['heading_tokens']
@@ -256,8 +246,11 @@ def build_graph(pm, ti, si, bi):
             raw[tid].append((tgt_node, 'heading', weight))
             heading_added += 1
     print(f'  标题边 (×{HEADING_BOOST:.0f}): {heading_added:,} ({time.time()-t0:.1f}s)')
+    return heading_added
 
-    # 1d. T→F 术语索引边 (IDF加权)
+
+def _add_term_edges(raw, ti, w2id, n_terms, n_files, fname_to_fid):
+    """1d. T→F 术语索引边 (IDF加权)。返回新增边数。"""
     t0 = time.time()
     term_added = 0
     term_index = ti['index']
@@ -276,8 +269,11 @@ def build_graph(pm, ti, si, bi):
             raw[tid].append((n_terms + fid, 'term', weight))
             term_added += 1
     print(f'  术语边: {term_added:,} ({time.time()-t0:.1f}s)')
+    return term_added
 
-    # 1e. T→F BM25 边 (中等权重)
+
+def _add_bm25_edges(raw, bi, w2id, n_terms, fname_to_fid):
+    """1e. T→F BM25 边 (中等权重)。返回新增边数。"""
     t0 = time.time()
     bm25_added = 0
     bm25_skipped = 0
@@ -318,14 +314,14 @@ def build_graph(pm, ti, si, bi):
     if bm25_skipped:
         print(f'  BM25 skipped: {bm25_skipped}')
     print(f'  BM25边: {bm25_added:,} ({time.time()-t0:.1f}s)')
+    return bm25_added
 
-    # ── 阶段2: 归一化 + 压缩 ──
+
+def _normalize_edges(raw, n_terms):
+    """阶段2: 归一化 + 压缩。返回 edges_out (list[list[(tgt, w_int)]])。"""
     print('  归一化边权...', end=' ', flush=True)
     t0 = time.time()
     edges_out = [[] for _ in range(n_terms)]  # 只有词节点有出边
-
-    # 边类型计数 (v6.20: 写入 _meta 供分析和 GNN 使用)
-    edge_type_counts = {'cooc': 0, 'bigram': 0, 'heading': 0, 'term': 0, 'bm25': 0}
 
     for src_id in range(n_terms):
         edge_list = raw.get(src_id, [])
@@ -367,6 +363,36 @@ def build_graph(pm, ti, si, bi):
     tf_edges = sum(1 for row in edges_out for tgt, _ in row if tgt >= n_terms)
     tt_edges = total_edges - tf_edges
     print(f'{total_edges:,}边 T→F={tf_edges:,} T→T={tt_edges:,} ratio={tf_edges/max(tt_edges,1):.2f} ({time.time()-t0:.1f}s)')
+    return edges_out
+
+
+def build_graph(pm, ti, si, bi):
+    """构建统一图: NODES + EDGES (编排各边收集与归一化步骤)"""
+    print('[5/6] 构建图...')
+
+    # ── 节点 ──
+    words = pm['words']
+    w2id = pm['w2id']
+    n_terms = len(words)
+
+    # 文件节点: 使用搜索索引的文件列表
+    all_files = si['files']
+    fname_to_fid = {f: i for i, f in enumerate(all_files)}
+    n_files = len(all_files)
+    total = n_terms + n_files
+    print(f'  NODES: {n_terms}词 + {n_files}文件 = {total}')
+
+    # ── 阶段1: 收集原始边 (term_src → target, weight) ──
+    raw = defaultdict(list)  # src → [(tgt, weight_type, raw_weight)]
+    cooc_added = _add_cooc_edges(raw, ti, w2id)
+    bigram_added = _add_bigram_edges(raw, pm)
+    _add_v2_semantic_edges(raw, w2id)
+    heading_added = _add_heading_edges(raw, si, w2id, n_terms, fname_to_fid)
+    term_added = _add_term_edges(raw, ti, w2id, n_terms, n_files, fname_to_fid)
+    bm25_added = _add_bm25_edges(raw, bi, w2id, n_terms, fname_to_fid)
+
+    # ── 阶段2: 归一化 + 压缩 ──
+    edges_out = _normalize_edges(raw, n_terms)
 
     return {
         'words': words,

@@ -122,6 +122,123 @@ def compute_baselines(items):
     return body_h, body_x0
 
 
+def _detect_glossary_range(items):
+    """检测 术语/定义 章节范围。
+
+    Returns: (in_glossary, glossary_start_idx, glossary_end_idx)
+    glossary_end_idx 为下一个编号 >=3 的章节; 无则 999999。
+    """
+    in_glossary = False
+    glossary_start_idx = -1
+    for idx, it in enumerate(items):
+        t = it['text'].strip()
+        if re.match(r'^[\d.]*\s*术语\s*$', t) or t == '术语':
+            in_glossary = True
+            glossary_start_idx = idx
+            break
+
+    glossary_end_idx = 999999
+    if in_glossary:
+        for idx in range(glossary_start_idx + 1, len(items)):
+            t = items[idx]['text'].strip()
+            m = re.match(r'^(\d+)\s', t)
+            if m and int(m.group(1)) >= 3:
+                glossary_end_idx = idx
+                break
+    return in_glossary, glossary_start_idx, glossary_end_idx
+
+
+def _score_heading_block(it, idx, items, body_h, body_x0):
+    """对单个文本块跑 8 信号评分。
+
+    Returns: (score, level_override, is_clause_body)
+    is_clause_body=True 表示判定为条款正文, 调用方应跳过。
+    level_override 为编号/纯数字章标题确定的强制层级 (否则 None)。
+    """
+    text_clean = it['text'].strip()
+    text_len = len(text_clean)
+    score = 0
+    h_ratio = it['height'] / body_h
+
+    # S1: 字号差
+    if h_ratio > 1.40:       score += 30
+    elif h_ratio > 1.20:     score += 22
+    elif h_ratio > 1.10:     score += 14
+    elif h_ratio > 1.05:     score += 6
+
+    # S2: 缩进差
+    x0_diff = body_x0 - it['x0']
+    if x0_diff > 20:         score += 15
+    elif x0_diff > 12:       score += 10
+    elif x0_diff > 6:        score += 5
+    elif x0_diff < -8:       score -= 8
+
+    # S3: 短行
+    if text_len < 10:        score += 15
+    elif text_len < 22:      score += 10
+    elif text_len < 36:      score += 5
+    elif text_len > 120:     score -= 12
+
+    # S4: 编号匹配
+    level_override = None
+    is_clause_body = False
+    matched = False
+    for pat, lvl in NUM_PATTERNS:
+        if pat.match(text_clean):
+            matched = True
+            if lvl in (2, 3, 4) and text_len > CLAUSE_BODY_LEN:
+                score += 15
+                is_clause_body = True
+            else:
+                score += 50
+                level_override = lvl
+            break
+
+    # 纯数字章标题: "3 基本规定" (数字+空格+短标题, 非条款动词)
+    if not matched and not is_clause_body:
+        cm = _CHAPTER_DIGIT_PAT.match(text_clean)
+        if cm and text_len <= _CHAPTER_MAX_LEN and not _CLAUSE_VERBS.search(text_clean):
+            score += 45
+            level_override = 1
+
+    # 条款正文特征检测 (引导列表、冒号结尾)
+    if not is_clause_body:
+        for cm in _CLAUSE_MARKERS:
+            if cm.search(text_clean):
+                is_clause_body = True
+                score -= 30
+                break
+
+    if is_clause_body:
+        return score, level_override, True
+
+    # S5: MinerU text_level (降权 — 误标较多)
+    tl = it.get('text_level')
+    if tl == 1:              score += 25
+    elif tl == 2:            score += 18
+    elif tl == 3:            score += 10
+
+    # S6: 布局类型
+    tp = it.get('type', 'text')
+    if tp == 'title':        score += 25
+
+    # S7: 页位
+    if it['y0'] < 60:        score += 15
+    elif it['y0'] < 120:     score += 8
+
+    # S8: 上下文
+    if idx + 1 < len(items):
+        next_len = len(items[idx + 1]['text'])
+        if text_len < 30 and next_len > text_len * 4:   score += 12
+        elif text_len < 30 and next_len > text_len * 2:  score += 6
+
+    # 前导页惩罚
+    if it['page'] <= 2 and h_ratio < 1.30 and not level_override:
+        score -= 20
+
+    return score, level_override, False
+
+
 def extract_high_conf_headings(json_path, min_score=65):
     """从 MinerU JSON 提取高置信度标题 (score >= min_score)
 
@@ -133,28 +250,7 @@ def extract_high_conf_headings(json_path, min_score=65):
     body_h = max(body_h, 1)
 
     # ── 检测 术语/定义 章节 ──
-    in_glossary = False
-    glossary_start_page = -1
-    glossary_start_idx = -1
-
-    # 先扫描找"术语"章节标记
-    for idx, it in enumerate(items):
-        t = it['text'].strip()
-        if re.match(r'^[\d.]*\s*术语\s*$', t) or t == '术语':
-            in_glossary = True
-            glossary_start_page = it['page']
-            glossary_start_idx = idx
-            break
-
-    # 术语章节结束标记: 下一个编号>=3 的章节
-    glossary_end_idx = 999999
-    if in_glossary:
-        for idx in range(glossary_start_idx + 1, len(items)):
-            t = items[idx]['text'].strip()
-            m = re.match(r'^(\d+)\s', t)
-            if m and int(m.group(1)) >= 3:
-                glossary_end_idx = idx
-                break
+    in_glossary, glossary_start_idx, glossary_end_idx = _detect_glossary_range(items)
 
     # ── 重建全文本 (含位置映射) ──
     full_text = ''
@@ -188,84 +284,11 @@ def extract_high_conf_headings(json_path, min_score=65):
             if re.match(r'^\d+\.\d+\.\d+', text_clean) and text_len < 80:
                 continue
 
-        score = 0
-        h_ratio = it['height'] / body_h
-
-        # S1: 字号差
-        if h_ratio > 1.40:       score += 30
-        elif h_ratio > 1.20:     score += 22
-        elif h_ratio > 1.10:     score += 14
-        elif h_ratio > 1.05:     score += 6
-
-        # S2: 缩进差
-        x0_diff = body_x0 - it['x0']
-        if x0_diff > 20:         score += 15
-        elif x0_diff > 12:       score += 10
-        elif x0_diff > 6:        score += 5
-        elif x0_diff < -8:       score -= 8
-
-        # S3: 短行
-        if text_len < 10:        score += 15
-        elif text_len < 22:      score += 10
-        elif text_len < 36:      score += 5
-        elif text_len > 120:     score -= 12
-
-        # S4: 编号匹配
-        level_override = None
-        is_clause_body = False
-        matched = False
-        for pat, lvl in NUM_PATTERNS:
-            if pat.match(text_clean):
-                matched = True
-                if lvl in (2, 3, 4) and text_len > CLAUSE_BODY_LEN:
-                    score += 15
-                    is_clause_body = True
-                else:
-                    score += 50
-                    level_override = lvl
-                break
-
-        # 纯数字章标题: "3 基本规定" (数字+空格+短标题, 非条款动词)
-        if not matched and not is_clause_body:
-            cm = _CHAPTER_DIGIT_PAT.match(text_clean)
-            if cm and text_len <= _CHAPTER_MAX_LEN and not _CLAUSE_VERBS.search(text_clean):
-                score += 45
-                level_override = 1
-
-        # 条款正文特征检测 (引导列表、冒号结尾)
-        if not is_clause_body:
-            for cm in _CLAUSE_MARKERS:
-                if cm.search(text_clean):
-                    is_clause_body = True
-                    score -= 30
-                    break
+        score, level_override, is_clause_body = _score_heading_block(
+            it, idx, items, body_h, body_x0)
 
         if is_clause_body:
             continue
-
-        # S5: MinerU text_level (降权 — 误标较多)
-        tl = it.get('text_level')
-        if tl == 1:              score += 25
-        elif tl == 2:            score += 18
-        elif tl == 3:            score += 10
-
-        # S6: 布局类型
-        tp = it.get('type', 'text')
-        if tp == 'title':        score += 25
-
-        # S7: 页位
-        if it['y0'] < 60:        score += 15
-        elif it['y0'] < 120:     score += 8
-
-        # S8: 上下文
-        if idx + 1 < len(items):
-            next_len = len(items[idx + 1]['text'])
-            if text_len < 30 and next_len > text_len * 4:   score += 12
-            elif text_len < 30 and next_len > text_len * 2:  score += 6
-
-        # 前导页惩罚
-        if it['page'] <= 2 and h_ratio < 1.30 and not level_override:
-            score -= 20
 
         if score < min_score:
             continue
