@@ -677,7 +677,7 @@ class KBResolver(LegacySearchMixin, NamingMixin, ClauseReadMixin):
         if self._vector_searcher is None:
             try:
                 import os as _os, sys as _sys
-                _scripts = _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), 'pipeline')
+                _scripts = _os.path.join(_ROOT_DIR, 'pipeline')
                 if _scripts not in _sys.path:
                     _sys.path.insert(0, _scripts)
                 from kb_vector_search_local import LocalSemanticSearch
