@@ -686,24 +686,12 @@ class KBResolver(LegacySearchMixin, NamingMixin, ClauseReadMixin, QueryClassifie
             except Exception:
                 return []
 
-        if _skip_ppr:
-            legacy_results = _run_legacy()
-        else:
-            from concurrent.futures import ThreadPoolExecutor, as_completed
-            with ThreadPoolExecutor(max_workers=2) as _exec:
-                _futures = {
-                    _exec.submit(_run_legacy): 'legacy',
-                    _exec.submit(_run_ppr): 'ppr',
-                }
-                for _f in as_completed(_futures):
-                    _key = _futures[_f]
-                    try:
-                        if _key == 'legacy':
-                            legacy_results = _f.result()
-                        elif _key == 'ppr':
-                            ppr_candidates = _f.result()
-                    except (KeyError, TypeError):
-                        pass
+        # v9.0: 串行执行 (去 ThreadPool)。原并行靠 as_completed 完成顺序非定,
+        # 致 ppr+legacy 分支 ~16% 跨进程漂移; PPR 仅 4% 边际收益, 不值背非确定性债。
+        # 固定顺序 legacy → ppr, 结果可复现。
+        legacy_results = _run_legacy()
+        if not _skip_ppr:
+            ppr_candidates = _run_ppr()
 
         # 合并候选池: PPR(宽召回) + 遗留(精匹配)
         # PPR 原始 0-100000 → 除 40 对齐 Legacy 分数 (0-100), 关键词匹配优先于图传播

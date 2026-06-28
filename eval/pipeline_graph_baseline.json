@@ -3,17 +3,17 @@
   "n_terms": 65651,
   "n_files": 176,
   "total": 65827,
-  "total_edges": 829102,
-  "tf_edges": 493563,
-  "tt_edges": 335539,
+  "total_edges": 812342,
+  "tf_edges": 476830,
+  "tt_edges": 335512,
   "edge_counts_by_type": {
-    "cooc": 39744,
+    "cooc": 39740,
     "bigram": 293251,
     "heading": 43238,
-    "term": 473929,
-    "bm25": 511013
+    "term": 472323,
+    "bm25": 494203
   },
-  "edges_sha256": "15a68833d9960de7548e9383b63e7e99b5a1835e153196747d64f765404fba45",
+  "edges_sha256": "bcf40bca4310e661d96c78d51becba58d48efcdd513e1f8bc9ca5a6a07e3aa38",
   "words_sha256": "ab146429a6255b21a45d14448cd7a7869a809e268a68be3881355529a01d7b9a",
   "files_sha256": "d45a8a8bbacc0a4311474e07728302082512f67368f3a875e8bc562f6fd43e9d"
 }

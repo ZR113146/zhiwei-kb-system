@@ -291,7 +291,7 @@ class PPRDiscoveryEngine:
         for i, j, token in weak_spans:
             best_sim = 0.35
             best_term = None
-            for ct in context_terms:
+            for ct in sorted(context_terms):  # v9.0: 定序遍历, 消除 set 受 hashseed 影响致并列时 best_term 跨进程不同
                 if ct in known_terms:
                     continue
                 shared = len(set(token) & set(ct))
@@ -592,7 +592,9 @@ class PPRDiscoveryEngine:
                     '_source': 'ppr_graph',
                 })
 
-        results.sort(key=lambda x: -x['score'])
+        # v9.0: 加 file 名 tiebreaker —— 分数并列时按文件名定序, 吸收上游
+        # set/dict 遍历受 PYTHONHASHSEED 随机化影响导致的跨进程顺序波动, 使结果可复现。
+        results.sort(key=lambda x: (-x['score'], x.get('file', '')))
         elapsed = (_t.time() - t0) * 1000
         if elapsed > 100:
             import logging
