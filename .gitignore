@@ -71,3 +71,18 @@ data/index/.obsidian/workspace*.json
 data/index/.obsidian/plugins/ob-table-enhancer/
 data/index/.obsidian/plugins/realclaudian/
 data/index/.obsidian/plugins/table-editor-obsidian/
+
+# ── eval 活跃报告产物(每次跑 eval 脚本重生,不入库;盘上保留供 compare/calibrate 读取)──
+# golden 输入集与 *_baseline 回归基线仍跟踪,不在此列。
+eval/baseline_report.json
+eval/baseline_report.md
+eval/comparison_report.json
+eval/comparison_report.md
+eval/truth_baseline_report.json
+eval/truth_baseline_report.md
+eval/clause_eval_report.json
+eval/clause_eval_report.md
+eval/clause_calibration.json
+eval/clause_calibration.md
+eval/plan_writer_citation_eval_report.json
+eval/plan_writer_citation_eval_report.md
