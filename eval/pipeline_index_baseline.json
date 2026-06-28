@@ -1,0 +1,22 @@
+{
+  "kb_search_index": {
+    "product": "kb_search_index.json",
+    "sha256": "7013f27ae9944a1e46b1ca5a7f9e00fa8ddac4f6ac82c1fb1bee3c66b255babe",
+    "error": ""
+  },
+  "kb_term_index": {
+    "product": "kb_term_index.json",
+    "sha256": "3d596aa7873e3756fbd94e2230d6f8909e25b6d6ecc2e5e50b7603d9176966a4",
+    "error": ""
+  },
+  "kb_body_bm25": {
+    "product": "kb_body_bm25.json",
+    "sha256": "0ca6554fe8f834a64cd0ce49ac05eb2e200180e2a8ce39d97416d9ac43c92adf",
+    "error": ""
+  },
+  "kb_build_phrase_model": {
+    "product": "kb_phrase_model.json",
+    "sha256": "a586ef73f697a5a84c7358ad1368a631ed729d1be46af9b3fc2c5da13bc2d6ad",
+    "error": ""
+  }
+}
