@@ -57,6 +57,7 @@ projects/**/content/*.png
 
 # ── 编辑器/工具本地状态(个人环境噪音,不入库)──
 .codebase-memory/
+.semantic-memory/
 data/index/.claudian/
 data/index/.obsidian/app.json
 data/index/.obsidian/appearance.json
