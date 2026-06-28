@@ -568,6 +568,10 @@ class KBResolver(LegacySearchMixin, NamingMixin, ClauseReadMixin, QueryClassifie
         """Search kb_search_index with heuristic ranking + optional vector boost + Bool filters
          + tag preference boost.
 
+        路由器: 缓存检查 → 查询分类 → 选 branch (filename_title / direct / legacy / NL融合)。
+        各 branch 的具体实现见对应 _*_branch 方法; branch 内部负责自己的缓存写入
+        (NL branch 无候选时 `return []` 不写缓存, 此行为由 branch 方法保留)。
+
         Args:
             keywords: space-separated query terms (SHOULD semantics)
             must: list of terms — file is skipped if ANY term is missing
@@ -584,54 +588,81 @@ class KBResolver(LegacySearchMixin, NamingMixin, ClauseReadMixin, QueryClassifie
         # v6.23: 精确查询直通车 — 条款号/参数名直接定位, 绕过全文搜索
         # v8.0: 标准名查询先检测, 避免 param_index 子串误匹配
         _has_code, _is_std_name = self._classify_search_query(keywords)
+
+        # branch: 文件名/标题直接命中
         _title_direct = self._try_filename_title_lookup(keywords, max_results)
         if _title_direct:
-            _title_direct = self._assign_confidence(_title_direct)
-            _title_direct = self._set_trace(_title_direct, {'branch': 'filename_title'})
-            self._cache_search_results(cache_key, _title_direct[:max_results])
-            return _title_direct[:max_results]
+            return self._finalize_title_branch(cache_key, _title_direct, max_results)
 
+        # branch: 条款号/参数名精确直通 (标准名查询除外, 避免子串误匹配)
         if not _is_std_name:
             _direct = self._try_direct_lookup(keywords)
             if _direct:
-                _direct = self._apply_authority_boost(_direct)
-                _direct.sort(key=lambda r: -(r.get('score', 0) if isinstance(r, dict) else 0))
-                _direct = self._assign_confidence(_direct)
-                for _r in _direct:
-                    if isinstance(_r, dict):
-                        _r['_trace'] = {'branch': 'direct', 'source': _r.get('_source', '?')}
-                _direct = _direct[:max_results]
-                self._cache_search_results(cache_key, _direct)
-                return _direct
+                return self._finalize_direct_branch(cache_key, _direct, max_results)
 
         # v7.0: PPR+LLM 双引擎路由
-        # 编码查询 / Bool 过滤 / 标准全名 → 遗留精确关键字搜索
+        # branch: 编码查询 / Bool 过滤 / 标准全名 → 遗留精确关键字搜索
         if _has_code or _is_std_name or must or must_not:
-            _results = self._legacy_keyword_search(keywords, max_results, project_standards,
-                                                   vector_weight, must, must_not, prefer)
-            # v8.0: 标准名查询 — 过滤文件名 token 匹配率 < 50% 的噪音结果
-            # v8.1: 口语化疑问查询即使以"规范"结尾也不过滤
-            if _is_std_name:
-                _results = self._filter_standard_name_results(keywords, _results)
-            # v8.0: 追踪路由原因
-            _results = self._set_trace(_results, {
-                'branch': 'legacy',
-                'reason': self._legacy_search_reason(_has_code, _is_std_name, must, must_not),
-            })
-            # authority boost 改写 score, 必须在重排+赋档之前; 否则排名按 boost 前的旧分,
-            # confidence 也按旧分赋档 → 与最终 score 错位 (编码查询尤甚)。
-            _results = self._apply_authority_boost(_results, keywords)
-            _results.sort(key=lambda r: -(r.get('score', 0) if isinstance(r, dict) else 0))
-            _results = self._assign_confidence(_results)
+            return self._run_legacy_branch(
+                cache_key, keywords, max_results, project_standards, vector_weight,
+                must, must_not, prefer, _has_code, _is_std_name)
 
-            # v8.0: 最低分数阈值 — 过滤无意义查询的 BM25 噪音
-            # BM25-only 结果通常 4-8 分, 合法结果 ≥20
-            _results = [r for r in _results if r.get('score', 0) >= 10.0]
-            _results = _results[:max_results]
-            self._cache_search_results(cache_key, _results)
-            return _results
+        # branch: NL 技术查询 → PPR 发现 + 遗留精确 + LLM 排序 三者融合
+        return self._run_nl_branch(
+            cache_key, keywords, max_results, project_standards, vector_weight, prefer, _has_code)
 
-        # NL 技术查询 → PPR 发现 + 遗留精确 + LLM 排序 三者融合
+    def _finalize_title_branch(self, cache_key, _title_direct, max_results):
+        """branch: 文件名/标题命中的收尾 (赋档 + trace + 缓存)。"""
+        _title_direct = self._assign_confidence(_title_direct)
+        _title_direct = self._set_trace(_title_direct, {'branch': 'filename_title'})
+        self._cache_search_results(cache_key, _title_direct[:max_results])
+        return _title_direct[:max_results]
+
+    def _finalize_direct_branch(self, cache_key, _direct, max_results):
+        """branch: 条款号/参数名直通的收尾 (权威加成 + 重排 + 赋档 + trace + 缓存)。"""
+        _direct = self._apply_authority_boost(_direct)
+        _direct.sort(key=lambda r: -(r.get('score', 0) if isinstance(r, dict) else 0))
+        _direct = self._assign_confidence(_direct)
+        for _r in _direct:
+            if isinstance(_r, dict):
+                _r['_trace'] = {'branch': 'direct', 'source': _r.get('_source', '?')}
+        _direct = _direct[:max_results]
+        self._cache_search_results(cache_key, _direct)
+        return _direct
+
+    def _run_legacy_branch(self, cache_key, keywords, max_results, project_standards,
+                           vector_weight, must, must_not, prefer, _has_code, _is_std_name):
+        """branch: 编码/Bool/标准全名 → 遗留精确关键字搜索 (BM25)。"""
+        _results = self._legacy_keyword_search(keywords, max_results, project_standards,
+                                               vector_weight, must, must_not, prefer)
+        # v8.0: 标准名查询 — 过滤文件名 token 匹配率 < 50% 的噪音结果
+        # v8.1: 口语化疑问查询即使以"规范"结尾也不过滤
+        if _is_std_name:
+            _results = self._filter_standard_name_results(keywords, _results)
+        # v8.0: 追踪路由原因
+        _results = self._set_trace(_results, {
+            'branch': 'legacy',
+            'reason': self._legacy_search_reason(_has_code, _is_std_name, must, must_not),
+        })
+        # authority boost 改写 score, 必须在重排+赋档之前; 否则排名按 boost 前的旧分,
+        # confidence 也按旧分赋档 → 与最终 score 错位 (编码查询尤甚)。
+        _results = self._apply_authority_boost(_results, keywords)
+        _results.sort(key=lambda r: -(r.get('score', 0) if isinstance(r, dict) else 0))
+        _results = self._assign_confidence(_results)
+
+        # v8.0: 最低分数阈值 — 过滤无意义查询的 BM25 噪音
+        # BM25-only 结果通常 4-8 分, 合法结果 ≥20
+        _results = [r for r in _results if r.get('score', 0) >= 10.0]
+        _results = _results[:max_results]
+        self._cache_search_results(cache_key, _results)
+        return _results
+
+    def _run_nl_branch(self, cache_key, keywords, max_results, project_standards,
+                       vector_weight, prefer, _has_code):
+        """branch: NL 技术查询 → PPR 发现 + 遗留精确 + LLM 排序 三者融合。
+
+        无候选时 `return []` 不写缓存 (保留原 search 行为)。
+        """
         kw_list = keywords.split()
         _extra_kws = []
         for kw in kw_list:
