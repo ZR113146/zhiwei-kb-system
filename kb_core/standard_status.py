@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """Standard status helpers for Zhiwei KB.
 
 This module is intentionally lightweight: it only reads metadata generated from
@@ -173,40 +173,3 @@ def coverage(status_data):
         "coverage_ratio": round(known / total, 4) if total else 0.0,
         "by_status": by_status,
     }
-
-
-def build_records_from_manifest(manifest):
-    records = {}
-    standards = manifest.get("standards", {}) if isinstance(manifest, dict) else {}
-    for name, filename in standards.items():
-        source = filename or name
-        extracted = extract_standard(source) or extract_standard(name)
-        if not extracted:
-            continue
-        code = extracted["standard_code"]
-        if not code:
-            continue
-        current = records.get(code, {})
-        year = extracted.get("year") or current.get("year")
-        record = {
-            "standard_code": code,
-            "display_code": extracted.get("display_code", current.get("display_code", code)),
-            "official_code": extracted.get("official_code", current.get("official_code", current.get("display_code", code))),
-            "standard_name": extracted.get("standard_name") or current.get("standard_name", ""),
-            "year": year,
-            "status": current.get("status") or infer_default_status(year),
-            "effective_date": current.get("effective_date", ""),
-            "abolished_date": current.get("abolished_date", ""),
-            "replaced_by": current.get("replaced_by", []),
-            "standard_level": current.get("standard_level") or infer_level(code),
-            "jurisdiction": current.get("jurisdiction", "CN" if not code.startswith("DB") else "local"),
-            "confidence": current.get("confidence", "generated_from_manifest"),
-            "evidence_url": current.get("evidence_url", ""),
-            "evidence_urls": current.get("evidence_urls", ""),
-            "evidence_source": current.get("evidence_source", ""),
-            "evidence_scope": current.get("evidence_scope", ""),
-            "review_note": current.get("review_note", ""),
-            "source": current.get("source", source),
-        }
-        records[code] = record
-    return dict(sorted(records.items()))

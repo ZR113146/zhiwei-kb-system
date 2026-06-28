@@ -7,7 +7,6 @@
     "work_json": "data/work_json",
     "kb_json": "data/kb_json",
     "kb_md_lib": "data/md_lib_v2",
-    "kb_images": "data/images",
     "kb_md": "data/index",
     "md_manifest": "data/md_manifest.json",
     "manifest": "data/kb_json/manifest.json",
@@ -41,10 +40,5 @@
         "truth_path": "eval/truth_queries_seed.jsonl",
         "top_k": 10
       }
-    },
-  "pipeline": {
-    "min_standards_threshold": 50,
-    "max_extract_retries": 3,
-    "max_index_build_timeout": 300
-  }
+    }
 }
