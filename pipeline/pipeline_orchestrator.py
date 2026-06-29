@@ -326,24 +326,32 @@ def phase_c(session):
         session._save()
 
         # 向量监听：等待嵌入完成
+        # v9.0 修 B4: watcher 脚本缺失时优雅降级(原无守护→subprocess 必崩)。
+        # 向量由外部 Obsidian 插件异步生成; 无 watcher 或无 Obsidian 环境(如 Codex)
+        # 时跳过等待、继续 C2 —— 向量缺失不阻塞入库, 检索端对空向量库已能降级。
         watcher = os.path.join(SCRIPTS_DIR, 'kb_watch_vectors.py')
-        timeout = max(600, cdata['md_imported'] * 2)  # 至少10分钟，大库更长
-        print('\n' + '='*50)
-        print(f"[向量监听] 等待嵌入完成 (超时 {timeout}s)...")
-        print("          可在 Obsidian 刷新知识库")
-        print('='*50)
-        wr = subprocess.run([sys.executable, watcher, '--timeout', str(timeout)],
-                           timeout=timeout + 60, cwd=SCRIPTS_DIR, check=False)
-        if wr.returncode == 0:
-            # 嵌入+映射成功 → 自动继续 C2
-            cdata['vector_before'] = cdata.get('vector_before', count_vectors())
-        else:
-            # 超时或用户未刷新 → 保存 session 退出，之后可 resume
+        if not os.path.exists(watcher):
+            print('\n[向量监听] kb_watch_vectors.py 不存在 → 跳过向量等待(向量由外部'
+                  ' Obsidian 插件异步生成; 无 Obsidian 环境可忽略), 继续 C2')
             cdata['vector_before'] = count_vectors()
-            session._save()
-            print('\n[向量监听] 超时或中断，session 已保存')
-            print('          之后执行: python pipeline_orchestrator.py --resume --phase c')
-            return 'WAIT_HUMAN'
+        else:
+            timeout = max(600, cdata['md_imported'] * 2)  # 至少10分钟，大库更长
+            print('\n' + '='*50)
+            print(f"[向量监听] 等待嵌入完成 (超时 {timeout}s)...")
+            print("          可在 Obsidian 刷新知识库")
+            print('='*50)
+            wr = subprocess.run([sys.executable, watcher, '--timeout', str(timeout)],
+                               timeout=timeout + 60, cwd=SCRIPTS_DIR, check=False)
+            if wr.returncode == 0:
+                # 嵌入+映射成功 → 自动继续 C2
+                cdata['vector_before'] = cdata.get('vector_before', count_vectors())
+            else:
+                # 超时或用户未刷新 → 保存 session 退出，之后可 resume
+                cdata['vector_before'] = count_vectors()
+                session._save()
+                print('\n[向量监听] 超时或中断，session 已保存')
+                print('          之后执行: python pipeline_orchestrator.py --resume --phase c')
+                return 'WAIT_HUMAN'
 
     if cdata.get('json_merged'): return None
 
