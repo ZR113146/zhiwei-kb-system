@@ -119,33 +119,23 @@ def scan_docx(docx_path):
 
     # 3. 跨章数值冲突检测（要求紧接关键词+比较词+数值+单位的完整模式）
     key_values = {}
-    patterns = {
-        '养护时间': re.compile(r'养护(?:时间)?(?:不[得应][少低大于超]|≥|≧)?\s*(\d+)\s*[d天]'),
-        '压实系数': re.compile(r'压实系数[λc]?\s*(?:不[得应][少低大于超]|≥|≧|≧)\s*([0-9.]+)'),
-        '开挖深度': re.compile(r'(?:最大)?开挖深度(?:不[得应][超大于])?\s*(\d+\.?\d*)\s*[m米]'),
-        '振动速度': re.compile(r'振动速度(?:不[得应][超大于]|控制在)?\s*(\d+\.?\d*)\s*mm/s'),
+    # E5: 共享扫描骨架; checks {key:(pattern,min,max)}
+    from _value_conflict import scan_hits
+    checks = {
+        '养护时间': (re.compile(r'养护(?:时间)?(?:不[得应][少低大于超]|≥|≧)?\s*(\d+)\s*[d天]'), 2, 30),
+        '压实系数': (re.compile(r'压实系数[λc]?\s*(?:不[得应][少低大于超]|≥|≧|≧)\s*([0-9.]+)'), 0.5, 5),
+        '开挖深度': (re.compile(r'(?:最大)?开挖深度(?:不[得应][超大于])?\s*(\d+\.?\d*)\s*[m米]'), 0.5, 20),
+        '振动速度': (re.compile(r'振动速度(?:不[得应][超大于]|控制在)?\s*(\d+\.?\d*)\s*mm/s'), 0.1, 100),
     }
-    # Subject-disambiguation: extract noun before keyword to tell if values refer to different things
-    _subject_re = re.compile(r'([\u4e00-\u9fff]{2,6})\s*(?:最大)?(?:养护时间|压实系数|开挖深度|振动速度)')
-    for i, text in all_text:
-        for key, pat in patterns.items():
-            m = pat.search(text)
-            if m:
-                val = m.group(1)
-                try:
-                    fv = float(val)
-                    if key == '养护时间' and (fv < 2 or fv > 30): continue
-                    if key == '压实系数' and (fv < 0.5 or fv > 5): continue
-                    if key == '开挖深度' and (fv < 0.5 or fv > 20): continue
-                    if key == '振动速度' and (fv < 0.1 or fv > 100): continue
-                except ValueError:
-                    continue
-                # Extract subject context (equipment/method/category)
-                sm = _subject_re.search(text)
-                subject = sm.group(1) if sm else ''
-                if key not in key_values:
-                    key_values[key] = []
-                key_values[key].append((i, val, text[:100], subject))
+    _subject_re = re.compile(r'([一-鿿]{2,6})\s*(?:最大)?(?:养护时间|压实系数|开挖深度|振动速度)')
+    hits = scan_hits(all_text, checks)
+    for key, key_hits in hits.items():
+        for i, val, text in key_hits:
+            sm = _subject_re.search(text)
+            subject = sm.group(1) if sm else ''
+            if key not in key_values:
+                key_values[key] = []
+            key_values[key].append((i, val, text[:100], subject))
 
     for key, vals in key_values.items():
         unique_vals = set(v[1] for v in vals)

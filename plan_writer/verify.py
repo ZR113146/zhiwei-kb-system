@@ -193,6 +193,7 @@ def _load_project_standards():
 
 def check_value_conflicts(all_text):
     """检测跨章数值冲突（收紧匹配窗口，过滤明显非目标值）"""
+    from _value_conflict import scan_hits  # E5: 共享扫描骨架
     issues = []
     checks = {
         '养护时间': (r'养护(?:时间)?(?:不[得应][少低大于超]|≥)\s*(\d+)\s*[d天]', 2, 30),
@@ -202,21 +203,15 @@ def check_value_conflicts(all_text):
         '砂浆饱满度': (r'饱满度[^。\n]{0,20}(\d+)\s*%', 50, 100),
         '成活率': (r'成活率[^。\n]{0,20}(\d+)\s*%', 50, 100),
     }
+    # 公共骨架扫描+阈值过滤; verify 特有的开挖单位归一在此后处理。
+    hits = scan_hits(all_text, checks)
     values = {k: [] for k in checks}
-    for i, text in all_text:
-        for key, (pat, min_val, max_val) in checks.items():
-            m = re.search(pat, text)
-            if m:
-                val = m.group(1)
-                try:
-                    fv = float(val)
-                    if fv < min_val or fv > max_val: continue
-                    # 开挖深度单位统一：1500mm→1.5m
-                    if key == '开挖深度' and fv > 100:
-                        val = str(fv/1000)
-                except ValueError:
-                    continue
-                values[key].append((i, val, text[:80]))
+    for key, key_hits in hits.items():
+        for i, val, text in key_hits:
+            # 开挖深度单位统一：1500mm→1.5m
+            if key == '开挖深度' and float(val) > 100:
+                val = str(float(val) / 1000)
+            values[key].append((i, val, text[:80]))
     for key, vals in values.items():
         unique = set(v[1] for v in vals)
         if len(unique) > 1:
