@@ -362,7 +362,7 @@ def phase_c(session):
     if os.path.exists(manifest_path): shutil.copy2(manifest_path, snap)
     session.data['phase_c']['kb_json_snapshot'] = snap
 
-    user = os.environ.get('USERNAME', 'zhaor')
+    import getpass; user = getpass.getuser()
     build_script = _cfg['paths'].get('build_index_script', '')
     # Lift DENY → build_index → 备份永久库 → re-apply（finally 保证即使崩溃也恢复保护）
     subprocess.run(['icacls', KB_JSON_DIR, '/remove:d', user], capture_output=True)

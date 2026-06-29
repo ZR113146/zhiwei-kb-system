@@ -124,7 +124,7 @@ def rollback(session_id):
     if json_snap and os.path.exists(json_snap):
         mt = os.path.join(KB_JSON_DIR, 'manifest.json')
         try:
-            user = os.environ.get('USERNAME', 'zhaor')
+            import getpass; user = getpass.getuser()
             subprocess.run(['icacls', KB_JSON_DIR, '/remove:d', user],
                          capture_output=True, timeout=10)
             if os.path.exists(mt):
