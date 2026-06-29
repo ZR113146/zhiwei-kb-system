@@ -15,7 +15,7 @@ from functools import lru_cache
 from typing import Any, Dict, Iterable, List, Optional, Tuple
 
 try:
-    from standard_status import normalize_code
+    from kb_core.standard_status import normalize_code
 except ImportError:  # pragma: no cover - module can also be imported as package
     from .standard_status import normalize_code
 

@@ -25,13 +25,13 @@ _kb = None
 def get_kb():
     global _kb
     if _kb is None:
-        from kb import KB; _kb = KB()
+        from kb_core.kb import KB; _kb = KB()
     return _kb
 
 # ===== Helpers =====
 
 # Paths from kb.json (project-relative, Codex platform)
-from kb import load_config
+from kb_core.kb import load_config
 _PATHS = load_config().get('paths', {})
 _ROOT_DIR = os.path.dirname(_KB_DIR)
 _KB_JSON_DIR = _PATHS['kb_json']

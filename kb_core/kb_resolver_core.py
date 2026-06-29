@@ -17,18 +17,18 @@ import os, re, json, sys, math
 # `import *` 借助 _common.__all__ 取到全部 preamble 名 (含下划线名), 使本模块
 # 命名空间与重构前等价 —— 类方法引用的 normalize_code / _expand_term_map /
 # KB_JSON_DIR 等, 以及 external importers 依赖的公开名, 全部可见。
-from resolver._common import *
-from resolver._common import (
+from kb_core.resolver._common import *
+from kb_core.resolver._common import (
     _status_coverage, load_standard_status, status_for_code, normalize_status_code,
 )
-from resolver.legacy_search import LegacySearchMixin
-from resolver.naming import NamingMixin
-from resolver.clause_read import ClauseReadMixin
-from resolver.query_classifier import QueryClassifierMixin
-from resolver.ranking import RankingMixin
-from resolver.ppr_fusion import PprFusionMixin
-from resolver.clause_refine import ClauseRefineMixin
-from resolver.confidence import ConfidenceMixin
+from kb_core.resolver.legacy_search import LegacySearchMixin
+from kb_core.resolver.naming import NamingMixin
+from kb_core.resolver.clause_read import ClauseReadMixin
+from kb_core.resolver.query_classifier import QueryClassifierMixin
+from kb_core.resolver.ranking import RankingMixin
+from kb_core.resolver.ppr_fusion import PprFusionMixin
+from kb_core.resolver.clause_refine import ClauseRefineMixin
+from kb_core.resolver.confidence import ConfidenceMixin
 
 
 class KBResolver(LegacySearchMixin, NamingMixin, ClauseReadMixin, QueryClassifierMixin, RankingMixin, PprFusionMixin, ClauseRefineMixin, ConfidenceMixin):
@@ -676,7 +676,7 @@ class KBResolver(LegacySearchMixin, NamingMixin, ClauseReadMixin, QueryClassifie
                 except (json.JSONDecodeError, IOError):
                     pass
             try:
-                from kb_ppr_engine import discover as _ppr_discover
+                from kb_core.kb_ppr_engine import discover as _ppr_discover
                 return _ppr_discover(
                     query=keywords,
                     max_results=min(max_results * 3, 30),

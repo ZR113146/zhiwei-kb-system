@@ -424,7 +424,7 @@ class ClauseReadMixin:
         if not hasattr(self, '_clause_searcher'):
             self._clause_searcher = None
             try:
-                from clause_vector_search import get_clause_searcher
+                from kb_core.clause_vector_search import get_clause_searcher
                 cs = get_clause_searcher()
                 self._clause_searcher = cs if cs.available() else None
             except Exception:

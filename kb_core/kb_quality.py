@@ -19,7 +19,7 @@ KB_SKILL = os.path.dirname(os.path.abspath(__file__))
 BASELINE_PATH = os.path.join(KB_SKILL, 'kb_quality_baseline.json')
 PPR_BASELINE_PATH = os.path.join(KB_SKILL, 'kb_ppr_baseline.json')
 
-from kb import KB, normalize_code, extract_code
+from kb_core.kb import KB, normalize_code, extract_code
 
 # ═══════════════════════════════════════════════════════
 # 搜索测试用例 (53 条)
@@ -340,7 +340,7 @@ def evaluate_ppr(kb):
 
     # 图健康: 加载 PPR 图并检查结构
     try:
-        from kb_ppr_engine import get_engine
+        from kb_core.kb_ppr_engine import get_engine
         eng = get_engine()
         stats = eng.get_graph_stats()
         results['graph_health'] = stats or {'error': 'graph not loaded'}

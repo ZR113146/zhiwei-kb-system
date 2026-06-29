@@ -10,9 +10,9 @@ kb_core/resolver/, 比原 kb_core/ 深一层, 故 _KB_DIR 显式回退到 kb_cor
 """
 
 import os, re, json, sys, math
-from standard_status import coverage as _status_coverage
-from standard_status import load_standard_status, status_for_code
-from standard_status import normalize_code as normalize_status_code
+from kb_core.standard_status import coverage as _status_coverage
+from kb_core.standard_status import load_standard_status, status_for_code
+from kb_core.standard_status import normalize_code as normalize_status_code
 
 # ---- Path resolution (unified: kb.json) ----
 # 本文件在 kb_core/resolver/_common.py, 上溯两级到项目根, 上溯一级到 kb_core。

@@ -39,7 +39,7 @@ def load_config():
 # ============================================================
 # 规范编号规范化
 # ============================================================
-from kb_resolver_core import normalize_code, extract_code
+from kb_core.kb_resolver_core import normalize_code, extract_code
 
 # ============================================================
 # KB 核心类
@@ -280,7 +280,7 @@ class KB:
             'categories': categories,
         }
         try:
-            import metrics
+            import kb_core.metrics as metrics
             metrics.record_status(result['standards'], result['clauses'],
                                 result['md_files'])
         except ImportError:
@@ -356,7 +356,7 @@ class KB:
                           must=must, must_not=must_not, prefer=prefer)
         if support_guard:
             try:
-                from support_guard import annotate_results
+                from kb_core.support_guard import annotate_results
                 guard_cfg = self.cfg.get('search', {}).get('support_guard', {})
                 mode = support_guard_mode or guard_cfg.get('mode', 'annotate')
                 truth_path = support_truth_path or guard_cfg.get('truth_path', 'eval/truth_queries_seed.jsonl')
@@ -371,7 +371,7 @@ class KB:
         if elapsed > 1500:
             print(f'  [WARN] 搜索超时: {elapsed:.0f}ms (query={query[:40]})')
         try:
-            import metrics
+            import kb_core.metrics as metrics
             metrics.record_search(query, elapsed, len(results),
                                 'hybrid' if vw > 0 else 'keyword')
         except ImportError:
@@ -402,7 +402,7 @@ class KB:
                 if kw_count < 3 and vec_count > 0:
                     import re as _re, json as _json, os as _os
                     # 提取2-4字中文词, 筛掉停用词和映射表中已有词
-                    from kb_resolver_core import _load_term_map
+                    from kb_core.kb_resolver_core import _load_term_map
                     known = set(_load_term_map().keys()) if _load_term_map() else set()
                     unknown_words = []
                     for w in _re.findall(r'[\u4e00-\u9fff]{2,4}', query):
@@ -628,7 +628,7 @@ if __name__ == '__main__':
     elif cmd == 'metrics':
         sub = sys.argv[2] if len(sys.argv) > 2 else 'search'
         try:
-            import metrics
+            import kb_core.metrics as metrics
         except ImportError:
             print('metrics module not available')
             sys.exit(1)

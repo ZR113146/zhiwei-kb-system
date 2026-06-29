@@ -19,7 +19,7 @@ _ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 def _load_paths():
     # A1(消造轮子): 统一走 kb.load_config 唯一正主, 不再自解析 kb.json。
     # 局部 import 避免顶层导入环(本模块被 clause_read 函数内局部 import)。
-    from kb import load_config
+    from kb_core.kb import load_config
     paths = load_config().get('paths', {})
 
     def _resolve(key, default):
