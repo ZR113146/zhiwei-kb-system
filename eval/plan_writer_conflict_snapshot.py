@@ -20,7 +20,7 @@ import os
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-for rel in ("kb_core", "plan_writer"):
+for rel in ("plan_writer",):
     p = os.path.join(ROOT, rel)
     if p not in sys.path:
         sys.path.insert(0, p)

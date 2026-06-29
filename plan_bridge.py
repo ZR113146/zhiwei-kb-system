@@ -8,7 +8,7 @@ _plan_writer = os.path.join(_ROOT, 'plan_writer')
 _kb_core = os.path.join(_ROOT, 'kb_core')
 _pipeline = os.path.join(_ROOT, 'pipeline')
 
-for p in [_plan_writer, _kb_core, _pipeline, _ROOT]:
+for p in [_plan_writer, _pipeline, _ROOT]:
     if p not in sys.path:
         sys.path.insert(0, p)
 

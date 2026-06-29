@@ -6,7 +6,7 @@ import sys
 from datetime import datetime
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-for rel in ("", "kb_core", "plan_writer"):
+for rel in ("", "plan_writer"):
     path = os.path.join(ROOT, rel) if rel else ROOT
     if path not in sys.path:
         sys.path.insert(0, path)
