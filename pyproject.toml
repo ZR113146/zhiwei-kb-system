@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "zhiwei-kb"
+version = "9.0.0"
+description = "知微 KB 系统 — 建筑规范知识库检索 + 施工方案编制"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi==0.136.1",
+    "uvicorn==0.47.0",
+    "pydantic==2.13.4",
+    "numpy==2.4.4",
+    "faiss-cpu==1.14.2",
+    "jieba==0.42.1",
+    "python-docx==1.2.0",
+    "pypdf==6.11.0",
+    "httpx==0.28.1",
+    "requests==2.34.2",
+]
+
+# kb_core 是检索核心包(含 resolver 子包)。pipeline/plan_writer/eval 是
+# subprocess 脚本目录, 不作为包安装; 它们经 `pip install -e .` 后可
+# `from kb_core.x import ...` 导入核心。
+[tool.setuptools]
+packages = ["kb_core", "kb_core.resolver"]
+
+[tool.setuptools.package-data]
+kb_core = ["kb.json"]

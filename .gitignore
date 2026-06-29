@@ -88,3 +88,9 @@ eval/plan_writer_citation_eval_report.md
 
 # ── eval 历史报告归档(死产物,零代码引用,盘上留作本地存档,不入库/不索引)──
 eval/reports/archive/
+
+# ── Python 打包产物 (pip install -e . / build) ──
+*.egg-info/
+*.egg-link
+build/
+dist/
