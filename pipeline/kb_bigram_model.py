@@ -9,7 +9,7 @@ from collections import Counter, defaultdict
 # 配置文件路径
 _KB_DIR = os.path.join(os.path.dirname(__file__), '..', 'kb_core')
 if _KB_DIR not in sys.path: sys.path.insert(0, _KB_DIR)
-from kb import load_config
+from kb_core.kb import load_config
 _cfg = load_config()
 MODEL_PATH = os.path.join(os.path.dirname(__file__), 'kb_bigram.json')
 KB_MD_DIR = _cfg['paths'].get('kb_md_lib', os.path.join(os.path.dirname(__file__), '..', 'data', 'md_lib_v2'))

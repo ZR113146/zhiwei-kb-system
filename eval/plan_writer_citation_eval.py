@@ -11,7 +11,7 @@ for rel in ("", "kb_core", "plan_writer"):
     if path not in sys.path:
         sys.path.insert(0, path)
 
-from kb import KB  # noqa: E402
+from kb_core.kb import KB  # noqa: E402
 from docx import Document  # noqa: E402
 from kb_auditor import (  # noqa: E402
     _resolve_citation,

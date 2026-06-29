@@ -20,7 +20,7 @@ if KB_SKILL not in sys.path:
     sys.path.insert(0, KB_SKILL)
 
 import kb_ppr_graph as builder
-from kb import KB, normalize_code, extract_code
+from kb_core.kb import KB, normalize_code, extract_code
 
 sys.path.insert(0, SCRIPT_DIR)
 from kb_ppr_quality import (

@@ -4,9 +4,9 @@ import os, re, json, argparse, sys
 from docx import Document
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'kb_core'))
-from kb import KB, normalize_code, extract_code as _ec
-from support_guard import partition_by_support_action
-import changelog; changelog.record(__file__, sys.argv)
+from kb_core.kb import KB, normalize_code, extract_code as _ec
+from kb_core.support_guard import partition_by_support_action
+import kb_core.changelog as changelog; changelog.record(__file__, sys.argv)
 from _utils import find_latest_docx
 
 # === 行政区划→地方标准前缀映射 ===

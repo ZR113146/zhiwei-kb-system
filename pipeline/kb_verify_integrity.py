@@ -7,9 +7,9 @@ import os, sys, re, json, hashlib, subprocess
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 _KB_DIR = os.path.join(SCRIPT_DIR, '..', 'kb_core')
 sys.path.insert(0, _KB_DIR)
-from kb import load_config, KB
+from kb_core.kb import load_config, KB
 kb = KB()
-import changelog; changelog.record(__file__, sys.argv)
+import kb_core.changelog as changelog; changelog.record(__file__, sys.argv)
 
 cfg = load_config()
 KB_JSON = cfg['paths']['kb_json']
@@ -31,7 +31,7 @@ def norm_path(p):
     return os.path.normpath(os.path.expanduser(p))
 
 # ---- 使用 kb.py 统一接口做编号提取/存在性检查（与方案编制技能同源）----
-from kb import normalize_code, extract_code as _ec
+from kb_core.kb import normalize_code, extract_code as _ec
 def _std_code(text):
     c = _ec(text)
     return normalize_code(c) if c else None

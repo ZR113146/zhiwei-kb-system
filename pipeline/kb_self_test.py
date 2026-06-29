@@ -7,7 +7,7 @@ SCRIPTS_DIR = os.path.dirname(os.path.abspath(__file__))
 _KB_DIR = os.path.join(SCRIPTS_DIR, '..', 'kb_core')
 sys.path.insert(0, _KB_DIR)
 sys.path.insert(0, SCRIPTS_DIR)
-from kb import KB, load_config, normalize_code, extract_code
+from kb_core.kb import KB, load_config, normalize_code, extract_code
 
 kb = KB(); cfg = load_config()
 PASS = FAIL = 0

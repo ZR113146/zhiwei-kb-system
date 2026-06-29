@@ -22,7 +22,7 @@ BASELINE_PATH = os.path.join(SCRIPT_DIR, 'kb_ppr_baseline.json')
 _KB_SKILL = os.path.join(SCRIPT_DIR, '..', 'kb_core')
 if _KB_SKILL not in sys.path:
     sys.path.insert(0, _KB_SKILL)
-from kb import KB, normalize_code, extract_code
+from kb_core.kb import KB, normalize_code, extract_code
 
 # ═══════════════════════════════════════════════════════════════
 # 测试用例

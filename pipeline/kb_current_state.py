@@ -14,8 +14,8 @@ for path in (KB_CORE, PIPELINE, ROOT):
     if path not in sys.path:
         sys.path.insert(0, path)
 
-from kb_resolver_core import KBResolver, KB_JSON_DIR, KB_MD_DIR, SEARCH_INDEX  # noqa: E402
-from standard_status import coverage, load_standard_status  # noqa: E402
+from kb_core.kb_resolver_core import KBResolver, KB_JSON_DIR, KB_MD_DIR, SEARCH_INDEX  # noqa: E402
+from kb_core.standard_status import coverage, load_standard_status  # noqa: E402
 
 
 def count_json_list(path):

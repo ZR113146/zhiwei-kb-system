@@ -9,8 +9,8 @@ content_generator v2.0 — 通用从零编制引擎。
 import os, re, sys, json
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'kb_core'))
-from kb import KB
-import changelog; changelog.record(__file__, sys.argv)
+from kb_core.kb import KB
+import kb_core.changelog as changelog; changelog.record(__file__, sys.argv)
 
 # === 加载规范标签和项目类型映射 ===
 REF_DIR = os.path.dirname(__file__)
@@ -27,7 +27,7 @@ def _load_json(filename):
     key = _CONTRACT_KEYS.get(filename)
     if key:
         try:
-            from kb import load_config
+            from kb_core.kb import load_config
             path = load_config().get('paths', {}).get(key, '')
         except Exception:
             path = ''

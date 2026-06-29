@@ -17,7 +17,7 @@ for p in [_kb_core, _pipeline, _ROOT]:
     if p not in sys.path:
         sys.path.insert(0, p)
 
-from kb_resolver_core import KBResolver
+from kb_core.kb_resolver_core import KBResolver
 import json
 
 _CFG_PATH = os.path.join(_ROOT, 'kb_core', 'kb.json')
@@ -37,7 +37,7 @@ def search(query: str, max_results: int = 5) -> list:
 
 def search_with_support(query: str, max_results: int = 5, mode: str = 'annotate') -> list:
     '''混合搜索，并附加真实性支撑诊断；默认只标注，不改变排序。'''
-    from support_guard import annotate_results
+    from kb_core.support_guard import annotate_results
     results = _kb.search(query, max_results=max_results, vector_weight=_VECTOR_WEIGHT)
     guard_cfg = _CFG.get('search', {}).get('support_guard', {})
     truth_path = guard_cfg.get('truth_path', 'eval/truth_queries_seed.jsonl')

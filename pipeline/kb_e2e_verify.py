@@ -7,8 +7,8 @@ random.seed(42)  # 确定性抽样，保证CI可复现
 _KB_DIR = os.path.join(os.path.dirname(__file__), '..', 'kb_core')
 if _KB_DIR not in sys.path:
     sys.path.insert(0, _KB_DIR)
-from kb import load_config
-import changelog; changelog.record(__file__, sys.argv)
+from kb_core.kb import load_config
+import kb_core.changelog as changelog; changelog.record(__file__, sys.argv)
 
 _cfg = load_config()
 KB_JSON_DIR = _cfg['paths']['kb_json']

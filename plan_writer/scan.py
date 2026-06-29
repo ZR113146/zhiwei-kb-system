@@ -4,8 +4,8 @@ import os, re, json, argparse, sys
 from docx import Document
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'kb_core'))
-from kb import KB, normalize_code
-import changelog; changelog.record(__file__, sys.argv)
+from kb_core.kb import KB, normalize_code
+import kb_core.changelog as changelog; changelog.record(__file__, sys.argv)
 from _utils import find_latest_docx
 
 def _load_relevance_keywords():
@@ -14,7 +14,7 @@ def _load_relevance_keywords():
     try:
         ref_dir = os.path.dirname(__file__)
         try:
-            from kb import load_config
+            from kb_core.kb import load_config
             _paths = load_config().get('paths', {})
         except Exception:
             _paths = {}

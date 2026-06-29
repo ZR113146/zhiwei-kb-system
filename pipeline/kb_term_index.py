@@ -20,7 +20,7 @@ from collections import defaultdict, Counter
 _KB_DIR = os.path.join(os.path.dirname(__file__), '..', 'kb_core')
 if _KB_DIR not in sys.path:
     sys.path.insert(0, _KB_DIR)
-from kb import load_config
+from kb_core.kb import load_config
 
 _cfg = load_config()
 KB_MD_DIR = os.path.expanduser(_cfg['paths']['kb_md'])

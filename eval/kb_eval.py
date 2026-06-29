@@ -17,7 +17,7 @@ for rel in ("", "kb_core", "pipeline"):
         sys.path.insert(0, path)
 
 from kb_loader import read_clause, search, status  # noqa: E402
-from standard_status import normalize_code  # noqa: E402
+from kb_core.standard_status import normalize_code  # noqa: E402
 
 DEFAULT_GOLDEN = os.path.join(ROOT, "eval", "golden_queries.jsonl")
 DEFAULT_JSON = os.path.join(ROOT, "eval", "baseline_report.json")

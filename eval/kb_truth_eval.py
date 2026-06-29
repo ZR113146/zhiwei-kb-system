@@ -17,7 +17,7 @@ for rel in ("", "kb_core", "pipeline"):
         sys.path.insert(0, path)
 
 from kb_loader import search, status  # noqa: E402
-import support_guard as shared_support_guard  # noqa: E402
+import kb_core.support_guard as shared_support_guard  # noqa: E402
 
 DEFAULT_TRUTH = os.path.join(ROOT, "eval", "truth_queries_seed.jsonl")
 DEFAULT_JSON = os.path.join(ROOT, "eval", "truth_baseline_report.json")
