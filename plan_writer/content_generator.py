@@ -8,7 +8,6 @@ content_generator v2.0 — 通用从零编制引擎。
 
 import os, re, sys, json
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'kb_core'))
 from kb_core.kb import KB
 import kb_core.changelog as changelog; changelog.record(__file__, sys.argv)
 

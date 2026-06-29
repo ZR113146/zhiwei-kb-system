@@ -256,9 +256,6 @@ class Orchestrator:
 
     def _get_kb(self):
         if self._kb is None:
-            kb_core_dir = os.path.join(SKILL_DIR, 'kb_core')
-            if kb_core_dir not in sys.path:
-                sys.path.insert(0, kb_core_dir)
             from kb_core.kb import KB
             self._kb = KB()
         return self._kb

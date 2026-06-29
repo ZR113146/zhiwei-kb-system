@@ -13,7 +13,6 @@ import sys
 
 from docx import Document
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'kb_core'))
 from kb_core.kb import KB, extract_code as _extract_code  # noqa: E402
 from _utils import backup_docx as backup  # noqa: E402
 from _docx_notes import yellow_append as _yellow_append, paragraph_by_index as _paragraph_by_index  # noqa: E402

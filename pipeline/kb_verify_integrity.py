@@ -6,7 +6,6 @@ import os, sys, re, json, hashlib, subprocess
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 _KB_DIR = os.path.join(SCRIPT_DIR, '..', 'kb_core')
-sys.path.insert(0, _KB_DIR)
 from kb_core.kb import load_config, KB
 kb = KB()
 import kb_core.changelog as changelog; changelog.record(__file__, sys.argv)

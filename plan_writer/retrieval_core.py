@@ -20,7 +20,6 @@ from typing import Any, Dict, Iterable, List, Optional
 
 CLAUSE_NO_RE = re.compile(r'(?<![\d.])(\d+(?:\.\d+)+)(?![\d.])')
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'kb_core'))
 from kb_core.kb import KB  # noqa: E402
 
 

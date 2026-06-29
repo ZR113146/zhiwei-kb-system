@@ -23,8 +23,6 @@ def _read_pdf(path):
 
 # ---- 统一配置（kb.json）----
 _KB_DIR = os.path.join(os.path.dirname(__file__), '..', 'kb_core')
-if _KB_DIR not in sys.path:
-    sys.path.insert(0, _KB_DIR)
 from kb_core.kb import load_config
 import kb_core.changelog as changelog; changelog.record(__file__, sys.argv)
 DEFAULT_OUT = load_config()['paths']['staging']
