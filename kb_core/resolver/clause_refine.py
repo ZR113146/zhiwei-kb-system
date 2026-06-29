@@ -119,12 +119,16 @@ class ClauseRefineMixin:
                 r['_source'] = (src + '+clause_refine') if src else 'clause_refine'
         return results
 
-    def _rewrite_head_scores(reordered_head):
+    def _rewrite_head_scores(self, reordered_head):
         """重排后保持 score 与新位置单调一致: 把窗口内原有 score 降序重新分配到新顺序。
 
         重排器 (clause / LLM) 按自己的维度决定顺序后, score 若不回写, 下游纯 score 排序
         与可信度 (依赖 score) 会与展示顺序矛盾。此处让排第一的拿窗口最高分, 依次递减,
-        使 rank / score / confidence 三者同源。原始 score 存入 _pre_rerank_score 备查。"""
+        使 rank / score / confidence 三者同源。原始 score 存入 _pre_rerank_score 备查。
+
+        v9.0 修 B2: 原缺 self 形参, 被 self._rewrite_head_scores([list]) 调用时
+        list 错位传给 reordered_head 之外、self 占位 → TypeError, 致 _clause_rerank
+        一旦触发重排就崩 (静默失效, 因 top-k 长期无 _clause_sim 而从未真正执行)。"""
         pool = sorted((r.get('score', 0) for r in reordered_head), reverse=True)
         for new_pos, result in enumerate(reordered_head):
             if '_pre_rerank_score' not in result:
