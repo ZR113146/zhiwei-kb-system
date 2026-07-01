@@ -239,7 +239,7 @@ def count_vectors():
         return -1
 
 
-def phase_c(session):
+def phase_c(session, embed_clauses=False):
     """C1: MD导入+搜索索引 → [人工门自动退出] → C2: 条款索引+删源
 
     设计：C1完成后自动保存session并退出（不阻塞等人工门）。
@@ -309,6 +309,17 @@ def phase_c(session):
         if os.path.exists(clause_script):
             subprocess.run([sys.executable, clause_script],
                           capture_output=True, timeout=60, cwd=SCRIPTS_DIR)
+        # v9.x: 句向量语义条款通道 (BGE-M3, 依赖 bm25+search_index)。
+        # opt-in + key 门控: 付费 API + 向第三方外发正文, 不能静默产生费用;
+        # 无 key / 未加 --embed-clauses / 脚本缺失 → 优雅跳过, 语义通道保持现状(降级先例)。
+        ssv_script = os.path.join(SCRIPTS_DIR, 'kb_sentence_vectors.py')
+        _key_env = _cfg['api'].get('siliconflow_key_env', 'SILICONFLOW_API_KEY') if isinstance(_cfg.get('api'), dict) else 'SILICONFLOW_API_KEY'
+        if embed_clauses and os.path.exists(ssv_script) and os.environ.get(_key_env):
+            print('[句向量] 重嵌语义条款通道 (付费 API, 约数十分钟)...')
+            subprocess.run([sys.executable, ssv_script],
+                          timeout=3600, cwd=SCRIPTS_DIR, check=False)
+        else:
+            print('[句向量] 跳过 (需 --embed-clauses + %s; 语义条款通道保持现状)' % _key_env)
         # v6.23: 跨标准引用索引
         crossref_script = os.path.join(SCRIPTS_DIR, 'kb_cross_refs.py')
         if os.path.exists(crossref_script):
@@ -472,6 +483,8 @@ def main():
     p.add_argument('source_dir', nargs='?')
     p.add_argument('--resume', action='store_true')
     p.add_argument('--phase', choices=['a','b','c','d'])
+    p.add_argument('--embed-clauses', action='store_true',
+                   help='C 阶段重嵌句向量语义条款通道(付费 API, 默认关闭)')
     args = p.parse_args()
 
     ok, err = acquire_lock()
@@ -495,7 +508,7 @@ def main():
             print(f'Phase B 失败: {err}')
             if run_all: return  # B 失败则停止，可用 --retry-failed + --resume 重试
         if (run_all or args.phase == 'c'):
-            err = phase_c(session)
+            err = phase_c(session, embed_clauses=args.embed_clauses)
             if err == 'WAIT_HUMAN':
                 print('[Pipeline] C1完成')
                 return  # 优雅退出，等待用户操作（锁在 finally 释放）
