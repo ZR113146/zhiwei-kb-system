@@ -7,18 +7,21 @@ Output: data/kb_json/kb_image_index.json (~3-5MB for 26,075 images)
 """
 import os, re, json, sys
 
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+from kb_core.code_norm import extract_standard  # noqa: E402
+
 KNOWLEDGE = os.path.join(os.path.dirname(__file__), '..', 'data', 'index')
 IMAGE_DIR = os.path.join(os.path.dirname(__file__), '..', 'data', 'images')
 OUTPUT = os.path.join(os.path.dirname(__file__), '..', 'data', 'kb_json', 'kb_image_index.json')
 
 RE_IMAGE = re.compile(r'!\[\]\(images/([^)]+)\)')
 RE_HEADING = re.compile(r'^#{1,3}\s+(.+)$', re.MULTILINE)
-RE_CODE = re.compile(r'((?:GB|JGJ|CJJ|CECS|CJ|DB|JTG|TCECS)[\s/]*T?\s*\d+(?:\.\d+)?(?:-\d+)?)')
 
 
 def extract_code_from_filename(fname):
-    m = RE_CODE.search(fname)
-    return m.group(1).replace(' ', '') if m else None
+    # 委托 code_norm 唯一真源 (旧内联 RE_CODE 解析不了入库下划线形式 GB_T)
+    info = extract_standard(fname)
+    return info['standard_code'] if info else None
 
 
 def extract_sections(text):

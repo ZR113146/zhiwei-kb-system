@@ -1,19 +1,19 @@
 {
   "schema": 1,
   "n_terms": 65651,
-  "n_files": 176,
-  "total": 65827,
-  "total_edges": 812342,
-  "tf_edges": 476830,
-  "tt_edges": 335512,
+  "n_files": 177,
+  "total": 65828,
+  "total_edges": 816906,
+  "tf_edges": 481603,
+  "tt_edges": 335303,
   "edge_counts_by_type": {
-    "cooc": 39740,
+    "cooc": 39752,
     "bigram": 293251,
-    "heading": 43238,
-    "term": 472323,
-    "bm25": 494203
+    "heading": 147870,
+    "term": 649993,
+    "bm25": 494576
   },
-  "edges_sha256": "bcf40bca4310e661d96c78d51becba58d48efcdd513e1f8bc9ca5a6a07e3aa38",
+  "edges_sha256": "3f290c23df4bef171f261a9f070f2ce1f1cfe1c514c842d647afd62227d94ed8",
   "words_sha256": "ab146429a6255b21a45d14448cd7a7869a809e268a68be3881355529a01d7b9a",
-  "files_sha256": "d45a8a8bbacc0a4311474e07728302082512f67368f3a875e8bc562f6fd43e9d"
+  "files_sha256": "4d03dba075ce5b39e7f448cfc27b6a17b6647f79ecadca0e7b1770732feaa746"
 }

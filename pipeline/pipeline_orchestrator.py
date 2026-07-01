@@ -133,22 +133,22 @@ def release_lock():
 
 
 def extract_code(fname):
-    """从文件名提取规范编号，支持 GB/JGJ/CJJ/CECS/CJ/DB/JTG/TCECS/JC/RISN + 可选地区号 + 可选/T + 可选下划线/斜线 + 字母数字编号(如F20)"""
-    m = re.search(
-        r'((?:GB|JGJ|CJJ|CECS|CJ|DB|JTG|TCECS|JC|RISN)(?:\d+)?\s*[/／_]?\s*T?\s*[-]?\s*[A-Z]{0,3}\d+[\.-]\d+(?:-\d+)?)',
-        fname
-    )
-    return m.group(1).replace(' ', '').replace('／', '/').replace('_T', 'T') if m else None
+    """从文件名提取规范编号 -> 规范形 (canonical)。委托 code_norm 唯一真源
+    (旧内联正则处理不了入库下划线形式且各处不一致)。"""
+    from kb_core.code_norm import extract_standard
+    info = extract_standard(fname)
+    return info['standard_code'] if info else None
+
 
 def load_kb_codes():
+    from kb_core.code_norm import extract_standard
     codes = {}
     if not os.path.isdir(KB_DIR): return codes
     for f in os.listdir(KB_DIR):
         if not f.endswith('.md'): continue
-        c = extract_code(f)
-        if c:
-            base = re.sub(r'[\-\/\.]\d{4}', '', c)
-            yr = int(re.search(r'[\-\/\.](\d{4})', c).group(1)) if re.search(r'[\-\/\.](\d{4})', c) else 0
+        si = extract_standard(f)
+        if si and si['standard_code']:
+            base, yr = si['standard_code'], si['year'] or 0
             codes[base] = max(yr, codes.get(base, 0))
     return codes
 
@@ -174,6 +174,7 @@ def phase_a(source_dir):
             return None, 'G0 文件名规范校验未通过，请修正后重新入库（详见上方输出）'
 
     print('[Phase A] 去重核验...')
+    from kb_core.code_norm import extract_standard
     kb_codes = load_kb_codes()
     pdfs = [f for f in sorted(os.listdir(source_dir)) if f.endswith('.pdf')]
     info = {'total': len(pdfs), 'new': 0, 'duplicate': 0, 'updated': 0, 'invalid': 0, 'list': []}
@@ -183,9 +184,9 @@ def phase_a(source_dir):
             r = _read_pdf(pp)
             if r.is_encrypted or len(r.pages) == 0: info['invalid'] += 1; continue
         except: info['invalid'] += 1; continue
-        code = extract_code(pdf_name)
-        if not code: info['new'] += 1; info['list'].append(pdf_name); continue
-        base, yr = re.sub(r'[\-\/\.]\d{4}', '', code), int(re.search(r'[\-\/\.](\d{4})', code).group(1)) if re.search(r'[\-\/\.](\d{4})', code) else 0
+        si = extract_standard(pdf_name)
+        if not si or not si['standard_code']: info['new'] += 1; info['list'].append(pdf_name); continue
+        base, yr = si['standard_code'], si['year'] or 0
         if base in kb_codes:
             if yr > kb_codes[base]: info['updated'] += 1; info['list'].append(pdf_name)
             else: info['duplicate'] += 1

@@ -15,6 +15,9 @@
 import json, os, re, math, time, sys
 from collections import defaultdict, Counter
 
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+from kb_core.code_norm import extract_standard as _cn_extract  # noqa: E402
+
 # ═══════════════════════════════ 配置 ═══════════════════════════════
 KB_DIR = os.path.join(os.path.dirname(__file__), '..', 'data', 'kb_json')
 PHRASE_MODEL = os.path.join(KB_DIR, 'kb_phrase_model.json')
@@ -282,8 +285,9 @@ def _add_bm25_edges(raw, bi, w2id, n_terms, fname_to_fid):
     # Build robust mapping: BM25 filename → graph fid
     # Match by extracted standard code, fall back to exact name match
     def extract_code(fname):
-        m = re.search(r'(GB|JGJ|CJJ|CECS|DB\d|JTG|TCECS)[\sT/\d\.\-]+', fname)
-        return m.group(0).replace(' ', '') if m else fname[:30]
+        # 委托 code_norm 唯一真源 (旧内联正则下划线盲 + 缺 CJ/JC/RISN 前缀)
+        info = _cn_extract(fname)
+        return info['standard_code'] if info else fname[:30]
     bm_code_to_gfid = {}
     for fname, gfid in fname_to_fid.items():
         code = extract_code(fname)

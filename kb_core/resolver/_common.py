@@ -108,31 +108,14 @@ def _is_toc_entry(text):
     return toc_lines >= 2  # 连续2行TOC特征 → 判定为目录
 
 
-# ---- Code normalization ----
-def normalize_code(raw):
-    """Canonical form: prefix+number, no year, no separators.
-    Key fix: strip trailing year (19xx/20xx) BEFORE removing dashes,
-    so '50720-2011' → '50720' not '507202011'.
-    GB_T→GBT, /T→T, JGJ-59→JGJ59."""
-    c = raw.strip().replace(' ', '')
-    if not c:
-        return c
-    # Strip trailing year before removing dashes (v8.0: prevents number+year merge)
-    c = re.sub(r'[-](?:19|20)\d{2}$', '', c)
-    c = c.replace('-', '')
-    c = c.replace('/T', 'T').replace('_T', 'T')
-    return c
+# ---- Code normalization —— 委托 kb_core.code_norm 唯一真源 ----
+from kb_core.code_norm import normalize_code, extract_standard  # noqa: F401,E402
 
 
 def extract_code(text):
-    """Extract first standard code from any text. Supports: GB/JGJ/CJJ/CECS/CJ/DB/JTG/TCECS + optional DB region + /T + fullwidth slash + underscore separator"""
-    m = re.search(
-        r'((?:GB|JGJ|CJJ|CECS|CJ|DB|JTG|TCECS)(?:\d+)?[\s_]*[/／]?[\s_]*T?[\s_]*[-]?[\s_]*\d+[\.-]\d+(?:-\d+)?)',
-        text
-    )
-    if m:
-        return normalize_code(m.group())  # normalize_code handles year/dash stripping
-    return None
+    """Extract first standard code from any text -> canonical form or None."""
+    info = extract_standard(text)
+    return info['standard_code'] if info else None
 
 
 # ---- 编码结构化归一化 (v6.11) ----
@@ -167,24 +150,11 @@ _CODE_TOKEN_RE = re.compile(
 
 
 def parse_standard_code(token):
-    """将字符串解析为结构化编码表示。
+    """将字符串解析为结构化编码 {prefix, number, year, is_rec}, 无匹配返回 None。
 
-    Args:
-        token: 任意字符串，如 "CJJ82", "GB 50204-2015", "JGJ-59-2011", "GB/T50107"
-
-    Returns:
-        None 如果 token 不是有效的标准编码格式
-        dict {prefix, number, year, is_rec} 如果解析成功
-          - prefix: 大写规范化前缀 (如 "CJJ", "JGJ", "DB32")
-          - number: 编号字符串 (如 "82", "50204", "10801.1")
-          - year:   年份字符串或 None (如 "2015")
-          - is_rec: bool, 是否为推荐标准 (含 /T 标记)
-
-    设计原则:
-      1. 语法驱动——只接受符合标准编码语法的 token
-      2. 前缀必须来自已知集合 (防止 EPS/LED 等误识别)
-      3. DB 前缀后必须跟 2 位数字 (DB32, DB11)
-      4. 编号至少 1 位, 年份必须以 19/20 开头
+    v9.x: 匹配改用 code_norm._CODE_RE 唯一真源, 修复旧 _CODE_TOKEN_RE 的
+    /T 丢 T (GB/T→GB) 与下划线形式 (GB_T) 解析失败。prefix 为不含 T 的基前缀,
+    is_rec 携带推荐标记; canonicalize_code 据 is_rec 补 T。
     """
     if not token or not isinstance(token, str):
         return None
@@ -192,32 +162,36 @@ def parse_standard_code(token):
     if len(token) < 3:
         return None
 
-    m = _CODE_TOKEN_RE.match(token)
+    from kb_core.code_norm import _CODE_RE
+    m = _CODE_RE.search(token.replace('／', '/'))
     if not m:
         return None
 
-    prefix = m.group(1).upper()
+    prefix = m.group(1).upper().replace('_', '').replace('/', '')
     number = m.group(2)
     year = m.group(3) if m.group(3) else None
 
-    # DB 前缀验证: 必须恰好 2 位区域号
-    if prefix.startswith('DB') and not re.match(r'^DB\d{2}$', prefix, re.IGNORECASE):
-        return None
-
-    # 年份验证: 必须以 19 或 20 开头
+    # 年份验证: 必须以 19/20 开头
     if year and not re.match(r'^(19|20)', year):
+        year = None
+
+    raw_token = m.group(0).upper()
+    is_rec = '/T' in raw_token or '_T' in raw_token or prefix.endswith('T')
+
+    # 去掉尾部 T 得基前缀 (TCECS 例外, 其 T 是前缀固有部分)
+    base_prefix = prefix[:-1] if (prefix.endswith('T') and prefix != 'TCECS') else prefix
+
+    # DB 前缀验证: 必须恰好 2 位区域号
+    if base_prefix.startswith('DB') and not re.match(r'^DB\d{2}$', base_prefix):
         return None
 
-    # 检测 /T 标记
-    is_rec = bool(re.search(r'/?T', token[:m.end()], re.IGNORECASE))
-
-    # 编号合理性: 不能太短 (至少 1 位) 且不能太长 (>10位)
+    # 编号合理性: 1~10 位
     num_digits = number.replace('.', '')
     if len(num_digits) < 1 or len(num_digits) > 10:
         return None
 
     return {
-        'prefix': prefix,
+        'prefix': base_prefix,
         'number': number,
         'year': year,
         'is_rec': is_rec,
@@ -225,17 +199,15 @@ def parse_standard_code(token):
 
 
 def canonicalize_code(parsed):
-    """将解析后的结构化编码转为规范形式。
+    """将解析后的结构化编码转为规范形 (与 code_norm.normalize_code 一致)。
 
-    规范形式 = prefix + number (去除 T 标记、年份、所有分隔符)
-
-    Args:
-        parsed: parse_standard_code() 的返回结果
-
-    Returns:
-        规范形式字符串，如 "GB50204", "CJJ82", "JGJ59", "GBT10801.1"
+    规范形 = base_prefix (+T if 推荐) + number, 去 T 标记/年份/分隔符。
+    如 "GB50204", "CJJ82", "GBT50720", "DB32T3700"。
     """
-    return parsed['prefix'] + parsed['number']
+    prefix = parsed['prefix']
+    if parsed.get('is_rec') and not prefix.endswith('T') and prefix != 'TCECS':
+        prefix = f'{prefix}T'
+    return f"{prefix}{parsed['number']}"
 
 
 def normalize_code_token(token):

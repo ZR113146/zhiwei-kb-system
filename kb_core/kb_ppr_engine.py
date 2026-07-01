@@ -620,20 +620,19 @@ class PPRDiscoveryEngine:
 
 # ── Utility functions (local copies to avoid circular imports) ──
 
-def _normalize_code(raw):
-    c = raw.strip().replace(' ', '').replace('-', '')
-    c = c.replace('/T', 'T').replace('_T', 'T')
-    return c
+# ── Utility functions —— 委托 kb_core.code_norm 唯一真源 ──
+# (曾为"避免循环导入"保留本地拷贝, 但 code_norm 零内部依赖+空__init__,
+#  同包导入不成环; 本地拷贝曾漏传 v8.0 剥年份修复致 '50720-2011'→'507202011'
+#  且解析不了下划线 'GB_T' 形式 → 现统一委托, 回归见 eval/code_norm_consistency.py)
+from kb_core.code_norm import (  # noqa: E402
+    normalize_code as _normalize_code,
+    extract_standard as _cn_extract,
+)
 
 
 def _extract_code(text):
-    m = re.search(
-        r'((?:GB|JGJ|CJJ|CECS|CJ|DB|JTG|TCECS)(?:\d+)?\s*[/／]?\s*T?\s*[-]?\s*\d+[\.-]\d+(?:-\d+)?)',
-        text
-    )
-    if m:
-        return _normalize_code(m.group().replace('-', ''))
-    return None
+    info = _cn_extract(text)
+    return info['standard_code'] if info else None
 
 
 # ── Module-level singleton ─────────────────────────────
