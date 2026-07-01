@@ -10,75 +10,18 @@ import os
 import re
 from datetime import datetime
 
-_STATUS_FILE = "standard_status.json"
-_CURRENT_YEAR = datetime.now().year
-
-_CODE_RE = re.compile(
-    r"(TCECS|CECS|CJJ_T|CJJT|CJJ|CJ_T|CJT|CJ|JGJ_T|JGJT|JGJ|GB_T|GBT|GB|JTG_T|JTGT|JTG|JC_T|JCT|JC|DB\d{2}_T|DB\d{2}T|DB\d{2}|DB)"
-    r"[\s_/-]*(?:T[\s_/-]*)?([A-Z]?\d+(?:\.\d+)?)"
-    r"(?:[\s_-]*(19\d{2}|20\d{2}))?",
-    re.IGNORECASE,
+# 标准编号归一化真源已抽到 kb_core.code_norm (零依赖, 全项目唯一真源)。
+# 此处 re-export 保持向后兼容: 现有 `from kb_core.standard_status import
+# normalize_code/official_code/extract_standard` 及内部调用不变。
+from kb_core.code_norm import (  # noqa: F401  (re-export)
+    _CODE_RE,
+    normalize_code,
+    official_code,
+    extract_standard,
 )
 
-
-def normalize_code(raw):
-    if not raw:
-        return ""
-    text = str(raw).upper().replace("／", "/")
-    text = re.sub(r"\s+", " ", text).strip()
-    match = _CODE_RE.search(text)
-    if not match:
-        return ""
-    prefix, number, _year = match.groups()
-    raw_token = match.group(0).upper().replace(" ", "")
-    prefix = prefix.replace("_", "").replace("/", "")
-    recommended = "/T" in raw_token or "_T" in raw_token or prefix.endswith("T")
-    if recommended and not prefix.endswith("T") and prefix not in {"TCECS"}:
-        prefix = f"{prefix}T"
-    return f"{prefix}{number}"
-
-
-def official_code(raw):
-    """Return the human-readable official code while keeping standard_code file-safe.
-
-    Examples: GB_T 50107-2010 -> GB/T 50107-2010; JGJ_T 23-2011 -> JGJ/T 23-2011.
-    """
-    text = str(raw or "").upper().replace("／", "/")
-    match = _CODE_RE.search(text)
-    if not match:
-        return ""
-    prefix, number, year = match.groups()
-    raw_token = match.group(0).upper().replace("_", "/")
-    prefix = prefix.replace("_", "").replace("/", "")
-    if "/T" in raw_token and not prefix.endswith("T"):
-        official_prefix = f"{prefix}/T"
-    elif prefix.endswith("T") and prefix not in {"TCECS"}:
-        official_prefix = f"{prefix[:-1]}/T"
-    else:
-        official_prefix = prefix
-    suffix = f"-{year}" if year else ""
-    return f"{official_prefix} {number}{suffix}"
-
-
-def extract_standard(raw):
-    text = str(raw or "")
-    match = _CODE_RE.search(text)
-    if not match:
-        return None
-    prefix, number, year = match.groups()
-    code = normalize_code(match.group(0))
-    name = text[match.end():]
-    name = re.sub(r"\.(json|md)$", "", name, flags=re.IGNORECASE)
-    name = re.sub(r"^[_\s-]+", "", name)
-    name = re.sub(r"_p\d{4}-\d{4}$", "", name)
-    name = name.strip() or text.strip()
-    return {
-        "standard_code": code,
-        "display_code": match.group(0).strip(),
-        "official_code": official_code(match.group(0)),
-        "standard_name": name,
-        "year": int(year) if year else None,
-    }
+_STATUS_FILE = "standard_status.json"
+_CURRENT_YEAR = datetime.now().year
 
 
 def infer_level(code):

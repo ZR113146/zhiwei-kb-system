@@ -32,9 +32,13 @@ _FRONT_NOISE = {
     'Standard for','Code for','Technical','General code',
 }
 
+# v9.x 叶子条款分段正则: 行首 3+ 级条款号 (X.Y.Z...) + 后接实质内容。
+# 只切 3 级以上 (X.Y 多为已成标题的小节); 与 # 标题不冲突 (标题行首为 #)。
+_LEAF_CLAUSE_RE = re.compile(r'^(\d+\.\d+(?:\.\d+)+)\s+(\S.*)$', re.MULTILINE)
+
+
 def _is_front_heading(h):
-    """判断是否为前导/目录/编制噪音标题"""
-    # 目录条目: "章节名……页码" 或 "章节名 页码" 格式
+    """判断是否为前导/目录/编制噪音标题"""    # 目录条目: "章节名……页码" 或 "章节名 页码" 格式
     if re.search(r'……\s*\d{1,4}\s*$', h):
         return True
     # 目录条目变体: 长标题末尾紧跟页码 (如 "7 轴心受力构件…… 55")
@@ -121,9 +125,35 @@ def extract_sections(md_path):
                 'pos': m.start(),
                 'type': _section_type(h, m.start(), boundaries)
             })
+    # v9.x 叶子条款分段: MinerU 只把短行标 # 标题, 实质叶子条款(X.Y.Z, 正文>22字)
+    # 埋在父章节正文里从不成 section → clause_location_failure。此处扫正文行首的
+    # 3+ 级条款号补切成可寻址 section (与 # 标题不冲突: 标题行以 # 开头, 此正则要求行首为数字)。
+    _existing_pos = {s['pos'] for s in sections}
+    for m in _LEAF_CLAUSE_RE.finditer(text):
+        pos = m.start()
+        if body_start > 0 and pos < body_start:
+            continue
+        if pos in _existing_pos:
+            continue
+        h = (m.group(1) + ' ' + m.group(2)).strip()
+        if _is_front_heading(h):  # 滤 TOC 行 "5.3.4 xxx …… 55"
+            continue
+        sections.append({
+            'heading': h[:120],
+            'pos': pos,
+            'type': _section_type(h, pos, boundaries),
+            'leaf': True,
+        })
+    sections.sort(key=lambda s: s['pos'])
     for i, s in enumerate(sections):
         s['length'] = (sections[i+1]['pos'] - s['pos']) if i+1 < len(sections) else (len(text) - s['pos'])
-    return [{'heading': s['heading'], 'pos': s['pos'], 'length': s['length'], 'type': s['type']} for s in sections]
+    out = []
+    for s in sections:
+        d = {'heading': s['heading'], 'pos': s['pos'], 'length': s['length'], 'type': s['type']}
+        if s.get('leaf'):
+            d['leaf'] = True
+        out.append(d)
+    return out
 
 def extract_sections_hybrid(md_path):
     """混合提取: MD #{1,3} + MinerU JSON 高置信度补充 → 合并去重"""

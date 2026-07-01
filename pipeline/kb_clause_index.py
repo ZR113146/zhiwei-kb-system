@@ -3,6 +3,10 @@
 用法: python kb_clause_index.py
 """
 import json, os, re
+import sys
+
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+from kb_core.code_norm import extract_standard  # noqa: E402
 
 KB_DIR = os.path.join(os.path.dirname(__file__), '..', 'data', 'index')
 SEARCH_INDEX = os.path.join(os.path.dirname(__file__), '..', 'data', 'kb_json', 'kb_search_index.json')
@@ -24,9 +28,12 @@ def build():
         clauses = []
         last_arabic = None  # track nearest non-Roman clause for parent inference
 
-        # Extract standard code from filename
-        code_m = re.search(r'(GB|JGJ|CJJ|CECS|TCECS|JC|DB|JTG|RISN)[\sT/_]?\d+[\.\-]?\d*', fname)
-        std_code = code_m.group(0).replace(' ','').replace('_','/') if code_m else fname[:30]
+        # Extract standard code from filename —— 委托 code_norm 唯一真源
+        # (旧内联正则 [\sT/_]? 单分隔符解析不了入库下划线 GB_T 形式, 致
+        #  lookup 双 key: GB_T类回退文件名、GB类带年份。现统一为规范形 GBT50720。
+        #  抽不出码时保留 fname[:30] 兜底, 不丢该文件条款。)
+        _si = extract_standard(fname)
+        std_code = _si['standard_code'] if _si and _si['standard_code'] else fname[:30]
 
         for i, s in enumerate(secs):
             h = s.get('heading', '')
@@ -95,9 +102,15 @@ def build():
     }
 
     # Build inverted lookup for exact clause queries
+    # 类型优先级: 同一 (std:number) 键若 normative 与 commentary 并存 (加了叶子条款分段后
+    # 正文与条文说明的同号条款都成 section), normative 不被 commentary/appendix 覆盖。
+    _TYPE_PRIO = {'normative': 0, 'commentary': 1, 'appendix': 2, 'reference': 3}
     for fname, data in idx.items():
         for c in data['clauses']:
             key = '%s:%s' % (data['std_code'], c['number'])
+            existing = output['lookup'].get(key)
+            if existing and _TYPE_PRIO.get(existing.get('type', 'normative'), 0) <= _TYPE_PRIO.get(c.get('type', 'normative'), 0):
+                continue  # 保留更高/同优先级的既有条目 (normative 胜 commentary)
             output['lookup'][key] = {
                 'fname': fname,
                 'number': c['number'],

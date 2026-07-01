@@ -64,10 +64,11 @@ def read_json_standard(filepath):
     if not isinstance(data, list) or len(data) == 0:
         return None, None
 
-    # 尝试从文件名中提取规范编号
+    # 尝试从文件名中提取规范编号 —— 委托 code_norm 唯一真源
     fname = os.path.basename(filepath)
-    code_m = re.search(r'((?:GB\s*/?\s*T?|JGJ|CJJ|CECS|CJ\s*/?\s*T?|DB)\s*\d+[\.-]\d+(?:-\d+)?)', fname)
-    std_code = code_m.group(0).replace(' ', '') if code_m else None
+    from kb_core.code_norm import extract_standard
+    _si = extract_standard(fname)
+    std_code = _si['display_code'].replace(' ', '') if _si else None
 
     # 提取标准名：取第一页 text_level=1 的文本
     name = None
