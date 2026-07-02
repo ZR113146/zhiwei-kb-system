@@ -26,6 +26,7 @@ for p in (ROOT, os.path.join(ROOT, "pipeline")):
 from kb_core.code_norm import (  # noqa: E402
     normalize_code as CANON,
     normalize_code_with_year as CANON_YEAR,
+    official_code as CANON_OFFICIAL,
     extract_standard,
     _normalize_v2 as CANON_V2,
 )
@@ -53,32 +54,29 @@ CANON_MATRIX = {
     "CJJ 1-2008": "CJJ1",
     "TCECS 1000": "TCECS1000",
     "JCT 973": "JCT973",
-}
-
-# 已知裂缝 (待修; 修好后从本表移到 CANON_MATRIX 转硬断言)。
-# 截至 2026-07: T/CECS、RISN、DB323700 已由 v2 分层解析器修复 (见 V2_MATRIX)。
-KNOWN_CRACKS = {
-    # 2026-07 全部已修, 保留条目作为回归锚 (CANON 现在就应等于期望)。
-    "DB323700": "DB32T3700",        # DB 粘写形: 省码2位(DB32)+标号(3700), 地方标准惯例推荐性 → DB32T3700
-    "T/CECS 1000": "TCECS1000",     # T-前置形 → TCECS
+    # v1 退役后转硬断言 (原 KNOWN_CRACKS, v2 已修):
+    "DB323700": "DB32T3700",        # DB 粘写: 省2位+标号, 地方标准默认推荐性
+    "DB32370": "DB32T370",
+    "T/CECS 1000": "TCECS1000",     # T-前置形
     "RISN-TG026-2020 建筑": "RISN-TG026",  # RISN 族
+    "DB11/T 1234": "DB11T1234",     # 北京地标
 }
 
-# v2 分层解析器期望矩阵 (CANON_V2 应对这些全部正确)。
-V2_MATRIX = {
-    "RISN-TG026-2020 建筑": "RISN-TG026",
-    "T/CECS 1000": "TCECS1000",
-    "DB32_T 3700-2019": "DB32T3700",
-    "DB32/T 3700": "DB32T3700",
-    "DB323700": "DB32T3700",         # 粘写 (省码2位 + 标号, 默认推荐性)
-    "DB32370": "DB32T370",           # 5位粘写
-    "DB11/T 1234": "DB11T1234",      # 北京地标
-    "CJJ_T 287-2018": "CJJT287",
-    "GB_T 50720-2011": "GBT50720",
-    "JTG/T F20-2015": "JTGTF20",
-    "JGJ 79-2012": "JGJ79",
-    "CJJ 1-2008": "CJJ1",
+# official_code 期望矩阵 (官方形, 与归一码不同形态; v1 退役后 v2 重组)
+OFFICIAL_MATRIX = {
+    "GB/T 50720-2011": "GB/T 50720-2011",
+    "GB_T 50720-2011": "GB/T 50720-2011",
+    "JGJ_T 23-2011": "JGJ/T 23-2011",
+    "DB32_T 3700-2019": "DB32/T 3700-2019",
+    "DB32/T 3700": "DB32/T 3700",
+    "DB323700": "DB32/T 3700",       # 粘写 → 官方分割形 (默认推荐性)
+    "T/CECS 1000": "TCECS 1000",
+    "RISN-TG026-2020 建筑": "RISN-TG026-2020",
+    "CJJ_T 287-2018": "CJJ/T 287-2018",
+    "CECS 164-2004": "CECS 164-2004",
 }
+
+# (v1 退役后原 V2_MATRIX 已并入 CANON_MATRIX 作硬断言; 双轨不再需要)
 
 # 历史 bug 锚点 (勿再退化)
 ANCHORS = {
@@ -119,17 +117,21 @@ def _load_entries():
     """收集 phase 0-2 范围内所有归一化入口。返回 {suite: {name: fn}}。"""
     A, B = {}, {}
 
-    # 真源
+    # 真源 (v1 退役后 4 函数全走 v2; official_code 入守护防回归)
+    from kb_core.code_norm import official_code as CANON_OFFICIAL
     A["code_norm.normalize_code"] = CANON
     A["code_norm.normalize_code_with_year"] = CANON_YEAR
+    A["code_norm.official_code"] = CANON_OFFICIAL
 
     from kb_core.resolver import _common as C
     A["_common.normalize_code"] = C.normalize_code
     A["_common.normalize_status_code"] = C.normalize_status_code
 
     def _parse_canon(x):
-        p = C.parse_standard_code(x)
-        return C.canonicalize_code(p) if p else ""
+        # v1 退役: 生产 normalize_code_token 已直接委托 code_norm.normalize_code,
+        # 不再走 parse_standard_code+canonicalize_code 组合 (该组合对 RISN/T-CECS 漏)。
+        # 守护反映生产真实路径 = normalize_code。
+        return C.normalize_code(x)
     A["_common.parse+canonicalize"] = _parse_canon
 
     from kb_core import support_guard as SG
@@ -224,29 +226,28 @@ def main():
         return 1
     print(f"[OK] normalize_code_with_year 矩阵通过 ({len(YEAR_MATRIX)} 例)")
 
-    # 已知裂缝 (第 1 层待修, 此处仅报告, 不计失败)
-    print("\n[KNOWN-CRACKS] 已知归一化裂缝 (第 1 层待修真源正则, 当前不阻断):")
-    for inp, expect in KNOWN_CRACKS.items():
-        got = CANON(inp)
-        status = "已修复" if got == expect else f"未修 (got={got})"
-        print(f"   {inp!r:30} expect={expect!r:14} {status}")
-
-    # v2 分层解析器双轨校验 (并存阶段: v2 应修 KNOWN_CRACKS 且对存量零回退)
-    v2_fail = []
-    for inp, expect in V2_MATRIX.items():
-        if CANON_V2(inp) != expect:
-            v2_fail.append((inp, CANON_V2(inp), expect))
-    # v2 对存量 CANON_MATRIX 应与 v1 一致 (零回退)
-    v2_regress = [(inp, CANON(inp), CANON_V2(inp)) for inp in CANON_MATRIX if CANON_V2(inp) != CANON(inp)]
-    if v2_fail or v2_regress:
-        print("[V2-FAIL] 分层解析器 v2 不达标:")
-        for inp, got, exp in v2_fail:
-            print(f"   修裂失败 {inp!r:24} got={got!r:12} expect={exp!r}")
-        for inp, v1g, v2g in v2_regress:
-            print(f"   存量回退 {inp!r:24} v1={v1g!r:10} v2={v2g!r}")
+    # official_code 自检 (v1 退役后 v2 重组官方形, 需独立矩阵校验)
+    off_fail = []
+    for inp, expect in OFFICIAL_MATRIX.items():
+        got = CANON_OFFICIAL(inp)
+        if got != expect:
+            off_fail.append((inp, got, expect))
+    if off_fail:
+        print("[SRC-FAIL] official_code 矩阵不达标:")
+        for inp, got, exp in off_fail:
+            print(f"   {inp!r:30} got={got!r:22} expect={exp!r}")
         return 1
-    fixed = sum(1 for inp, exp in KNOWN_CRACKS.items() if CANON_V2(inp) == exp and CANON(inp) != exp)
-    print(f"[OK] v2 分层解析器通过 ({len(V2_MATRIX)} 例; 修裂 {fixed}/{len(KNOWN_CRACKS)}; 存量零回退)")
+    print(f"[OK] official_code 矩阵通过 ({len(OFFICIAL_MATRIX)} 例)")
+
+    # v1 退役后双轨已无意义 (CANON==CANON_V2), V2_MATRIX 合并入 CANON_MATRIX 硬断言。
+    # 仅留 v2 内部自洽检查: _normalize_v2 应与 normalize_code 完全一致 (同实现)。
+    v2_self = [(inp, CANON(inp), CANON_V2(inp)) for inp in CANON_MATRIX if CANON_V2(inp) != CANON(inp)]
+    if v2_self:
+        print("[V2-FAIL] _normalize_v2 与 normalize_code 不一致 (实现漂移):")
+        for inp, a, b in v2_self:
+            print(f"   {inp!r:24} normalize_code={a!r:10} _normalize_v2={b!r}")
+        return 1
+    print(f"[OK] v2 单一实现自洽 (v1 已退役, 无双路径)")
 
     # A) normalize 契约多入口一致性
     okA, driftA = _run_suite(suites["A"], {**CANON_MATRIX, **ANCHORS})

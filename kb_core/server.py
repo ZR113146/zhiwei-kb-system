@@ -678,11 +678,10 @@ _ref_index = None
 _ref_norm_index = None
 
 def _normalize_ref_code(code: str) -> str:
-    code = (code or "").strip().upper()
-    code = code.replace('／T', 'T').replace('/T', 'T').replace('／', '/')
-    code = re.sub(r'[-](?:19|20)\d{2}$', '', code)
-    code = re.sub(r'[-_\s]', '', code)
-    return code
+    # 委托 code_norm.normalize_code 单一真源 (v1 退役后 v2 接管, 含 RISN/T-CECS/DB)。
+    # 旧自写 replace/regex 对 RISN 会把年份粘进码 (RISN-TG026-2020→RISN-TG0262020), 已弃。
+    from kb_core.code_norm import normalize_code
+    return normalize_code(code or "")
 
 def _load_ref_index():
     global _ref_index, _ref_norm_index

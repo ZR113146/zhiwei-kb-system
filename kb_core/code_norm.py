@@ -33,86 +33,94 @@ _CODE_RE = re.compile(
 def normalize_code(raw):
     """规范形: 前缀+编号, 去年份, 去分隔符, /T·_T→T。
 
-    v2 切换 (2026-07): 优先用分层解析器 _normalize_v2 (修了 v1 不认的 RISN /
-    T-CECS 前缀等), v2 返空时回退 v1 单正则 (保护存量, 单调改进不回退)。
-    切换经黄金真相表外部锚定子集 (samr evidence 4 条) + 存量 126 有码零变化
-    双重验证; 回滚 = 还原此函数体为纯 v1 (git revert)。"""
+    v2 接管 (2026-07, v1 退役): 纯分层解析器 _normalize_v2, 不再 v1 单正则兜底。
+    v2 已对存量 126 有码零回退 + 外部锚定子集 (samr evidence) 验证; 修了 v1 不认的
+    RISN / T-CECS 前缀 / DB 粘写。v1 _CODE_RE 仍保留供 official_code/extract_standard
+    的历史兼容路径已全部下线 (见各函数 v2 实现); _CODE_RE 仅留作 v2 _tokenize 的
+    族识别底层 (被 _FAMILY_RE 取代), 不再被生产函数直接调用。
+    回滚 = git revert。"""
     if not raw:
         return ""
-    v2_result = _normalize_v2(raw)
-    if v2_result:
-        return v2_result
-    # v1 回退 (v2 未识别的输入)
-    text = str(raw).upper().replace("／", "/")
-    text = re.sub(r"\s+", " ", text).strip()
-    match = _CODE_RE.search(text)
-    if not match:
-        return ""
-    prefix, number, _year = match.groups()
-    raw_token = match.group(0).upper().replace(" ", "")
-    prefix = prefix.replace("_", "").replace("/", "")
-    recommended = "/T" in raw_token or "_T" in raw_token or prefix.endswith("T")
-    if recommended and not prefix.endswith("T") and prefix not in {"TCECS"}:
-        prefix = f"{prefix}T"
-    return f"{prefix}{number}"
+    return _normalize_v2(raw)
 
 
 def normalize_code_with_year(raw):
     """归一码保留年份, 形如 GBT50720-2011。用于入库去重 (同号不同年版视为不同标准)。
-    与 normalize_code 共享 _CODE_RE, 仅把年份拼回 — 单一真源, 避免入库侧自写正则漂移。"""
+    v2 接管 (2026-07): 委托 _normalize_v2_with_year, 不再用 _CODE_RE。"""
     if not raw:
         return ""
-    text = str(raw).upper().replace("／", "/")
-    text = re.sub(r"\s+", " ", text).strip()
-    match = _CODE_RE.search(text)
-    if not match:
-        return ""
-    code = normalize_code(match.group(0))
-    if not code:
-        return ""
-    _prefix, _number, year = match.groups()
-    return f"{code}-{year}" if year else code
+    return _normalize_v2_with_year(raw)
 
 
 def official_code(raw):
     """人类可读官方形, 同时保持 standard_code 文件安全。
 
-    例: GB_T 50107-2010 -> GB/T 50107-2010; JGJ_T 23-2011 -> JGJ/T 23-2011。
+    v2 接管 (2026-07): 用 _tokenize 拆字段后按族重组官方形, 不再用 _CODE_RE。
+    例: GB_T 50107-2010 -> GB/T 50107-2010; JGJ_T 23-2011 -> JGJ/T 23-2011;
+        DB32_T 3700-2019 -> DB32/T 3700-2019; T/CECS 1000 -> TCECS 1000;
+        RISN-TG026-2020 -> RISN-TG026-2020。
     """
-    text = str(raw or "").upper().replace("／", "/")
-    match = _CODE_RE.search(text)
-    if not match:
+    tok = _tokenize(raw)
+    if not tok or not tok["number"]:
         return ""
-    prefix, number, year = match.groups()
-    raw_token = match.group(0).upper().replace("_", "/")
-    prefix = prefix.replace("_", "").replace("/", "")
-    if "/T" in raw_token and not prefix.endswith("T"):
-        official_prefix = f"{prefix}/T"
-    elif prefix.endswith("T") and prefix not in {"TCECS"}:
-        official_prefix = f"{prefix[:-1]}/T"
-    else:
-        official_prefix = prefix
+    prefix = tok["prefix"]
+    t = tok["t"]
+    number = tok["number"]
+    year = tok["year"]
     suffix = f"-{year}" if year else ""
-    return f"{official_prefix} {number}{suffix}"
+    # DB 地方标准: DB<省>/T <标号> (地方标准惯例推荐性, 与 _canonicalize 一致)
+    if prefix.startswith("DB"):
+        prov = prefix[2:] if re.fullmatch(r"DB\d{2}", prefix) else ""
+        if not prov and number.isdigit() and len(number) >= 5 and "." not in number:
+            prov = number[:2]; number = number[2:]
+        if not t and prov:        # 无显式 /T 但有省码 → 默认推荐性 (与 _canonicalize 一致)
+            t = True
+        return f"DB{prov}{'/T' if t else ''} {number}{suffix}"
+    # RISN: RISN-TG<号>
+    if prefix == "RISN":
+        return f"RISN-{number}{suffix}"
+    # TCECS: T 在前 (TCECS 1000)
+    if prefix == "TCECS" or (prefix == "CECS" and t):
+        return f"TCECS {number}{suffix}"
+    # 通用推荐族: <PREFIX>/T <标号> 或 <PREFIX> <标号>
+    if t:
+        return f"{prefix}/T {number}{suffix}"
+    return f"{prefix} {number}{suffix}"
 
 
 def extract_standard(raw):
-    """从任意文本/文件名抽出结构化标准信息, 无匹配返回 None。"""
+    """从任意文本/文件名抽出结构化标准信息, 无匹配返回 None。
+
+    v2 接管 (2026-07): 用 _FAMILY_RE 定位编号 token (含 v1 _CODE_RE 漏的 RISN /
+    T-前缀写法), 归一化全部走 _tokenize/_canonicalize。"""
     text = str(raw or "")
-    match = _CODE_RE.search(text)
-    if not match:
+    # T/CECS 前缀写法: _FAMILY_RE 不直接认 "T/CECS", 先规范成 TCECS 形定位
+    m_tprefix = re.match(r"^T\s*/\s*(CECS|CJJ|JGJ|GB|JTG|JC|DB)\b", text, re.IGNORECASE)
+    if m_tprefix:
+        m = m_tprefix
+    else:
+        m = _FAMILY_RE.search(text)
+    if not m:
         return None
-    prefix, number, year = match.groups()
-    code = normalize_code(match.group(0))
-    name = text[match.end():]
+    # 编号 token = 从匹配起到 _extract_number 抓到的数字末尾
+    tail = text[m.end():]
+    num_m = re.match(r"\s*[/_-]?\s*T?\s*[/_-]?\s*([A-Z]?\d+(?:\.\d+)?)", tail, re.IGNORECASE)
+    token_end = m.end() + (num_m.end() if num_m else 0)
+    token = text[m.start():token_end]
+    code = normalize_code(token)
+    if not code:
+        return None
+    off = official_code(token)
+    year = _extract_year(text)
+    name = text[token_end:]
     name = re.sub(r"\.(json|md)$", "", name, flags=re.IGNORECASE)
     name = re.sub(r"^[_\s-]+", "", name)
     name = re.sub(r"_p\d{4}-\d{4}$", "", name)
     name = name.strip() or text.strip()
     return {
         "standard_code": code,
-        "display_code": match.group(0).strip(),
-        "official_code": official_code(match.group(0)),
+        "display_code": token.strip(),
+        "official_code": off,
         "standard_name": name,
         "year": int(year) if year else None,
     }

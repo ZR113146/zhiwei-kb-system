@@ -155,6 +155,9 @@ def parse_standard_code(token):
     v9.x: 匹配改用 code_norm._CODE_RE 唯一真源, 修复旧 _CODE_TOKEN_RE 的
     /T 丢 T (GB/T→GB) 与下划线形式 (GB_T) 解析失败。prefix 为不含 T 的基前缀,
     is_rec 携带推荐标记; canonicalize_code 据 is_rec 补 T。
+    v2 接管 (2026-07, v1 退役): 改用 code_norm._FAMILY_RE (含 RISN / T-前缀写法,
+    v1 _CODE_RE 漏的族), 并对 T/CECS 前缀写法显式识别。canonicalize_code 委托
+    code_norm.normalize_code 保证单一真源。
     """
     if not token or not isinstance(token, str):
         return None
@@ -162,81 +165,83 @@ def parse_standard_code(token):
     if len(token) < 3:
         return None
 
-    from kb_core.code_norm import _CODE_RE
-    m = _CODE_RE.search(token.replace('／', '/'))
-    if not m:
-        return None
+    from kb_core.code_norm import _FAMILY_RE
+    text = token.replace('／', '/')
+    # T-前缀写法 T/CECS
+    m_tp = re.match(r'^T\s*/\s*(CECS|CJJ|JGJ|GB|JTG|JC|DB)\b', text, re.IGNORECASE)
+    if m_tp:
+        prefix = m_tp.group(1).upper()
+        rest = text[m_tp.end():]
+        is_rec = True
+        m_num = re.match(r'\s*[/_-]?\s*([A-Z]?\d+(?:\.\d+)?)', rest, re.IGNORECASE)
+        number = m_num.group(1) if m_num else ''
+        year = None
+        ym = re.search(r'(?:19|20)\d{2}', text)
+        if ym: year = ym.group(0)
+    else:
+        m = _FAMILY_RE.search(text)
+        if not m:
+            return None
+        raw = m.group(1).upper().replace('_', '').replace('/', '')
+        # 拆末尾 T (TCECS/RISN 例外)
+        if raw.endswith('T') and raw not in ('TCECS', 'RISN') and raw[:-1] in ('GB','JGJ','CJJ','CJ','JTG','JC','CECS','DB'):
+            is_rec = True; prefix = raw[:-1]
+        elif raw.startswith('DB') and re.fullmatch(r'DB\d{2}T', raw):
+            is_rec = True; prefix = 'DB' + raw[2:4]
+        else:
+            is_rec = raw.endswith('T') and raw not in ('TCECS','RISN')
+            prefix = raw[:-1] if (raw.endswith('T') and raw not in ('TCECS','RISN')) else raw
+        rest = text[m.end():]
+        mt = re.match(r'\s*[/_-]?\s*T\b', rest)
+        if mt:
+            is_rec = True; rest = rest[mt.end():]
+        m_num = re.match(r'\s*([A-Z]?\d+(?:\.\d+)?)', rest, re.IGNORECASE)
+        number = m_num.group(1) if m_num else ''
+        year = None
+        ym = re.search(r'(?:19|20)\d{2}', text)
+        if ym: year = ym.group(0)
 
-    prefix = m.group(1).upper().replace('_', '').replace('/', '')
-    number = m.group(2)
-    year = m.group(3) if m.group(3) else None
-
-    # 年份验证: 必须以 19/20 开头
     if year and not re.match(r'^(19|20)', year):
         year = None
-
-    raw_token = m.group(0).upper()
-    is_rec = '/T' in raw_token or '_T' in raw_token or prefix.endswith('T')
-
-    # 去掉尾部 T 得基前缀 (TCECS 例外, 其 T 是前缀固有部分)
-    base_prefix = prefix[:-1] if (prefix.endswith('T') and prefix != 'TCECS') else prefix
-
-    # DB 前缀验证: 必须恰好 2 位区域号
-    if base_prefix.startswith('DB') and not re.match(r'^DB\d{2}$', base_prefix):
+    # DB 前缀验证: 必须恰好 2 位区域号 (或纯 DB)
+    if prefix.startswith('DB') and not re.match(r'^DB\d{2}$', prefix) and prefix != 'DB':
         return None
-
-    # 编号合理性: 1~10 位
     num_digits = number.replace('.', '')
     if len(num_digits) < 1 or len(num_digits) > 10:
         return None
-
-    return {
-        'prefix': base_prefix,
-        'number': number,
-        'year': year,
-        'is_rec': is_rec,
-    }
+    return {'prefix': prefix, 'number': number, 'year': year, 'is_rec': is_rec}
 
 
 def canonicalize_code(parsed):
-    """将解析后的结构化编码转为规范形 (与 code_norm.normalize_code 一致)。
+    """将解析后的结构化编码转为规范形 — 委托 code_norm.normalize_code 单一真源。
 
-    规范形 = base_prefix (+T if 推荐) + number, 去 T 标记/年份/分隔符。
-    如 "GB50204", "CJJ82", "GBT50720", "DB32T3700"。
+    v2 接管 (2026-07): 不再自己拼 prefix+T+number, 直接 normalize_code(重组串)。
+    保证与 normalize_code 完全一致 (含 RISN/T-CECS/DB 粘写)。
     """
-    prefix = parsed['prefix']
-    if parsed.get('is_rec') and not prefix.endswith('T') and prefix != 'TCECS':
-        prefix = f'{prefix}T'
-    return f"{prefix}{parsed['number']}"
+    if not parsed:
+        return ""
+    s = f"{parsed['prefix']}{'T' if parsed.get('is_rec') else ''}{parsed['number']}"
+    return normalize_code(s)
 
 
 def normalize_code_token(token):
     """查询关键词归一化: 返回应追加到搜索词列表中的额外匹配形式。
 
-    对于标准编码: 返回 [canonical, spaced_variant]
-    对于非编码:   返回 []  (不做修改)
-
-    追加而非替换——原始查询词保留, 归一化形式作为额外匹配通道。
-
-    Args:
-        token: 单个查询词
-
-    Returns:
-        list of str: 追加的匹配形式 (可能为空)
+    v2 接管 (2026-07, v1 退役): 直接用 code_norm.normalize_code 拿 canonical,
+    不再依赖 parse_standard_code (其对 RISN/T-CECS/DB粘写漏)。spaced 形式从
+    canonical 重组。保证与 normalize_code 单一真源一致。
     """
-    parsed = parse_standard_code(token)
-    if not parsed:
+    if not token or not isinstance(token, str):
         return []
-
-    extras = []
-    canonical = canonicalize_code(parsed)
-    extras.append(canonical)
-
-    # 有空格形式: prefix + 空格 + number, 用于匹配文件名的原始格式
-    spaced = parsed['prefix'] + ' ' + parsed['number']
-    if spaced.lower() != token.lower():
+    canonical = normalize_code(token)
+    if not canonical:
+        return []
+    extras = [canonical]
+    # spaced 形式: 在 prefix 与 number 间插空格 (GBT50720 → GBT 50720; DB32T3700 → DB32T 3700)
+    import re as _re
+    spaced = _re.sub(r'^([A-Z/]+(?:T)?)(\d.*)$', r'\1 \2', canonical)
+    if spaced.lower() != token.lower() and spaced != canonical:
         extras.append(spaced)
-
     return extras
 
 
