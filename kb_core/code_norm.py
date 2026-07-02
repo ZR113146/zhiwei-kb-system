@@ -205,17 +205,27 @@ def _canonicalize(tok):
     number = tok["number"]
     t = tok["t"]
     # ---- DB 地方标准族: prefix 可能是 DB (无省码粘写) 或 DB<省2位> ----
+    # 依据 (samr dbba 采样 2026-07): 地方标准编号 = DB<省2位>(/T)? <标号>; 省码恒 2 位
+    # (DB11京/DB31沪/DB32苏/DB44粤/DB42鄂...), 标号 4 位; 年份分隔符 - 或 — 不统一。
+    # samr 抽样 DB32/T 5394, DB15/T 3700 等 6 条全部带 /T → 地方标准惯例为推荐性。
+    # 故粘写形 DB323700 (用户省 /T) 默认按推荐性归一为 DB32T3700; 遇真强制性 DB (无 /T)
+    # 需在 standard_status aliases 手动覆盖 (已知边界, 守护标注)。
     if prefix.startswith("DB"):
         prov = ""
         if re.fullmatch(r"DB\d{2}", prefix):
             prov = prefix[2:]            # DB32 → 省 32
             prefix = "DB"
-        # 粘写形: number 含省码+标号 (DB323700 → number=323700, 但我们已在 _tokenize 把省码剥进 prefix;
-        # 这里 number 已是纯标号如 3700 或粘写如 323700 当 prefix=DB 时)
+        sticky = False
         if prefix == "DB" and not prov and number.isdigit() and len(number) >= 5 and "." not in number:
-            # 入口是 DB323700 (无省码分支): 推断省2位在 number 头
+            # 粘写形 DB323700 (无省码分支): 推断省2位在 number 头
             prov = number[:2]
             number = number[2:]
+            sticky = True
+        # 地方标准惯例推荐性 (samr dbba 采样: DB32/T, DB15/T ... 全带 /T):
+        # DB<省2位> 形式无显式 /T 标志时, 默认按推荐性加 T。遇真强制性 DB 需在
+        # standard_status aliases 手动覆盖。覆盖粘写 + DB<省> 两种入口。
+        if not t and prov:
+            t = True
         return f"DB{prov}{'T' if t else ''}{number}"
     # ---- RISN 族: 形如 RISN-TG026 ----
     if prefix == "RISN":

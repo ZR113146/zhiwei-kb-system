@@ -16,8 +16,8 @@
       "coverage_ratio": 0.9174,
       "by_status": {
         "unknown": 10,
-        "effective": 107,
-        "abolished": 3,
+        "effective": 105,
+        "abolished": 5,
         "superseded": 1
       }
     },
@@ -57,7 +57,7 @@
           "source": "standard_status_direct",
           "heading": "江苏省城市轨道交通工程设计标准",
           "score": 110.0,
-          "standard_code": "DB323700",
+          "standard_code": "DB32T3700",
           "confidence": "high"
         }
       ],
@@ -87,50 +87,18 @@
       "query": "DB323700 江苏省城市轨道交通工程设计标准 条文说明",
       "source": "golden",
       "query_type": "standard_code",
-      "branch": "legacy",
-      "result_count": 5,
+      "branch": "filename_title",
+      "result_count": 1,
       "first_rank": 1,
       "has_expected": true,
       "results": [
         {
           "file": "_seg1_DB32_T 3700-2019 江苏省城市轨道交通工程设计标准_p0001-0133.md",
-          "source": "",
-          "heading": "江苏省城市轨道交通工程设计标准",
-          "score": 50.88,
+          "source": "filename_title",
+          "heading": "_seg1_DB32_T 3700-2019 江苏省城市轨道交通工程设计标准_p0001-0133",
+          "score": 140.0,
           "standard_code": "DB32T3700",
-          "confidence": "mid"
-        },
-        {
-          "file": "📋 城镇.md",
-          "source": "bm25_body",
-          "heading": "地方 DB (2件)",
-          "score": 25.13,
-          "standard_code": "",
-          "confidence": "mid"
-        },
-        {
-          "file": "_seg0_GB 50911-2013 城市轨道交通工程监测技术规范.md",
-          "source": "bm25_body",
-          "heading": "引用标准名录",
-          "score": 15.05,
-          "standard_code": "GB50911",
-          "confidence": "low"
-        },
-        {
-          "file": "_seg0_TCECS 1241-2023 城市地下空间轻质材料回填技术规程.md",
-          "source": "",
-          "heading": "制定说明",
-          "score": 14.72,
-          "standard_code": "TCECS1241",
-          "confidence": "low"
-        },
-        {
-          "file": "_seg0_TCECS 1000-2021 工程建设标准编写导则.md",
-          "source": "",
-          "heading": "5.3.4 标准的共性要求应为涉及整个标准的基本原则或通篇的共性要求。当基本原则或共性要求的内容超过3条时，宜单独设置“基本规定”一章。",
-          "score": 13.02,
-          "standard_code": "TCECS1000",
-          "confidence": "low"
+          "confidence": "high"
         }
       ],
       "error": ""
@@ -288,7 +256,7 @@
           "file": "_seg0_CECS 453-2016 轻质泡沫土轨道交通填筑技术规程.md",
           "source": "ppr_graph+clause_refine",
           "heading": "1.0.2 本规程适用于轻质泡沫土用于轨道交通填筑工程中的设计、施工、质量检验与验收。",
-          "score": 42.95,
+          "score": 42.93,
           "standard_code": "CECS453",
           "confidence": "mid"
         },
@@ -304,7 +272,7 @@
           "file": "📋 城镇.md",
           "source": "legacy+clause_refine",
           "heading": "城镇 CJJ (10件)",
-          "score": 34.76,
+          "score": 34.8,
           "standard_code": "CJJ143",
           "confidence": "mid"
         }
@@ -622,7 +590,7 @@
           "file": "_seg0_CECS 453-2016 轻质泡沫土轨道交通填筑技术规程.md",
           "source": "ppr_graph+clause_refine",
           "heading": "1.0.3 轻质泡沫土轨道交通填筑工程除应符合本规程外，尚应符合国家现行有关标准的规定。",
-          "score": 52.56,
+          "score": 52.5,
           "standard_code": "CECS453",
           "confidence": "mid"
         },
@@ -630,7 +598,7 @@
           "file": "📋 城镇.md",
           "source": "legacy+clause_refine",
           "heading": "城镇 CJJ (10件)",
-          "score": 47.78,
+          "score": 47.73,
           "standard_code": "CJJ143",
           "confidence": "mid"
         },
@@ -659,7 +627,7 @@
           "source": "standard_status_direct",
           "heading": "江苏省城市轨道交通工程设计标准",
           "score": 110.0,
-          "standard_code": "DB323700",
+          "standard_code": "DB32T3700",
           "confidence": "high"
         }
       ],
@@ -2990,7 +2958,7 @@
           "file": "_seg0_GB 50210-2018 建筑装饰装修工程质量验收标准.md",
           "source": "ppr_graph+clause_refine",
           "heading": "3.3.13 室内外装饰装修工程施工的环境条件应满足施工工艺的要求。",
-          "score": 57.23,
+          "score": 57.25,
           "standard_code": "GB50210",
           "confidence": "mid"
         },
@@ -3875,17 +3843,17 @@
       "query": "DB323700 江苏省城市轨道交通工程设计标准 现行吗",
       "source": "truth",
       "query_type": "version_status",
-      "branch": "direct",
+      "branch": "filename_title",
       "result_count": 1,
       "first_rank": null,
       "has_expected": false,
       "results": [
         {
           "file": "_seg1_DB32_T 3700-2019 江苏省城市轨道交通工程设计标准_p0001-0133.md",
-          "source": "standard_status_direct",
-          "heading": "江苏省城市轨道交通工程设计标准",
-          "score": 110.0,
-          "standard_code": "DB323700",
+          "source": "filename_title",
+          "heading": "_seg1_DB32_T 3700-2019 江苏省城市轨道交通工程设计标准_p0001-0133",
+          "score": 140.0,
+          "standard_code": "DB32T3700",
           "confidence": "high"
         }
       ],
