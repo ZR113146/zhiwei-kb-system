@@ -63,28 +63,51 @@ class PprFusionMixin:
             if len(candidate.get('text', '')) >= 50:
                 continue
             fname = candidate.get('file', '')
-            if fname in index and index[fname]:
-                section = index[fname][0]
-                for alternate_section in index[fname][:10]:
-                    heading = alternate_section.get('heading', '')
+            if fname not in index or not index[fname]:
+                continue
+            sections = index[fname]
+            # Pick the section whose heading matches the candidate's existing
+            # heading (the clause it actually hit), so heading and text stay
+            # from the SAME section. Only when the candidate has no usable
+            # heading do we fall back to the first substantive non-TOC section —
+            # and then we update BOTH heading and text from that one section.
+            cand_heading = candidate.get('heading', '') or ''
+            cand_pos = candidate.get('pos')
+            section = None
+            if cand_heading and not cand_heading.startswith('_seg') and len(cand_heading) <= 60:
+                for s in sections:
+                    if s.get('heading', '') == cand_heading:
+                        section = s
+                        break
+            if section is None and cand_pos:
+                for s in sections:
+                    if s.get('pos') == cand_pos:
+                        section = s
+                        break
+            if section is None:
+                # Genuine fallback: no heading/pos to anchor. Pick first
+                # substantive non-TOC section and use it for BOTH fields, so
+                # heading and text can never diverge.
+                section = sections[0]
+                for alt in sections[:10]:
+                    heading = alt.get('heading', '')
                     if re.search(r'(?:……\s*\d{1,4}|\s{2,}\d{1,4})\s*$', heading):
                         continue
                     heading_norm = re.sub(r'\s+', '', heading)
                     if re.match(r'^(?:[1-9]\d*\.?\s*)?(?:总\s*则|General|基本规定|一般要求|术语和符号|术语和定义|符号|范围|Scope|规范性引用文件|引用标准)$', heading_norm):
                         continue
-                    if alternate_section.get('length', 0) >= 100:
-                        section = alternate_section
+                    if alt.get('length', 0) >= 100:
+                        section = alt
                         break
-                old_heading = candidate.get('heading', '')
-                if not old_heading or old_heading.startswith('_seg') or len(old_heading) > 60:
-                    candidate['heading'] = section.get('heading', '')[:80]
-                fpath = os.path.join(KB_MD_DIR, fname)
-                if os.path.exists(fpath):
-                    try:
-                        with open(fpath, 'r', encoding='utf-8', errors='replace') as file_obj:
-                            body = file_obj.read()
-                        pos, length = section.get('pos', 0), section.get('length', 2000)
-                        candidate['text'] = body[pos:pos + min(length, 2000)]
-                    except (KeyError, TypeError):
-                        pass
+                candidate['heading'] = section.get('heading', '')[:80]
+            fpath = os.path.join(KB_MD_DIR, fname)
+            if os.path.exists(fpath):
+                try:
+                    with open(fpath, 'r', encoding='utf-8', errors='replace') as file_obj:
+                        body = file_obj.read()
+                    pos, length = section.get('pos', 0), section.get('length', 2000)
+                    candidate['text'] = body[pos:pos + min(length, 2000)]
+                    candidate['pos'] = pos
+                except (KeyError, TypeError):
+                    pass
         return candidates

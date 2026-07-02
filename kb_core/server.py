@@ -317,8 +317,14 @@ def api_clause(code: str=Query(...), clause: str=Query(...), pos: int=Query(0)):
                 with open(fpath,'r',encoding='utf-8',errors='replace') as f: text = f.read()
                 return {'code':key_code,'clause':entry['number'], 'file':entry['fname'], 'pos':entry.get('pos',0), 'heading':entry['title'],
                         'text':_extract_clause_text(text, entry['pos'], entry['length'], entry['number'])}
-    # Fallback: scan all clauses
+    # Fallback: scan clauses, but ONLY within the requested standard's files.
+    # Without this code check, any standard's clause with the same number would
+    # be returned as if it belonged to the requested code — a cross-standard
+    # false citation (e.g. GB99999 §5.5.4 returning CECS164's §5.5.4).
     for fname, data in ci['index'].items():
+        sc = data.get('std_code', '')
+        if sc and clean_code not in sc.replace(' ', '').replace('-', '').replace('_', '/'):
+            continue
         for c in data['clauses']:
             if c['number'] == clause:
                 fpath = os.path.join(KB_DIR, fname)
