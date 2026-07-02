@@ -149,79 +149,6 @@ _CODE_TOKEN_RE = re.compile(
 )
 
 
-def parse_standard_code(token):
-    """将字符串解析为结构化编码 {prefix, number, year, is_rec}, 无匹配返回 None。
-
-    用 code_norm._FAMILY_RE 定位 (含 RISN / T-前缀写法), 拆出 prefix/is_rec/
-    number/year。canonicalize_code 委托 code_norm.normalize_code 保证单一真源。
-    注: 生产路径 normalize_code_token 已直接调 normalize_code, 本函数仅供需要
-    结构化字段 (is_rec/year) 的少数调用; 守护 _parse_canon 反映生产路径。
-    """
-    if not token or not isinstance(token, str):
-        return None
-    token = token.strip()
-    if len(token) < 3:
-        return None
-
-    from kb_core.code_norm import _FAMILY_RE
-    text = token.replace('／', '/')
-    # T-前缀写法 T/CECS
-    m_tp = re.match(r'^T\s*/\s*(CECS|CJJ|JGJ|GB|JTG|JC|DB)\b', text, re.IGNORECASE)
-    if m_tp:
-        prefix = m_tp.group(1).upper()
-        rest = text[m_tp.end():]
-        is_rec = True
-        m_num = re.match(r'\s*[/_-]?\s*([A-Z]?\d+(?:\.\d+)?)', rest, re.IGNORECASE)
-        number = m_num.group(1) if m_num else ''
-        year = None
-        ym = re.search(r'(?:19|20)\d{2}', text)
-        if ym: year = ym.group(0)
-    else:
-        m = _FAMILY_RE.search(text)
-        if not m:
-            return None
-        raw = m.group(1).upper().replace('_', '').replace('/', '')
-        # 拆末尾 T (TCECS/RISN 例外)
-        if raw.endswith('T') and raw not in ('TCECS', 'RISN') and raw[:-1] in ('GB','JGJ','CJJ','CJ','JTG','JC','CECS','DB'):
-            is_rec = True; prefix = raw[:-1]
-        elif raw.startswith('DB') and re.fullmatch(r'DB\d{2}T', raw):
-            is_rec = True; prefix = 'DB' + raw[2:4]
-        else:
-            is_rec = raw.endswith('T') and raw not in ('TCECS','RISN')
-            prefix = raw[:-1] if (raw.endswith('T') and raw not in ('TCECS','RISN')) else raw
-        rest = text[m.end():]
-        mt = re.match(r'\s*[/_-]?\s*T\b', rest)
-        if mt:
-            is_rec = True; rest = rest[mt.end():]
-        m_num = re.match(r'\s*([A-Z]?\d+(?:\.\d+)?)', rest, re.IGNORECASE)
-        number = m_num.group(1) if m_num else ''
-        year = None
-        ym = re.search(r'(?:19|20)\d{2}', text)
-        if ym: year = ym.group(0)
-
-    if year and not re.match(r'^(19|20)', year):
-        year = None
-    # DB 前缀验证: 必须恰好 2 位区域号 (或纯 DB)
-    if prefix.startswith('DB') and not re.match(r'^DB\d{2}$', prefix) and prefix != 'DB':
-        return None
-    num_digits = number.replace('.', '')
-    if len(num_digits) < 1 or len(num_digits) > 10:
-        return None
-    return {'prefix': prefix, 'number': number, 'year': year, 'is_rec': is_rec}
-
-
-def canonicalize_code(parsed):
-    """将解析后的结构化编码转为规范形 — 委托 code_norm.normalize_code 单一真源。
-
-    v2 接管 (2026-07): 不再自己拼 prefix+T+number, 直接 normalize_code(重组串)。
-    保证与 normalize_code 完全一致 (含 RISN/T-CECS/DB 粘写)。
-    """
-    if not parsed:
-        return ""
-    s = f"{parsed['prefix']}{'T' if parsed.get('is_rec') else ''}{parsed['number']}"
-    return normalize_code(s)
-
-
 def normalize_code_token(token):
     """查询关键词归一化: 返回应追加到搜索词列表中的额外匹配形式。
 
@@ -424,7 +351,7 @@ __all__ = [
     '_TERM_MAP', '_TERM_MAP_PATH', '_TERM_MAP_V3', '_TERM_MAP_V3_PATH', '_GNAME_TO_G',
     # 函数
     '_resolve_path', '_load_paths', '_load_search_tuning', '_is_toc_entry',
-    'normalize_code', 'extract_code', 'parse_standard_code', 'canonicalize_code',
+    'normalize_code', 'extract_code',
     'normalize_code_token', '_load_term_map', '_expand_term_map',
     '_load_term_map_v3', '_expand_term_map_v3', '_parse_rerank_order',
 ]

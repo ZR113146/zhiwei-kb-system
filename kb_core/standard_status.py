@@ -8,7 +8,6 @@ kb.json-resolved paths and never edits source knowledge-base markdown files.
 import json
 import os
 import re
-from datetime import datetime
 
 # 标准编号归一化真源在 kb_core.code_norm (零依赖, 全项目唯一真源)。
 # 此处 re-export 保持向后兼容: `from kb_core.standard_status import
@@ -20,28 +19,6 @@ from kb_core.code_norm import (  # noqa: F401  (re-export)
 )
 
 _STATUS_FILE = "standard_status.json"
-_CURRENT_YEAR = datetime.now().year
-
-
-def infer_level(code):
-    code = (code or "").upper()
-    if code.startswith(("GB", "GBT")):
-        return "national"
-    if code.startswith(("JGJ", "CJJ", "JTG", "JC")):
-        return "industry"
-    if code.startswith("DB"):
-        return "local"
-    if code.startswith(("CECS", "TCECS")):
-        return "association"
-    return "unknown"
-
-
-def infer_default_status(year):
-    if not year:
-        return "unknown"
-    if year >= _CURRENT_YEAR - 12:
-        return "effective"
-    return "unknown"
 
 
 def status_path(kb_json_dir):
