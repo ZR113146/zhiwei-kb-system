@@ -27,6 +27,7 @@ from kb_core.code_norm import (  # noqa: E402
     normalize_code as CANON,
     normalize_code_with_year as CANON_YEAR,
     extract_standard,
+    _normalize_v2 as CANON_V2,
 )
 
 
@@ -57,9 +58,27 @@ CANON_MATRIX = {
 # 已知裂缝 (第 1 层待修, 本次第 0 层不动真源正则)。
 # 守护里显式记为 KNOWN_CRACKS, 真源当前对它们归一不达标 — 报告但不计失败,
 # 让裂缝可见且防退化; 修好后从本表移到 CANON_MATRIX 即转为硬断言。
+# 注: v2 分层解析器已能修这些 (见 V2_MATRIX); 切换 v2 为生产后, 把这些从
+# KNOWN_CRACKS 移到 CANON_MATRIX, 即转为对 CANON 的硬断言。
 KNOWN_CRACKS = {
     "DB323700": "DB32T3700",        # DB 粘写形 (DB<省2位><标号>) 没拆成 DB32+3700
     "T/CECS 1000": "TCECS1000",     # T-前置形未归一为 TCECS
+    "RISN-TG026-2020 建筑": "RISN-TG026",  # RISN 族 v1 未识别
+}
+
+# v2 分层解析器期望矩阵 (CANON_V2 应对这些全部正确 — 双轨: v2 修了 v1 的 KNOWN_CRACKS)。
+# 切换 v2 为生产后, 这些合并进 CANON_MATRIX 由 CANON 硬断言。
+V2_MATRIX = {
+    "RISN-TG026-2020 建筑": "RISN-TG026",
+    "T/CECS 1000": "TCECS1000",
+    "DB32_T 3700-2019": "DB32T3700",
+    "DB32/T 3700": "DB32T3700",
+    "CJJ_T 287-2018": "CJJT287",
+    "GB_T 50720-2011": "GBT50720",
+    "JTG/T F20-2015": "JTGTF20",
+    "DB323700": "DB323700",
+    "JGJ 79-2012": "JGJ79",
+    "CJJ 1-2008": "CJJ1",
 }
 
 # 历史 bug 锚点 (勿再退化)
@@ -211,7 +230,24 @@ def main():
     for inp, expect in KNOWN_CRACKS.items():
         got = CANON(inp)
         status = "已修复" if got == expect else f"未修 (got={got})"
-        print(f"   {inp!r:16} expect={expect!r:14} {status}")
+        print(f"   {inp!r:30} expect={expect!r:14} {status}")
+
+    # v2 分层解析器双轨校验 (并存阶段: v2 应修 KNOWN_CRACKS 且对存量零回退)
+    v2_fail = []
+    for inp, expect in V2_MATRIX.items():
+        if CANON_V2(inp) != expect:
+            v2_fail.append((inp, CANON_V2(inp), expect))
+    # v2 对存量 CANON_MATRIX 应与 v1 一致 (零回退)
+    v2_regress = [(inp, CANON(inp), CANON_V2(inp)) for inp in CANON_MATRIX if CANON_V2(inp) != CANON(inp)]
+    if v2_fail or v2_regress:
+        print("[V2-FAIL] 分层解析器 v2 不达标:")
+        for inp, got, exp in v2_fail:
+            print(f"   修裂失败 {inp!r:24} got={got!r:12} expect={exp!r}")
+        for inp, v1g, v2g in v2_regress:
+            print(f"   存量回退 {inp!r:24} v1={v1g!r:10} v2={v2g!r}")
+        return 1
+    fixed = sum(1 for inp, exp in KNOWN_CRACKS.items() if CANON_V2(inp) == exp and CANON(inp) != exp)
+    print(f"[OK] v2 分层解析器通过 ({len(V2_MATRIX)} 例; 修裂 {fixed}/{len(KNOWN_CRACKS)}; 存量零回退)")
 
     # A) normalize 契约多入口一致性
     okA, driftA = _run_suite(suites["A"], {**CANON_MATRIX, **ANCHORS})
