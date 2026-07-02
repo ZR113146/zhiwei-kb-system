@@ -223,6 +223,11 @@ def evaluate_query(item, max_results):
         "support_guarded_results": simulated_results,
     }
     row["failure_category"] = "supported" if row["truth_support_at_3"] else classify_failure(row)
+    # Refusal-aware decision correctness: adversarial items (refuse/review) are
+    # correct precisely when the system does NOT assert support.
+    expected_outcome = item.get("expected_outcome", "support")
+    row["expected_outcome"] = expected_outcome
+    row["decision_correct"] = at3["support_ok"] if expected_outcome == "support" else (not at3["support_ok"])
     return row
 
 
@@ -248,6 +253,7 @@ def summarize(rows):
             "count": len(items),
             "TruthSupport@1": rate(items, lambda row: row["truth_support_at_1"]),
             "TruthSupport@3": rate(items, lambda row: row["truth_support_at_3"]),
+            "DecisionCorrect@3": rate(items, lambda row: row.get("decision_correct")),
             "Clause@3": rate(items, lambda row: row["clause_at_3"]),
             "Fact@3": rate(items, lambda row: row["fact_at_3"]),
             "ForbiddenHitRate": rate(items, lambda row: row["forbidden_hit_at_3"]),
@@ -295,7 +301,7 @@ def write_markdown(report, output_path):
         "## Overall",
         "",
     ]
-    for key in ("TruthSupport@1", "TruthSupport@3", "Clause@3", "Fact@3", "ForbiddenHitRate", "DeletedClauseErrorRate", "StaleVersionErrorRate", "TableCellHitRate", "UnsupportedHighScoreRate", "AvgLatency", "Errors"):
+    for key in ("TruthSupport@1", "TruthSupport@3", "DecisionCorrect@3", "Clause@3", "Fact@3", "ForbiddenHitRate", "DeletedClauseErrorRate", "StaleVersionErrorRate", "TableCellHitRate", "UnsupportedHighScoreRate", "AvgLatency", "Errors"):
         lines.append(f"- {key}: {overall.get(key)}")
     for key in ("UnsupportedHighScoreGuardedRate", "SimulatedTruthSupport@1", "SimulatedUnsupportedHighScoreRate", "SupportGuardTop1ChangedRate", "ForbiddenBlockedRate", "EvidenceUseRate", "ManualReviewRate", "SimulatedBlockedTop1Rate"):
         lines.append(f"- {key}: {overall.get(key)}")
