@@ -6,6 +6,7 @@ from datetime import datetime
 # ---- 统一配置（kb.json）----
 _KB_DIR = os.path.join(os.path.dirname(__file__), '..', 'kb_core')
 from kb_core.kb import load_config
+from kb_core.code_norm import normalize_code, normalize_code_with_year
 import kb_core.changelog as changelog; changelog.record(__file__, sys.argv)
 
 _cfg = load_config()
@@ -36,15 +37,12 @@ def write_to_kb(title, content):
 
     # 目标: Codex 平台 MD vault
     fpath = os.path.join(KB_DIR, fname)
-    # 根据文件名推断学科标签
-    import re as _re
-    code = _re.search(r'((?:GB|JGJ|CJJ|CECS|DB|JTG|TCECS)\s*T?\s*\d+)', title.upper().replace(' ',''))
+    # 根据文件名推断学科标签 (委托 code_norm 真源, 不自写正则 — 避免入库/检索两侧归一化漂移)
+    nc = normalize_code(title)  # e.g. GBT50720, CJJT287, JGJ79
     tag_suffix = ''
-    if code:
-        c = code.group(0).replace(' ','')
-        if c.startswith('CJJ') or c.startswith('CJ'): tag_suffix = ',市政路桥'
-        elif c.startswith('JTG'): tag_suffix = ',市政路桥'
-        elif c.startswith('JGJ') or c.startswith('GB'): tag_suffix = ',房屋建筑'
+    if nc:
+        if nc.startswith('CJJ') or nc.startswith('CJ') or nc.startswith('JTG'): tag_suffix = ',市政路桥'
+        elif nc.startswith('JGJ') or nc.startswith('GB'): tag_suffix = ',房屋建筑'
     if '手册' in title or '汇编' in title: tag_suffix += ',工具书'
     yaml_header = f'---\ntitle: "{title}"\nintent: 规范条款查询\nproject: "施工规范知识库"\ntags: [规范,施工,标准{tag_suffix}]\nimported_at: {datetime.now().isoformat()}\n---\n\n'
     with open(fpath, 'w', encoding='utf-8') as f:
@@ -59,10 +57,9 @@ def write_to_kb(title, content):
     return fpath
 
 def get_norm_id(fname):
-    # 规范化: _T → /T (统一分隔符), 然后提取编号前缀+年份 (支持JTG F20格式)
-    normalized = fname.replace('_T', '/T')
-    m = re.search(r'((?:[A-Z]{2,})(?:\d+)?(?:\/T)?\s*[A-Z]?\d+[\-\.\/]\d+)', normalized)
-    return m.group(1).replace(' ', '').replace('/T', 'T') if m else None
+    # 委托 code_norm 真源 (保年份, 用于入库去重 — 同号不同年版视为不同标准)。
+    # 不再自写正则做 _T↔/T 替换, 避免与检索侧归一化不等价 (DB323700 类裂缝的根)。
+    return normalize_code_with_year(fname) or None
 
 def is_dup(norm_id):
     """精确匹配：两边各提取编号后等值比较，避免子串误判（如 GB5020 匹配 GB50209）"""

@@ -23,7 +23,11 @@ for p in (ROOT, os.path.join(ROOT, "pipeline")):
     if p not in sys.path:
         sys.path.insert(0, p)
 
-from kb_core.code_norm import normalize_code as CANON, extract_standard  # noqa: E402
+from kb_core.code_norm import (  # noqa: E402
+    normalize_code as CANON,
+    normalize_code_with_year as CANON_YEAR,
+    extract_standard,
+)
 
 
 # ── 形态矩阵: 输入 -> 期望 canonical ────────────────────────────
@@ -43,6 +47,19 @@ CANON_MATRIX = {
     "CECS 164-2004": "CECS164",
     "DB32/T 3700-2019": "DB32T3700",
     "JC/T 547-2017": "JCT547",
+    # 全族覆盖 (系统性, 防再裂)
+    "JTG/T F20-2015": "JTGTF20",
+    "CJJ 1-2008": "CJJ1",
+    "TCECS 1000": "TCECS1000",
+    "JCT 973": "JCT973",
+}
+
+# 已知裂缝 (第 1 层待修, 本次第 0 层不动真源正则)。
+# 守护里显式记为 KNOWN_CRACKS, 真源当前对它们归一不达标 — 报告但不计失败,
+# 让裂缝可见且防退化; 修好后从本表移到 CANON_MATRIX 即转为硬断言。
+KNOWN_CRACKS = {
+    "DB323700": "DB32T3700",        # DB 粘写形 (DB<省2位><标号>) 没拆成 DB32+3700
+    "T/CECS 1000": "TCECS1000",     # T-前置形未归一为 TCECS
 }
 
 # 历史 bug 锚点 (勿再退化)
@@ -70,12 +87,23 @@ def _canonize(value):
     return CANON(str(value))
 
 
+# 真源自检矩阵: normalize_code_with_year (保年份, 锁入库去重语义)
+YEAR_MATRIX = {
+    "CJJ_T 287-2018 园林绿化养护标准": "CJJT287-2018",
+    "GB_T 50720-2011 建设工程施工现场消防安全技术标准": "GBT50720-2011",
+    "DB32_T 3700-2019 江苏省城市轨道交通工程设计标准": "DB32T3700-2019",
+    "JGJ 79-2012 建筑地基处理技术规范": "JGJ79-2012",
+    "JTG_T F20-2015 公路工程标准体系": "JTGTF20-2015",
+}
+
+
 def _load_entries():
     """收集 phase 0-2 范围内所有归一化入口。返回 {suite: {name: fn}}。"""
     A, B = {}, {}
 
     # 真源
     A["code_norm.normalize_code"] = CANON
+    A["code_norm.normalize_code_with_year"] = CANON_YEAR
 
     from kb_core.resolver import _common as C
     A["_common.normalize_code"] = C.normalize_code
@@ -94,6 +122,13 @@ def _load_entries():
 
     from kb_core import kb_ppr_engine as PE
     A["ppr._normalize_code"] = PE._normalize_code
+
+    # 入库侧归一化入口 (第 0 层: kb_import 现委托 code_norm, 应与真源等价)
+    try:
+        from pipeline import kb_import as KI
+        A["kb_import.get_norm_id"] = KI.get_norm_id
+    except Exception:
+        pass
 
     # extract 契约
     B["code_norm.extract_standard"] = extract_standard
@@ -157,6 +192,26 @@ def main():
             print(f"   {inp!r:30} got={got!r:14} expect={exp!r}")
         return 1
     print(f"[OK] 真源矩阵通过 ({len(CANON_MATRIX)+len(ANCHORS)+len(EXTRACT_MATRIX)} 例)")
+
+    # 真源 normalize_code_with_year 自检 (保年份, 入库去重语义)
+    year_fail = []
+    for inp, expect in YEAR_MATRIX.items():
+        got = CANON_YEAR(inp)
+        if got != expect:
+            year_fail.append((inp, got, expect))
+    if year_fail:
+        print("[SRC-FAIL] normalize_code_with_year 矩阵不达标:")
+        for inp, got, exp in year_fail:
+            print(f"   {inp!r:30} got={got!r:16} expect={exp!r}")
+        return 1
+    print(f"[OK] normalize_code_with_year 矩阵通过 ({len(YEAR_MATRIX)} 例)")
+
+    # 已知裂缝 (第 1 层待修, 此处仅报告, 不计失败)
+    print("\n[KNOWN-CRACKS] 已知归一化裂缝 (第 1 层待修真源正则, 当前不阻断):")
+    for inp, expect in KNOWN_CRACKS.items():
+        got = CANON(inp)
+        status = "已修复" if got == expect else f"未修 (got={got})"
+        print(f"   {inp!r:16} expect={expect!r:14} {status}")
 
     # A) normalize 契约多入口一致性
     okA, driftA = _run_suite(suites["A"], {**CANON_MATRIX, **ANCHORS})

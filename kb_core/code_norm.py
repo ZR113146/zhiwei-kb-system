@@ -48,6 +48,23 @@ def normalize_code(raw):
     return f"{prefix}{number}"
 
 
+def normalize_code_with_year(raw):
+    """归一码保留年份, 形如 GBT50720-2011。用于入库去重 (同号不同年版视为不同标准)。
+    与 normalize_code 共享 _CODE_RE, 仅把年份拼回 — 单一真源, 避免入库侧自写正则漂移。"""
+    if not raw:
+        return ""
+    text = str(raw).upper().replace("／", "/")
+    text = re.sub(r"\s+", " ", text).strip()
+    match = _CODE_RE.search(text)
+    if not match:
+        return ""
+    code = normalize_code(match.group(0))
+    if not code:
+        return ""
+    _prefix, _number, year = match.groups()
+    return f"{code}-{year}" if year else code
+
+
 def official_code(raw):
     """人类可读官方形, 同时保持 standard_code 文件安全。
 
