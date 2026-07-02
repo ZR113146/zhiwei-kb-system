@@ -73,8 +73,20 @@ class QueryClassifierMixin:
                 clause_match = code_match
         return code_match, clause_match, standard_code, clause_tail_match, clause_num, tail, tail_after_clause
 
-    def _param_index_result(self, param_name, entry):
-        return {
+    @staticmethod
+    def _param_value_zero_magnitude(value):
+        """True if an extracted param value is a physically-meaningless zero
+        (e.g. '0mm', '0', '0.0mm') — a known false-extraction pattern that must
+        never be surfaced as an authoritative answer."""
+        num = re.search(r'-?\d+(?:\.\d+)?', str(value or ''))
+        if not num:
+            return False
+        try:
+            return float(num.group()) == 0.0
+        except ValueError:
+            return False
+
+    def _param_index_result(self, param_name, entry):        return {
             'file': entry.get('std_code', ''),
             'heading': '%s: %s = %s %s' % (
                 entry.get('clause', '?'), param_name, entry.get('value', '?'),
@@ -316,8 +328,9 @@ class QueryClassifierMixin:
 
         for _pname, _entries in _params.items():
             if _pname in keywords:
+                _valid = [_e for _e in _entries if not self._param_value_zero_magnitude(_e.get('value'))]
                 _results = []
-                for _e in _entries[:5]:
+                for _e in _valid[:5]:
                     _results.append(self._param_index_result(_pname, _e))
                 if _results:
                     return _results

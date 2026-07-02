@@ -50,7 +50,7 @@ def normalize_unit_text(value: Any) -> str:
         "m^2": "m2",
         "m^{2}": "m2",
         "m 2": "m2",
-        "平方": "m2",
+        "平方米": "m2",
         "m³": "m3",
         "㎥": "m3",
         "m鲁": "m3",
@@ -60,7 +60,7 @@ def normalize_unit_text(value: Any) -> str:
         "m^3": "m3",
         "m^{3}": "m3",
         "m 3": "m3",
-        "立方": "m3",
+        "立方米": "m3",
         "℃": "c",
         "鈩?": "c",
         "掳c": "c",
@@ -77,9 +77,10 @@ def normalize_unit_text(value: Any) -> str:
 
 
 def normalize_text(value: Any) -> str:
-    text = normalize_unit_text(value)
+    text = str(value or "")
     text = text.replace("\\mathrm", "")
     text = re.sub(r"[{}$]", "", text)
+    text = normalize_unit_text(text)
     return re.sub(r"\s+", "", text).lower()
 
 

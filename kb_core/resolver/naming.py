@@ -225,7 +225,7 @@ class NamingMixin:
         matches = []
         for f in self.md_list:
             fn = normalize_code(f.replace('.md', ''))
-            if any(code_candidate in fn or fn in code_candidate for code_candidate in code_candidates):
+            if fn and any(cc and (cc in fn or fn in cc) for cc in code_candidates):
                 matches.append(os.path.join(KB_MD_DIR, f))
         return matches[0] if matches else None
 
@@ -240,7 +240,7 @@ class NamingMixin:
                     matches.append(fp)
         for f in self.md_list:
             fn = normalize_code(f.replace('.md', ''))
-            if any(code_candidate in fn or fn in code_candidate for code_candidate in code_candidates):
+            if fn and any(cc and (cc in fn or fn in cc) for cc in code_candidates):
                 fp = os.path.join(KB_MD_DIR, f)
                 if fp not in matches:
                     matches.append(fp)
