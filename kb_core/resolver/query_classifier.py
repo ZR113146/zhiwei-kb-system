@@ -86,6 +86,25 @@ class QueryClassifierMixin:
         except ValueError:
             return False
 
+    # Pure question/filler tokens that do NOT add semantic scope to a parameter
+    # lookup (e.g. 保护层厚度是多少 is still a bare lookup).
+    _PARAM_FILLER = ('是多少', '多少', '是', '为', '的', '呢', '吗', '？', '?',
+                     '规定', '取值', '数值', '值', '要求是')
+
+    @classmethod
+    def _is_bare_param_lookup(cls, query, pname):
+        """A genuine parameter lookup: after removing the param name and pure
+        question/filler words, nothing substantive remains. This is the general
+        guard for the whole class — it rejects BOTH qualifier-prefix compounds
+        (钢筋保护层厚度 → residual '钢筋') AND multi-intent queries
+        (保护层厚度 施工要求 → residual '施工要求'), so generic param values are
+        not surfaced as authoritative answers to a semantically-scoped query.
+        Only near-bare lookups (保护层厚度 / 保护层厚度是多少) short-circuit."""
+        residual = query.replace(pname, '')
+        for token in cls._PARAM_FILLER:
+            residual = residual.replace(token, '')
+        return re.sub(r'\s+', '', residual) == ''
+
     def _param_index_result(self, param_name, entry):        return {
             'file': entry.get('std_code', ''),
             'heading': '%s: %s = %s %s' % (
@@ -327,7 +346,7 @@ class QueryClassifierMixin:
         _params = _param_index.get('params', {})
 
         for _pname, _entries in _params.items():
-            if _pname in keywords:
+            if _pname in keywords and self._is_bare_param_lookup(keywords, _pname):
                 _valid = [_e for _e in _entries if not self._param_value_zero_magnitude(_e.get('value'))]
                 _results = []
                 for _e in _valid[:5]:
