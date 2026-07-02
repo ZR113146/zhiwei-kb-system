@@ -30,16 +30,16 @@
   },
   "aggregate": {
     "count": 92,
-    "recall_at_5": 0.6087,
-    "mrr": 0.5257,
-    "ndcg": 0.5468,
+    "recall_at_5": 0.6196,
+    "mrr": 0.6196,
+    "ndcg": 0.6196,
     "no_result_rate": 0.087,
     "errors": 0,
     "ppr_branch": {
-      "count": 47,
-      "recall_at_5": 0.5745,
-      "mrr": 0.4121,
-      "ndcg": 0.4533
+      "count": 52,
+      "recall_at_5": 0.5385,
+      "mrr": 0.5385,
+      "ndcg": 0.5385
     }
   },
   "search": [
@@ -166,42 +166,42 @@
       "results": [
         {
           "file": "_seg1_DB32_T 3700-2019 江苏省城市轨道交通工程设计标准_p0001-0133.md",
-          "source": "merged",
-          "heading": "江苏省城市轨道交通工程设计标准",
+          "source": "merged+clause_refine",
+          "heading": "1 范围",
           "score": 92.51,
           "standard_code": "DB32T3700",
           "confidence": "high"
         },
         {
+          "file": "_seg0_GB 50911-2013 城市轨道交通工程监测技术规范.md",
+          "source": "ppr_graph+clause_refine",
+          "heading": "1.0.2 本规范适用于城市轨道交通新建、改建、扩建工程及工程运行维护的监测工作。",
+          "score": 65.32,
+          "standard_code": "GB50911",
+          "confidence": "high"
+        },
+        {
+          "file": "_seg0_CECS 453-2016 轻质泡沫土轨道交通填筑技术规程.md",
+          "source": "ppr_graph+clause_refine",
+          "heading": "1.0.2 本规程适用于轻质泡沫土用于轨道交通填筑工程中的设计、施工、质量检验与验收。",
+          "score": 52.77,
+          "standard_code": "CECS453",
+          "confidence": "mid"
+        },
+        {
           "file": "📋 城镇.md",
-          "source": "legacy",
-          "heading": "地方 DB (2件)",
-          "score": 37.69,
+          "source": "legacy+clause_refine",
+          "heading": "城镇 CJJ (10件)",
+          "score": 46.19,
           "standard_code": "CJJ143",
           "confidence": "mid"
         },
         {
-          "file": "_seg0_JGJ_T 163-2008 城市夜景照明设计规范.md",
-          "source": "legacy",
-          "heading": "1.0.2 从我国实际情况出发，确定本规范的适用范围主要有建筑物、构筑物和特殊景观元素、商业步行街、广场、公园、广告与标识等景物的夜景照明设计。",
-          "score": 35.89,
-          "standard_code": "JGJT163",
-          "confidence": "mid"
-        },
-        {
-          "file": "_seg0_GB 50345-2012 屋面工程技术规范.md",
-          "source": "merged",
-          "heading": "4.7.1 上人屋面保护层可采用块体材料、细石混凝土等材料，不上人屋面保护层可采用浅色涂料、铝箔、矿物粒料、水泥砂浆等材料。保护层材料的适用范围和技术要求应符合表 4.7.1 的规定。",
-          "score": 33.59,
-          "standard_code": "GB50345",
-          "confidence": "mid"
-        },
-        {
-          "file": "_seg0_CECS 164-2004 埋地聚乙烯排水管管道工程技术规程.md",
-          "source": "legacy",
-          "heading": "1.0.2 本条明确了本规程适用范围。根据《给水排水管道工程施工及验收规范》GB 50268 第 10 章的有关规定，工作压力小于 0.1MPa 的管道为无压管道。条文中提出的两种管材，都可用于承受外压力的埋地排水管道工程。双壁波纹管和缠绕",
-          "score": 31.4,
-          "standard_code": "CECS164",
+          "file": "_seg0_JGJ 231-2010 建筑施工承插型盘扣件钢管支架安全技术规程.md",
+          "source": "ppr_graph+clause_refine",
+          "heading": "7.2.2 架体的构造应符合本规程第 6.1 节、第 6.2 节的有关规定。",
+          "score": 37.69,
+          "standard_code": "JGJ231",
           "confidence": "mid"
         }
       ],
@@ -213,47 +213,47 @@
       "query_type": "clause",
       "branch": "ppr+legacy",
       "result_count": 5,
-      "first_rank": 2,
+      "first_rank": 1,
       "has_expected": true,
       "results": [
         {
-          "file": "_seg0_GB 50911-2013 城市轨道交通工程监测技术规范.md",
-          "source": "merged",
-          "heading": "1.0.1 为规范城市轨道交通工程监测工作，做到技术先进、经济合理、成果可靠，保证工程结构和周边环境的安全，制定本规范。",
-          "score": 110.47,
-          "standard_code": "GB50911",
-          "confidence": "high"
-        },
-        {
           "file": "_seg1_DB32_T 3700-2019 江苏省城市轨道交通工程设计标准_p0001-0133.md",
-          "source": "merged",
-          "heading": "江苏省城市轨道交通工程设计标准",
-          "score": 92.51,
+          "source": "merged+clause_refine",
+          "heading": "1 范围",
+          "score": 112.36,
           "standard_code": "DB32T3700",
           "confidence": "high"
         },
         {
+          "file": "_seg0_GB 50911-2013 城市轨道交通工程监测技术规范.md",
+          "source": "merged+clause_refine",
+          "heading": "1.0.1 为规范城市轨道交通工程监测工作，做到技术先进、经济合理、成果可靠，保证工程结构和周边环境的安全，制定本规范。",
+          "score": 92.51,
+          "standard_code": "GB50911",
+          "confidence": "high"
+        },
+        {
+          "file": "_seg1_GB 50015-2019 建筑给水排水设计标准_p0001-0145.md",
+          "source": "ppr_graph+clause_refine",
+          "heading": "1.0.1 为保证建筑给水排水工程设计质量，满足安全、卫生、适用、经济、绿色等基本要求，制定本标准。",
+          "score": 45.68,
+          "standard_code": "GB50015",
+          "confidence": "mid"
+        },
+        {
+          "file": "_seg0_CECS 453-2016 轻质泡沫土轨道交通填筑技术规程.md",
+          "source": "ppr_graph+clause_refine",
+          "heading": "1.0.2 本规程适用于轻质泡沫土用于轨道交通填筑工程中的设计、施工、质量检验与验收。",
+          "score": 43.86,
+          "standard_code": "CECS453",
+          "confidence": "mid"
+        },
+        {
           "file": "📋 城镇.md",
-          "source": "legacy",
-          "heading": "地方 DB (2件)",
+          "source": "legacy+clause_refine",
+          "heading": "城镇 CJJ (10件)",
           "score": 37.69,
           "standard_code": "CJJ143",
-          "confidence": "mid"
-        },
-        {
-          "file": "_seg0_CJJ 37-2012 城市道路工程设计规范(2016年版).md",
-          "source": "merged",
-          "heading": "1.0.1 为适应我国城市道路建设和发展的需要，规范城市道路工程设计，统一城市道路工程设计主要技术指标，指导城市道路专用标准的编制，制定本规范。",
-          "score": 37.5,
-          "standard_code": "CJJ37",
-          "confidence": "mid"
-        },
-        {
-          "file": "_seg0_JGJ_T 163-2008 城市夜景照明设计规范.md",
-          "source": "legacy",
-          "heading": "1.0.1 为在城市夜景照明设计中，贯彻国家的法律、法规和技术经济政策，塑造城市夜间形象，增加城市魅力，丰富人们夜间生活，做到技术先进、经济合理、节约能源、保护环境、使用安全、维护管理方便，实施绿色照明，制定本规范。",
-          "score": 35.89,
-          "standard_code": "JGJT163",
           "confidence": "mid"
         }
       ],
@@ -270,43 +270,43 @@
       "results": [
         {
           "file": "_seg1_DB32_T 3700-2019 江苏省城市轨道交通工程设计标准_p0001-0133.md",
-          "source": "merged",
-          "heading": "江苏省城市轨道交通工程设计标准",
+          "source": "merged+clause_refine",
+          "heading": "1 范围",
           "score": 92.51,
           "standard_code": "DB32T3700",
           "confidence": "high"
         },
         {
-          "file": "📋 城镇.md",
-          "source": "legacy",
-          "heading": "地方 DB (2件)",
+          "file": "_seg0_GB 50911-2013 城市轨道交通工程监测技术规范.md",
+          "source": "ppr_graph+clause_refine",
+          "heading": "1.0.1 为规范城市轨道交通工程监测工作，做到技术先进、经济合理、成果可靠，保证工程结构和周边环境的安全，制定本规范。",
+          "score": 55.49,
+          "standard_code": "GB50911",
+          "confidence": "mid"
+        },
+        {
+          "file": "_seg0_CECS 453-2016 轻质泡沫土轨道交通填筑技术规程.md",
+          "source": "ppr_graph+clause_refine",
+          "heading": "1.0.2 本规程适用于轻质泡沫土用于轨道交通填筑工程中的设计、施工、质量检验与验收。",
+          "score": 42.95,
+          "standard_code": "CECS453",
+          "confidence": "mid"
+        },
+        {
+          "file": "_seg0_GB 55037-2022 建筑防火通用规范.md",
+          "source": "ppr_graph+clause_refine",
+          "heading": "10.2.2 地铁工程中的地下电力电缆和数据通信线缆、城市综合管廊工程中的电力电缆，应采用燃烧性能不低于 $B_{1}$ 级的电缆或阻燃型电线。",
           "score": 37.69,
+          "standard_code": "GB55037",
+          "confidence": "mid"
+        },
+        {
+          "file": "📋 城镇.md",
+          "source": "legacy+clause_refine",
+          "heading": "城镇 CJJ (10件)",
+          "score": 34.76,
           "standard_code": "CJJ143",
           "confidence": "mid"
-        },
-        {
-          "file": "_seg1_GB 50011-2010 建筑抗震设计规范_p0001-0144.md",
-          "source": "legacy",
-          "heading": "3.8.2 采用隔震或消能减震设计的建筑，当遭遇到本地区的多遇地震影响、设防地震影响和罕遇地震影响时，可按高于本规范第1.0.1条的基本设防目标进行设计。",
-          "score": 33.86,
-          "standard_code": "GB50011",
-          "confidence": "mid"
-        },
-        {
-          "file": "_seg0_GB 50037-2013 建筑地面设计规范.md",
-          "source": "legacy",
-          "heading": "1.0.3 建筑地面工程需要的材料用量较大,充分利用地方材料与再生资源,相对比较节约,且体现了协调发展与可持续发展的原则。原条文中的工业废料属于再生资源范围,节约木材、水泥、钢材和贵重材料问题在第1.0.1条的设计原则中已明确要求经济合理,",
-          "score": 30.92,
-          "standard_code": "GB50037",
-          "confidence": "mid"
-        },
-        {
-          "file": "_seg1_城市轨道交通工程建设安全生产标准化管理技术指南_p0001-0152.md",
-          "source": "merged",
-          "heading": "8.原位测试",
-          "score": 19.36,
-          "standard_code": "",
-          "confidence": "low"
         }
       ],
       "error": ""
@@ -315,48 +315,48 @@
       "query": "钢筋保护层厚度",
       "source": "golden",
       "query_type": "parameter",
-      "branch": "direct",
+      "branch": "ppr+legacy",
       "result_count": 5,
       "first_rank": null,
       "has_expected": true,
       "results": [
         {
-          "file": "GB50003-2011",
-          "source": "param_index",
-          "heading": "4.3.3: 保护层厚度 = 0mm ",
-          "score": 85.6,
-          "standard_code": "GB50003",
+          "file": "_seg2_建筑施工手册（第六版）第5册_p0177-0352.md",
+          "source": "legacy+clause_refine",
+          "heading": "32.3.2.4 防护结构的涂装厚度与使用年限的选择要求",
+          "score": 183.11,
+          "standard_code": "",
           "confidence": "high"
         },
         {
-          "file": "GB50108-2008",
-          "source": "param_index",
-          "heading": ": 保护层厚度 = 50mm ",
-          "score": 84.0,
-          "standard_code": "GB50108",
+          "file": "_seg0_GB 50208-2011 地下防水工程质量验收规范.md",
+          "source": "legacy+clause_refine",
+          "heading": "4.1.19 防水混凝土结构厚度不应小于 250mm，其允许偏差应为 +8mm、-5mm；主体结构迎水面钢筋保护层厚度不应小于 50mm，其允许偏差应为 ±5m",
+          "score": 159.92,
+          "standard_code": "GB50208",
           "confidence": "high"
         },
         {
-          "file": "GB50108-2008",
-          "source": "param_index",
-          "heading": ": 保护层厚度 = 50mm ",
-          "score": 84.0,
-          "standard_code": "GB50108",
+          "file": "_seg0_GB 50345-2012 屋面工程技术规范.md",
+          "source": "legacy+clause_refine",
+          "heading": "4.3.2 卷材、涂膜的基层宜设找平层。找平层厚度和技术要求应符合表 4.3.2 的规定。",
+          "score": 158.56,
+          "standard_code": "GB50345",
           "confidence": "high"
         },
         {
-          "file": "GB50108-2008",
-          "source": "param_index",
-          "heading": "8.3: 保护层厚度 = 70mm ",
-          "score": 84.0,
-          "standard_code": "GB50108",
+          "file": "_seg0_GB 50207-2012 屋面工程质量验收规范.md",
+          "source": "legacy+clause_refine",
+          "heading": "5.2.5 板状材料保温层的厚度应符合设计要求，其正偏差应不限，负偏差应为 5%，且不得大于 4mm。",
+          "score": 148.77,
+          "standard_code": "GB50207",
           "confidence": "high"
         },
         {
-          "file": "GB50108-2008",
-          "source": "param_index",
-          "heading": ": 保护层厚度 = 40mm ",
-          "score": 84.0,
+          "file": "_seg0_GB 50108-2008 地下工程防水技术规范.md",
+          "source": "merged+clause_refine",
+          "heading": "4.3.25 卷材防水层经检查合格后，应及时做保护层，保护层应符合下列规定：",
+          "score": 123.7,
           "standard_code": "GB50108",
           "confidence": "high"
         }
@@ -367,49 +367,49 @@
       "query": "钢筋保护层厚度 怎么规定",
       "source": "golden",
       "query_type": "parameter",
-      "branch": "direct",
+      "branch": "ppr+legacy",
       "result_count": 5,
       "first_rank": null,
       "has_expected": true,
       "results": [
         {
-          "file": "GB50003-2011",
-          "source": "param_index",
-          "heading": "4.3.3: 保护层厚度 = 0mm ",
-          "score": 85.6,
-          "standard_code": "GB50003",
+          "file": "_seg1_CJJ 2-2008 城市桥梁工程施工与质量验收规范_p0001-0151.md",
+          "source": "merged+clause_refine",
+          "heading": "6.4.5 钢筋的混凝土保护层厚度，必须符合设计要求。设计无规定时应符合下列规定：",
+          "score": 188.0,
+          "standard_code": "CJJ2",
           "confidence": "high"
         },
         {
-          "file": "GB50108-2008",
-          "source": "param_index",
-          "heading": ": 保护层厚度 = 50mm ",
-          "score": 84.0,
-          "standard_code": "GB50108",
+          "file": "_seg0_JGJ 107-2016 钢筋机械连接技术规程.md",
+          "source": "merged+clause_refine",
+          "heading": "4.0.2 连接件的混凝土保护层厚度宜符合现行国家标准《混凝土结构设计规范》GB 50010 中的规定，且不应小于 0.75 倍钢筋最小保护层厚度和 15mm ",
+          "score": 143.33,
+          "standard_code": "JGJ107",
           "confidence": "high"
         },
         {
-          "file": "GB50108-2008",
-          "source": "param_index",
-          "heading": ": 保护层厚度 = 50mm ",
-          "score": 84.0,
-          "standard_code": "GB50108",
+          "file": "_seg0_GB 50204-2015 混凝土结构工程施工质量验收规范.md",
+          "source": "merged+clause_refine",
+          "heading": "6.5.4 锚具的封闭保护措施应符合设计要求。当设计无具体要求时，外露锚具和预应力筋的混凝土保护层厚度不应小于：一类环境时20mm，二a、二b类环境时50mm，",
+          "score": 140.42,
+          "standard_code": "GB50204",
           "confidence": "high"
         },
         {
-          "file": "GB50108-2008",
-          "source": "param_index",
-          "heading": "8.3: 保护层厚度 = 70mm ",
-          "score": 84.0,
-          "standard_code": "GB50108",
+          "file": "_seg4_建筑施工手册（第六版）第3册_p0391-0585.md",
+          "source": "merged+clause_refine",
+          "heading": "(2) 一般项目",
+          "score": 118.23,
+          "standard_code": "",
           "confidence": "high"
         },
         {
-          "file": "GB50108-2008",
-          "source": "param_index",
-          "heading": ": 保护层厚度 = 40mm ",
-          "score": 84.0,
-          "standard_code": "GB50108",
+          "file": "_seg0_GB 50203-2011 砌体结构工程施工质量验收规范.md",
+          "source": "legacy+clause_refine",
+          "heading": "5.2.4 非抗震设防及抗震设防烈度为 6 度、7 度地区的临时间断处，当不能留斜槎时，除转角处外，可留直槎，但直槎必须做成凸槎，且应加设拉结钢筋，拉结钢筋应符",
+          "score": 115.55,
+          "standard_code": "GB50203",
           "confidence": "high"
         }
       ],
@@ -419,49 +419,49 @@
       "query": "钢筋保护层厚度 施工要求",
       "source": "golden",
       "query_type": "technical",
-      "branch": "direct",
+      "branch": "ppr+legacy",
       "result_count": 5,
       "first_rank": null,
       "has_expected": true,
       "results": [
         {
-          "file": "GB50003-2011",
-          "source": "param_index",
-          "heading": "4.3.3: 保护层厚度 = 0mm ",
-          "score": 85.6,
-          "standard_code": "GB50003",
+          "file": "_seg1_CJJ 2-2008 城市桥梁工程施工与质量验收规范_p0001-0151.md",
+          "source": "merged+clause_refine",
+          "heading": "6.4.5 钢筋的混凝土保护层厚度，必须符合设计要求。设计无规定时应符合下列规定：",
+          "score": 177.72,
+          "standard_code": "CJJ2",
           "confidence": "high"
         },
         {
-          "file": "GB50108-2008",
-          "source": "param_index",
-          "heading": ": 保护层厚度 = 50mm ",
-          "score": 84.0,
-          "standard_code": "GB50108",
+          "file": "_seg0_JGJ 107-2016 钢筋机械连接技术规程.md",
+          "source": "merged+clause_refine",
+          "heading": "4.0.2 连接件的混凝土保护层厚度宜符合现行国家标准《混凝土结构设计规范》GB 50010 中的规定，且不应小于 0.75 倍钢筋最小保护层厚度和 15mm ",
+          "score": 143.33,
+          "standard_code": "JGJ107",
           "confidence": "high"
         },
         {
-          "file": "GB50108-2008",
-          "source": "param_index",
-          "heading": ": 保护层厚度 = 50mm ",
-          "score": 84.0,
-          "standard_code": "GB50108",
+          "file": "_seg0_GB 50204-2015 混凝土结构工程施工质量验收规范.md",
+          "source": "legacy+clause_refine",
+          "heading": "6.5.4 锚具的封闭保护措施应符合设计要求。当设计无具体要求时，外露锚具和预应力筋的混凝土保护层厚度不应小于：一类环境时20mm，二a、二b类环境时50mm，",
+          "score": 140.38,
+          "standard_code": "GB50204",
           "confidence": "high"
         },
         {
-          "file": "GB50108-2008",
-          "source": "param_index",
-          "heading": "8.3: 保护层厚度 = 70mm ",
-          "score": 84.0,
-          "standard_code": "GB50108",
+          "file": "_seg4_建筑施工手册（第六版）第3册_p0391-0585.md",
+          "source": "merged+clause_refine",
+          "heading": "17.9.3.1 准备工作",
+          "score": 125.26,
+          "standard_code": "",
           "confidence": "high"
         },
         {
-          "file": "GB50108-2008",
-          "source": "param_index",
-          "heading": ": 保护层厚度 = 40mm ",
-          "score": 84.0,
-          "standard_code": "GB50108",
+          "file": "_seg0_GB 50203-2011 砌体结构工程施工质量验收规范.md",
+          "source": "legacy+clause_refine",
+          "heading": "5.2.4 非抗震设防及抗震设防烈度为 6 度、7 度地区的临时间断处，当不能留斜槎时，除转角处外，可留直槎，但直槎必须做成凸槎，且应加设拉结钢筋，拉结钢筋应符",
+          "score": 117.73,
+          "standard_code": "GB50203",
           "confidence": "high"
         }
       ],
@@ -482,49 +482,49 @@
       "query": "钢筋保护层厚度 质量要求",
       "source": "golden",
       "query_type": "technical",
-      "branch": "direct",
+      "branch": "ppr+legacy",
       "result_count": 5,
       "first_rank": null,
       "has_expected": true,
       "results": [
         {
-          "file": "GB50003-2011",
-          "source": "param_index",
-          "heading": "4.3.3: 保护层厚度 = 0mm ",
-          "score": 85.6,
-          "standard_code": "GB50003",
+          "file": "_seg0_JGJ 107-2016 钢筋机械连接技术规程.md",
+          "source": "merged+clause_refine",
+          "heading": "4.0.2 连接件的混凝土保护层厚度宜符合现行国家标准《混凝土结构设计规范》GB 50010 中的规定，且不应小于 0.75 倍钢筋最小保护层厚度和 15mm ",
+          "score": 180.18,
+          "standard_code": "JGJ107",
           "confidence": "high"
         },
         {
-          "file": "GB50108-2008",
-          "source": "param_index",
-          "heading": ": 保护层厚度 = 50mm ",
-          "score": 84.0,
-          "standard_code": "GB50108",
+          "file": "_seg1_CJJ 2-2008 城市桥梁工程施工与质量验收规范_p0001-0151.md",
+          "source": "merged+clause_refine",
+          "heading": "6.4.5 钢筋的混凝土保护层厚度，必须符合设计要求。设计无规定时应符合下列规定：",
+          "score": 149.85,
+          "standard_code": "CJJ2",
           "confidence": "high"
         },
         {
-          "file": "GB50108-2008",
-          "source": "param_index",
-          "heading": ": 保护层厚度 = 50mm ",
-          "score": 84.0,
-          "standard_code": "GB50108",
+          "file": "_seg0_GB 50204-2015 混凝土结构工程施工质量验收规范.md",
+          "source": "merged+clause_refine",
+          "heading": "6.5.4 锚具的封闭保护措施应符合设计要求。当设计无具体要求时，外露锚具和预应力筋的混凝土保护层厚度不应小于：一类环境时20mm，二a、二b类环境时50mm，",
+          "score": 143.33,
+          "standard_code": "GB50204",
           "confidence": "high"
         },
         {
-          "file": "GB50108-2008",
-          "source": "param_index",
-          "heading": "8.3: 保护层厚度 = 70mm ",
-          "score": 84.0,
-          "standard_code": "GB50108",
+          "file": "_seg4_建筑施工手册（第六版）第3册_p0391-0585.md",
+          "source": "merged+clause_refine",
+          "heading": "(2) 一般项目",
+          "score": 125.26,
+          "standard_code": "",
           "confidence": "high"
         },
         {
-          "file": "GB50108-2008",
-          "source": "param_index",
-          "heading": ": 保护层厚度 = 40mm ",
-          "score": 84.0,
-          "standard_code": "GB50108",
+          "file": "_seg0_GB 50203-2011 砌体结构工程施工质量验收规范.md",
+          "source": "legacy+clause_refine",
+          "heading": "8.3.2 设置在砌体灰缝中钢筋的防腐保护应符合本规范第3.0.16条的规定，且钢筋防护层完好，不应有肉眼可见裂纹、剥落和擦痕等缺陷。",
+          "score": 122.46,
+          "standard_code": "GB50203",
           "confidence": "high"
         }
       ],
@@ -534,49 +534,49 @@
       "query": "钢筋保护层厚度 设计要求",
       "source": "golden",
       "query_type": "technical",
-      "branch": "direct",
+      "branch": "ppr+legacy",
       "result_count": 5,
       "first_rank": null,
       "has_expected": true,
       "results": [
         {
-          "file": "GB50003-2011",
-          "source": "param_index",
-          "heading": "4.3.3: 保护层厚度 = 0mm ",
-          "score": 85.6,
-          "standard_code": "GB50003",
+          "file": "_seg1_GB 50010-2010 混凝土结构设计规范（2015 年版）_p0001-0147.md",
+          "source": "merged+clause_refine",
+          "heading": "8.2.1 构件中普通钢筋及预应力筋的混凝土保护层厚度应满足下列要求。",
+          "score": 181.16,
+          "standard_code": "GB50010",
           "confidence": "high"
         },
         {
-          "file": "GB50108-2008",
-          "source": "param_index",
-          "heading": ": 保护层厚度 = 50mm ",
-          "score": 84.0,
-          "standard_code": "GB50108",
+          "file": "_seg1_CJJ 2-2008 城市桥梁工程施工与质量验收规范_p0001-0151.md",
+          "source": "merged+clause_refine",
+          "heading": "6.4.5 钢筋的混凝土保护层厚度，必须符合设计要求。设计无规定时应符合下列规定：",
+          "score": 168.09,
+          "standard_code": "CJJ2",
           "confidence": "high"
         },
         {
-          "file": "GB50108-2008",
-          "source": "param_index",
-          "heading": ": 保护层厚度 = 50mm ",
-          "score": 84.0,
-          "standard_code": "GB50108",
+          "file": "_seg0_GB 50204-2015 混凝土结构工程施工质量验收规范.md",
+          "source": "legacy+clause_refine",
+          "heading": "6.5.4 锚具的封闭保护措施应符合设计要求。当设计无具体要求时，外露锚具和预应力筋的混凝土保护层厚度不应小于：一类环境时20mm，二a、二b类环境时50mm，",
+          "score": 157.84,
+          "standard_code": "GB50204",
           "confidence": "high"
         },
         {
-          "file": "GB50108-2008",
-          "source": "param_index",
-          "heading": "8.3: 保护层厚度 = 70mm ",
-          "score": 84.0,
-          "standard_code": "GB50108",
+          "file": "_seg4_建筑施工手册（第六版）第3册_p0391-0585.md",
+          "source": "merged+clause_refine",
+          "heading": "17.9.3.1 准备工作",
+          "score": 154.82,
+          "standard_code": "",
           "confidence": "high"
         },
         {
-          "file": "GB50108-2008",
-          "source": "param_index",
-          "heading": ": 保护层厚度 = 40mm ",
-          "score": 84.0,
-          "standard_code": "GB50108",
+          "file": "_seg0_GB 50203-2011 砌体结构工程施工质量验收规范.md",
+          "source": "legacy+clause_refine",
+          "heading": "5.2.4 非抗震设防及抗震设防烈度为 6 度、7 度地区的临时间断处，当不能留斜槎时，除转角处外，可留直槎，但直槎必须做成凸槎，且应加设拉结钢筋，拉结钢筋应符",
+          "score": 153.07,
+          "standard_code": "GB50203",
           "confidence": "high"
         }
       ],
@@ -604,42 +604,42 @@
       "results": [
         {
           "file": "_seg1_DB32_T 3700-2019 江苏省城市轨道交通工程设计标准_p0001-0133.md",
-          "source": "merged",
-          "heading": "江苏省城市轨道交通工程设计标准",
+          "source": "merged+clause_refine",
+          "heading": "1 范围",
           "score": 107.2,
           "standard_code": "DB32T3700",
           "confidence": "high"
         },
         {
+          "file": "_seg0_GB 50911-2013 城市轨道交通工程监测技术规范.md",
+          "source": "ppr_graph+clause_refine",
+          "heading": "1.0.4 城市轨道交通工程监测，除应符合本规范外，尚应符合国家现行有关标准的规定。",
+          "score": 65.54,
+          "standard_code": "GB50911",
+          "confidence": "high"
+        },
+        {
+          "file": "_seg0_CECS 453-2016 轻质泡沫土轨道交通填筑技术规程.md",
+          "source": "ppr_graph+clause_refine",
+          "heading": "1.0.3 轻质泡沫土轨道交通填筑工程除应符合本规程外，尚应符合国家现行有关标准的规定。",
+          "score": 52.56,
+          "standard_code": "CECS453",
+          "confidence": "mid"
+        },
+        {
           "file": "📋 城镇.md",
-          "source": "legacy",
-          "heading": "地方 DB (2件)",
-          "score": 37.69,
+          "source": "legacy+clause_refine",
+          "heading": "城镇 CJJ (10件)",
+          "score": 47.78,
           "standard_code": "CJJ143",
           "confidence": "mid"
         },
         {
-          "file": "_seg1_城市轨道交通工程建设安全生产标准化管理技术指南_p0001-0152.md",
-          "source": "merged",
-          "heading": "1.1.5 城市轨道交通工程建设安全生产标准化管理除应符合本指南的规定外，还应",
-          "score": 25.6,
-          "standard_code": "",
-          "confidence": "mid"
-        },
-        {
-          "file": "_seg0_CJJ 37-2012 城市道路工程设计规范(2016年版).md",
-          "source": "merged",
-          "heading": "8.2.2 目前城市轨道交通发展迅速，种类较多，《城市公共交通分类标准》CJJ/T 114-2007中，将城市轨道交通大类分为：地铁、轻轨、单轨、有轨电车、磁浮、自动导向轨道和市域快速轨道等七大系统。因城市轨道交通行车间隔时间短，车流密集，",
-          "score": 24.16,
-          "standard_code": "CJJ37",
-          "confidence": "mid"
-        },
-        {
-          "file": "_seg0_GB 50911-2013 城市轨道交通工程监测技术规范.md",
-          "source": "merged",
-          "heading": "1 基坑工程自身风险等级",
-          "score": 21.16,
-          "standard_code": "GB50911",
+          "file": "_seg0_JGJ 231-2010 建筑施工承插型盘扣件钢管支架安全技术规程.md",
+          "source": "ppr_graph+clause_refine",
+          "heading": "7.2.2 架体的构造应符合本规程第 6.1 节、第 6.2 节的有关规定。",
+          "score": 37.69,
+          "standard_code": "JGJ231",
           "confidence": "mid"
         }
       ],
@@ -676,42 +676,42 @@
       "results": [
         {
           "file": "_seg1_DB32_T 3700-2019 江苏省城市轨道交通工程设计标准_p0001-0133.md",
-          "source": "merged",
-          "heading": "江苏省城市轨道交通工程设计标准",
+          "source": "merged+clause_refine",
+          "heading": "1 范围",
           "score": 122.06,
           "standard_code": "DB32T3700",
           "confidence": "high"
         },
         {
           "file": "_seg0_GB 50911-2013 城市轨道交通工程监测技术规范.md",
-          "source": "merged",
-          "heading": "3.1.5 工程监测方案应根据工程的施工特点，在分析研究工程风险及影响工程安全的关键部位和关键工序的基础上，有针对性地进行编制。监测方案宜包括下列内容：",
-          "score": 110.99,
+          "source": "merged+clause_refine",
+          "heading": "9.1.1 城市轨道交通工程监测应根据工程特点、监测项目控制值、当地施工经验等制定监测预警等级和预警标准。",
+          "score": 112.68,
           "standard_code": "GB50911",
           "confidence": "high"
         },
         {
-          "file": "_seg0_GB 50037-2013 建筑地面设计规范.md",
-          "source": "legacy",
-          "heading": "1.0.3 建筑地面设计中，应根据工程特征和使用条件充分利用地方材料及再生资源，因地制宜，区别对待。",
-          "score": 50.98,
-          "standard_code": "GB50037",
-          "confidence": "mid"
-        },
-        {
-          "file": "_seg1_城市轨道交通工程建设安全生产标准化管理技术指南_p0001-0152.md",
-          "source": "merged",
-          "heading": "3.2.1 隐患分类和分级.. .59",
-          "score": 44.94,
-          "standard_code": "",
-          "confidence": "mid"
+          "file": "_seg0_GB 50858-2013 园林绿化工程工程量计算规范.md",
+          "source": "ppr_graph+clause_refine",
+          "heading": "C.8 相关问题及说明",
+          "score": 71.13,
+          "standard_code": "GB50858",
+          "confidence": "high"
         },
         {
           "file": "📋 城镇.md",
-          "source": "legacy",
-          "heading": "地方 DB (2件)",
-          "score": 37.69,
+          "source": "legacy+clause_refine",
+          "heading": "城镇 CJJ (10件)",
+          "score": 65.96,
           "standard_code": "CJJ143",
+          "confidence": "high"
+        },
+        {
+          "file": "_seg0_JGJ 231-2010 建筑施工承插型盘扣件钢管支架安全技术规程.md",
+          "source": "ppr_graph+clause_refine",
+          "heading": "9.0.3 模板支架混凝土浇筑作业层上的施工荷载不应超过设计值。",
+          "score": 37.69,
+          "standard_code": "JGJ231",
           "confidence": "mid"
         }
       ],
@@ -803,47 +803,47 @@
       "query_type": "standard_name",
       "branch": "ppr+legacy",
       "result_count": 5,
-      "first_rank": 5,
+      "first_rank": 1,
       "has_expected": true,
       "results": [
         {
-          "file": "_seg0_GB 50345-2012 屋面工程技术规范.md",
-          "source": "legacy",
-          "heading": "4.7.1 上人屋面保护层可采用块体材料、细石混凝土等材料，不上人屋面保护层可采用浅色涂料、铝箔、矿物粒料、水泥砂浆等材料。保护层材料的适用范围和技术要求应符合表 4.7.1 的规定。",
-          "score": 33.59,
-          "standard_code": "GB50345",
-          "confidence": "mid"
-        },
-        {
-          "file": "_seg0_GB 50108-2008 地下工程防水技术规范.md",
-          "source": "legacy",
-          "heading": "3.2.2 地下工程不同防水等级的适用范围,应根据工程的重要性和使用中对防水的要求按表 3.2.2 选定。",
-          "score": 32.96,
-          "standard_code": "GB50108",
-          "confidence": "mid"
+          "file": "_seg0_TCECS 1229-2023 花岗岩瓷砖应用技术规程.md",
+          "source": "ppr_graph+clause_refine",
+          "heading": "1.0.1 为规范花岗岩瓷砖在建筑和市政装饰装修工程中的应用，做到技术先进、安全适用、经济合理和节能环保，确保工程质量，制定本规程。",
+          "score": 263.37,
+          "standard_code": "TCECS1229",
+          "confidence": "high"
         },
         {
           "file": "_seg0_JGJ_T 104-2011 建筑工程冬期施工规程.md",
-          "source": "merged",
-          "heading": "6.5.2 电极加热法养护混凝土的适用范围宜符合表 6.5.2 的规定。",
-          "score": 31.4,
+          "source": "merged+clause_refine",
+          "heading": "1.0.2 本规程适用于工业与民用房屋和一般构筑物的冬期施工。",
+          "score": 33.59,
           "standard_code": "JGJT104",
           "confidence": "mid"
         },
         {
+          "file": "_seg0_GB 50345-2012 屋面工程技术规范.md",
+          "source": "legacy+clause_refine",
+          "heading": "1.0.2 本规范适用于房屋建筑屋面工程的设计和施工。",
+          "score": 32.96,
+          "standard_code": "GB50345",
+          "confidence": "mid"
+        },
+        {
           "file": "_seg0_CECS 164-2004 埋地聚乙烯排水管管道工程技术规程.md",
-          "source": "legacy",
-          "heading": "1.0.2 本条明确了本规程适用范围。根据《给水排水管道工程施工及验收规范》GB 50268 第 10 章的有关规定，工作压力小于 0.1MPa 的管道为无压管道。条文中提出的两种管材，都可用于承受外压力的埋地排水管道工程。双壁波纹管和缠绕",
+          "source": "legacy+clause_refine",
+          "heading": "8.2.1 从管底基础层至管顶以上 0.5m 范围内的沟槽回填材料，",
           "score": 31.4,
           "standard_code": "CECS164",
           "confidence": "mid"
         },
         {
-          "file": "_seg0_TCECS 1229-2023 花岗岩瓷砖应用技术规程.md",
-          "source": "merged",
-          "heading": "花岗岩瓷砖应用技术规程",
-          "score": 28.48,
-          "standard_code": "TCECS1229",
+          "file": "_seg0_GB 50108-2008 地下工程防水技术规范.md",
+          "source": "legacy+clause_refine",
+          "heading": "5.2.7 用于补偿收缩混凝土的水泥、砂、石、拌合水及外加剂、掺合料等应符合本规范第4.1节的有关规定。",
+          "score": 31.4,
+          "standard_code": "GB50108",
           "confidence": "mid"
         }
       ],
@@ -860,42 +860,42 @@
       "results": [
         {
           "file": "_seg0_TCECS 1229-2023 花岗岩瓷砖应用技术规程.md",
-          "source": "merged",
-          "heading": "4.1.1 花岗岩瓷砖装饰装修工程的设计应满足使用功能、安全、环保、工作年限等需求。",
+          "source": "merged+clause_refine",
+          "heading": "1.0.1 为规范花岗岩瓷砖在建筑和市政装饰装修工程中的应用，做到技术先进、安全适用、经济合理和节能环保，确保工程质量，制定本规程。",
           "score": 298.02,
           "standard_code": "TCECS1229",
           "confidence": "high"
         },
         {
           "file": "_seg0_CJJ 82-2012 园林绿化工程施工及验收规范.md",
-          "source": "legacy",
-          "heading": "4.1.1 绿化栽植或播种前应对该地区的土壤理化性质进行化验分析，采取相应的土壤改良、施肥和置换客土等措施，绿化栽植土壤有效土层厚度应符合表4.1.1规定。",
+          "source": "legacy+clause_refine",
+          "heading": "4.3.1 植物材料种类、品种名称及规格应符合设计要求。",
           "score": 32.34,
           "standard_code": "CJJ82",
           "confidence": "mid"
         },
         {
-          "file": "_seg0_CECS 453-2016 轻质泡沫土轨道交通填筑技术规程.md",
-          "source": "legacy",
-          "heading": "4.1.1 本条规定的应用领域中:轨道交通区间、车站结构顶板回填,减少附加荷载;既有轨道交通结构上方地面高程提高、附加荷载等,需要结构减载时换填;地铁车辆段大型上盖楼面建筑找坡;永久屋面防水建筑找坡等轻质泡沫土应用优势明显,在设计中推荐采用",
+          "file": "_seg0_CJ_T 24-2018 园林绿化木本苗.md",
+          "source": "legacy+clause_refine",
+          "heading": "4.3.1 园林绿化常用乔木类苗木规格",
           "score": 31.4,
-          "standard_code": "CECS453",
+          "standard_code": "CJT24",
           "confidence": "mid"
         },
         {
           "file": "_seg0_CJJ_T 177-2012 气泡混合轻质土填筑工程技术规程.md",
-          "source": "legacy",
-          "heading": "4.1.1 本条文明确了设计原则。因气泡混合轻质土含有大量气泡群，其性能与普通水泥砂浆、水泥混凝土差异较大。同时，其填筑体具有类似挡土墙结构的特点，与一般填料形成的构筑物有较大的差异。因此，本条规定“安全性、适用性和经济性”三大设计原则。",
+          "source": "legacy+clause_refine",
+          "heading": "4.1.1 设计应遵循安全性、适用性和经济性原则。",
           "score": 31.4,
           "standard_code": "CJJT177",
           "confidence": "mid"
         },
         {
-          "file": "_seg0_CJ_T 24-2018 园林绿化木本苗.md",
-          "source": "legacy",
-          "heading": "4.1.1 土球苗、裸根苗综合控制指标应符合表 1 的规定。",
+          "file": "_seg0_CECS 453-2016 轻质泡沫土轨道交通填筑技术规程.md",
+          "source": "legacy+clause_refine",
+          "heading": "1.0.2 本规程适用于轻质泡沫土用于轨道交通填筑工程中的设计、施工、质量检验与验收。",
           "score": 31.4,
-          "standard_code": "CJT24",
+          "standard_code": "CECS453",
           "confidence": "mid"
         }
       ],
@@ -907,47 +907,47 @@
       "query_type": "clause",
       "branch": "ppr+legacy",
       "result_count": 5,
-      "first_rank": 2,
+      "first_rank": 1,
       "has_expected": true,
       "results": [
         {
-          "file": "_seg0_JGJ 18-2012 钢筋焊接及验收规程.md",
-          "source": "ppr_graph",
-          "heading": "2.1.3 细晶粒热轧钢筋 hot rolled bars of fine grains",
-          "score": 29.59,
-          "standard_code": "JGJ18",
-          "confidence": "mid"
-        },
-        {
           "file": "_seg0_TCECS 1229-2023 花岗岩瓷砖应用技术规程.md",
-          "source": "merged",
-          "heading": "花岗岩瓷砖应用技术规程",
-          "score": 28.48,
+          "source": "ppr_graph+clause_refine",
+          "heading": "1.0.1 为规范花岗岩瓷砖在建筑和市政装饰装修工程中的应用，做到技术先进、安全适用、经济合理和节能环保，确保工程质量，制定本规程。",
+          "score": 249.12,
           "standard_code": "TCECS1229",
-          "confidence": "mid"
+          "confidence": "high"
         },
         {
           "file": "_seg0_JGJ 46-2005 施工现场临时用电安全技术规范.md",
-          "source": "ppr_graph",
-          "heading": "1.0.3 建筑施工现场临时用电工程专用的电源中性点直接接地的 220/380V 三相四线制低压电力系统，必须符合下列规定：",
-          "score": 27.45,
+          "source": "ppr_graph+clause_refine",
+          "heading": "5.1.4 本条符合现行国家标准《系统接地的型式及安全技术要求》GB 14050 规定。",
+          "score": 24.04,
           "standard_code": "JGJ46",
           "confidence": "mid"
         },
         {
-          "file": "_seg0_JGJ_T 104-2011 建筑工程冬期施工规程.md",
-          "source": "ppr_graph",
-          "heading": "1.0.3 本规程冬期施工期限划分原则是：根据当地多年气象资料统计，当室外日平均气温连续5d稳定低于5℃即进入冬期施工，当室外日平均气温连续5d高于5℃即解除冬",
-          "score": 22.42,
-          "standard_code": "JGJT104",
+          "file": "_seg0_GB 50204-2015 混凝土结构工程施工质量验收规范.md",
+          "source": "ppr_graph+clause_refine",
+          "heading": "4.1.2 模板及支架应根据安装、使用和拆除工况进行设计，并应满足承载力、刚度和整体稳固性要求。",
+          "score": 23.26,
+          "standard_code": "GB50204",
+          "confidence": "mid"
+        },
+        {
+          "file": "_seg0_JGJ 18-2012 钢筋焊接及验收规程.md",
+          "source": "ppr_graph+clause_refine",
+          "heading": "1.0.2 本规程适用于一般工业与民用建筑工程混凝土结构中的钢筋焊接施工及质量检验与验收。",
+          "score": 22.67,
+          "standard_code": "JGJ18",
           "confidence": "mid"
         },
         {
           "file": "📋 国标.md",
-          "source": "legacy",
-          "heading": "中国工程建设标准化协会 TCECS (7件)",
+          "source": "legacy+clause_refine",
+          "heading": "推荐性 GB/T (28件)",
           "score": 22.01,
-          "standard_code": "GB12523",
+          "standard_code": "GBT10801.1",
           "confidence": "mid"
         }
       ],
@@ -963,41 +963,41 @@
       "has_expected": true,
       "results": [
         {
-          "file": "_seg0_建筑工程设计常见问题汇编 给排水分册 2021 年.md",
-          "source": "legacy",
-          "heading": "3.6.6 给水加压、循环冷却等设备不得设置在居住用房的上层、下层和毗邻的房间内，不得污染居住环境。",
+          "file": "_seg0_GB 50242-2002 建筑给水排水及采暖工程施工质量验收规范.md",
+          "source": "legacy+clause_refine",
+          "heading": "5.2.15 参照《给排水设计规范》第3.3.15条编写。",
           "score": 323.54,
-          "standard_code": "",
+          "standard_code": "GB50242",
           "confidence": "high"
         },
         {
           "file": "_seg1_GB 50268-2008 给水排水管道工程施工及验收规范_p0001-0128.md",
-          "source": "legacy",
-          "heading": "4.1.9 给排水管道铺设完毕并经检验合格后，应及时回填沟槽。回填前，应符合下列规定：",
+          "source": "legacy+clause_refine",
+          "heading": "1.0.1 为加强给水、排水（以下简称给排水）管道工程施工管理，规范施工技术，统一施工质量检验、验收标准，确保工程质量，制定本规范。",
           "score": 237.92,
           "standard_code": "GB50268",
           "confidence": "high"
         },
         {
-          "file": "_seg0_GB 50242-2002 建筑给水排水及采暖工程施工质量验收规范.md",
-          "source": "legacy",
-          "heading": "4.2.5 给水引入管与排水排出管的水平净距不得小于1m。室内给水与排水管道平行敷设时，两管间的最小水平净距不得小于0.5m；交叉铺设时，垂直净距不得小于0.15m。给水管应铺在排水管上面，若给水管必须铺在排水管的下面时，给水管应加套管，其",
-          "score": 229.74,
-          "standard_code": "GB50242",
+          "file": "_seg0_建筑工程设计常见问题汇编 给排水分册 2021 年.md",
+          "source": "legacy+clause_refine",
+          "heading": "原因分析：",
+          "score": 231.78,
+          "standard_code": "",
           "confidence": "high"
         },
         {
           "file": "_seg1_GB 50014-2021 室外排水设计标准_p0001-0141.md",
-          "source": "legacy",
-          "heading": "5.2.3 排水管渠粗糙系数宜按表 5.2.3 的规定取值。",
+          "source": "legacy+clause_refine",
+          "heading": "6.4.12 泵房内应有排除积水的设施。",
           "score": 179.78,
           "standard_code": "GB50014",
           "confidence": "high"
         },
         {
           "file": "_seg0_TCECS 143-2022 给水排水工程埋地预制混凝土圆形管管道结构设计标准.md",
-          "source": "legacy",
-          "heading": "6.2.4 需要闭水试验的检查井种类及闭水试验水位，应符合现行国家标准《给水排水管道工程施工及验收规范》GB 50268 的有关规定。当闭水试验水位超过简支盖板板顶时，应有相应措施保证盖板受力条件及支撑稳定。",
+          "source": "legacy+clause_refine",
+          "heading": "6.1.15 当管道与给水、排水、煤气、热力、电力、电信等其他地下管线交叉或邻近时，相互间存在影响，应根据具体情况进行设计计算。",
           "score": 175.89,
           "standard_code": "TCECS143",
           "confidence": "high"
@@ -1015,43 +1015,43 @@
       "has_expected": true,
       "results": [
         {
-          "file": "_seg1_GB 50268-2008 给水排水管道工程施工及验收规范_p0001-0128.md",
-          "source": "merged",
-          "heading": "4.1.9 给排水管道铺设完毕并经检验合格后，应及时回填沟槽。回填前，应符合下列规定：",
-          "score": 238.89,
-          "standard_code": "GB50268",
-          "confidence": "high"
-        },
-        {
           "file": "_seg1_GB 50015-2019 建筑给水排水设计标准_p0001-0145.md",
-          "source": "ppr_graph",
-          "heading": "2.1.3 二次供水 secondary water supply",
-          "score": 231.39,
+          "source": "ppr_graph+clause_refine",
+          "heading": "3.4.1 建筑物内的给水系统应符合下列规定：",
+          "score": 307.11,
           "standard_code": "GB50015",
           "confidence": "high"
         },
         {
+          "file": "_seg1_GB 50268-2008 给水排水管道工程施工及验收规范_p0001-0128.md",
+          "source": "merged+clause_refine",
+          "heading": "3.1 施工基本规定",
+          "score": 240.95,
+          "standard_code": "GB50268",
+          "confidence": "high"
+        },
+        {
           "file": "_seg0_GB 50242-2002 建筑给水排水及采暖工程施工质量验收规范.md",
-          "source": "merged",
-          "heading": "4.2.5 给水引入管与排水排出管的水平净距不得小于1m。室内给水与排水管道平行敷设时，两管间的最小水平净距不得小于0.5m；交叉铺设时，垂直净距不得小于0.15m。给水管应铺在排水管上面，若给水管必须铺在排水管的下面时，给水管应加套管，其",
-          "score": 226.82,
+          "source": "merged+clause_refine",
+          "heading": "3.1.1 建筑给水、排水及采暖工程施工现场应具有必要的施工技术标准、健全的质量管理体系和工程质量检测制度，实现施工全过程质量控制。",
+          "score": 228.93,
           "standard_code": "GB50242",
           "confidence": "high"
         },
         {
-          "file": "_seg0_TCECS 143-2022 给水排水工程埋地预制混凝土圆形管管道结构设计标准.md",
-          "source": "legacy",
-          "heading": "6.2.4 需要闭水试验的检查井种类及闭水试验水位，应符合现行国家标准《给水排水管道工程施工及验收规范》GB 50268 的有关规定。当闭水试验水位超过简支盖板板顶时，应有相应措施保证盖板受力条件及支撑稳定。",
+          "file": "_seg1_GB 50014-2021 室外排水设计标准_p0001-0141.md",
+          "source": "merged+clause_refine",
+          "heading": "3.1.2 排水体制(分流制或合流制)的选择应根据城镇的总体规划,结合当地的气候特征、地形特点、水文条件、水体状况、原有排水设施、污水处理程度和处理后再生利用等",
           "score": 175.31,
-          "standard_code": "TCECS143",
+          "standard_code": "GB50014",
           "confidence": "high"
         },
         {
-          "file": "_seg1_GB 50014-2021 室外排水设计标准_p0001-0141.md",
-          "source": "merged",
-          "heading": "5.2.3 排水管渠粗糙系数宜按表 5.2.3 的规定取值。",
+          "file": "_seg0_TCECS 143-2022 给水排水工程埋地预制混凝土圆形管管道结构设计标准.md",
+          "source": "legacy+clause_refine",
+          "heading": "1.0.1 为了在给水排水工程埋地预制混凝土圆形管管道的结构设计中贯彻执行国家的技术经济政策，做到技术先进、经济合理、安全适用、确保质量，制定本标准。",
           "score": 175.07,
-          "standard_code": "GB50014",
+          "standard_code": "TCECS143",
           "confidence": "high"
         }
       ],
@@ -1068,42 +1068,42 @@
       "results": [
         {
           "file": "_seg1_GB 50268-2008 给水排水管道工程施工及验收规范_p0001-0128.md",
-          "source": "merged",
-          "heading": "4.1.9 给排水管道铺设完毕并经检验合格后，应及时回填沟槽。回填前，应符合下列规定：",
-          "score": 250.82,
+          "source": "merged+clause_refine",
+          "heading": "3.1 施工基本规定",
+          "score": 276.29,
           "standard_code": "GB50268",
           "confidence": "high"
         },
         {
           "file": "_seg0_GB 50242-2002 建筑给水排水及采暖工程施工质量验收规范.md",
-          "source": "merged",
-          "heading": "4.2.5 给水引入管与排水排出管的水平净距不得小于1m。室内给水与排水管道平行敷设时，两管间的最小水平净距不得小于0.5m；交叉铺设时，垂直净距不得小于0.15m。给水管应铺在排水管上面，若给水管必须铺在排水管的下面时，给水管应加套管，其",
-          "score": 227.0,
+          "source": "merged+clause_refine",
+          "heading": "3.1.1 建筑给水、排水及采暖工程施工现场应具有必要的施工技术标准、健全的质量管理体系和工程质量检测制度，实现施工全过程质量控制。",
+          "score": 252.99,
           "standard_code": "GB50242",
           "confidence": "high"
         },
         {
           "file": "_seg1_GB 50015-2019 建筑给水排水设计标准_p0001-0145.md",
-          "source": "ppr_graph",
-          "heading": "2.1.3 二次供水 secondary water supply",
-          "score": 226.05,
+          "source": "ppr_graph+clause_refine",
+          "heading": "1.0.1 为保证建筑给水排水工程设计质量，满足安全、卫生、适用、经济、绿色等基本要求，制定本标准。",
+          "score": 229.12,
           "standard_code": "GB50015",
           "confidence": "high"
         },
         {
-          "file": "_seg0_TCECS 143-2022 给水排水工程埋地预制混凝土圆形管管道结构设计标准.md",
-          "source": "legacy",
-          "heading": "6.2.4 需要闭水试验的检查井种类及闭水试验水位，应符合现行国家标准《给水排水管道工程施工及验收规范》GB 50268 的有关规定。当闭水试验水位超过简支盖板板顶时，应有相应措施保证盖板受力条件及支撑稳定。",
+          "file": "_seg1_GB 50014-2021 室外排水设计标准_p0001-0141.md",
+          "source": "merged+clause_refine",
+          "heading": "9.4.2 排水工程应进行信息设施系统建设，并应符合下列规定：",
           "score": 175.31,
-          "standard_code": "TCECS143",
+          "standard_code": "GB50014",
           "confidence": "high"
         },
         {
-          "file": "_seg1_GB 50014-2021 室外排水设计标准_p0001-0141.md",
-          "source": "merged",
-          "heading": "5.2.3 排水管渠粗糙系数宜按表 5.2.3 的规定取值。",
+          "file": "_seg0_TCECS 143-2022 给水排水工程埋地预制混凝土圆形管管道结构设计标准.md",
+          "source": "legacy+clause_refine",
+          "heading": "7.2.4 止水带及填缝板的性能应符合现行协会标准《给水排水工程混凝土构筑物变形缝技术规范》T/CECS 117 的有关规定。",
           "score": 175.07,
-          "standard_code": "GB50014",
+          "standard_code": "TCECS143",
           "confidence": "high"
         }
       ],
@@ -1131,42 +1131,42 @@
       "results": [
         {
           "file": "_seg1_GB 50268-2008 给水排水管道工程施工及验收规范_p0001-0128.md",
-          "source": "merged",
-          "heading": "4.1.9 给排水管道铺设完毕并经检验合格后，应及时回填沟槽。回填前，应符合下列规定：",
-          "score": 249.89,
+          "source": "merged+clause_refine",
+          "heading": "3.2 质量验收基本规定",
+          "score": 251.99,
           "standard_code": "GB50268",
           "confidence": "high"
         },
         {
           "file": "_seg1_GB 50015-2019 建筑给水排水设计标准_p0001-0145.md",
-          "source": "ppr_graph",
-          "heading": "2.1.3 二次供水 secondary water supply",
-          "score": 226.51,
+          "source": "ppr_graph+clause_refine",
+          "heading": "1.0.1 为保证建筑给水排水工程设计质量，满足安全、卫生、适用、经济、绿色等基本要求，制定本标准。",
+          "score": 228.2,
           "standard_code": "GB50015",
           "confidence": "high"
         },
         {
           "file": "_seg0_GB 50242-2002 建筑给水排水及采暖工程施工质量验收规范.md",
-          "source": "merged",
-          "heading": "4.2.5 给水引入管与排水排出管的水平净距不得小于1m。室内给水与排水管道平行敷设时，两管间的最小水平净距不得小于0.5m；交叉铺设时，垂直净距不得小于0.15m。给水管应铺在排水管上面，若给水管必须铺在排水管的下面时，给水管应加套管，其",
-          "score": 226.09,
+          "source": "merged+clause_refine",
+          "heading": "3.2.1 建筑给水、排水及采暖工程所使用的主要材料、成品、半成品、配件、器具和设备必须具有中文质量合格证明文件，规格、型号及性能检测报告应符合国家技术标准或设",
+          "score": 215.88,
           "standard_code": "GB50242",
           "confidence": "high"
         },
         {
-          "file": "_seg0_TCECS 143-2022 给水排水工程埋地预制混凝土圆形管管道结构设计标准.md",
-          "source": "legacy",
-          "heading": "6.2.4 需要闭水试验的检查井种类及闭水试验水位，应符合现行国家标准《给水排水管道工程施工及验收规范》GB 50268 的有关规定。当闭水试验水位超过简支盖板板顶时，应有相应措施保证盖板受力条件及支撑稳定。",
+          "file": "_seg1_GB 50014-2021 室外排水设计标准_p0001-0141.md",
+          "source": "merged+clause_refine",
+          "heading": "1.0.1 为保障城市安全,科学设计室外排水工程,落实海绵城市建设理念,防治城市内涝灾害和水污染,改善和保护环境,促进资源利用,提高人民健康水平,制定本标准。",
           "score": 175.31,
-          "standard_code": "TCECS143",
+          "standard_code": "GB50014",
           "confidence": "high"
         },
         {
-          "file": "_seg1_GB 50014-2021 室外排水设计标准_p0001-0141.md",
-          "source": "merged",
-          "heading": "5.2.3 排水管渠粗糙系数宜按表 5.2.3 的规定取值。",
+          "file": "_seg0_TCECS 143-2022 给水排水工程埋地预制混凝土圆形管管道结构设计标准.md",
+          "source": "legacy+clause_refine",
+          "heading": "3.1.2 钢筋混凝土检查井及进、出水口的混凝土强度等级不得低于C25，严寒和寒冷地区混凝土检查井及进、出水口的混凝土强度等级不得低于C30。抗渗等级应符合现行",
           "score": 175.07,
-          "standard_code": "GB50014",
+          "standard_code": "TCECS143",
           "confidence": "high"
         }
       ],
@@ -1182,43 +1182,43 @@
       "has_expected": true,
       "results": [
         {
-          "file": "_seg1_GB 50268-2008 给水排水管道工程施工及验收规范_p0001-0128.md",
-          "source": "merged",
-          "heading": "4.1.9 给排水管道铺设完毕并经检验合格后，应及时回填沟槽。回填前，应符合下列规定：",
-          "score": 259.94,
-          "standard_code": "GB50268",
-          "confidence": "high"
-        },
-        {
-          "file": "_seg0_GB 50242-2002 建筑给水排水及采暖工程施工质量验收规范.md",
-          "source": "merged",
-          "heading": "4.2.5 给水引入管与排水排出管的水平净距不得小于1m。室内给水与排水管道平行敷设时，两管间的最小水平净距不得小于0.5m；交叉铺设时，垂直净距不得小于0.15m。给水管应铺在排水管上面，若给水管必须铺在排水管的下面时，给水管应加套管，其",
-          "score": 234.41,
-          "standard_code": "GB50242",
-          "confidence": "high"
-        },
-        {
           "file": "_seg1_GB 50015-2019 建筑给水排水设计标准_p0001-0145.md",
-          "source": "ppr_graph",
-          "heading": "2.1.3 二次供水 secondary water supply",
-          "score": 226.23,
+          "source": "ppr_graph+clause_refine",
+          "heading": "1.0.4 建筑给水排水设计，在满足使用要求的同时还应为施工安装、操作管理、维修检测以及安全防护等提供便利条件。",
+          "score": 278.83,
           "standard_code": "GB50015",
           "confidence": "high"
         },
         {
-          "file": "_seg0_CJJ 143-2010 埋地塑料排水管道工程技术规范.md",
-          "source": "merged",
-          "heading": "5.1.6 塑料排水管道与检查井连接前，应首先对井底地基进行验收，当发现基底受到扰动、超挖、受水浸泡现象，或存在不良地基、不良土层时，应经处理达到设计要求后，方可进行检查井连接施工。",
-          "score": 186.42,
-          "standard_code": "CJJ143",
+          "file": "_seg0_GB 50242-2002 建筑给水排水及采暖工程施工质量验收规范.md",
+          "source": "merged+clause_refine",
+          "heading": "3.1.1 建筑给水、排水及采暖工程施工现场应具有必要的施工技术标准、健全的质量管理体系和工程质量检测制度，实现施工全过程质量控制。",
+          "score": 262.03,
+          "standard_code": "GB50242",
           "confidence": "high"
         },
         {
-          "file": "_seg0_TCECS 143-2022 给水排水工程埋地预制混凝土圆形管管道结构设计标准.md",
-          "source": "legacy",
-          "heading": "6.2.4 需要闭水试验的检查井种类及闭水试验水位，应符合现行国家标准《给水排水管道工程施工及验收规范》GB 50268 的有关规定。当闭水试验水位超过简支盖板板顶时，应有相应措施保证盖板受力条件及支撑稳定。",
-          "score": 178.03,
-          "standard_code": "TCECS143",
+          "file": "_seg1_GB 50268-2008 给水排水管道工程施工及验收规范_p0001-0128.md",
+          "source": "merged+clause_refine",
+          "heading": "3.1 施工基本规定",
+          "score": 236.49,
+          "standard_code": "GB50268",
+          "confidence": "high"
+        },
+        {
+          "file": "_seg1_GB 50014-2021 室外排水设计标准_p0001-0141.md",
+          "source": "merged+clause_refine",
+          "heading": "7.13.4 消毒设施和有关建筑物的设计,应符合现行国家标准《室外给水设计标准》GB 50013 的规定。",
+          "score": 188.13,
+          "standard_code": "GB50014",
+          "confidence": "high"
+        },
+        {
+          "file": "_seg0_CJJ 143-2010 埋地塑料排水管道工程技术规范.md",
+          "source": "merged+clause_refine",
+          "heading": "4.2.9 参照《室外排水设计规范》GB 50014-2006 和《建筑给水排水设计规范》GB 50015-2003 的相关条款制定。",
+          "score": 186.42,
+          "standard_code": "CJJ143",
           "confidence": "high"
         }
       ],
@@ -1241,47 +1241,47 @@
       "query_type": "version",
       "branch": "ppr+legacy",
       "result_count": 5,
-      "first_rank": 2,
+      "first_rank": 1,
       "has_expected": true,
       "results": [
         {
-          "file": "_seg0_JGJ 18-2012 钢筋焊接及验收规程.md",
-          "source": "ppr_graph",
-          "heading": "2.1.3 细晶粒热轧钢筋 hot rolled bars of fine grains",
-          "score": 29.04,
-          "standard_code": "JGJ18",
-          "confidence": "mid"
-        },
-        {
           "file": "_seg0_TCECS 1229-2023 花岗岩瓷砖应用技术规程.md",
-          "source": "merged",
-          "heading": "花岗岩瓷砖应用技术规程",
-          "score": 28.48,
+          "source": "ppr_graph+clause_refine",
+          "heading": "1.0.1 为规范花岗岩瓷砖在建筑和市政装饰装修工程中的应用，做到技术先进、安全适用、经济合理和节能环保，确保工程质量，制定本规程。",
+          "score": 265.45,
           "standard_code": "TCECS1229",
-          "confidence": "mid"
+          "confidence": "high"
         },
         {
           "file": "_seg0_JGJ 46-2005 施工现场临时用电安全技术规范.md",
-          "source": "ppr_graph",
-          "heading": "1.0.3 建筑施工现场临时用电工程专用的电源中性点直接接地的 220/380V 三相四线制低压电力系统，必须符合下列规定：",
-          "score": 25.76,
+          "source": "ppr_graph+clause_refine",
+          "heading": "5.1.4 本条符合现行国家标准《系统接地的型式及安全技术要求》GB 14050 规定。",
+          "score": 27.78,
           "standard_code": "JGJ46",
           "confidence": "mid"
         },
         {
-          "file": "📋 国标.md",
-          "source": "legacy",
-          "heading": "中国工程建设标准化协会 TCECS (7件)",
-          "score": 22.01,
-          "standard_code": "GB12523",
+          "file": "_seg0_JGJ_T 104-2011 建筑工程冬期施工规程.md",
+          "source": "ppr_graph+clause_refine",
+          "heading": "7.2.7 其他施工技术要求应符合现行行业标准《外墙外保温工程技术规程》JGJ 144 的相关规定。",
+          "score": 24.76,
+          "standard_code": "JGJT104",
           "confidence": "mid"
         },
         {
-          "file": "_seg0_JGJ_T 104-2011 建筑工程冬期施工规程.md",
-          "source": "ppr_graph",
-          "heading": "1.0.3 本规程冬期施工期限划分原则是：根据当地多年气象资料统计，当室外日平均气温连续5d稳定低于5℃即进入冬期施工，当室外日平均气温连续5d高于5℃即解除冬",
-          "score": 21.12,
-          "standard_code": "JGJT104",
+          "file": "📋 国标.md",
+          "source": "legacy+clause_refine",
+          "heading": "推荐性 GB/T (28件)",
+          "score": 22.01,
+          "standard_code": "GBT10801.1",
+          "confidence": "mid"
+        },
+        {
+          "file": "_seg0_JGJ 18-2012 钢筋焊接及验收规程.md",
+          "source": "ppr_graph+clause_refine",
+          "heading": "1.0.2 本规程适用于一般工业与民用建筑工程混凝土结构中的钢筋焊接施工及质量检验与验收。",
+          "score": 20.35,
+          "standard_code": "JGJ18",
           "confidence": "mid"
         }
       ],
@@ -1318,41 +1318,41 @@
       "results": [
         {
           "file": "_seg0_TCECS 1229-2023 花岗岩瓷砖应用技术规程.md",
-          "source": "merged",
-          "heading": "3.7.6 幕墙隔热保温材料的燃烧性能应符合现行国家标准《建筑设计防火规范》GB 50016 的有关规定，密度和导热系数应符合设计要求，其他性能应符合下列规定：",
+          "source": "merged+clause_refine",
+          "heading": "1.0.1 为规范花岗岩瓷砖在建筑和市政装饰装修工程中的应用，做到技术先进、安全适用、经济合理和节能环保，确保工程质量，制定本规程。",
           "score": 309.33,
           "standard_code": "TCECS1229",
           "confidence": "high"
         },
         {
           "file": "_seg0_GB 50037-2013 建筑地面设计规范.md",
-          "source": "legacy",
-          "heading": "1.0.3 建筑地面设计中，应根据工程特征和使用条件充分利用地方材料及再生资源，因地制宜，区别对待。",
+          "source": "legacy+clause_refine",
+          "heading": "3.1.2 建筑地面采用的大理石、花岗石等天然石材，应符合现行国家标准《建筑材料放射性核素限量》GB 6566 中有关材料有害物质的限量规定。",
           "score": 50.98,
           "standard_code": "GB50037",
           "confidence": "mid"
         },
         {
-          "file": "_seg0_GB_T 3280-2015 不锈钢冷轧钢板和钢带.md",
-          "source": "legacy",
-          "heading": "5.1.1 钢板和钢带的尺寸范围",
-          "score": 40.75,
-          "standard_code": "GBT3280",
-          "confidence": "mid"
-        },
-        {
           "file": "_seg0_CJJ_T 177-2012 气泡混合轻质土填筑工程技术规程.md",
-          "source": "legacy",
-          "heading": "3.2.2 气泡混合轻质土试件尺寸是参照国外相关标准和现行国家标准《蒸压加气混凝土性能试验方法》GB/T 11969 的规定执行，其抗压强度标准值为标准试件 $100mm \\times 100mm \\times 100mm$ 的立方体，在 ",
-          "score": 37.83,
+          "source": "legacy+clause_refine",
+          "heading": "3.1.1 水泥宜采用 42.5 级及以上的通用硅酸盐水泥或硫铝酸盐水泥。通用硅酸盐水泥应符合现行国家标准《通用硅酸盐水泥》GB 175 的规定，硫铝酸盐水泥应",
+          "score": 38.8,
           "standard_code": "CJJT177",
           "confidence": "mid"
         },
         {
+          "file": "_seg0_GB_T 3280-2015 不锈钢冷轧钢板和钢带.md",
+          "source": "legacy+clause_refine",
+          "heading": "Cold rolled stainless steel plate, sheet and strip",
+          "score": 37.83,
+          "standard_code": "GBT3280",
+          "confidence": "mid"
+        },
+        {
           "file": "_seg0_GB_T 11836-2009 混凝土和钢筋混凝土排水管.md",
-          "source": "legacy",
-          "heading": "4.3.1 柔性接头管按接头型式分为承插口管、钢承口管、企口管、双插口管和钢承插口管。",
-          "score": 15.52,
+          "source": "legacy+clause_refine",
+          "heading": "5.1.1 水泥宜采用硅酸盐水泥、普通硅酸盐水泥或矿渣硅酸盐水泥，也可采用抗硫酸盐硅酸盐水泥、硫铝酸盐水泥。水泥性能应分别符合 GB 175、GB 748、GB",
+          "score": 16.3,
           "standard_code": "GBT11836",
           "confidence": "mid"
         }
@@ -1449,43 +1449,43 @@
       "has_expected": true,
       "results": [
         {
-          "file": "_seg0_JGJ_T 331-2014 建筑地面工程防滑技术规程.md",
-          "source": "legacy",
-          "heading": "3.0.10 建筑防滑地面工程施工和防滑性能质量验收除应符合本规程外，尚应符合国家现行标准《建筑地面工程施工质量验收规范》GB 50209 和《城镇道路工程施工与质量验收规范》CJJ 1 的规定。",
+          "file": "_seg1_CJJ 1-2008 城镇道路工程施工与质量验收规范_p0001-0126.md",
+          "source": "ppr_graph+clause_refine",
+          "heading": "1.0.2 本规范适用于城镇新建、改建、扩建的道路及广场、停车场等工程的施工和质量检验、验收。",
           "score": 167.39,
-          "standard_code": "JGJT331",
-          "confidence": "high"
-        },
-        {
-          "file": "_seg0_TCECS 1229-2023 花岗岩瓷砖应用技术规程.md",
-          "source": "legacy",
-          "heading": "6.5.1 市政地面施工应在混凝土刚性基层等隐蔽工程施工完毕并验收合格后进行，技术准备应符合现行行业标准《城镇道路工程施工与质量验收规范》CJJ 1 的有关规定。",
-          "score": 143.81,
-          "standard_code": "TCECS1229",
-          "confidence": "high"
-        },
-        {
-          "file": "_seg1_CJJ 2-2008 城市桥梁工程施工与质量验收规范_p0001-0151.md",
-          "source": "merged",
-          "heading": "2.0.12 桥梁工程范围内的排水设施、挡土墙、引道等工程施工及验收应符合国家现行标准《城镇道路工程施工与质量验收规范》CJJ 1 的有关规定。",
-          "score": 75.29,
-          "standard_code": "CJJ2",
+          "standard_code": "CJJ1",
           "confidence": "high"
         },
         {
           "file": "_seg0_CJJ_T 177-2012 气泡混合轻质土填筑工程技术规程.md",
-          "source": "legacy",
+          "source": "legacy+clause_refine",
           "heading": "7.1.1 质量检验与验收应符合现行行业标准《城镇道路工程施工与质量验收规范》CJJ 1 的规定。",
-          "score": 53.22,
+          "score": 143.81,
           "standard_code": "CJJT177",
+          "confidence": "high"
+        },
+        {
+          "file": "_seg1_CJJ 2-2008 城市桥梁工程施工与质量验收规范_p0001-0151.md",
+          "source": "merged+clause_refine",
+          "heading": "1.0.2 本规范适用于一般地质条件下城市桥梁的新建、改建、扩建工程和大、中修维护工程的施工与质量验收。",
+          "score": 77.18,
+          "standard_code": "CJJ2",
+          "confidence": "high"
+        },
+        {
+          "file": "_seg0_JGJ_T 331-2014 建筑地面工程防滑技术规程.md",
+          "source": "legacy+clause_refine",
+          "heading": "8.2.1 室外人行道、步行街的混凝土路面砖、广场砖、石材等防滑地面施工，应符合现行行业标准《城镇道路工程施工与质量验收规范》CJJ 1 的规定。",
+          "score": 59.5,
+          "standard_code": "JGJT331",
           "confidence": "mid"
         },
         {
-          "file": "_seg1_CJJ 1-2008 城镇道路工程施工与质量验收规范_p0001-0126.md",
-          "source": "legacy",
-          "heading": "1.0.4 城镇道路工程施工与质量验收除应执行本规范外，尚应符合国家现行有关标准的规定。",
-          "score": 36.43,
-          "standard_code": "CJJ1",
+          "file": "_seg0_TCECS 1229-2023 花岗岩瓷砖应用技术规程.md",
+          "source": "merged+clause_refine",
+          "heading": "7.1.15 花岗岩瓷砖地面市政工程验收提交资料应符合现行行业标准《城镇道路工程施工与质量验收规范》CJJ 1 的有关规定。",
+          "score": 53.22,
+          "standard_code": "TCECS1229",
           "confidence": "mid"
         }
       ],
@@ -1501,43 +1501,43 @@
       "has_expected": true,
       "results": [
         {
-          "file": "_seg0_JGJ_T 331-2014 建筑地面工程防滑技术规程.md",
-          "source": "merged",
-          "heading": "3.0.10 建筑防滑地面工程施工和防滑性能质量验收除应符合本规程外，尚应符合国家现行标准《建筑地面工程施工质量验收规范》GB 50209 和《城镇道路工程施工与质量验收规范》CJJ 1 的规定。",
+          "file": "_seg1_CJJ 1-2008 城镇道路工程施工与质量验收规范_p0001-0126.md",
+          "source": "merged+clause_refine",
+          "heading": "1.0.1 为加强城镇道路施工技术管理，规范施工要求，统一施工质量检验及验收标准，提高工程质量，制定本规范。",
           "score": 215.56,
+          "standard_code": "CJJ1",
+          "confidence": "high"
+        },
+        {
+          "file": "_seg0_CJJ_T 177-2012 气泡混合轻质土填筑工程技术规程.md",
+          "source": "legacy+clause_refine",
+          "heading": "7.1.1 质量检验与验收应符合现行行业标准《城镇道路工程施工与质量验收规范》CJJ 1 的规定。",
+          "score": 143.81,
+          "standard_code": "CJJT177",
+          "confidence": "high"
+        },
+        {
+          "file": "_seg1_CJJ 2-2008 城市桥梁工程施工与质量验收规范_p0001-0151.md",
+          "source": "merged+clause_refine",
+          "heading": "1.0.2 本规范适用于一般地质条件下城市桥梁的新建、改建、扩建工程和大、中修维护工程的施工与质量验收。",
+          "score": 89.25,
+          "standard_code": "CJJ2",
+          "confidence": "high"
+        },
+        {
+          "file": "_seg0_JGJ_T 331-2014 建筑地面工程防滑技术规程.md",
+          "source": "legacy+clause_refine",
+          "heading": "8.2.1 室外人行道、步行街的混凝土路面砖、广场砖、石材等防滑地面施工，应符合现行行业标准《城镇道路工程施工与质量验收规范》CJJ 1 的规定。",
+          "score": 61.34,
           "standard_code": "JGJT331",
           "confidence": "high"
         },
         {
           "file": "_seg0_TCECS 1229-2023 花岗岩瓷砖应用技术规程.md",
-          "source": "legacy",
-          "heading": "6.5.1 市政地面施工应在混凝土刚性基层等隐蔽工程施工完毕并验收合格后进行，技术准备应符合现行行业标准《城镇道路工程施工与质量验收规范》CJJ 1 的有关规定。",
-          "score": 143.81,
-          "standard_code": "TCECS1229",
-          "confidence": "high"
-        },
-        {
-          "file": "_seg1_CJJ 2-2008 城市桥梁工程施工与质量验收规范_p0001-0151.md",
-          "source": "legacy",
-          "heading": "3.0.1 开工前，建设单位应召集施工、监理、设计、建设单位有关人员，由设计人员进行施工设计交底，并形成文件。",
-          "score": 87.38,
-          "standard_code": "CJJ2",
-          "confidence": "high"
-        },
-        {
-          "file": "_seg1_CJJ 1-2008 城镇道路工程施工与质量验收规范_p0001-0126.md",
-          "source": "merged",
-          "heading": "3.0.10 与道路同期施工，敷设于城镇道路下的新管线等构筑物，应按先深后浅的原则与道路配合施工。施工中应保护好既有及新建地上杆线、地下管线等构筑物。",
-          "score": 58.99,
-          "standard_code": "CJJ1",
-          "confidence": "mid"
-        },
-        {
-          "file": "_seg0_CJJ_T 177-2012 气泡混合轻质土填筑工程技术规程.md",
-          "source": "legacy",
-          "heading": "7.1.1 质量检验与验收应符合现行行业标准《城镇道路工程施工与质量验收规范》CJJ 1 的规定。",
+          "source": "merged+clause_refine",
+          "heading": "7.1.15 花岗岩瓷砖地面市政工程验收提交资料应符合现行行业标准《城镇道路工程施工与质量验收规范》CJJ 1 的有关规定。",
           "score": 53.22,
-          "standard_code": "CJJT177",
+          "standard_code": "TCECS1229",
           "confidence": "mid"
         }
       ],
@@ -1553,44 +1553,44 @@
       "has_expected": true,
       "results": [
         {
-          "file": "_seg0_JGJ_T 331-2014 建筑地面工程防滑技术规程.md",
-          "source": "legacy",
-          "heading": "3.0.10 建筑防滑地面工程施工和防滑性能质量验收除应符合本规程外，尚应符合国家现行标准《建筑地面工程施工质量验收规范》GB 50209 和《城镇道路工程施工与质量验收规范》CJJ 1 的规定。",
+          "file": "_seg1_CJJ 1-2008 城镇道路工程施工与质量验收规范_p0001-0126.md",
+          "source": "ppr_graph+clause_refine",
+          "heading": "1.0.1 为加强城镇道路施工技术管理，规范施工要求，统一施工质量检验及验收标准，提高工程质量，制定本规范。",
           "score": 167.39,
+          "standard_code": "CJJ1",
+          "confidence": "high"
+        },
+        {
+          "file": "_seg0_GB 50300-2013 建筑工程施工质量验收统一标准.md",
+          "source": "ppr_graph+clause_refine",
+          "heading": "1.0.2 本标准适用于建筑工程施工质量的验收，并作为建筑工程各专业验收规范编制的统一准则。",
+          "score": 143.81,
+          "standard_code": "GB50300",
+          "confidence": "high"
+        },
+        {
+          "file": "_seg1_CJJ 2-2008 城市桥梁工程施工与质量验收规范_p0001-0151.md",
+          "source": "merged+clause_refine",
+          "heading": "1.0.2 本规范适用于一般地质条件下城市桥梁的新建、改建、扩建工程和大、中修维护工程的施工与质量验收。",
+          "score": 77.08,
+          "standard_code": "CJJ2",
+          "confidence": "high"
+        },
+        {
+          "file": "_seg0_JGJ_T 331-2014 建筑地面工程防滑技术规程.md",
+          "source": "legacy+clause_refine",
+          "heading": "8.2.1 室外人行道、步行街的混凝土路面砖、广场砖、石材等防滑地面施工，应符合现行行业标准《城镇道路工程施工与质量验收规范》CJJ 1 的规定。",
+          "score": 70.11,
           "standard_code": "JGJT331",
           "confidence": "high"
         },
         {
           "file": "_seg0_TCECS 1229-2023 花岗岩瓷砖应用技术规程.md",
-          "source": "legacy",
-          "heading": "6.5.1 市政地面施工应在混凝土刚性基层等隐蔽工程施工完毕并验收合格后进行，技术准备应符合现行行业标准《城镇道路工程施工与质量验收规范》CJJ 1 的有关规定。",
-          "score": 143.81,
+          "source": "merged+clause_refine",
+          "heading": "7.1.15 花岗岩瓷砖地面市政工程验收提交资料应符合现行行业标准《城镇道路工程施工与质量验收规范》CJJ 1 的有关规定。",
+          "score": 64.95,
           "standard_code": "TCECS1229",
           "confidence": "high"
-        },
-        {
-          "file": "_seg1_CJJ 2-2008 城市桥梁工程施工与质量验收规范_p0001-0151.md",
-          "source": "legacy",
-          "heading": "2.0.12 桥梁工程范围内的排水设施、挡土墙、引道等工程施工及验收应符合国家现行标准《城镇道路工程施工与质量验收规范》CJJ 1 的有关规定。",
-          "score": 75.29,
-          "standard_code": "CJJ2",
-          "confidence": "high"
-        },
-        {
-          "file": "_seg0_CJJ_T 177-2012 气泡混合轻质土填筑工程技术规程.md",
-          "source": "legacy",
-          "heading": "7.1.1 质量检验与验收应符合现行行业标准《城镇道路工程施工与质量验收规范》CJJ 1 的规定。",
-          "score": 53.22,
-          "standard_code": "CJJT177",
-          "confidence": "mid"
-        },
-        {
-          "file": "_seg1_CJJ 1-2008 城镇道路工程施工与质量验收规范_p0001-0126.md",
-          "source": "merged",
-          "heading": "1.0.4 城镇道路工程施工与质量验收除应执行本规范外，尚应符合国家现行有关标准的规定。",
-          "score": 36.43,
-          "standard_code": "CJJ1",
-          "confidence": "mid"
         }
       ],
       "error": ""
@@ -1626,40 +1626,40 @@
       "results": [
         {
           "file": "_seg1_GB 50007-2011 建筑地基基础设计规范_p0001-0174.md",
-          "source": "merged",
-          "heading": "7.2.3 当地基承载力或变形不能满足设计要求时，地基处理可选用机械压实、堆载预压、真空预压、换填垫层或复合地基等方法。处理后的地基承载力应通过试验确定。",
+          "source": "legacy+clause_refine",
+          "heading": "9.1.5 基坑支护结构设计应符合下列规定：",
           "score": 286.72,
           "standard_code": "GB50007",
           "confidence": "high"
         },
         {
-          "file": "_seg1_JGJ 79-2012 建筑地基处理技术规范_p0001-0128.md",
-          "source": "merged",
-          "heading": "7.1.7 复合地基变形计算应符合现行国家标准《建筑地基基础设计规范》GB 50007 的有关规定，地基变形计算深度应大于复合土层的深度。复合土层的分层与天然地基相同，各复合土层的压缩模量等于该层天然地基压缩模量的 $\\zeta$ 倍， $",
-          "score": 203.81,
-          "standard_code": "JGJ79",
-          "confidence": "high"
-        },
-        {
           "file": "_seg0_GB 50202-2018 建筑地基工程施工质量验收标准.md",
-          "source": "merged",
-          "heading": "4.14.3 施工结束后，应对桩体质量、复合地基承载力及褥垫层夯填度进行检验。",
-          "score": 190.01,
+          "source": "merged+clause_refine",
+          "heading": "7.1 一般规定",
+          "score": 203.81,
           "standard_code": "GB50202",
           "confidence": "high"
         },
         {
           "file": "_seg1_JGJ 94-2008 建筑桩基技术规范_p0001-0164.md",
-          "source": "legacy",
-          "heading": "3.1.9 软土地基上的多层建筑物，当天然地基承载力基本满足要求时，可采用减沉复合疏桩基础。",
-          "score": 177.71,
+          "source": "legacy+clause_refine",
+          "heading": "6.1.7 基桩轴线的控制点和水准点应设在不受施工影响的地方。开工前，经复核后应妥善保护，施工中应经常复测。",
+          "score": 192.24,
           "standard_code": "JGJ94",
           "confidence": "high"
         },
         {
+          "file": "_seg1_JGJ 79-2012 建筑地基处理技术规范_p0001-0128.md",
+          "source": "merged+clause_refine",
+          "heading": "7.3.8 基槽开挖后，应检验桩位、桩数与桩顶桩身质量，如不符合设计要求，应采取有效补强措施。",
+          "score": 177.71,
+          "standard_code": "JGJ79",
+          "confidence": "high"
+        },
+        {
           "file": "_seg0_TCECS 143-2022 给水排水工程埋地预制混凝土圆形管管道结构设计标准.md",
-          "source": "legacy",
-          "heading": "6.1.12 采用换填垫层、压实地基、复合地基等方式处理不良地基土质后，可按常规铺设管道。当采用桩基础或连续混凝土基础抵抗地基不均匀沉降时，应按结构力学方法对管道基础进行设计计算。",
+          "source": "legacy+clause_refine",
+          "heading": "6.1.5 砂垫层基础或土弧基础设计计算的土基支承角 $2\\alpha$ 取值，应根据作用在管道上的荷载确定。施工安装时，对开槽埋设宜增加 $30^{\\circ",
           "score": 175.11,
           "standard_code": "TCECS143",
           "confidence": "high"
@@ -1677,41 +1677,41 @@
       "has_expected": true,
       "results": [
         {
-          "file": "_seg1_GB 50007-2011 建筑地基基础设计规范_p0001-0174.md",
-          "source": "merged",
-          "heading": "7.2.3 当地基承载力或变形不能满足设计要求时，地基处理可选用机械压实、堆载预压、真空预压、换填垫层或复合地基等方法。处理后的地基承载力应通过试验确定。",
-          "score": 279.09,
-          "standard_code": "GB50007",
-          "confidence": "high"
-        },
-        {
-          "file": "_seg1_JGJ 79-2012 建筑地基处理技术规范_p0001-0128.md",
-          "source": "merged",
-          "heading": "7.1.7 复合地基变形计算应符合现行国家标准《建筑地基基础设计规范》GB 50007 的有关规定，地基变形计算深度应大于复合土层的深度。复合土层的分层与天然地基相同，各复合土层的压缩模量等于该层天然地基压缩模量的 $\\zeta$ 倍， $",
-          "score": 203.81,
-          "standard_code": "JGJ79",
-          "confidence": "high"
-        },
-        {
           "file": "_seg1_JGJ 120-2012 建筑基坑支护技术规程_p0001-0104.md",
-          "source": "legacy",
-          "heading": "3.1.8 基坑支护设计应按下列要求设定支护结构的水平位移控制值和基坑周边环境的沉降控制值：",
-          "score": 190.86,
+          "source": "merged+clause_refine",
+          "heading": "3.1.10 基坑支护设计应满足下列主体地下结构的施工要求：",
+          "score": 281.62,
           "standard_code": "JGJ120",
           "confidence": "high"
         },
         {
           "file": "_seg0_GB 50202-2018 建筑地基工程施工质量验收标准.md",
-          "source": "merged",
-          "heading": "4.14.3 施工结束后，应对桩体质量、复合地基承载力及褥垫层夯填度进行检验。",
-          "score": 181.45,
+          "source": "merged+clause_refine",
+          "heading": "7.1 一般规定",
+          "score": 203.81,
           "standard_code": "GB50202",
           "confidence": "high"
         },
         {
+          "file": "_seg1_GB 50007-2011 建筑地基基础设计规范_p0001-0174.md",
+          "source": "merged+clause_refine",
+          "heading": "9.1.5 基坑支护结构设计应符合下列规定：",
+          "score": 193.13,
+          "standard_code": "GB50007",
+          "confidence": "high"
+        },
+        {
+          "file": "_seg1_JGJ 79-2012 建筑地基处理技术规范_p0001-0128.md",
+          "source": "merged+clause_refine",
+          "heading": "7.3.8 基槽开挖后，应检验桩位、桩数与桩顶桩身质量，如不符合设计要求，应采取有效补强措施。",
+          "score": 183.81,
+          "standard_code": "JGJ79",
+          "confidence": "high"
+        },
+        {
           "file": "_seg0_TCECS 143-2022 给水排水工程埋地预制混凝土圆形管管道结构设计标准.md",
-          "source": "legacy",
-          "heading": "6.1.12 采用换填垫层、压实地基、复合地基等方式处理不良地基土质后，可按常规铺设管道。当采用桩基础或连续混凝土基础抵抗地基不均匀沉降时，应按结构力学方法对管道基础进行设计计算。",
+          "source": "legacy+clause_refine",
+          "heading": "8.2.7 当管道未敷设，检查井先施作时，应在井壁上按管道中心标高及管径预留洞口。预留洞口内径不宜小于管道外径加120mm，缝隙用细石混凝土填严，细石混凝土强度",
           "score": 175.11,
           "standard_code": "TCECS143",
           "confidence": "high"
@@ -1740,41 +1740,41 @@
       "has_expected": true,
       "results": [
         {
+          "file": "_seg0_GB 50202-2018 建筑地基工程施工质量验收标准.md",
+          "source": "merged+clause_refine",
+          "heading": "7.1 一般规定",
+          "score": 302.95,
+          "standard_code": "GB50202",
+          "confidence": "high"
+        },
+        {
           "file": "_seg1_GB 50007-2011 建筑地基基础设计规范_p0001-0174.md",
-          "source": "merged",
-          "heading": "7.2.3 当地基承载力或变形不能满足设计要求时，地基处理可选用机械压实、堆载预压、真空预压、换填垫层或复合地基等方法。处理后的地基承载力应通过试验确定。",
-          "score": 300.58,
+          "source": "merged+clause_refine",
+          "heading": "9.1.5 基坑支护结构设计应符合下列规定：",
+          "score": 215.59,
           "standard_code": "GB50007",
           "confidence": "high"
         },
         {
           "file": "_seg1_JGJ 79-2012 建筑地基处理技术规范_p0001-0128.md",
-          "source": "merged",
-          "heading": "7.1.7 复合地基变形计算应符合现行国家标准《建筑地基基础设计规范》GB 50007 的有关规定，地基变形计算深度应大于复合土层的深度。复合土层的分层与天然地基相同，各复合土层的压缩模量等于该层天然地基压缩模量的 $\\zeta$ 倍， $",
-          "score": 215.59,
+          "source": "merged+clause_refine",
+          "heading": "7.3.8 基槽开挖后，应检验桩位、桩数与桩顶桩身质量，如不符合设计要求，应采取有效补强措施。",
+          "score": 191.95,
           "standard_code": "JGJ79",
           "confidence": "high"
         },
         {
-          "file": "_seg0_GB 50202-2018 建筑地基工程施工质量验收标准.md",
-          "source": "merged",
-          "heading": "4.14.3 施工结束后，应对桩体质量、复合地基承载力及褥垫层夯填度进行检验。",
-          "score": 189.83,
-          "standard_code": "GB50202",
-          "confidence": "high"
-        },
-        {
           "file": "_seg1_JGJ 94-2008 建筑桩基技术规范_p0001-0164.md",
-          "source": "merged",
-          "heading": "3.1.9 软土地基上的多层建筑物，当天然地基承载力基本满足要求时，可采用减沉复合疏桩基础。",
+          "source": "legacy+clause_refine",
+          "heading": "6.6.6 人工挖孔桩混凝土护壁的厚度不应小于100mm，混凝土强度等级不应低于桩身混凝土强度等级，并应振捣密实；护壁应配置直径不小于8mm的构造钢筋，竖向筋应",
           "score": 185.06,
           "standard_code": "JGJ94",
           "confidence": "high"
         },
         {
           "file": "_seg0_TCECS 143-2022 给水排水工程埋地预制混凝土圆形管管道结构设计标准.md",
-          "source": "legacy",
-          "heading": "6.1.12 采用换填垫层、压实地基、复合地基等方式处理不良地基土质后，可按常规铺设管道。当采用桩基础或连续混凝土基础抵抗地基不均匀沉降时，应按结构力学方法对管道基础进行设计计算。",
+          "source": "legacy+clause_refine",
+          "heading": "8.2.8 检查井与管道连接处的管底超挖部分应采用级配砂石或C15混凝土回填密实，级配砂石压实系数不应小于0.95。",
           "score": 175.11,
           "standard_code": "TCECS143",
           "confidence": "high"
@@ -1792,41 +1792,41 @@
       "has_expected": true,
       "results": [
         {
-          "file": "_seg1_GB 50007-2011 建筑地基基础设计规范_p0001-0174.md",
-          "source": "merged",
-          "heading": "7.2.3 当地基承载力或变形不能满足设计要求时，地基处理可选用机械压实、堆载预压、真空预压、换填垫层或复合地基等方法。处理后的地基承载力应通过试验确定。",
-          "score": 348.3,
-          "standard_code": "GB50007",
-          "confidence": "high"
-        },
-        {
-          "file": "_seg1_JGJ 79-2012 建筑地基处理技术规范_p0001-0128.md",
-          "source": "merged",
-          "heading": "7.1.7 复合地基变形计算应符合现行国家标准《建筑地基基础设计规范》GB 50007 的有关规定，地基变形计算深度应大于复合土层的深度。复合土层的分层与天然地基相同，各复合土层的压缩模量等于该层天然地基压缩模量的 $\\zeta$ 倍， $",
-          "score": 215.59,
-          "standard_code": "JGJ79",
-          "confidence": "high"
-        },
-        {
-          "file": "_seg0_GB 50202-2018 建筑地基工程施工质量验收标准.md",
-          "source": "merged",
-          "heading": "6.2.2 湿陷性黄土场地上的强夯地基质量检验和验收除应符合本标准第4.6节的规定外，尚应对起夯标高、设计处理厚度内夯实土层的湿陷性、湿陷系数和压实系数进行验收，并应符合表6.2.2规定。",
-          "score": 197.65,
-          "standard_code": "GB50202",
-          "confidence": "high"
-        },
-        {
           "file": "_seg1_JGJ 120-2012 建筑基坑支护技术规程_p0001-0104.md",
-          "source": "legacy",
-          "heading": "3.1.8 基坑支护设计应按下列要求设定支护结构的水平位移控制值和基坑周边环境的沉降控制值：",
-          "score": 196.23,
+          "source": "merged+clause_refine",
+          "heading": "3.1.9 基坑支护应按实际的基坑周边建筑物、地下管线、道路和施工荷载等条件进行设计。设计中应提出明确的基坑周边荷载限值、地下水和地表水控制等基坑使用要求。",
+          "score": 350.85,
           "standard_code": "JGJ120",
           "confidence": "high"
         },
         {
+          "file": "_seg1_GB 50007-2011 建筑地基基础设计规范_p0001-0174.md",
+          "source": "merged+clause_refine",
+          "heading": "9.1.2 基坑支护设计应确保岩土开挖、地下结构施工的安全，并应确保周围环境不受损害。",
+          "score": 215.59,
+          "standard_code": "GB50007",
+          "confidence": "high"
+        },
+        {
+          "file": "_seg0_GB 50202-2018 建筑地基工程施工质量验收标准.md",
+          "source": "merged+clause_refine",
+          "heading": "7.1.5 基坑支护工程验收应以保证支护结构安全和周围环境安全为前提。",
+          "score": 199.96,
+          "standard_code": "GB50202",
+          "confidence": "high"
+        },
+        {
+          "file": "_seg1_JGJ 79-2012 建筑地基处理技术规范_p0001-0128.md",
+          "source": "merged+clause_refine",
+          "heading": "7.3.8 基槽开挖后，应检验桩位、桩数与桩顶桩身质量，如不符合设计要求，应采取有效补强措施。",
+          "score": 198.51,
+          "standard_code": "JGJ79",
+          "confidence": "high"
+        },
+        {
           "file": "_seg0_TCECS 143-2022 给水排水工程埋地预制混凝土圆形管管道结构设计标准.md",
-          "source": "legacy",
-          "heading": "6.1.12 采用换填垫层、压实地基、复合地基等方式处理不良地基土质后，可按常规铺设管道。当采用桩基础或连续混凝土基础抵抗地基不均匀沉降时，应按结构力学方法对管道基础进行设计计算。",
+          "source": "legacy+clause_refine",
+          "heading": "6.1.5 砂垫层基础或土弧基础设计计算的土基支承角 $2\\alpha$ 取值，应根据作用在管道上的荷载确定。施工安装时，对开槽埋设宜增加 $30^{\\circ",
           "score": 179.59,
           "standard_code": "TCECS143",
           "confidence": "high"
@@ -1855,43 +1855,43 @@
       "has_expected": true,
       "results": [
         {
-          "file": "_seg0_TCECS 1229-2023 花岗岩瓷砖应用技术规程.md",
-          "source": "merged",
-          "heading": "6.5.1 市政地面施工应在混凝土刚性基层等隐蔽工程施工完毕并验收合格后进行，技术准备应符合现行行业标准《城镇道路工程施工与质量验收规范》CJJ 1 的有关规定。",
+          "file": "_seg1_CJJ 1-2008 城镇道路工程施工与质量验收规范_p0001-0126.md",
+          "source": "ppr_graph+clause_refine",
+          "heading": "1.0.4 城镇道路工程施工与质量验收除应执行本规范外，尚应符合国家现行有关标准的规定。",
           "score": 180.53,
-          "standard_code": "TCECS1229",
-          "confidence": "high"
-        },
-        {
-          "file": "_seg0_JGJ_T 331-2014 建筑地面工程防滑技术规程.md",
-          "source": "legacy",
-          "heading": "3.0.10 建筑防滑地面工程施工和防滑性能质量验收除应符合本规程外，尚应符合国家现行标准《建筑地面工程施工质量验收规范》GB 50209 和《城镇道路工程施工与质量验收规范》CJJ 1 的规定。",
-          "score": 176.0,
-          "standard_code": "JGJT331",
-          "confidence": "high"
-        },
-        {
-          "file": "_seg1_CJJ 2-2008 城市桥梁工程施工与质量验收规范_p0001-0151.md",
-          "source": "merged",
-          "heading": "2.0.12 桥梁工程范围内的排水设施、挡土墙、引道等工程施工及验收应符合国家现行标准《城镇道路工程施工与质量验收规范》CJJ 1 的有关规定。",
-          "score": 64.79,
-          "standard_code": "CJJ2",
+          "standard_code": "CJJ1",
           "confidence": "high"
         },
         {
           "file": "_seg0_CJJ_T 177-2012 气泡混合轻质土填筑工程技术规程.md",
-          "source": "legacy",
+          "source": "legacy+clause_refine",
           "heading": "7.1.1 质量检验与验收应符合现行行业标准《城镇道路工程施工与质量验收规范》CJJ 1 的规定。",
-          "score": 54.91,
+          "score": 176.0,
           "standard_code": "CJJT177",
+          "confidence": "high"
+        },
+        {
+          "file": "_seg1_CJJ 2-2008 城市桥梁工程施工与质量验收规范_p0001-0151.md",
+          "source": "merged+clause_refine",
+          "heading": "1.0.4 城市桥梁工程的施工及验收，除应执行本规范外，尚应符合国家现行有关标准的规定。",
+          "score": 66.76,
+          "standard_code": "CJJ2",
+          "confidence": "high"
+        },
+        {
+          "file": "_seg0_JGJ_T 331-2014 建筑地面工程防滑技术规程.md",
+          "source": "legacy+clause_refine",
+          "heading": "3.0.10 建筑防滑地面工程施工和防滑性能质量验收除应符合本规程外，尚应符合国家现行标准《建筑地面工程施工质量验收规范》GB 50209 和《城镇道路工程施工",
+          "score": 54.91,
+          "standard_code": "JGJT331",
           "confidence": "mid"
         },
         {
-          "file": "_seg1_CJJ 1-2008 城镇道路工程施工与质量验收规范_p0001-0126.md",
-          "source": "merged",
-          "heading": "1.0.4 城镇道路工程施工与质量验收除应执行本规范外，尚应符合国家现行有关标准的规定。",
-          "score": 41.53,
-          "standard_code": "CJJ1",
+          "file": "_seg0_TCECS 1229-2023 花岗岩瓷砖应用技术规程.md",
+          "source": "merged+clause_refine",
+          "heading": "7.1.15 花岗岩瓷砖地面市政工程验收提交资料应符合现行行业标准《城镇道路工程施工与质量验收规范》CJJ 1 的有关规定。",
+          "score": 51.48,
+          "standard_code": "TCECS1229",
           "confidence": "mid"
         }
       ],
@@ -1927,43 +1927,43 @@
       "has_expected": true,
       "results": [
         {
-          "file": "_seg0_JGJ_T 331-2014 建筑地面工程防滑技术规程.md",
-          "source": "legacy",
-          "heading": "3.0.10 建筑防滑地面工程施工和防滑性能质量验收除应符合本规程外，尚应符合国家现行标准《建筑地面工程施工质量验收规范》GB 50209 和《城镇道路工程施工与质量验收规范》CJJ 1 的规定。",
+          "file": "_seg1_CJJ 1-2008 城镇道路工程施工与质量验收规范_p0001-0126.md",
+          "source": "merged+clause_refine",
+          "heading": "1.0.4 城镇道路工程施工与质量验收除应执行本规范外，尚应符合国家现行有关标准的规定。",
           "score": 210.22,
+          "standard_code": "CJJ1",
+          "confidence": "high"
+        },
+        {
+          "file": "_seg0_CJJ_T 177-2012 气泡混合轻质土填筑工程技术规程.md",
+          "source": "legacy+clause_refine",
+          "heading": "7.1.1 质量检验与验收应符合现行行业标准《城镇道路工程施工与质量验收规范》CJJ 1 的规定。",
+          "score": 135.84,
+          "standard_code": "CJJT177",
+          "confidence": "high"
+        },
+        {
+          "file": "_seg1_CJJ 2-2008 城市桥梁工程施工与质量验收规范_p0001-0151.md",
+          "source": "merged+clause_refine",
+          "heading": "1.0.4 城市桥梁工程的施工及验收，除应执行本规范外，尚应符合国家现行有关标准的规定。",
+          "score": 78.42,
+          "standard_code": "CJJ2",
+          "confidence": "high"
+        },
+        {
+          "file": "_seg0_JGJ_T 331-2014 建筑地面工程防滑技术规程.md",
+          "source": "legacy+clause_refine",
+          "heading": "3.0.10 建筑防滑地面工程施工和防滑性能质量验收除应符合本规程外，尚应符合国家现行标准《建筑地面工程施工质量验收规范》GB 50209 和《城镇道路工程施工",
+          "score": 68.62,
           "standard_code": "JGJT331",
           "confidence": "high"
         },
         {
           "file": "_seg0_TCECS 1229-2023 花岗岩瓷砖应用技术规程.md",
-          "source": "legacy",
-          "heading": "6.5.1 市政地面施工应在混凝土刚性基层等隐蔽工程施工完毕并验收合格后进行，技术准备应符合现行行业标准《城镇道路工程施工与质量验收规范》CJJ 1 的有关规定。",
-          "score": 135.84,
+          "source": "merged+clause_refine",
+          "heading": "7.1.10 市政花岗岩瓷砖装饰装修工程施工验收除应符合本规程的规定外，尚应符合现行行业标准《城镇道路工程施工与质量验收规范》CJJ 1 中对料石面层地面工程验",
+          "score": 58.31,
           "standard_code": "TCECS1229",
-          "confidence": "high"
-        },
-        {
-          "file": "_seg1_CJJ 2-2008 城市桥梁工程施工与质量验收规范_p0001-0151.md",
-          "source": "legacy",
-          "heading": "2.0.12 桥梁工程范围内的排水设施、挡土墙、引道等工程施工及验收应符合国家现行标准《城镇道路工程施工与质量验收规范》CJJ 1 的有关规定。",
-          "score": 76.65,
-          "standard_code": "CJJ2",
-          "confidence": "high"
-        },
-        {
-          "file": "_seg0_CJJ_T 177-2012 气泡混合轻质土填筑工程技术规程.md",
-          "source": "legacy",
-          "heading": "3.2.2 气泡混合轻质土试件尺寸是参照国外相关标准和现行国家标准《蒸压加气混凝土性能试验方法》GB/T 11969 的规定执行，其抗压强度标准值为标准试件 $100mm \\times 100mm \\times 100mm$ 的立方体，在 ",
-          "score": 68.62,
-          "standard_code": "CJJT177",
-          "confidence": "high"
-        },
-        {
-          "file": "_seg1_CJJ 1-2008 城镇道路工程施工与质量验收规范_p0001-0126.md",
-          "source": "legacy",
-          "heading": "7.4.2 石灰、粉煤灰、钢渣稳定土类混合料配合比设计步骤应依据本规范第7.2.2条的有关规定。根据试件的平均抗压强度R和设计抗压强度 $R_{d}$ ，选定配合比。配合比可按表7.4.2进行初选。",
-          "score": 56.05,
-          "standard_code": "CJJ1",
           "confidence": "mid"
         }
       ],
@@ -2055,47 +2055,47 @@
       "query_type": "standard_name",
       "branch": "ppr+legacy",
       "result_count": 5,
-      "first_rank": null,
+      "first_rank": 1,
       "has_expected": true,
       "results": [
         {
+          "file": "_seg1_CJJ 2-2008 城市桥梁工程施工与质量验收规范_p0001-0151.md",
+          "source": "ppr_graph+clause_refine",
+          "heading": "1.0.2 本规范适用于一般地质条件下城市桥梁的新建、改建、扩建工程和大、中修维护工程的施工与质量验收。",
+          "score": 45.65,
+          "standard_code": "CJJ2",
+          "confidence": "mid"
+        },
+        {
           "file": "_seg0_GB 50203-2011 砌体结构工程施工质量验收规范.md",
-          "source": "legacy",
-          "heading": "1.0.2 本规范对砌体结构工程施工质量验收的适用范围作了规定。",
-          "score": 39.14,
+          "source": "merged+clause_refine",
+          "heading": "1.0.2 本规范适用于建筑工程的砖、石、小砌块等砌体结构工程的施工质量验收。本规范不适用于铁路、公路和水工建筑等砌石工程。",
+          "score": 41.54,
           "standard_code": "GB50203",
           "confidence": "mid"
         },
         {
-          "file": "_seg8_建筑施工手册（第六版）第5册_p0705-0880.md",
-          "source": "legacy",
-          "heading": "34.7.2.1 适用范围",
+          "file": "_seg0_GB 50242-2002 建筑给水排水及采暖工程施工质量验收规范.md",
+          "source": "ppr_graph+clause_refine",
+          "heading": "9.1.1 本章适用于民用建筑群（住宅小区）及厂区的室外给水管网安装工程的质量检验与验收。",
+          "score": 41.05,
+          "standard_code": "GB50242",
+          "confidence": "mid"
+        },
+        {
+          "file": "_seg0_GB 50204-2015 混凝土结构工程施工质量验收规范.md",
+          "source": "ppr_graph+clause_refine",
+          "heading": "1.0.2 本规范适用于建筑工程混凝土结构施工质量的验收。",
           "score": 37.43,
-          "standard_code": "",
+          "standard_code": "GB50204",
           "confidence": "mid"
         },
         {
-          "file": "_seg0_GB 50345-2012 屋面工程技术规范.md",
-          "source": "merged",
-          "heading": "4.7.1 上人屋面保护层可采用块体材料、细石混凝土等材料，不上人屋面保护层可采用浅色涂料、铝箔、矿物粒料、水泥砂浆等材料。保护层材料的适用范围和技术要求应符合表 4.7.1 的规定。",
-          "score": 33.59,
-          "standard_code": "GB50345",
-          "confidence": "mid"
-        },
-        {
-          "file": "_seg0_JGJ_T 104-2011 建筑工程冬期施工规程.md",
-          "source": "merged",
-          "heading": "6.5.2 电极加热法养护混凝土的适用范围宜符合表 6.5.2 的规定。",
-          "score": 31.4,
-          "standard_code": "JGJT104",
-          "confidence": "mid"
-        },
-        {
-          "file": "_seg0_CECS 164-2004 埋地聚乙烯排水管管道工程技术规程.md",
-          "source": "legacy",
-          "heading": "1.0.2 本条明确了本规程适用范围。根据《给水排水管道工程施工及验收规范》GB 50268 第 10 章的有关规定，工作压力小于 0.1MPa 的管道为无压管道。条文中提出的两种管材，都可用于承受外压力的埋地排水管道工程。双壁波纹管和缠绕",
-          "score": 31.4,
-          "standard_code": "CECS164",
+          "file": "_seg8_建筑施工手册（第六版）第5册_p0705-0880.md",
+          "source": "legacy+clause_refine",
+          "heading": "34.6.7.1 适用范围",
+          "score": 34.48,
+          "standard_code": "GB50550",
           "confidence": "mid"
         }
       ],
@@ -2112,42 +2112,42 @@
       "results": [
         {
           "file": "_seg1_CJJ 2-2008 城市桥梁工程施工与质量验收规范_p0001-0151.md",
-          "source": "merged",
+          "source": "merged+clause_refine",
           "heading": "1.0.1 为加强城市桥梁工程施工技术管理，规范施工技术标准，统一施工质量检验、验收标准，确保工程质量，制定本规范。",
-          "score": 93.94,
+          "score": 96.24,
           "standard_code": "CJJ2",
           "confidence": "high"
         },
         {
-          "file": "_seg0_GB 50755-2012 钢结构工程施工规范.md",
-          "source": "legacy",
-          "heading": "1.0.1 为在钢结构工程施工中贯彻执行国家的技术经济政策，做到安全适用、确保质量、技术先进、经济合理，制定本规范。",
-          "score": 41.68,
-          "standard_code": "GB50755",
-          "confidence": "mid"
-        },
-        {
-          "file": "_seg0_GB 50209-2010 建筑地面工程施工质量验收规范.md",
-          "source": "merged",
-          "heading": "1.0.1 为了加强建筑工程质量管理,保证工程质量,统一建筑地面工程施工质量的验收,制定本规范。",
-          "score": 41.52,
-          "standard_code": "GB50209",
+          "file": "_seg1_CJJ 1-2008 城镇道路工程施工与质量验收规范_p0001-0126.md",
+          "source": "ppr_graph+clause_refine",
+          "heading": "1.0.2 本规范适用于城镇新建、改建、扩建的道路及广场、停车场等工程的施工和质量检验、验收。",
+          "score": 47.27,
+          "standard_code": "CJJ1",
           "confidence": "mid"
         },
         {
           "file": "_seg0_GB 50911-2013 城市轨道交通工程监测技术规范.md",
-          "source": "merged",
-          "heading": "1.0.1 为规范城市轨道交通工程监测工作，做到技术先进、经济合理、成果可靠，保证工程结构和周边环境的安全，制定本规范。",
-          "score": 40.86,
+          "source": "ppr_graph+clause_refine",
+          "heading": "1.0.2 本规范适用于城市轨道交通新建、改建、扩建工程及工程运行维护的监测工作。",
+          "score": 45.41,
           "standard_code": "GB50911",
           "confidence": "mid"
         },
         {
-          "file": "_seg0_JGJ_T 331-2014 建筑地面工程防滑技术规程.md",
-          "source": "merged",
-          "heading": "1.0.1 建筑防滑地面工程是一项保证人身安全，关系到社会和谐稳定的工程，同样是评价世界级大城市的一个重要的验收标准。与国外发达国家相比，甚至与某些发展中国家相比，在旅游饭店及公共建筑的地面防滑方面我们有一定差距，过去传统观念是地面华丽，尤",
-          "score": 36.69,
-          "standard_code": "JGJT331",
+          "file": "_seg0_GB 50755-2012 钢结构工程施工规范.md",
+          "source": "legacy+clause_refine",
+          "heading": "1.0.2 本规范适用于工业与民用建筑及构筑物钢结构工程的施工。",
+          "score": 43.69,
+          "standard_code": "GB50755",
+          "confidence": "mid"
+        },
+        {
+          "file": "_seg0_GB 50202-2018 建筑地基工程施工质量验收标准.md",
+          "source": "ppr_graph+clause_refine",
+          "heading": "1.0.2 本标准适用于建筑地基基础工程施工质量的验收。",
+          "score": 41.68,
+          "standard_code": "GB50202",
           "confidence": "mid"
         }
       ],
@@ -2159,47 +2159,47 @@
       "query_type": "clause",
       "branch": "ppr+legacy",
       "result_count": 5,
-      "first_rank": 2,
+      "first_rank": 1,
       "has_expected": true,
       "results": [
         {
-          "file": "_seg1_GB 50011-2010 建筑抗震设计规范_p0001-0144.md",
-          "source": "legacy",
-          "heading": "3.8.2 采用隔震或消能减震设计的建筑，当遭遇到本地区的多遇地震影响、设防地震影响和罕遇地震影响时，可按高于本规范第1.0.1条的基本设防目标进行设计。",
-          "score": 33.86,
-          "standard_code": "GB50011",
-          "confidence": "mid"
-        },
-        {
           "file": "_seg1_CJJ 2-2008 城市桥梁工程施工与质量验收规范_p0001-0151.md",
-          "source": "merged",
+          "source": "ppr_graph+clause_refine",
           "heading": "1.0.1 为加强城市桥梁工程施工技术管理，规范施工技术标准，统一施工质量检验、验收标准，确保工程质量，制定本规范。",
-          "score": 31.0,
+          "score": 55.29,
           "standard_code": "CJJ2",
           "confidence": "mid"
         },
         {
-          "file": "_seg0_GB 50037-2013 建筑地面设计规范.md",
-          "source": "legacy",
-          "heading": "1.0.3 建筑地面工程需要的材料用量较大,充分利用地方材料与再生资源,相对比较节约,且体现了协调发展与可持续发展的原则。原条文中的工业废料属于再生资源范围,节约木材、水泥、钢材和贵重材料问题在第1.0.1条的设计原则中已明确要求经济合理,",
-          "score": 30.92,
-          "standard_code": "GB50037",
+          "file": "_seg0_GB 50911-2013 城市轨道交通工程监测技术规范.md",
+          "source": "ppr_graph+clause_refine",
+          "heading": "1.0.2 本规范适用于城市轨道交通新建、改建、扩建工程及工程运行维护的监测工作。",
+          "score": 46.22,
+          "standard_code": "GB50911",
           "confidence": "mid"
         },
         {
-          "file": "_seg2_城市轨道交通工程建设安全生产标准化管理技术指南_p0153-0304.md",
-          "source": "legacy",
-          "heading": "10.1.4 适用范围及应用条件",
-          "score": 22.37,
-          "standard_code": "GB6067",
+          "file": "_seg1_CJJ 1-2008 城镇道路工程施工与质量验收规范_p0001-0126.md",
+          "source": "ppr_graph+clause_refine",
+          "heading": "1.0.2 本规范适用于城镇新建、改建、扩建的道路及广场、停车场等工程的施工和质量检验、验收。",
+          "score": 45.94,
+          "standard_code": "CJJ1",
           "confidence": "mid"
         },
         {
-          "file": "📋 施工手册.md",
-          "source": "legacy",
-          "heading": "城镇 CJJ (10件)",
-          "score": 22.17,
-          "standard_code": "",
+          "file": "_seg0_GB 50300-2013 建筑工程施工质量验收统一标准.md",
+          "source": "ppr_graph+clause_refine",
+          "heading": "1.0.2 本标准适用于建筑工程施工质量的验收，并作为建筑工程各专业验收规范编制的统一准则。",
+          "score": 42.65,
+          "standard_code": "GB50300",
+          "confidence": "mid"
+        },
+        {
+          "file": "_seg1_GB 50026-2020 工程测量标准_p0001-0185.md",
+          "source": "ppr_graph+clause_refine",
+          "heading": "8.1.1 本章适用于工业与民用建筑、水工建筑物、桥梁、核电厂、隧道及综合管廊的施工测量。",
+          "score": 42.34,
+          "standard_code": "GB50026",
           "confidence": "mid"
         }
       ],
@@ -2216,42 +2216,42 @@
       "results": [
         {
           "file": "_seg0_GB 55023-2022 施工脚手架通用规范.md",
-          "source": "legacy",
-          "heading": "4.3.6 模板支撑脚手架应根据施工工况对连续支撑进行设计计",
-          "score": 342.54,
+          "source": "legacy+clause_refine",
+          "heading": "2.0.2 脚手架应根据使用功能和环境进行设计。",
+          "score": 344.53,
           "standard_code": "GB55023",
           "confidence": "high"
         },
         {
-          "file": "_seg0_JGJ_T 231-2021 建筑施工承插型盘扣式钢管脚手架安全技术标准.md",
-          "source": "legacy",
-          "heading": "4.2.1 支撑架永久荷载标准值取值应符合下列规定：",
-          "score": 306.18,
-          "standard_code": "JGJT231",
-          "confidence": "high"
-        },
-        {
           "file": "_seg0_JGJ 130-2011 建筑施工扣件式钢管脚手架安全技术规范.md",
-          "source": "legacy",
-          "heading": "1.0.2 本规范适用于房屋建筑工程和市政工程等施工用落地式单、双排扣件式钢管脚手架、满堂扣件式钢管脚手架、型钢悬挑扣件式钢管脚手架、满堂扣件式钢管支撑架的设计、施工及验收。",
-          "score": 293.95,
+          "source": "legacy+clause_refine",
+          "heading": "6.1 常用单、双排脚手架设计尺寸",
+          "score": 306.18,
           "standard_code": "JGJ130",
           "confidence": "high"
         },
         {
-          "file": "_seg0_JGJ 162-2008 建筑施工模板安全技术规范.md",
-          "source": "legacy",
-          "heading": "6.5.1 飞模的制作组装必须按设计图进行。运到施工现场后，应按设计要求检查合格后方可使用安装。安装前应进行一次试压和试吊，检验确认各部件无隐患。对利用组合钢模板、门式脚手架、钢管脚手架组装的飞模，所用的材料、部件应符合现行国家标准《组合钢",
-          "score": 186.98,
-          "standard_code": "JGJ162",
+          "file": "_seg0_JGJ_T 231-2021 建筑施工承插型盘扣式钢管脚手架安全技术标准.md",
+          "source": "legacy+clause_refine",
+          "heading": "2.1.18 钢脚手板 steel deck",
+          "score": 296.15,
+          "standard_code": "JGJT231",
           "confidence": "high"
         },
         {
           "file": "_seg11_建筑施工手册（第六版）第2册_p1051-1224.md",
-          "source": "legacy",
-          "heading": "5）脚手架上吊挂的安全设施自重荷载标准值",
-          "score": 109.25,
+          "source": "legacy+clause_refine",
+          "heading": "14.4.6 移动式脚手架",
+          "score": 186.98,
           "standard_code": "",
+          "confidence": "high"
+        },
+        {
+          "file": "_seg0_JGJ 162-2008 建筑施工模板安全技术规范.md",
+          "source": "legacy+clause_refine",
+          "heading": "6.4.7 每步脚手架间应设置爬梯，作业人员应由爬梯上下，进入爬架应在爬架内上下，严禁攀爬模板、脚手架和爬架外侧。",
+          "score": 109.25,
+          "standard_code": "JGJ162",
           "confidence": "high"
         }
       ],
@@ -2267,41 +2267,41 @@
       "has_expected": true,
       "results": [
         {
-          "file": "_seg0_JGJ 162-2008 建筑施工模板安全技术规范.md",
-          "source": "merged",
-          "heading": "6.5.1 飞模的制作组装必须按设计图进行。运到施工现场后，应按设计要求检查合格后方可使用安装。安装前应进行一次试压和试吊，检验确认各部件无隐患。对利用组合钢模板、门式脚手架、钢管脚手架组装的飞模，所用的材料、部件应符合现行国家标准《组合钢",
-          "score": 179.48,
-          "standard_code": "JGJ162",
-          "confidence": "high"
-        },
-        {
           "file": "_seg0_GB 55023-2022 施工脚手架通用规范.md",
-          "source": "merged",
-          "heading": "4.3.6 模板支撑脚手架应根据施工工况对连续支撑进行设计计",
-          "score": 148.88,
+          "source": "merged+clause_refine",
+          "heading": "4.4.3 脚手架立杆间距、步距应通过设计确定。",
+          "score": 179.48,
           "standard_code": "GB55023",
           "confidence": "high"
         },
         {
-          "file": "_seg6_建筑施工手册（第六版）第1册_p0544-0724.md",
-          "source": "legacy",
-          "heading": "3.4.10.2 常用模板脚手架软件",
-          "score": 142.26,
-          "standard_code": "",
-          "confidence": "high"
-        },
-        {
           "file": "_seg0_JGJ_T 231-2021 建筑施工承插型盘扣式钢管脚手架安全技术标准.md",
-          "source": "legacy",
-          "heading": "4.2.1 支撑架永久荷载标准值取值应符合下列规定：",
-          "score": 113.98,
+          "source": "legacy+clause_refine",
+          "heading": "9.0.2 应执行施工方案要求，遵循脚手架安装及拆除工艺流程。",
+          "score": 151.03,
           "standard_code": "JGJT231",
           "confidence": "high"
         },
         {
           "file": "_seg11_建筑施工手册（第六版）第2册_p1051-1224.md",
-          "source": "legacy",
-          "heading": "5）脚手架上吊挂的安全设施自重荷载标准值",
+          "source": "legacy+clause_refine",
+          "heading": "1. 一般构造要求",
+          "score": 142.26,
+          "standard_code": "",
+          "confidence": "high"
+        },
+        {
+          "file": "_seg0_JGJ 162-2008 建筑施工模板安全技术规范.md",
+          "source": "merged+clause_refine",
+          "heading": "6.4.7 每步脚手架间应设置爬梯，作业人员应由爬梯上下，进入爬架应在爬架内上下，严禁攀爬模板、脚手架和爬架外侧。",
+          "score": 113.98,
+          "standard_code": "JGJ162",
+          "confidence": "high"
+        },
+        {
+          "file": "_seg6_建筑施工手册（第六版）第1册_p0544-0724.md",
+          "source": "legacy+clause_refine",
+          "heading": "2. 模板脚手架软件的架体布置功能",
           "score": 102.75,
           "standard_code": "",
           "confidence": "high"
@@ -2319,41 +2319,41 @@
       "has_expected": true,
       "results": [
         {
-          "file": "_seg0_JGJ 162-2008 建筑施工模板安全技术规范.md",
-          "source": "merged",
-          "heading": "6.5.1 飞模的制作组装必须按设计图进行。运到施工现场后，应按设计要求检查合格后方可使用安装。安装前应进行一次试压和试吊，检验确认各部件无隐患。对利用组合钢模板、门式脚手架、钢管脚手架组装的飞模，所用的材料、部件应符合现行国家标准《组合钢",
+          "file": "_seg0_JGJ_T 231-2021 建筑施工承插型盘扣式钢管脚手架安全技术标准.md",
+          "source": "legacy+clause_refine",
+          "heading": "9.0.2 应执行施工方案要求，遵循脚手架安装及拆除工艺流程。",
           "score": 179.48,
-          "standard_code": "JGJ162",
+          "standard_code": "JGJT231",
           "confidence": "high"
         },
         {
           "file": "_seg0_GB 55023-2022 施工脚手架通用规范.md",
-          "source": "merged",
-          "heading": "4.3.6 模板支撑脚手架应根据施工工况对连续支撑进行设计计",
-          "score": 166.34,
+          "source": "merged+clause_refine",
+          "heading": "4.1.3 脚手架地基应符合下列规定：",
+          "score": 168.56,
           "standard_code": "GB55023",
           "confidence": "high"
         },
         {
-          "file": "_seg6_建筑施工手册（第六版）第1册_p0544-0724.md",
-          "source": "legacy",
-          "heading": "3.4.10.2 常用模板脚手架软件",
+          "file": "_seg11_建筑施工手册（第六版）第2册_p1051-1224.md",
+          "source": "legacy+clause_refine",
+          "heading": "14.5.3.1 吊挂式脚手架的形式、特点和构造要求",
           "score": 142.84,
           "standard_code": "",
           "confidence": "high"
         },
         {
-          "file": "_seg0_JGJ_T 231-2021 建筑施工承插型盘扣式钢管脚手架安全技术标准.md",
-          "source": "legacy",
-          "heading": "4.2.1 支撑架永久荷载标准值取值应符合下列规定：",
+          "file": "_seg0_JGJ 162-2008 建筑施工模板安全技术规范.md",
+          "source": "merged+clause_refine",
+          "heading": "6.4.7 每步脚手架间应设置爬梯，作业人员应由爬梯上下，进入爬架应在爬架内上下，严禁攀爬模板、脚手架和爬架外侧。",
           "score": 120.09,
-          "standard_code": "JGJT231",
+          "standard_code": "JGJ162",
           "confidence": "high"
         },
         {
-          "file": "_seg11_建筑施工手册（第六版）第2册_p1051-1224.md",
-          "source": "legacy",
-          "heading": "5）脚手架上吊挂的安全设施自重荷载标准值",
+          "file": "_seg6_建筑施工手册（第六版）第1册_p0544-0724.md",
+          "source": "legacy+clause_refine",
+          "heading": "3.4.10.4 模板脚手架软件应用要点",
           "score": 107.32,
           "standard_code": "",
           "confidence": "high"
@@ -2391,41 +2391,41 @@
       "has_expected": true,
       "results": [
         {
-          "file": "_seg0_JGJ 162-2008 建筑施工模板安全技术规范.md",
-          "source": "merged",
-          "heading": "6.5.1 飞模的制作组装必须按设计图进行。运到施工现场后，应按设计要求检查合格后方可使用安装。安装前应进行一次试压和试吊，检验确认各部件无隐患。对利用组合钢模板、门式脚手架、钢管脚手架组装的飞模，所用的材料、部件应符合现行国家标准《组合钢",
-          "score": 179.48,
-          "standard_code": "JGJ162",
-          "confidence": "high"
-        },
-        {
           "file": "_seg0_GB 55023-2022 施工脚手架通用规范.md",
-          "source": "merged",
-          "heading": "4.3.6 模板支撑脚手架应根据施工工况对连续支撑进行设计计",
-          "score": 151.35,
+          "source": "merged+clause_refine",
+          "heading": "3.0.1 本条是对脚手架材料、构配件性能指标与质量的基本要求。脚手架材料与构配件的种类、规格、型号比较多，但是无论何种脚手架，其材料与构配件质量必须符合其使用",
+          "score": 179.48,
           "standard_code": "GB55023",
           "confidence": "high"
         },
         {
-          "file": "_seg6_建筑施工手册（第六版）第1册_p0544-0724.md",
-          "source": "legacy",
-          "heading": "3.4.10.2 常用模板脚手架软件",
-          "score": 143.91,
-          "standard_code": "",
-          "confidence": "high"
-        },
-        {
           "file": "_seg0_JGJ_T 231-2021 建筑施工承插型盘扣式钢管脚手架安全技术标准.md",
-          "source": "legacy",
-          "heading": "4.2.1 支撑架永久荷载标准值取值应符合下列规定：",
-          "score": 128.24,
+          "source": "legacy+clause_refine",
+          "heading": "8.0.1 对进入施工现场的脚手架构配件的检查与验收应符合下列规定：",
+          "score": 153.46,
           "standard_code": "JGJT231",
           "confidence": "high"
         },
         {
           "file": "_seg11_建筑施工手册（第六版）第2册_p1051-1224.md",
-          "source": "legacy",
-          "heading": "5）脚手架上吊挂的安全设施自重荷载标准值",
+          "source": "legacy+clause_refine",
+          "heading": "14.5.3.1 吊挂式脚手架的形式、特点和构造要求",
+          "score": 143.91,
+          "standard_code": "",
+          "confidence": "high"
+        },
+        {
+          "file": "_seg0_JGJ 162-2008 建筑施工模板安全技术规范.md",
+          "source": "merged+clause_refine",
+          "heading": "6.4.7 每步脚手架间应设置爬梯，作业人员应由爬梯上下，进入爬架应在爬架内上下，严禁攀爬模板、脚手架和爬架外侧。",
+          "score": 128.24,
+          "standard_code": "JGJ162",
+          "confidence": "high"
+        },
+        {
+          "file": "_seg6_建筑施工手册（第六版）第1册_p0544-0724.md",
+          "source": "legacy+clause_refine",
+          "heading": "3.4.10.1 模板脚手架软件基本情况",
           "score": 113.77,
           "standard_code": "",
           "confidence": "high"
@@ -2443,41 +2443,41 @@
       "has_expected": true,
       "results": [
         {
-          "file": "_seg0_JGJ 162-2008 建筑施工模板安全技术规范.md",
-          "source": "merged",
-          "heading": "6.5.1 飞模的制作组装必须按设计图进行。运到施工现场后，应按设计要求检查合格后方可使用安装。安装前应进行一次试压和试吊，检验确认各部件无隐患。对利用组合钢模板、门式脚手架、钢管脚手架组装的飞模，所用的材料、部件应符合现行国家标准《组合钢",
-          "score": 221.66,
-          "standard_code": "JGJ162",
-          "confidence": "high"
-        },
-        {
           "file": "_seg0_GB 55023-2022 施工脚手架通用规范.md",
-          "source": "merged",
-          "heading": "4.3.6 模板支撑脚手架应根据施工工况对连续支撑进行设计计",
-          "score": 178.83,
+          "source": "merged+clause_refine",
+          "heading": "2.0.2 脚手架应根据使用功能和环境进行设计。",
+          "score": 221.66,
           "standard_code": "GB55023",
           "confidence": "high"
         },
         {
-          "file": "_seg6_建筑施工手册（第六版）第1册_p0544-0724.md",
-          "source": "legacy",
-          "heading": "3.4.10.2 常用模板脚手架软件",
-          "score": 142.76,
+          "file": "_seg11_建筑施工手册（第六版）第2册_p1051-1224.md",
+          "source": "legacy+clause_refine",
+          "heading": "14.5.3.1 吊挂式脚手架的形式、特点和构造要求",
+          "score": 180.98,
           "standard_code": "",
           "confidence": "high"
         },
         {
           "file": "_seg0_JGJ 231-2010 建筑施工承插型盘扣件钢管支架安全技术规程.md",
-          "source": "legacy",
-          "heading": "5.1.7 模板支架立杆应为轴心受压形式，顶部模板支撑梁应按荷载设计要求选用。混凝土梁下及楼板下的支撑杆件应用水平杆件连成一体。",
-          "score": 125.33,
+          "source": "legacy+clause_refine",
+          "heading": "5.1.3 脚手架应进行下列设计计算：",
+          "score": 142.76,
           "standard_code": "JGJ231",
           "confidence": "high"
         },
         {
-          "file": "_seg11_建筑施工手册（第六版）第2册_p1051-1224.md",
-          "source": "legacy",
-          "heading": "5）脚手架上吊挂的安全设施自重荷载标准值",
+          "file": "_seg0_JGJ 162-2008 建筑施工模板安全技术规范.md",
+          "source": "merged+clause_refine",
+          "heading": "6.4.7 每步脚手架间应设置爬梯，作业人员应由爬梯上下，进入爬架应在爬架内上下，严禁攀爬模板、脚手架和爬架外侧。",
+          "score": 125.33,
+          "standard_code": "JGJ162",
+          "confidence": "high"
+        },
+        {
+          "file": "_seg6_建筑施工手册（第六版）第1册_p0544-0724.md",
+          "source": "legacy+clause_refine",
+          "heading": "3.4.10.4 模板脚手架软件应用要点",
           "score": 103.56,
           "standard_code": "",
           "confidence": "high"
@@ -2498,7 +2498,7 @@
           "file": "_seg0_JGJ 130-2011 建筑施工扣件式钢管脚手架安全技术规范.md",
           "source": "",
           "heading": "1.0.2 本规范适用于房屋建筑工程和市政工程等施工用落地式单、双排扣件式钢管脚手架、满堂扣件式钢管脚手架、型钢悬挑扣件式钢管脚手架、满堂扣件式钢管支撑架的设计、施工及验收。",
-          "score": 199.46,
+          "score": 200.66,
           "standard_code": "JGJ130",
           "confidence": "high"
         },
@@ -2506,7 +2506,7 @@
           "file": "_seg0_GB 55023-2022 施工脚手架通用规范.md",
           "source": "",
           "heading": "4.3.6 模板支撑脚手架应根据施工工况对连续支撑进行设计计",
-          "score": 188.9,
+          "score": 190.04,
           "standard_code": "GB55023",
           "confidence": "high"
         }
@@ -2524,42 +2524,42 @@
       "results": [
         {
           "file": "_seg1_CJJ 2-2008 城市桥梁工程施工与质量验收规范_p0001-0151.md",
-          "source": "merged",
+          "source": "ppr_graph+clause_refine",
           "heading": "1.0.4 城市桥梁工程的施工及验收，除应执行本规范外，尚应符合国家现行有关标准的规定。",
-          "score": 35.36,
+          "score": 43.89,
           "standard_code": "CJJ2",
           "confidence": "mid"
         },
         {
-          "file": "_seg0_TCECS 1229-2023 花岗岩瓷砖应用技术规程.md",
-          "source": "merged",
-          "heading": "6.5.1 在现行行业标准《城镇道路工程施工与质量验收规范》CJJ 1 中对施工结果进行了比较明确的规定。",
-          "score": 27.07,
-          "standard_code": "TCECS1229",
+          "file": "_seg1_CJJ 1-2008 城镇道路工程施工与质量验收规范_p0001-0126.md",
+          "source": "ppr_graph+clause_refine",
+          "heading": "1.0.4 城镇道路工程施工与质量验收除应执行本规范外，尚应符合国家现行有关标准的规定。",
+          "score": 39.92,
+          "standard_code": "CJJ1",
           "confidence": "mid"
         },
         {
-          "file": "_seg0_GB 50209-2010 建筑地面工程施工质量验收规范.md",
-          "source": "merged",
-          "heading": "7.1.6 建筑地面木、竹面层采用架空构造设计时，其搁栅下的架空构造的施工除应符合设计要求外，尚应符合下列规定：",
-          "score": 22.79,
-          "standard_code": "GB50209",
+          "file": "_seg0_GB 50242-2002 建筑给水排水及采暖工程施工质量验收规范.md",
+          "source": "ppr_graph+clause_refine",
+          "heading": "1.0.4 本规范应与国家标准《建筑工程施工质量验收统一标准》GB 50300 配套使用。",
+          "score": 34.87,
+          "standard_code": "GB50242",
           "confidence": "mid"
         },
         {
-          "file": "_seg2_城市轨道交通工程建设安全生产标准化管理技术指南_p0153-0304.md",
-          "source": "legacy",
-          "heading": "10.1.4 适用范围及应用条件",
-          "score": 22.37,
-          "standard_code": "GB6067",
+          "file": "_seg0_GB 50204-2015 混凝土结构工程施工质量验收规范.md",
+          "source": "ppr_graph+clause_refine",
+          "heading": "1.0.2 本规范适用于建筑工程混凝土结构施工质量的验收。",
+          "score": 34.74,
+          "standard_code": "GB50204",
           "confidence": "mid"
         },
         {
-          "file": "📋 施工手册.md",
-          "source": "legacy",
-          "heading": "城镇 CJJ (10件)",
-          "score": 22.17,
-          "standard_code": "",
+          "file": "_seg0_GB 50202-2018 建筑地基工程施工质量验收标准.md",
+          "source": "ppr_graph+clause_refine",
+          "heading": "7.12.2 结构水平构件施工应与设计工况一致,施工质量检验应符合现行国家标准《混凝土结构工程施工质量验收规范》GB 50204 和《钢结构工程施工质量验收规范",
+          "score": 34.31,
+          "standard_code": "GB50202",
           "confidence": "mid"
         }
       ],
@@ -2596,40 +2596,40 @@
       "results": [
         {
           "file": "_seg1_CJJ 2-2008 城市桥梁工程施工与质量验收规范_p0001-0151.md",
-          "source": "merged",
-          "heading": "4.2.1 平面控制网可采用三角测量和 GPS 测量。桥梁平面控制测量等级应符合表 4.2.1 的规定。",
-          "score": 87.32,
+          "source": "merged+clause_refine",
+          "heading": "1.0.4 城市桥梁工程的施工及验收，除应执行本规范外，尚应符合国家现行有关标准的规定。",
+          "score": 89.53,
           "standard_code": "CJJ2",
           "confidence": "high"
         },
         {
-          "file": "_seg0_GB 50911-2013 城市轨道交通工程监测技术规范.md",
-          "source": "merged",
-          "heading": "3.1.5 工程监测方案应根据工程的施工特点，在分析研究工程风险及影响工程安全的关键部位和关键工序的基础上，有针对性地进行编制。监测方案宜包括下列内容：",
+          "file": "_seg11_建筑施工手册（第六版）第1册_p1087-1263.md",
+          "source": "legacy+clause_refine",
+          "heading": "1. 引用标准",
           "score": 55.99,
+          "standard_code": "GB50325",
+          "confidence": "mid"
+        },
+        {
+          "file": "_seg0_GB 50911-2013 城市轨道交通工程监测技术规范.md",
+          "source": "merged+clause_refine",
+          "heading": "9.1.1 城市轨道交通工程监测应根据工程特点、监测项目控制值、当地施工经验等制定监测预警等级和预警标准。",
+          "score": 50.98,
           "standard_code": "GB50911",
           "confidence": "mid"
         },
         {
           "file": "_seg0_GB 50037-2013 建筑地面设计规范.md",
-          "source": "legacy",
-          "heading": "1.0.3 建筑地面设计中，应根据工程特征和使用条件充分利用地方材料及再生资源，因地制宜，区别对待。",
-          "score": 50.98,
+          "source": "legacy+clause_refine",
+          "heading": "3.7.5 防油渗混凝土、防油渗胶泥的技术指标，应符合国家现行相关标准的规定，其配合比和复合添加剂的使用需经试验确定。",
+          "score": 41.02,
           "standard_code": "GB50037",
           "confidence": "mid"
         },
         {
-          "file": "_seg11_建筑施工手册（第六版）第1册_p1087-1263.md",
-          "source": "legacy",
-          "heading": "（4）岩石饱和单轴抗压强度试验",
-          "score": 41.02,
-          "standard_code": "",
-          "confidence": "mid"
-        },
-        {
           "file": "_seg0_GB_T 3280-2015 不锈钢冷轧钢板和钢带.md",
-          "source": "legacy",
-          "heading": "5.1.1 钢板和钢带的尺寸范围",
+          "source": "legacy+clause_refine",
+          "heading": "9 包装、标志及质量证明书",
           "score": 40.75,
           "standard_code": "GBT3280",
           "confidence": "mid"
@@ -2723,47 +2723,47 @@
       "query_type": "standard_name",
       "branch": "ppr+legacy",
       "result_count": 5,
-      "first_rank": 3,
+      "first_rank": 1,
       "has_expected": true,
       "results": [
         {
-          "file": "_seg1_GB 50243-2016 通风与空调工程施工质量验收规范_p0001-0152.md",
-          "source": "merged",
-          "heading": "3.0.7 通风与空调分部工程施工质量的验收,应根据工程的实际情况按表 3.0.7 所列的子分部工程及所包含的分项工程分别进行。分部工程合格验收的前提条件为工程所属子分部工程的验收",
-          "score": 169.08,
-          "standard_code": "GB50243",
-          "confidence": "high"
-        },
-        {
-          "file": "_seg1_GB 50411-2019 建筑节能工程施工质量验收标准_p0001-0112.md",
-          "source": "merged",
-          "heading": "10.2.1 通风与空调节能工程使用的设备、管道、自控阀门、仪表、绝热材料等产品应进行进场验收，并应对下列产品的技术性能参数和功能进行核查。验收与核查的结果应经监理工程师检查认可，且应形成相应的验收记录。各种材料和设备的质量证明文件与相关技",
-          "score": 121.02,
-          "standard_code": "GB50411",
-          "confidence": "high"
-        },
-        {
           "file": "_seg0_GB 12523-2025 建筑施工噪声排放标准.md",
-          "source": "legacy",
-          "heading": "建筑施工噪声排放标准",
-          "score": 100.42,
+          "source": "merged+clause_refine",
+          "heading": "1 适用范围",
+          "score": 169.08,
           "standard_code": "GB12523",
           "confidence": "high"
         },
         {
           "file": "_seg0_GB 50300-2013 建筑工程施工质量验收统一标准.md",
-          "source": "legacy",
-          "heading": "附录 B 建筑工程的分部工程、分项工程划分",
-          "score": 91.52,
+          "source": "legacy+clause_refine",
+          "heading": "1.0.2 本标准适用于建筑工程施工质量的验收，并作为建筑工程各专业验收规范编制的统一准则。",
+          "score": 121.02,
           "standard_code": "GB50300",
           "confidence": "high"
         },
         {
           "file": "_seg0_GB 55032-2022 建筑与市政工程施工质量控制通用规范.md",
-          "source": "legacy",
-          "heading": "附录 A 建筑工程的分部工程、分项工程划分",
-          "score": 83.1,
+          "source": "legacy+clause_refine",
+          "heading": "1.0.2 本条规定了本规范的适用范围。本规范是国家工程建设控制性底线要求，具有法规强制效力，必须严格遵守。在此基础上，国务院有关行政管理部门、各地省级行政管理",
+          "score": 102.32,
           "standard_code": "GB55032",
+          "confidence": "high"
+        },
+        {
+          "file": "_seg1_GB 50411-2019 建筑节能工程施工质量验收标准_p0001-0112.md",
+          "source": "merged+clause_refine",
+          "heading": "1.0.2 本标准适用于新建、扩建和改建的民用建筑工程中围护结构、供暖空调、配电照明、监测控制及可再生能源建筑节能工程施工质量的验收。",
+          "score": 91.52,
+          "standard_code": "GB50411",
+          "confidence": "high"
+        },
+        {
+          "file": "_seg1_GB 50243-2016 通风与空调工程施工质量验收规范_p0001-0152.md",
+          "source": "merged+clause_refine",
+          "heading": "1.0.2 本规范适用于工业与民用建筑通风与空调工程施工质量的验收。",
+          "score": 83.1,
+          "standard_code": "GB50243",
           "confidence": "high"
         }
       ],
@@ -2775,47 +2775,47 @@
       "query_type": "clause",
       "branch": "ppr+legacy",
       "result_count": 5,
-      "first_rank": 3,
+      "first_rank": 1,
       "has_expected": true,
       "results": [
         {
-          "file": "_seg1_GB 50243-2016 通风与空调工程施工质量验收规范_p0001-0152.md",
-          "source": "merged",
-          "heading": "3.0.7 通风与空调分部工程施工质量的验收,应根据工程的实际情况按表 3.0.7 所列的子分部工程及所包含的分项工程分别进行。分部工程合格验收的前提条件为工程所属子分部工程的验收",
-          "score": 169.08,
-          "standard_code": "GB50243",
-          "confidence": "high"
-        },
-        {
-          "file": "_seg1_GB 50411-2019 建筑节能工程施工质量验收标准_p0001-0112.md",
-          "source": "merged",
-          "heading": "10.2.1 通风与空调节能工程使用的设备、管道、自控阀门、仪表、绝热材料等产品应进行进场验收，并应对下列产品的技术性能参数和功能进行核查。验收与核查的结果应经监理工程师检查认可，且应形成相应的验收记录。各种材料和设备的质量证明文件与相关技",
-          "score": 126.86,
-          "standard_code": "GB50411",
-          "confidence": "high"
-        },
-        {
           "file": "_seg0_GB 12523-2025 建筑施工噪声排放标准.md",
-          "source": "legacy",
-          "heading": "建筑施工噪声排放标准",
-          "score": 102.39,
+          "source": "ppr_graph+clause_refine",
+          "heading": "Emission standard for construction noise",
+          "score": 195.64,
           "standard_code": "GB12523",
           "confidence": "high"
         },
         {
+          "file": "_seg1_GB 50411-2019 建筑节能工程施工质量验收标准_p0001-0112.md",
+          "source": "merged+clause_refine",
+          "heading": "1.0.3 本标准对建筑节能工程施工质量的要求为基本要求，相关工程技术文件、承包合同文件对节能工程质量的要求不得低于本标准的规定。",
+          "score": 169.08,
+          "standard_code": "GB50411",
+          "confidence": "high"
+        },
+        {
           "file": "_seg0_GB 50300-2013 建筑工程施工质量验收统一标准.md",
-          "source": "legacy",
-          "heading": "附录 B 建筑工程的分部工程、分项工程划分",
-          "score": 91.52,
+          "source": "legacy+clause_refine",
+          "heading": "1.0.1 为了加强建筑工程质量管理，统一建筑工程施工质量的验收，保证工程质量，制定本标准。",
+          "score": 126.86,
           "standard_code": "GB50300",
           "confidence": "high"
         },
         {
           "file": "_seg0_GB 55032-2022 建筑与市政工程施工质量控制通用规范.md",
-          "source": "legacy",
-          "heading": "附录 A 建筑工程的分部工程、分项工程划分",
-          "score": 78.9,
+          "source": "legacy+clause_refine",
+          "heading": "1.0.1 为规范建筑与市政工程施工质量控制活动，保证人民群众生命财产安全和人身健康，提高施工质量控制水平，制定本规范。",
+          "score": 91.52,
           "standard_code": "GB55032",
+          "confidence": "high"
+        },
+        {
+          "file": "_seg1_GB 50243-2016 通风与空调工程施工质量验收规范_p0001-0152.md",
+          "source": "merged+clause_refine",
+          "heading": "1.0.2 本规范适用于工业与民用建筑通风与空调工程施工质量的验收。",
+          "score": 78.9,
+          "standard_code": "GB50243",
           "confidence": "high"
         }
       ],
@@ -2827,47 +2827,47 @@
       "query_type": "clause",
       "branch": "ppr+legacy",
       "result_count": 5,
-      "first_rank": 3,
+      "first_rank": 1,
       "has_expected": true,
       "results": [
         {
-          "file": "_seg1_GB 50243-2016 通风与空调工程施工质量验收规范_p0001-0152.md",
-          "source": "merged",
-          "heading": "3.0.7 通风与空调分部工程施工质量的验收,应根据工程的实际情况按表 3.0.7 所列的子分部工程及所包含的分项工程分别进行。分部工程合格验收的前提条件为工程所属子分部工程的验收",
+          "file": "_seg0_GB 12523-2025 建筑施工噪声排放标准.md",
+          "source": "merged+clause_refine",
+          "heading": "7 实施与监督",
           "score": 164.33,
-          "standard_code": "GB50243",
+          "standard_code": "GB12523",
           "confidence": "high"
         },
         {
           "file": "_seg1_GB 50411-2019 建筑节能工程施工质量验收标准_p0001-0112.md",
-          "source": "merged",
-          "heading": "10.2.1 通风与空调节能工程使用的设备、管道、自控阀门、仪表、绝热材料等产品应进行进场验收，并应对下列产品的技术性能参数和功能进行核查。验收与核查的结果应经监理工程师检查认可，且应形成相应的验收记录。各种材料和设备的质量证明文件与相关技",
+          "source": "merged+clause_refine",
+          "heading": "1.0.3 本标准对建筑节能工程施工质量的要求为基本要求，相关工程技术文件、承包合同文件对节能工程质量的要求不得低于本标准的规定。",
           "score": 121.02,
           "standard_code": "GB50411",
           "confidence": "high"
         },
         {
-          "file": "_seg0_GB 12523-2025 建筑施工噪声排放标准.md",
-          "source": "legacy",
-          "heading": "建筑施工噪声排放标准",
-          "score": 102.39,
-          "standard_code": "GB12523",
-          "confidence": "high"
-        },
-        {
           "file": "_seg0_GB 50300-2013 建筑工程施工质量验收统一标准.md",
-          "source": "legacy",
-          "heading": "附录 B 建筑工程的分部工程、分项工程划分",
-          "score": 91.52,
+          "source": "legacy+clause_refine",
+          "heading": "1.0.1 为了加强建筑工程质量管理，统一建筑工程施工质量的验收，保证工程质量，制定本标准。",
+          "score": 104.11,
           "standard_code": "GB50300",
           "confidence": "high"
         },
         {
           "file": "_seg0_GB 55032-2022 建筑与市政工程施工质量控制通用规范.md",
-          "source": "legacy",
-          "heading": "附录 A 建筑工程的分部工程、分项工程划分",
-          "score": 78.9,
+          "source": "legacy+clause_refine",
+          "heading": "1.0.2 建筑与市政工程施工质量控制必须执行本规范。",
+          "score": 91.52,
           "standard_code": "GB55032",
+          "confidence": "high"
+        },
+        {
+          "file": "_seg1_GB 50243-2016 通风与空调工程施工质量验收规范_p0001-0152.md",
+          "source": "merged+clause_refine",
+          "heading": "1.0.4 通风与空调工程中采用的工程技术文件、承包合同等，对工程施工质量的要求不得低于本规范的规定。",
+          "score": 78.9,
+          "standard_code": "GB50243",
           "confidence": "high"
         }
       ],
@@ -2884,42 +2884,42 @@
       "results": [
         {
           "file": "_seg0_TCECS 1000-2021 工程建设标准编写导则.md",
-          "source": "merged",
-          "heading": "5.3.4 标准的共性要求应为涉及整个标准的基本原则或通篇的共性要求。当基本原则或共性要求的内容超过3条时，宜单独设置“基本规定”一章。",
+          "source": "merged+clause_refine",
+          "heading": "5.4.2 引用标准名录包括典型用语、标准名称及编号。引用标准名录的编写应符合下列规定：",
           "score": 39.02,
           "standard_code": "TCECS1000",
           "confidence": "mid"
         },
         {
-          "file": "_seg0_CJJ_T 177-2012 气泡混合轻质土填筑工程技术规程.md",
-          "source": "legacy",
-          "heading": "4.4.1 面板作为气泡混合轻质土的主要附属工程，设置在气泡混合轻质土外侧面。一般工程中，面板主要由水泥混凝土预制挡板、轻质砖、空心砖或装饰类砌块等砌筑而成，当面板采用水泥混凝土预制挡板砌筑时，面板可由基础、挡板、拉筋及立柱等设施组成，起施",
+          "file": "_seg0_CJJ 143-2010 埋地塑料排水管道工程技术规范.md",
+          "source": "legacy+clause_refine",
+          "heading": "4.6.1 本条是参照《给水排水工程管道结构设计规范》GB 50332-2002第4.3.8条制定。",
           "score": 33.15,
-          "standard_code": "CJJT177",
+          "standard_code": "CJJ143",
           "confidence": "mid"
         },
         {
           "file": "_seg0_JTG_T F20-2015 公路路面基层施工技术细则.md",
-          "source": "legacy",
-          "heading": "3.4.1 干排或湿排的硅铝粉煤灰和高钙粉煤灰等均可用作基层或底基层的结合料。粉煤灰技术要求应符合表 3.4.1 的规定。",
+          "source": "legacy+clause_refine",
+          "heading": "本细则用词用语说明",
           "score": 33.15,
           "standard_code": "JTGTF20",
           "confidence": "mid"
         },
         {
           "file": "_seg0_建筑工程设计常见问题汇编 给排水分册 2021 年.md",
-          "source": "legacy",
-          "heading": "3.6.6 给水加压、循环冷却等设备不得设置在居住用房的上层、下层和毗邻的房间内，不得污染居住环境。",
+          "source": "legacy+clause_refine",
+          "heading": "应对措施：",
           "score": 33.15,
           "standard_code": "",
           "confidence": "mid"
         },
         {
-          "file": "_seg0_CJJ 143-2010 埋地塑料排水管道工程技术规范.md",
-          "source": "legacy",
-          "heading": "制定说明",
+          "file": "_seg0_CJJ_T 177-2012 气泡混合轻质土填筑工程技术规程.md",
+          "source": "legacy+clause_refine",
+          "heading": "G.0.3 检验批质量评定表见表 G.0.3。",
           "score": 29.01,
-          "standard_code": "CJJ143",
+          "standard_code": "CJJT177",
           "confidence": "mid"
         }
       ],
@@ -2936,42 +2936,42 @@
       "results": [
         {
           "file": "_seg0_TCECS 1000-2021 工程建设标准编写导则.md",
-          "source": "merged",
-          "heading": "5.3.4 标准的共性要求应为涉及整个标准的基本原则或通篇的共性要求。当基本原则或共性要求的内容超过3条时，宜单独设置“基本规定”一章。",
-          "score": 42.0,
+          "source": "ppr_graph+clause_refine",
+          "heading": "5.4.2 引用标准名录包括典型用语、标准名称及编号。引用标准名录的编写应符合下列规定：",
+          "score": 52.89,
           "standard_code": "TCECS1000",
           "confidence": "mid"
         },
         {
-          "file": "_seg0_GB 50303-2015 建筑电气工程施工质量验收规范.md",
-          "source": "ppr_graph",
-          "heading": "1.0.1 为加强建筑工程质量管理，统一建筑电气工程施工质量验收，保证工程质量，制定本规范。",
-          "score": 39.2,
-          "standard_code": "GB50303",
+          "file": "_seg0_GB 50858-2013 园林绿化工程工程量计算规范.md",
+          "source": "ppr_graph+clause_refine",
+          "heading": "4.3.1 本条为强制性条文。规定了措施项目也同分部分项工程一样，编制工程量清单必须列出项目编码、项目名称、项目特征、计量单位。",
+          "score": 42.54,
+          "standard_code": "GB50858",
           "confidence": "mid"
         },
         {
-          "file": "_seg1_GB 50021-2001 岩土工程勘察规范(2009 年版)_p0001-0165.md",
-          "source": "ppr_graph",
-          "heading": "1.0.3 各项建设工程在设计和施工之前，必须按基本建设程序进行岩土工程勘察。",
-          "score": 39.05,
-          "standard_code": "GB50021",
+          "file": "_seg0_GB 51249-2017 建筑钢结构防火技术规范.md",
+          "source": "ppr_graph+clause_refine",
+          "heading": "本规范用词说明",
+          "score": 40.46,
+          "standard_code": "GB51249",
           "confidence": "mid"
         },
         {
-          "file": "_seg0_GB 50500-2013 建设工程工程量清单计价规范.md",
-          "source": "ppr_graph",
-          "heading": "2.0.4 分部分项工程 work sections and trades",
-          "score": 37.67,
-          "standard_code": "GB50500",
+          "file": "_seg0_GB_T 50326-2017 建设工程项目管理规范.md",
+          "source": "ppr_graph+clause_refine",
+          "heading": "7.3.2 合同订立应符合下列规定：",
+          "score": 38.77,
+          "standard_code": "GBT50326",
           "confidence": "mid"
         },
         {
-          "file": "_seg0_建筑工程设计常见问题汇编 给排水分册 2021 年.md",
-          "source": "legacy",
-          "heading": "3.6.6 给水加压、循环冷却等设备不得设置在居住用房的上层、下层和毗邻的房间内，不得污染居住环境。",
-          "score": 24.34,
-          "standard_code": "",
+          "file": "_seg0_JGJ 162-2008 建筑施工模板安全技术规范.md",
+          "source": "ppr_graph+clause_refine",
+          "heading": "1.0.1 为在工程建设模板工程施工中贯彻国家安全生产的方针和政策，做到安全生产、技术先进、经济合理、方便适用，制定本规范。",
+          "score": 38.6,
+          "standard_code": "JGJ162",
           "confidence": "mid"
         }
       ],
@@ -2987,43 +2987,43 @@
       "has_expected": true,
       "results": [
         {
-          "file": "_seg0_JGJ_T 220-2010 抹灰砂浆技术规程.md",
-          "source": "legacy",
-          "heading": "5.8.4 抹灰砂浆的试配稠度应满足施工要求，并应按现行行业标准《建筑砂浆基本性能试验方法标准》JGJ/T 70 分别测定不同配合比砂浆的抗压强度、分层度（或保水率）及拉伸粘结强度。符合要求的且水泥用量最低的配合比，作为抹灰砂浆配合比。",
-          "score": 45.56,
-          "standard_code": "JGJT220",
+          "file": "_seg0_GB 50210-2018 建筑装饰装修工程质量验收标准.md",
+          "source": "ppr_graph+clause_refine",
+          "heading": "3.3.13 室内外装饰装修工程施工的环境条件应满足施工工艺的要求。",
+          "score": 57.23,
+          "standard_code": "GB50210",
           "confidence": "mid"
         },
         {
           "file": "_seg0_GB 55032-2022 建筑与市政工程施工质量控制通用规范.md",
-          "source": "legacy",
-          "heading": "2.0.4 勘察、设计文件应符合工程特点和合同要求，应说明工程地质、水文和环境条件可能造成的工程质量风险，设计深度应符合施工要求，并应经过质量管理程序审批。",
-          "score": 45.22,
+          "source": "merged+clause_refine",
+          "heading": "4.2.1 工程施工质量应符合国家现行强制性工程建设规范的规定，并应符合工程勘察设计文件的要求和合同约定。",
+          "score": 47.69,
           "standard_code": "GB55032",
           "confidence": "mid"
         },
         {
+          "file": "_seg0_JGJ 180-2009 建筑施工土石方工程安全技术规范.md",
+          "source": "ppr_graph+clause_refine",
+          "heading": "4.3.1 施工场地修筑的道路应坚固、平整。",
+          "score": 47.19,
+          "standard_code": "JGJ180",
+          "confidence": "mid"
+        },
+        {
           "file": "_seg0_JGJ 196-2010 建筑施工塔式起重机安装、使用、拆卸安全技术规程.md",
-          "source": "merged",
-          "heading": "2.0.8 塔式起重机的选型和布置应满足工程施工要求，便于安装和拆卸，并不得损害周边其他建筑物或构筑物。",
-          "score": 45.06,
+          "source": "legacy+clause_refine",
+          "heading": "3.2.6 基础中的地脚螺栓等预埋件应符合使用说明书的要求。",
+          "score": 45.56,
           "standard_code": "JGJ196",
           "confidence": "mid"
         },
         {
-          "file": "_seg0_JGJ 33-2012 建筑机械使用安全技术规程.md",
-          "source": "ppr_graph",
-          "heading": "1.0.1 为贯彻国家安全生产法律法规，保障建筑机械的正确使用，发挥机械效能，确保安全生产，制定本规程。",
-          "score": 41.27,
-          "standard_code": "JGJ33",
-          "confidence": "mid"
-        },
-        {
-          "file": "_seg0_CECS 453-2016 轻质泡沫土轨道交通填筑技术规程.md",
-          "source": "legacy",
-          "heading": "5.1.4 当室外日平均气温连续 5 日低于 $5^{\\circ}$ C 时，轻质泡沫土的施工应采取冬期施工措施或停止施工；当日平均气温达到 $30^{\\circ}$ C 及以上时，应按高温施工要求采取措施。冬期施工措施及高温施工措施技术要",
-          "score": 39.59,
-          "standard_code": "CECS453",
+          "file": "_seg0_JGJ_T 220-2010 抹灰砂浆技术规程.md",
+          "source": "legacy+clause_refine",
+          "heading": "1.0.2 本规程适用于新建、改建、扩建和既有建筑的一般抹灰工程用砂浆的配合比设计、施工及质量验收。",
+          "score": 45.06,
+          "standard_code": "JGJT220",
           "confidence": "mid"
         }
       ],
@@ -3050,43 +3050,43 @@
       "has_expected": true,
       "results": [
         {
+          "file": "_seg1_GB 50205-2020 钢结构工程施工质量验收标准_p0001-0102.md",
+          "source": "ppr_graph+clause_refine",
+          "heading": "3.0.6 检验批合格质量标准应符合下列规定：",
+          "score": 71.21,
+          "standard_code": "GB50205",
+          "confidence": "high"
+        },
+        {
+          "file": "_seg0_CECS 453-2016 轻质泡沫土轨道交通填筑技术规程.md",
+          "source": "ppr_graph+clause_refine",
+          "heading": "6.4.2 干密度、饱和密度、抗压强度的检验结果应符合设计要求及本规程第3.3.1条、第3.3.2条的规定。",
+          "score": 62.76,
+          "standard_code": "CECS453",
+          "confidence": "high"
+        },
+        {
+          "file": "_seg0_TCECS 1000-2021 工程建设标准编写导则.md",
+          "source": "ppr_graph+clause_refine",
+          "heading": "5.3.13 技术内容应采用条的形式表达，并应符合下列规定：",
+          "score": 58.14,
+          "standard_code": "TCECS1000",
+          "confidence": "mid"
+        },
+        {
           "file": "_seg0_GB 50203-2011 砌体结构工程施工质量验收规范.md",
-          "source": "legacy",
-          "heading": "3.0.1 在砌体结构工程中，采用不合格的材料不可能建造出符合质量要求的工程。材料的产品合格证书和产品性能检测报告是工程质量评定中必备的资料，因此特提出了要求。",
+          "source": "legacy+clause_refine",
+          "heading": "1.0.3 砌体结构工程施工中的技术文件和承包合同对施工质量验收的要求不得低于本规范的规定。",
           "score": 49.69,
           "standard_code": "GB50203",
           "confidence": "mid"
         },
         {
-          "file": "_seg0_CJJ_T 287-2018 园林绿化养护标准.md",
-          "source": "legacy",
-          "heading": "4.1.2 表 4.1.2 中规定了绿地养护一、二、三等级所包含的植物养护和绿地管理应达到的质量要求。",
-          "score": 45.87,
-          "standard_code": "CJJT287",
-          "confidence": "mid"
-        },
-        {
-          "file": "_seg0_GB 55032-2022 建筑与市政工程施工质量控制通用规范.md",
-          "source": "legacy",
-          "heading": "3.2.3 进口产品应符合合同规定的质量要求，并附有中文说明书和商检证明，经进场验收合格后方可使用。",
-          "score": 45.28,
-          "standard_code": "GB55032",
-          "confidence": "mid"
-        },
-        {
-          "file": "_seg0_CECS 164-2004 埋地聚乙烯排水管管道工程技术规程.md",
-          "source": "legacy",
-          "heading": "3.2.1 本条规定了对管道接口用弹性密封橡胶圈的质量要求。",
-          "score": 45.13,
-          "standard_code": "CECS164",
-          "confidence": "mid"
-        },
-        {
-          "file": "_seg0_CJJ 143-2010 埋地塑料排水管道工程技术规范.md",
-          "source": "legacy",
-          "heading": "3.2.1 弹性橡胶密封圈是塑料排水管道连接的重要材料，对确保接头可靠连接起着重要作用，本条规定了对弹性橡胶密封圈的质量要求，并提出应由管材生产企业配套供应。规定弹性橡胶密封圈应由管材生产企业配套供应，其目的是为了增强密封圈与管材的配套性，",
-          "score": 44.95,
-          "standard_code": "CJJ143",
+          "file": "_seg0_GB_T 20878-2007 不锈钢和耐热钢 牌号及化学成分.md",
+          "source": "ppr_graph+clause_refine",
+          "heading": "参考文献",
+          "score": 17.32,
+          "standard_code": "GBT20878",
           "confidence": "mid"
         }
       ],
@@ -3103,42 +3103,42 @@
       "results": [
         {
           "file": "_seg0_JTG_T F20-2015 公路路面基层施工技术细则.md",
-          "source": "legacy",
-          "heading": "4.6.3 应根据试验确定的最佳含水率、最大干密度及压实度要求成型标准试件,验证不同结合料剂量条件下混合料的技术性能,确定满足设计要求的最佳剂量。",
+          "source": "legacy+clause_refine",
+          "heading": "1.0.3 应采用符合本细则的原材料、施工配合比、施工工艺和质量标准与控制规定。在满足实际工程技术要求的前提下，应优先选用技术可靠、经济合理的当地材料。",
           "score": 81.17,
           "standard_code": "JTGTF20",
           "confidence": "high"
         },
         {
           "file": "_seg0_GB 50207-2012 屋面工程质量验收规范.md",
-          "source": "legacy",
-          "heading": "3.0.6 屋面工程所用的防水、保温材料应有产品合格证书和性能检测报告，材料的品种、规格、性能等必须符合国家现行产品标准和设计要求。产品质量应由经过省级以上建设行政主管部门对其资质认可和质量技术监督部门对其计量认证的质量检测单位进行检测。",
+          "source": "legacy+clause_refine",
+          "heading": "5.1.4 保温与隔热工程的构造及选用材料应符合设计要求。",
           "score": 63.03,
           "standard_code": "GB50207",
           "confidence": "high"
         },
         {
-          "file": "_seg0_GB 50208-2011 地下防水工程质量验收规范.md",
-          "source": "legacy",
-          "heading": "3.0.5 地下工程所使用防水材料的品种、规格、性能等必须符合现行国家或行业产品标准和设计要求。",
-          "score": 47.77,
-          "standard_code": "GB50208",
-          "confidence": "mid"
-        },
-        {
           "file": "_seg0_CJJ 143-2010 埋地塑料排水管道工程技术规范.md",
-          "source": "legacy",
-          "heading": "4.9.3 塑料排水管道管顶 0.5m 以上部位回填土的压实度，应按相应的场地或道路设计要求确定，不宜小于 90%；管顶 0.5m 以下各部位回填土应符合表 4.9.3 的规定。",
-          "score": 47.69,
+          "source": "legacy+clause_refine",
+          "heading": "5.3.6 本条强调地基基础应按设计要求处理，确保地基基础质量。",
+          "score": 54.88,
           "standard_code": "CJJ143",
           "confidence": "mid"
         },
         {
-          "file": "_seg0_CECS 164-2004 埋地聚乙烯排水管管道工程技术规程.md",
-          "source": "legacy",
-          "heading": "8.2.5 回填土的密实度应符合设计要求。当设计无规定时，应按表 8.2.5 和图 8.2.5 的规定执行。",
-          "score": 47.08,
-          "standard_code": "CECS164",
+          "file": "_seg0_JGJ 231-2010 建筑施工承插型盘扣件钢管支架安全技术规程.md",
+          "source": "merged+clause_refine",
+          "heading": "7.2.2 架体的构造应符合本规程第 6.1 节、第 6.2 节的有关规定。",
+          "score": 48.63,
+          "standard_code": "JGJ231",
+          "confidence": "mid"
+        },
+        {
+          "file": "_seg1_GB 50014-2021 室外排水设计标准_p0001-0141.md",
+          "source": "ppr_graph+clause_refine",
+          "heading": "7.1.7 处理构筑物的个(格)数不应少于2个(格)，并应按并联设计。",
+          "score": 47.69,
+          "standard_code": "GB50014",
           "confidence": "mid"
         }
       ],
@@ -3161,47 +3161,47 @@
       "query_type": "version",
       "branch": "ppr+legacy",
       "result_count": 5,
-      "first_rank": 3,
+      "first_rank": 1,
       "has_expected": true,
       "results": [
         {
-          "file": "_seg1_GB 50243-2016 通风与空调工程施工质量验收规范_p0001-0152.md",
-          "source": "merged",
-          "heading": "3.0.7 通风与空调分部工程施工质量的验收,应根据工程的实际情况按表 3.0.7 所列的子分部工程及所包含的分项工程分别进行。分部工程合格验收的前提条件为工程所属子分部工程的验收",
-          "score": 164.33,
-          "standard_code": "GB50243",
-          "confidence": "high"
-        },
-        {
-          "file": "_seg1_GB 50411-2019 建筑节能工程施工质量验收标准_p0001-0112.md",
-          "source": "merged",
-          "heading": "10.2.1 通风与空调节能工程使用的设备、管道、自控阀门、仪表、绝热材料等产品应进行进场验收，并应对下列产品的技术性能参数和功能进行核查。验收与核查的结果应经监理工程师检查认可，且应形成相应的验收记录。各种材料和设备的质量证明文件与相关技",
-          "score": 121.02,
-          "standard_code": "GB50411",
-          "confidence": "high"
-        },
-        {
           "file": "_seg0_GB 12523-2025 建筑施工噪声排放标准.md",
-          "source": "legacy",
-          "heading": "建筑施工噪声排放标准",
-          "score": 99.23,
+          "source": "merged+clause_refine",
+          "heading": "Emission standard for construction noise",
+          "score": 164.33,
           "standard_code": "GB12523",
           "confidence": "high"
         },
         {
+          "file": "_seg1_GB 50243-2016 通风与空调工程施工质量验收规范_p0001-0152.md",
+          "source": "merged+clause_refine",
+          "heading": "1.0.3 本规范应与现行国家标准《建筑工程施工质量验收统一标准》GB 50300 配合使用。",
+          "score": 121.02,
+          "standard_code": "GB50243",
+          "confidence": "high"
+        },
+        {
           "file": "_seg0_GB 50300-2013 建筑工程施工质量验收统一标准.md",
-          "source": "legacy",
-          "heading": "附录 B 建筑工程的分部工程、分项工程划分",
-          "score": 91.52,
+          "source": "legacy+clause_refine",
+          "heading": "1.0.1 为了加强建筑工程质量管理，统一建筑工程施工质量的验收，保证工程质量，制定本标准。",
+          "score": 101.06,
           "standard_code": "GB50300",
           "confidence": "high"
         },
         {
           "file": "_seg0_GB 55032-2022 建筑与市政工程施工质量控制通用规范.md",
-          "source": "legacy",
-          "heading": "附录 A 建筑工程的分部工程、分项工程划分",
-          "score": 78.9,
+          "source": "legacy+clause_refine",
+          "heading": "4.2.1 工程施工质量应符合国家现行强制性工程建设规范的规定，并应符合工程勘察设计文件的要求和合同约定。",
+          "score": 91.52,
           "standard_code": "GB55032",
+          "confidence": "high"
+        },
+        {
+          "file": "_seg1_GB 50411-2019 建筑节能工程施工质量验收标准_p0001-0112.md",
+          "source": "merged+clause_refine",
+          "heading": "1.0.3 本标准对建筑节能工程施工质量的要求为基本要求，相关工程技术文件、承包合同文件对节能工程质量的要求不得低于本标准的规定。",
+          "score": 78.9,
+          "standard_code": "GB50411",
           "confidence": "high"
         }
       ],
@@ -3233,47 +3233,47 @@
       "query_type": "comparison",
       "branch": "ppr+legacy",
       "result_count": 5,
-      "first_rank": 3,
+      "first_rank": 1,
       "has_expected": true,
       "results": [
         {
-          "file": "_seg1_GB 50243-2016 通风与空调工程施工质量验收规范_p0001-0152.md",
-          "source": "merged",
-          "heading": "3.0.7 通风与空调分部工程施工质量的验收,应根据工程的实际情况按表 3.0.7 所列的子分部工程及所包含的分项工程分别进行。分部工程合格验收的前提条件为工程所属子分部工程的验收",
-          "score": 176.73,
-          "standard_code": "GB50243",
-          "confidence": "high"
-        },
-        {
-          "file": "_seg1_GB 50411-2019 建筑节能工程施工质量验收标准_p0001-0112.md",
-          "source": "merged",
-          "heading": "10.2.1 通风与空调节能工程使用的设备、管道、自控阀门、仪表、绝热材料等产品应进行进场验收，并应对下列产品的技术性能参数和功能进行核查。验收与核查的结果应经监理工程师检查认可，且应形成相应的验收记录。各种材料和设备的质量证明文件与相关技",
-          "score": 146.89,
-          "standard_code": "GB50411",
-          "confidence": "high"
-        },
-        {
           "file": "_seg0_GB 12523-2025 建筑施工噪声排放标准.md",
-          "source": "legacy",
-          "heading": "建筑施工噪声排放标准",
-          "score": 132.19,
+          "source": "merged+clause_refine",
+          "heading": "Emission standard for construction noise",
+          "score": 176.73,
           "standard_code": "GB12523",
           "confidence": "high"
         },
         {
           "file": "_seg0_GB 50300-2013 建筑工程施工质量验收统一标准.md",
-          "source": "legacy",
-          "heading": "附录 B 建筑工程的分部工程、分项工程划分",
-          "score": 104.57,
+          "source": "legacy+clause_refine",
+          "heading": "1.0.3 建筑工程施工质量验收，除应符合本标准外，尚应符合国家现行有关标准的规定。",
+          "score": 146.89,
           "standard_code": "GB50300",
           "confidence": "high"
         },
         {
+          "file": "_seg1_GB 50411-2019 建筑节能工程施工质量验收标准_p0001-0112.md",
+          "source": "merged+clause_refine",
+          "heading": "1.0.4 建筑节能工程施工质量验收除应符合本标准外，尚应符合国家现行有关标准的规定。",
+          "score": 133.93,
+          "standard_code": "GB50411",
+          "confidence": "high"
+        },
+        {
           "file": "_seg0_GB 55032-2022 建筑与市政工程施工质量控制通用规范.md",
-          "source": "legacy",
-          "heading": "附录 A 建筑工程的分部工程、分项工程划分",
-          "score": 85.95,
+          "source": "legacy+clause_refine",
+          "heading": "1.0.1 为规范建筑与市政工程施工质量控制活动，保证人民群众生命财产安全和人身健康，提高施工质量控制水平，制定本规范。",
+          "score": 104.57,
           "standard_code": "GB55032",
+          "confidence": "high"
+        },
+        {
+          "file": "_seg1_GB 50243-2016 通风与空调工程施工质量验收规范_p0001-0152.md",
+          "source": "merged+clause_refine",
+          "heading": "1.0.3 本规范应与现行国家标准《建筑工程施工质量验收统一标准》GB 50300 配合使用。",
+          "score": 85.95,
+          "standard_code": "GB50243",
           "confidence": "high"
         }
       ],
@@ -3365,45 +3365,45 @@
       "query_type": "standard_name",
       "branch": "ppr+legacy",
       "result_count": 5,
-      "first_rank": 2,
+      "first_rank": 1,
       "has_expected": true,
       "results": [
         {
-          "file": "_seg6_建筑施工手册（第六版）第3册_p0586-0780.md",
-          "source": "merged",
-          "heading": "18.16.6.4 补偿收缩混凝土的施工",
-          "score": 209.42,
-          "standard_code": "GB50164",
-          "confidence": "high"
-        },
-        {
-          "file": "_seg0_JGJ 18-2012 钢筋焊接及验收规程.md",
-          "source": "legacy",
-          "heading": "2.1.1 摘自现行国家标准《钢筋混凝土用钢 第1部分：热轧光圆钢筋》GB 1499.1。",
-          "score": 190.78,
-          "standard_code": "JGJ18",
-          "confidence": "high"
-        },
-        {
-          "file": "_seg10_建筑施工手册（第六版）第1册_p0906-1086.md",
-          "source": "legacy",
-          "heading": "7.1.1 材料试验主要参数、取样规则及取样方法",
-          "score": 169.26,
-          "standard_code": "GB50204",
-          "confidence": "high"
-        },
-        {
           "file": "_seg0_GB 1499.1-2024 钢筋混凝土用钢 第1部分：热轧光圆钢筋.md",
-          "source": "legacy",
-          "heading": "钢筋混凝土用钢",
-          "score": 138.06,
+          "source": "merged+clause_refine",
+          "heading": "1 范围",
+          "score": 209.42,
           "standard_code": "GB1499.1",
           "confidence": "high"
         },
         {
+          "file": "_seg0_JGJ 18-2012 钢筋焊接及验收规程.md",
+          "source": "merged+clause_refine",
+          "heading": "2.1.1 热轧光圆钢筋 hot rolled plain bars",
+          "score": 192.9,
+          "standard_code": "JGJ18",
+          "confidence": "high"
+        },
+        {
+          "file": "_seg6_建筑施工手册（第六版）第3册_p0586-0780.md",
+          "source": "merged+clause_refine",
+          "heading": "19.1.2 钢筋",
+          "score": 169.26,
+          "standard_code": "GBT1499.1",
+          "confidence": "high"
+        },
+        {
+          "file": "_seg10_建筑施工手册（第六版）第1册_p0906-1086.md",
+          "source": "legacy+clause_refine",
+          "heading": "(1) 拉伸试件:",
+          "score": 139.74,
+          "standard_code": "",
+          "confidence": "high"
+        },
+        {
           "file": "_seg2_建筑施工手册（第六版）第5册_p0177-0352.md",
-          "source": "merged",
-          "heading": "(5) 补偿收缩混凝土施工要点",
+          "source": "merged+clause_refine",
+          "heading": "2. 防水混凝土的种类、特点及适用范围",
           "score": 118.95,
           "standard_code": "",
           "confidence": "high"
@@ -3417,47 +3417,47 @@
       "query_type": "clause",
       "branch": "ppr+legacy",
       "result_count": 5,
-      "first_rank": 2,
+      "first_rank": 1,
       "has_expected": true,
       "results": [
         {
-          "file": "_seg6_建筑施工手册（第六版）第3册_p0586-0780.md",
-          "source": "merged",
-          "heading": "18.16.6.4 补偿收缩混凝土的施工",
-          "score": 194.6,
-          "standard_code": "GB50164",
-          "confidence": "high"
-        },
-        {
-          "file": "_seg0_JGJ 18-2012 钢筋焊接及验收规程.md",
-          "source": "legacy",
-          "heading": "2.1.1 摘自现行国家标准《钢筋混凝土用钢 第1部分：热轧光圆钢筋》GB 1499.1。",
-          "score": 187.69,
-          "standard_code": "JGJ18",
-          "confidence": "high"
-        },
-        {
-          "file": "_seg10_建筑施工手册（第六版）第1册_p0906-1086.md",
-          "source": "legacy",
-          "heading": "7.1.1 材料试验主要参数、取样规则及取样方法",
-          "score": 159.32,
-          "standard_code": "GB50204",
-          "confidence": "high"
-        },
-        {
           "file": "_seg1_CJJ 2-2008 城市桥梁工程施工与质量验收规范_p0001-0151.md",
-          "source": "merged",
-          "heading": "6.1.1 混凝土结构所用钢筋的品种、规格、性能等均应符合设计要求和国家现行标准《钢筋混凝土用钢 第1部分：热轧光圆钢筋》GB 1499.1、《钢筋混凝土用钢 第2部分：热轧带肋钢筋》GB 1499.2、《冷轧带肋钢筋》GB 13788 和",
-          "score": 152.03,
+          "source": "merged+clause_refine",
+          "heading": "6.1.1 混凝土结构所用钢筋的品种、规格、性能等均应符合设计要求和国家现行标准《钢筋混凝土用钢 第1部分：热轧光圆钢筋》GB 1499.1、《钢筋混凝土用钢 ",
+          "score": 194.6,
           "standard_code": "CJJ2",
           "confidence": "high"
         },
         {
           "file": "_seg0_GB 1499.1-2024 钢筋混凝土用钢 第1部分：热轧光圆钢筋.md",
-          "source": "legacy",
-          "heading": "钢筋混凝土用钢",
-          "score": 138.06,
+          "source": "merged+clause_refine",
+          "heading": "1 范围",
+          "score": 189.83,
           "standard_code": "GB1499.1",
+          "confidence": "high"
+        },
+        {
+          "file": "_seg0_JGJ 18-2012 钢筋焊接及验收规程.md",
+          "source": "merged+clause_refine",
+          "heading": "2.1.1 热轧光圆钢筋 hot rolled plain bars",
+          "score": 159.32,
+          "standard_code": "JGJ18",
+          "confidence": "high"
+        },
+        {
+          "file": "_seg10_建筑施工手册（第六版）第1册_p0906-1086.md",
+          "source": "legacy+clause_refine",
+          "heading": "(1) 拉伸试件:",
+          "score": 152.03,
+          "standard_code": "",
+          "confidence": "high"
+        },
+        {
+          "file": "_seg6_建筑施工手册（第六版）第3册_p0586-0780.md",
+          "source": "merged+clause_refine",
+          "heading": "19.1.2 钢筋",
+          "score": 139.81,
+          "standard_code": "GBT1499.1",
           "confidence": "high"
         }
       ],
@@ -3469,47 +3469,47 @@
       "query_type": "clause",
       "branch": "ppr+legacy",
       "result_count": 5,
-      "first_rank": 2,
+      "first_rank": 1,
       "has_expected": true,
       "results": [
         {
-          "file": "_seg6_建筑施工手册（第六版）第3册_p0586-0780.md",
-          "source": "merged",
-          "heading": "18.16.6.4 补偿收缩混凝土的施工",
+          "file": "_seg0_GB 1499.1-2024 钢筋混凝土用钢 第1部分：热轧光圆钢筋.md",
+          "source": "merged+clause_refine",
+          "heading": "1 范围",
           "score": 194.6,
-          "standard_code": "GB50164",
+          "standard_code": "GB1499.1",
           "confidence": "high"
         },
         {
           "file": "_seg0_JGJ 18-2012 钢筋焊接及验收规程.md",
-          "source": "legacy",
-          "heading": "2.1.1 摘自现行国家标准《钢筋混凝土用钢 第1部分：热轧光圆钢筋》GB 1499.1。",
-          "score": 186.41,
+          "source": "merged+clause_refine",
+          "heading": "2.1.1 热轧光圆钢筋 hot rolled plain bars",
+          "score": 188.59,
           "standard_code": "JGJ18",
           "confidence": "high"
         },
         {
           "file": "_seg10_建筑施工手册（第六版）第1册_p0906-1086.md",
-          "source": "legacy",
-          "heading": "7.1.1 材料试验主要参数、取样规则及取样方法",
+          "source": "legacy+clause_refine",
+          "heading": "(1) 拉伸试件:",
           "score": 159.32,
-          "standard_code": "GB50204",
+          "standard_code": "",
+          "confidence": "high"
+        },
+        {
+          "file": "_seg6_建筑施工手册（第六版）第3册_p0586-0780.md",
+          "source": "merged+clause_refine",
+          "heading": "19.1.2 钢筋",
+          "score": 149.12,
+          "standard_code": "GBT1499.1",
           "confidence": "high"
         },
         {
           "file": "_seg0_JGJ_T 27-2014 钢筋焊接接头试验方法标准.md",
-          "source": "legacy",
-          "heading": "3.3.1 钢筋焊接接头的母材应符合国家现行标准《钢筋混凝土用钢 第1部分：热轧光圆钢筋》GB 1499.1、《钢筋混凝土用钢 第2部分：热轧带肋钢筋》GB 1499.2、《钢筋混凝土用钢 第3部分：钢筋焊接网》GB/T 1499.3、《钢",
-          "score": 149.12,
+          "source": "legacy+clause_refine",
+          "heading": "3.3.1 钢筋焊接接头的母材应符合国家现行标准《钢筋混凝土用钢 第1部分：热轧光圆钢筋》GB 1499.1、《钢筋混凝土用钢 第2部分：热轧带肋钢筋》GB 1",
+          "score": 139.8,
           "standard_code": "JGJT27",
-          "confidence": "high"
-        },
-        {
-          "file": "_seg0_GB 1499.1-2024 钢筋混凝土用钢 第1部分：热轧光圆钢筋.md",
-          "source": "legacy",
-          "heading": "钢筋混凝土用钢",
-          "score": 138.06,
-          "standard_code": "GB1499.1",
           "confidence": "high"
         }
       ],
@@ -3526,40 +3526,40 @@
       "results": [
         {
           "file": "_seg0_GB_T 50720-2011 建设工程施工现场消防安全技术标准(2025 年版).md",
-          "source": "legacy",
-          "heading": "5.5.3 为保证施工人员安全疏散,临时避难场所距离工作面的距离不宜过大,50m 距离亦是现行国家标准《建筑防火设计规范》GB 50016 的规定。同时,临时避难场所还应进行防火封墙,采取防烟措施,设置灭火器、室内消火栓、消防应急照明、应急",
+          "source": "legacy+clause_refine",
+          "heading": "5.3.4 临时用房建筑面积之和大于 $1000\\mathrm{m}^2$ 或在建工程单体体积大于 $10000\\mathrm{m}^3$ 时，应设置临时室外消",
           "score": 290.13,
           "standard_code": "GBT50720",
           "confidence": "high"
         },
         {
           "file": "_seg0_GB 50084-2017 自动喷水灭火系统设计规范.md",
-          "source": "merged",
-          "heading": "4.3.1 建筑物中保护局部场所的干式系统、预作用系统、雨淋系统、自动喷水—泡沫联用系统，可串联接入同一建筑物内的湿式系统，并应与其配水干管连接。",
+          "source": "merged+clause_refine",
+          "heading": "10.2.1 采用临时高压给水系统的自动喷水灭火系统，宜设置独立的消防水泵，并应按一用一备或二用一备，及最大一台消防水泵的工作性能设置备用泵。当与消火栓系统合用",
           "score": 165.41,
           "standard_code": "GB50084",
           "confidence": "high"
         },
         {
-          "file": "_seg0_GB 55037-2022 建筑防火通用规范.md",
-          "source": "merged",
-          "heading": "6.5.1 建筑内部装修不应擅自减少、改动、拆除、遮挡消防设施或器材及其标识、疏散指示标志、疏散出口、疏散走道或疏散横通道，不应擅自改变防火分区或防火分隔、防烟分区及其分隔，不应影响消防设施或器材的使用功能和正常操作。",
-          "score": 143.62,
-          "standard_code": "GB55037",
-          "confidence": "high"
-        },
-        {
           "file": "_seg1_GB 50016-2014 建筑设计防火规范(2018 年版)_p0001-0155.md",
-          "source": "merged",
-          "heading": "5.3.6 餐饮、商店等商业设施通过有顶棚的步行街连接，且步行街两侧的建筑需利用步行街进行安全疏散时，应符合下列规定：",
-          "score": 133.85,
+          "source": "merged+clause_refine",
+          "heading": "8.1.1 消防给水和消防设施的设置应根据建筑的用途及其重要性、火灾危险性、火灾特性和环境条件等因素综合确定。",
+          "score": 143.62,
           "standard_code": "GB50016",
           "confidence": "high"
         },
         {
+          "file": "_seg0_GB 55037-2022 建筑防火通用规范.md",
+          "source": "merged+clause_refine",
+          "heading": "8.1.12 下列建筑应设置与室内消火栓等水灭火系统供水管网直接连接的消防水泵接合器，且消防水泵接合器应位于室外便于消防车向室内消防给水管网安全供水的位置：",
+          "score": 133.85,
+          "standard_code": "GB55037",
+          "confidence": "high"
+        },
+        {
           "file": "_seg0_GB 51251-2017 建筑防烟排烟系统技术标准.md",
-          "source": "merged",
-          "heading": "7.2.1 排烟防火阀的调试方法及要求应符合下列规定，并应按附录 D 中表 D-4 填写记录：",
+          "source": "legacy+clause_refine",
+          "heading": "3.1.4 建筑地下部分的防烟楼梯间前室及消防电梯前室，当无自然通风条件或自然通风不符合要求时，应采用机械加压送风系统。",
           "score": 114.37,
           "standard_code": "GB51251",
           "confidence": "high"
@@ -3605,6 +3605,14 @@
           "confidence": "high"
         },
         {
+          "file": "_seg0_GB 50204-2015 混凝土结构工程施工质量验收规范.md",
+          "source": "",
+          "heading": "10.1.2 结构实体混凝土强度应按不同强度等级分别检验，检验方法宜采用同条件养护试件方法；当未取得同条件养护试件强度或同条件养护试件强度不符合要求时，可采用回弹-取芯法进行检验。",
+          "score": 89.97,
+          "standard_code": "GB50204",
+          "confidence": "high"
+        },
+        {
           "file": "_seg6_建筑施工手册（第六版）第3册_p0586-0780.md",
           "source": "",
           "heading": "18.16.6.4 补偿收缩混凝土的施工",
@@ -3624,16 +3632,8 @@
           "file": "_seg0_GB 50164-2011 混凝土质量控制标准.md",
           "source": "",
           "heading": "6.6.9 浇筑竖向尺寸较大的结构物时，应分层浇筑，每层浇筑厚度宜控制在 300mm～350mm；大体积混凝土宜采用分层浇筑方法，可利用自然流淌形成斜坡沿高度均匀上升，分层厚度不应大于 500mm；对于清水混凝土浇筑，可多安排振捣棒，应边浇",
-          "score": 79.89,
+          "score": 80.93,
           "standard_code": "GB50164",
-          "confidence": "high"
-        },
-        {
-          "file": "_seg0_GB 50208-2011 地下防水工程质量验收规范.md",
-          "source": "",
-          "heading": "5.3.8 后浇带混凝土应一次浇筑，不得留设施工缝；混凝土浇筑后应及时养护，养护时间不得少于28d。",
-          "score": 76.84,
-          "standard_code": "GB50208",
           "confidence": "high"
         }
       ],
@@ -3803,18 +3803,50 @@
       "query": "GB 50202-2018 附录A 能否作为正文规范依据",
       "source": "truth",
       "query_type": "appendix_intent",
-      "branch": "direct",
-      "result_count": 1,
+      "branch": "legacy",
+      "result_count": 5,
       "first_rank": null,
       "has_expected": false,
       "results": [
         {
-          "file": "_seg0_建筑工程设计常见问题汇编 电气分册 2021 年.md",
-          "source": "md_clause_direct",
-          "heading": "A",
-          "score": 105.0,
+          "file": "_seg0_GB 50202-2018 建筑地基工程施工质量验收标准.md",
+          "source": "",
+          "heading": "3.0.6 检查数量应按检验批抽样,当本标准有具体规定时,应按相应条款执行,无规定时应按检验批抽检。检验批的划分和检验批抽检数量可按照现行国家标准《建筑工程施工质量验收统一标准》GB 50300 的规定执行。",
+          "score": 46.19,
           "standard_code": "GB50202",
-          "confidence": "high"
+          "confidence": "mid"
+        },
+        {
+          "file": "_seg0_GB 50208-2011 地下防水工程质量验收规范.md",
+          "source": "",
+          "heading": "4.1.1 防水混凝土适用于抗渗等级不小于 P6 的地下混凝土结构。不适用于环境温度高于 $80^{\\circ}$ C 的地下工程。处于侵蚀性介质中，防水混凝土的耐侵蚀性要求应符合现行国家标准《工业建筑防腐蚀设计规范》GB 50046 和《",
+          "score": 44.85,
+          "standard_code": "GB50208",
+          "confidence": "mid"
+        },
+        {
+          "file": "_seg1_GB 50268-2008 给水排水管道工程施工及验收规范_p0001-0128.md",
+          "source": "",
+          "heading": "3.1.8 施工测量的允许偏差，应符合表 3.1.8 的规定，并应满足国家现行标准《工程测量规范》GB 50026 和《城市测量规范》CJJ 8 的有关规定；对有特定要求的管道还应遵守其特殊规定。",
+          "score": 40.44,
+          "standard_code": "GB50268",
+          "confidence": "mid"
+        },
+        {
+          "file": "_seg0_GB 50209-2010 建筑地面工程施工质量验收规范.md",
+          "source": "",
+          "heading": "1.0.4 本规范应与现行国家标准《建筑工程施工质量验收统一标准》GB 50300 配套使用。",
+          "score": 39.2,
+          "standard_code": "GB50209",
+          "confidence": "mid"
+        },
+        {
+          "file": "_seg0_GB 50858-2013 园林绿化工程工程量计算规范.md",
+          "source": "",
+          "heading": "3.0.2 工程实施过程中的计量应按照现行国家标准《建设工程工程量清单计价规范》GB 50500的相关规定执行。",
+          "score": 35.1,
+          "standard_code": "GB50858",
+          "confidence": "mid"
         }
       ],
       "error": ""
@@ -3870,41 +3902,41 @@
       "results": [
         {
           "file": "_seg0_GB 55032-2022 建筑与市政工程施工质量控制通用规范.md",
-          "source": "merged",
-          "heading": "4.2.2 本条规定检验批验收合格的条件。检验批是工程验收的最小单位，是分项工程、分部工程、单位工程质量验收的基础。检验批的验收包括主控项目检验、一般项目检验和资料检查。",
-          "score": 249.07,
+          "source": "merged+clause_refine",
+          "heading": "4.2.1 本条为工程施工质量验收合格的基本条件，本规范及相关专业规范提出的合格要求是对施工质量的最低要求，应允许建设、设计等单位提出高于本规范及相关专业规范的",
+          "score": 251.0,
           "standard_code": "GB55032",
           "confidence": "high"
         },
         {
-          "file": "_seg0_GB 50300-2013 建筑工程施工质量验收统一标准.md",
-          "source": "legacy",
-          "heading": "5.0.1 检验批是施工过程中条件相同并有一定数量的材料、构配件或安装项目，由于其质量水平基本均匀一致，因此可以作为检验的基本单元，并按批验收。",
-          "score": 244.09,
-          "standard_code": "GB50300",
-          "confidence": "high"
-        },
-        {
           "file": "_seg1_CJJ 1-2008 城镇道路工程施工与质量验收规范_p0001-0126.md",
-          "source": "legacy",
-          "heading": "3.0.13 道路工程应划分为单位工程、分部工程、分项工程和检验批，作为工程施工质量检验和验收的基础。",
-          "score": 182.52,
+          "source": "legacy+clause_refine",
+          "heading": "5.4.15 工程验收的测量依据点应按程序报经建设单位验收、确认。",
+          "score": 246.3,
           "standard_code": "CJJ1",
           "confidence": "high"
         },
         {
+          "file": "_seg0_GB 50300-2013 建筑工程施工质量验收统一标准.md",
+          "source": "merged+clause_refine",
+          "heading": "5.0.8 经返修或加固处理仍不能满足安全或重要使用要求的分部工程及单位工程，严禁验收。",
+          "score": 182.52,
+          "standard_code": "GB50300",
+          "confidence": "high"
+        },
+        {
           "file": "_seg1_GB 50411-2019 建筑节能工程施工质量验收标准_p0001-0112.md",
-          "source": "merged",
-          "heading": "3.4.4 当在同一个单位工程项目中，建筑节能分项工程和检验批的验收内容与其他各专业分部工程、分项工程或检验批的验收内容相同且验收结果合格时，可采用其验收结果，不必进行重复检验。建筑节能分部工程验收资料应单独组卷。",
+          "source": "legacy+clause_refine",
+          "heading": "3.4.2 当建筑节能工程验收无法按本标准第 3.4.1 条的要求划分分项工程或检验批时，可由建设、监理、施工等各方协商划分检验批；其验收项目、验收内容、验收标",
           "score": 171.51,
           "standard_code": "GB50411",
           "confidence": "high"
         },
         {
           "file": "_seg0_CJJ 82-2012 园林绿化工程施工及验收规范.md",
-          "source": "merged",
-          "heading": "6.1.1 园林绿化工程的质量验收，应按检验批、分项工程、分部（子分部）工程、单位（子单位）工程的顺序进行。园林绿化工程的分项、分部、单位工程可按附录 A 进行划分。",
-          "score": 154.73,
+          "source": "merged+clause_refine",
+          "heading": "C.0.1 检验批质量验收记录应符合表 C.0.1 的规定。",
+          "score": 156.72,
           "standard_code": "CJJ82",
           "confidence": "high"
         }
@@ -3921,41 +3953,41 @@
       "has_expected": false,
       "results": [
         {
-          "file": "_seg0_GB 50210-2018 建筑装饰装修工程质量验收标准.md",
-          "source": "merged",
-          "heading": "4.1.1 本章适用于一般抹灰、保温层薄抹灰、装饰抹灰和清水砌体勾缝等分项工程的质量验收。一般抹灰工程分为普通抹灰和高级抹灰，当设计无要求时，按普通抹灰验收。一般抹灰包括水泥砂浆、水泥混合砂浆、聚合物水泥砂浆和粉刷石膏等抹灰；保温层薄抹灰包",
-          "score": 169.11,
-          "standard_code": "GB50210",
-          "confidence": "high"
-        },
-        {
           "file": "_seg8_建筑施工手册（第六版）第4册_p0749-0933.md",
-          "source": "merged",
-          "heading": "28.13.3 绿色施工措施",
-          "score": 150.89,
+          "source": "merged+clause_refine",
+          "heading": "29.3.1 一般要求",
+          "score": 169.11,
           "standard_code": "",
           "confidence": "high"
         },
         {
-          "file": "_seg10_建筑施工手册（第六版）第1册_p0906-1086.md",
-          "source": "legacy",
-          "heading": "7.1.1 材料试验主要参数、取样规则及取样方法",
-          "score": 112.52,
-          "standard_code": "GB50204",
-          "confidence": "high"
-        },
-        {
           "file": "_seg0_JGJ_T 220-2010 抹灰砂浆技术规程.md",
-          "source": "legacy",
-          "heading": "1.0.2 本规程属抹灰砂浆质量控制的专业标准，适用于新建、改建、扩建和既有建筑的一般抹灰工程用砂浆的质量控制，主要用于内、外墙及顶棚抹灰的砂浆。在建筑物的墙、顶、地、柱等表面上，直接抹灰做成饰面层的装饰工程，称为一般抹灰工程。根据建筑工程",
-          "score": 108.42,
+          "source": "legacy+clause_refine",
+          "heading": "6.1.6 不同材质的基体交接处，应采取防止开裂的加强措施；当采用加强网时，每侧铺设宽度不应小于100mm。",
+          "score": 150.89,
           "standard_code": "JGJT220",
           "confidence": "high"
         },
         {
+          "file": "_seg10_建筑施工手册（第六版）第1册_p0906-1086.md",
+          "source": "legacy+clause_refine",
+          "heading": "6.2.2.2 地基计算",
+          "score": 112.52,
+          "standard_code": "GB50007",
+          "confidence": "high"
+        },
+        {
+          "file": "_seg0_GB 50210-2018 建筑装饰装修工程质量验收标准.md",
+          "source": "merged+clause_refine",
+          "heading": "4.3.2 基层质量应符合设计和施工方案的要求。基层表面的尘土、污垢和油渍等应清除干净。基层含水率应满足施工工艺的要求。",
+          "score": 108.42,
+          "standard_code": "GB50210",
+          "confidence": "high"
+        },
+        {
           "file": "_seg0_GB 50300-2013 建筑工程施工质量验收统一标准.md",
-          "source": "legacy",
-          "heading": "附录 B 建筑工程的分部工程、分项工程划分",
+          "source": "legacy+clause_refine",
+          "heading": "1.0.1 为了加强建筑工程质量管理，统一建筑工程施工质量的验收，保证工程质量，制定本标准。",
           "score": 96.22,
           "standard_code": "GB50300",
           "confidence": "high"
@@ -3967,48 +3999,48 @@
       "query": "保护层厚度",
       "source": "verify_chain",
       "query_type": "",
-      "branch": "direct",
+      "branch": "ppr+legacy",
       "result_count": 5,
       "first_rank": null,
       "has_expected": false,
       "results": [
         {
-          "file": "GB50003-2011",
-          "source": "param_index",
-          "heading": "4.3.3: 保护层厚度 = 0mm ",
-          "score": 85.6,
-          "standard_code": "GB50003",
+          "file": "_seg2_建筑施工手册（第六版）第5册_p0177-0352.md",
+          "source": "merged+clause_refine",
+          "heading": "32.3.2.4 防护结构的涂装厚度与使用年限的选择要求",
+          "score": 156.49,
+          "standard_code": "",
           "confidence": "high"
         },
         {
-          "file": "GB50108-2008",
-          "source": "param_index",
-          "heading": ": 保护层厚度 = 50mm ",
-          "score": 84.0,
-          "standard_code": "GB50108",
+          "file": "_seg0_GB 50207-2012 屋面工程质量验收规范.md",
+          "source": "merged+clause_refine",
+          "heading": "4.5.12 保护层的允许偏差和检验方法应符合表 4.5.12 的规定。",
+          "score": 150.54,
+          "standard_code": "GB50207",
           "confidence": "high"
         },
         {
-          "file": "GB50108-2008",
-          "source": "param_index",
-          "heading": ": 保护层厚度 = 50mm ",
-          "score": 84.0,
-          "standard_code": "GB50108",
+          "file": "_seg0_GB 50345-2012 屋面工程技术规范.md",
+          "source": "merged+clause_refine",
+          "heading": "4.5.6 每道涂膜防水层最小厚度应符合表 4.5.6 的规定。",
+          "score": 147.55,
+          "standard_code": "GB50345",
           "confidence": "high"
         },
         {
-          "file": "GB50108-2008",
-          "source": "param_index",
-          "heading": "8.3: 保护层厚度 = 70mm ",
-          "score": 84.0,
-          "standard_code": "GB50108",
+          "file": "_seg0_GB 50208-2011 地下防水工程质量验收规范.md",
+          "source": "merged+clause_refine",
+          "heading": "4.3.13 卷材防水层完工并经验收合格后应及时做保护层。保护层应符合下列规定：",
+          "score": 146.55,
+          "standard_code": "GB50208",
           "confidence": "high"
         },
         {
-          "file": "GB50108-2008",
-          "source": "param_index",
-          "heading": ": 保护层厚度 = 40mm ",
-          "score": 84.0,
+          "file": "_seg0_GB 50108-2008 地下工程防水技术规范.md",
+          "source": "merged+clause_refine",
+          "heading": "4.4.15 有机防水涂料施工完后应及时做保护层，保护层应符合下列规定：",
+          "score": 126.66,
           "standard_code": "GB50108",
           "confidence": "high"
         }
@@ -4077,43 +4109,43 @@
       "has_expected": false,
       "results": [
         {
-          "file": "_seg4_建筑施工手册（第六版）第3册_p0391-0585.md",
-          "source": "merged",
-          "heading": "17.5.5 钢筋加工质量检验",
+          "file": "_seg1_GB 50666-2011 混凝土结构工程施工规范_p0001-0110.md",
+          "source": "merged+clause_refine",
+          "heading": "5.4.1 钢筋接头宜设置在受力较小处；有抗震设防要求的结构中，梁端、柱端箍筋加密区范围内不宜设置钢筋接头，且不应进行钢筋搭接。同一纵向受力钢筋不宜设置两个或两",
           "score": 181.27,
-          "standard_code": "GBT50010",
-          "confidence": "high"
-        },
-        {
-          "file": "_seg0_JGJ 107-2016 钢筋机械连接技术规程.md",
-          "source": "merged",
-          "heading": "1.0.3 本条规定了用于机械连接的钢筋的适用标准，增加了采用热轧光圆钢筋、余热处理钢筋和不锈钢钢筋的相关规定。我国不锈钢钢筋的行业标准已颁布实施，不锈钢钢筋机械连接接头已在港珠澳大桥等工程中应用，本规程根据国内应用不锈钢钢筋的经验，制定了",
-          "score": 160.01,
-          "standard_code": "JGJ107",
-          "confidence": "high"
-        },
-        {
-          "file": "_seg1_CJJ 2-2008 城市桥梁工程施工与质量验收规范_p0001-0151.md",
-          "source": "merged",
-          "heading": "6.3.5 热轧光圆钢筋和热轧带肋钢筋的接头采用搭接或帮条电弧焊时，应符合下列规定：",
-          "score": 148.26,
-          "standard_code": "CJJ2",
+          "standard_code": "GB50666",
           "confidence": "high"
         },
         {
           "file": "_seg0_GB 50204-2015 混凝土结构工程施工质量验收规范.md",
-          "source": "merged",
-          "heading": "5.5.3 钢筋安装偏差及检验方法应符合表 5.5.3 的规定，受力钢筋保护层厚度的合格点率应达到 90% 及以上，且不得有超过表中数值 1.5 倍的尺寸偏差。",
-          "score": 133.01,
+          "source": "merged+clause_refine",
+          "heading": "5.4.4 钢筋接头的位置应符合设计和施工方案要求。有抗震设防要求的结构中，梁端、柱端箍筋加密区范围内不应进行钢筋搭接。接头末端至钢筋弯起点的距离不应小于钢筋直",
+          "score": 162.07,
           "standard_code": "GB50204",
           "confidence": "high"
         },
         {
-          "file": "_seg0_GB 50203-2011 砌体结构工程施工质量验收规范.md",
-          "source": "merged",
-          "heading": "8.2.4 配筋砌体中受力钢筋的连接方式及锚固长度、搭接长度应符合设计要求。",
-          "score": 114.31,
-          "standard_code": "GB50203",
+          "file": "_seg1_CJJ 2-2008 城市桥梁工程施工与质量验收规范_p0001-0151.md",
+          "source": "merged+clause_refine",
+          "heading": "6.3.2 钢筋接头设置应符合下列规定：",
+          "score": 150.31,
+          "standard_code": "CJJ2",
+          "confidence": "high"
+        },
+        {
+          "file": "_seg0_JGJ 107-2016 钢筋机械连接技术规程.md",
+          "source": "merged+clause_refine",
+          "heading": "4.0.3 结构构件中纵向受力钢筋的接头宜相互错开。钢筋机械连接的连接区段长度应按 35d 计算，当直径不同的钢筋连接时，按直径较小的钢筋计算。位于同一连接区段",
+          "score": 135.4,
+          "standard_code": "JGJ107",
+          "confidence": "high"
+        },
+        {
+          "file": "_seg4_建筑施工手册（第六版）第3册_p0391-0585.md",
+          "source": "merged+clause_refine",
+          "heading": "(2) 一般项目",
+          "score": 120.85,
+          "standard_code": "",
           "confidence": "high"
         }
       ],
