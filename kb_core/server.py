@@ -37,7 +37,6 @@ _ROOT_DIR = os.path.dirname(_KB_DIR)
 _KB_JSON_DIR = _PATHS['kb_json']
 KB_DIR = _PATHS['kb_md']
 CI_PATH = os.path.join(_KB_JSON_DIR, "kb_clause_index.json")
-PI_PATH = os.path.join(_KB_JSON_DIR, "kb_param_index.json")
 
 # 自动补全索引 (启动时构建)
 _suggest_cache = []
@@ -97,9 +96,6 @@ def _extract_clause_text(text, pos, length, clause):
 
 def load_clause_index():
     return json.load(open(CI_PATH,'r',encoding='utf-8')) if os.path.exists(CI_PATH) else None
-
-def load_param_index():
-    return json.load(open(PI_PATH,'r',encoding='utf-8')) if os.path.exists(PI_PATH) else None
 
 
 def _query_units(query: str):
@@ -636,16 +632,27 @@ def api_tree(code: str=Query(...)):
 
 @app.get("/api/params")
 def api_params(name: str=Query(None)):
-    pi = load_param_index()
-    if not pi: return JSONResponse({'error':'no index'},404)
-    params = pi.get('params',{})
-    if not name: return {'params': list(params.keys())}
-    entries = params.get(name,[])
-    seen = set(); unique = []
-    for e in entries:
-        k = (e.get('std_code',''),e.get('clause',''),e.get('value',''))
-        if k not in seen: seen.add(k); unique.append(e)
-    return {'name':name,'entries':unique[:30],'total':len(unique)}
+    # param_index retired: there is no curated value table. Without a name there
+    # is nothing to browse; with a name we route to clause search so the answer
+    # is the governing clause text (with its conditions), not a bare, conflated,
+    # context-stripped value.
+    if not name:
+        return {'params': [], 'note': 'param_index 已退役：请直接检索术语以获取相关条文'}
+    kb = get_kb()
+    results = kb.search(name, max_results=15)
+    entries = []
+    for r in results:
+        m = re.search(r'(GB|JGJ|CJJ|CECS|TCECS|DB\d*|CJ|JTG|JTJ|TB|DL|SL|SH|SY|HG|YB|JG|SB)[\sT/_]?(\d+(?:\.\d+)?(?:-\d+)?)', r.get('file',''))
+        code = (m.group(1)+m.group(2)).replace(' ','').replace('_','/') if m else r.get('standard_code','')
+        heading = (r.get('heading','') or '')
+        entries.append({
+            'std_code': code,
+            'clause': heading.split()[0] if heading else '',
+            'value': heading[:60],
+            'text': (r.get('text','') or '')[:600],
+            'source': 'clause_search',
+        })
+    return {'name': name, 'entries': entries, 'total': len(entries), 'mode': 'clause_search'}
 
 # ===== Web UI =====
 

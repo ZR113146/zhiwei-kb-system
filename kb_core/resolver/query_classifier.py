@@ -73,50 +73,6 @@ class QueryClassifierMixin:
                 clause_match = code_match
         return code_match, clause_match, standard_code, clause_tail_match, clause_num, tail, tail_after_clause
 
-    @staticmethod
-    def _param_value_zero_magnitude(value):
-        """True if an extracted param value is a physically-meaningless zero
-        (e.g. '0mm', '0', '0.0mm') — a known false-extraction pattern that must
-        never be surfaced as an authoritative answer."""
-        num = re.search(r'-?\d+(?:\.\d+)?', str(value or ''))
-        if not num:
-            return False
-        try:
-            return float(num.group()) == 0.0
-        except ValueError:
-            return False
-
-    # Pure question/filler tokens that do NOT add semantic scope to a parameter
-    # lookup (e.g. 保护层厚度是多少 is still a bare lookup).
-    _PARAM_FILLER = ('是多少', '多少', '是', '为', '的', '呢', '吗', '？', '?',
-                     '规定', '取值', '数值', '值', '要求是')
-
-    @classmethod
-    def _is_bare_param_lookup(cls, query, pname):
-        """A genuine parameter lookup: after removing the param name and pure
-        question/filler words, nothing substantive remains. This is the general
-        guard for the whole class — it rejects BOTH qualifier-prefix compounds
-        (钢筋保护层厚度 → residual '钢筋') AND multi-intent queries
-        (保护层厚度 施工要求 → residual '施工要求'), so generic param values are
-        not surfaced as authoritative answers to a semantically-scoped query.
-        Only near-bare lookups (保护层厚度 / 保护层厚度是多少) short-circuit."""
-        residual = query.replace(pname, '')
-        for token in cls._PARAM_FILLER:
-            residual = residual.replace(token, '')
-        return re.sub(r'\s+', '', residual) == ''
-
-    def _param_index_result(self, param_name, entry):        return {
-            'file': entry.get('std_code', ''),
-            'heading': '%s: %s = %s %s' % (
-                entry.get('clause', '?'), param_name, entry.get('value', '?'),
-                ('(%s)' % entry.get('condition', '')) if entry.get('condition') else ''
-            ),
-            'hits': 1,
-            'score': 80.0,
-            'text': entry.get('heading', ''),
-            '_source': 'param_index'
-        }
-
     def _try_filename_title_lookup(self, keywords, max_results=10):
         """Fast path for exact standard/material names present in MD filenames."""
         query = ''.join((keywords or '').split())
@@ -187,10 +143,11 @@ class QueryClassifierMixin:
         return hits or None
 
     def _try_direct_lookup(self, keywords):
-        """v6.23: 精确查询直通车 — 条款号/参数名直接定位, 返回条款原文或参数值
+        """v6.23: 精确查询直通车 — 标准编号+条款号直接定位, 返回条款原文。
         匹配模式:
           1. 'GB50204 5.3' → 查 clause_index → 返回条款原文
-          2. '保护层厚度' → 查 param_index → 返回参数=数值列表
+        (参数值直查 param_index 已退役: 参数类查询改走常规检索, 返回带条件的
+         条文本身, 而非剥离语境、混桶的裸数值。)
         返回 None 表示未命中, 走常规搜索
         """
         # ── 模式1: 标准编号 + 条款号 ──
@@ -342,17 +299,7 @@ class QueryClassifierMixin:
                     '_source': 'md_clause_direct',
                 }]
 
-        _param_index = self._ensure_param_index_loaded()
-        _params = _param_index.get('params', {})
-
-        for _pname, _entries in _params.items():
-            if _pname in keywords and self._is_bare_param_lookup(keywords, _pname):
-                _valid = [_e for _e in _entries if not self._param_value_zero_magnitude(_e.get('value'))]
-                _results = []
-                for _e in _valid[:5]:
-                    _results.append(self._param_index_result(_pname, _e))
-                if _results:
-                    return _results
-                break
-
+        # param_index retired: parameter queries fall through to prose/clause
+        # search, which returns the governing clause text (with its conditions)
+        # rather than a context-stripped, conflated value.
         return None

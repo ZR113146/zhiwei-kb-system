@@ -304,16 +304,6 @@ class KBResolver(LegacySearchMixin, NamingMixin, ClauseReadMixin, QueryClassifie
                 self._clause_index = {'lookup': {}}
         return self._clause_index
 
-    def _ensure_param_index_loaded(self):
-        if not hasattr(self, '_param_index'):
-            param_index_path = os.path.join(KB_JSON_DIR, 'kb_param_index.json')
-            if os.path.exists(param_index_path):
-                with open(param_index_path, 'r', encoding='utf-8') as file_obj:
-                    self._param_index = json.load(file_obj)
-            else:
-                self._param_index = {'params': {}}
-        return self._param_index
-
 
 
     def _reset_clause_metadata(self):
