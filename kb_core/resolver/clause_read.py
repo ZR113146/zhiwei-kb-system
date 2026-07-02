@@ -174,6 +174,19 @@ class ClauseReadMixin:
 
         result = None
         is_clause_number = bool(re.match(r'^[\d.IVXLCDM\u2160-\u217B]+$', clause_pattern))
+        # Appendix identifier ('A' / '\u9644\u5F55A' / 'A.1'): must resolve to the appendix
+        # header/subsection, NOT the first normative clause that merely references
+        # '\u9644\u5F55 A'. Detected only when it is not already a numeric clause.
+        _m_app = re.match(r'^(?:\u9644\u5F55\s*)?([A-Za-z](?:\.\d+)*)$', clause_pattern.strip())
+        appendix_target = _m_app.group(1).upper() if (_m_app and not is_clause_number) else None
+
+        def _appendix_heading_matches(value):
+            if not appendix_target:
+                return False
+            head = re.sub(r'^#+\s*', '', str(value or '')).strip()
+            if '.' in appendix_target:  # subsection like A.1 -> heading leads with it
+                return bool(re.match(re.escape(appendix_target) + r'(?![\w.])', head))
+            return bool(re.match(r'\u9644\u5F55\s*' + re.escape(appendix_target) + r'(?!\w)', head))
 
         def _has_clause_pattern(value):
             if not is_clause_number:
@@ -252,9 +265,11 @@ class ClauseReadMixin:
                         si = json.load(f)
                     sections = si.get('index', {}).get(fname, [])
                     for sec in sections:
-                        if _has_clause_pattern(sec.get('heading', '')):
+                        heading = sec.get('heading', '')
+                        heading_match = _appendix_heading_matches(heading) if appendix_target else _has_clause_pattern(heading)
+                        if heading_match:
                             candidate = text[sec['pos']:sec['pos']+sec['length']].strip()[:3000]
-                            if _has_clause_pattern(candidate):
+                            if appendix_target or _has_clause_pattern(candidate):
                                 result = candidate
                                 self._last_type = sec.get('type', 'unknown')
                                 self._last_source_file = fname
@@ -289,7 +304,12 @@ class ClauseReadMixin:
                                 self._last_match_method = 'prefer_type_substring'
                                 break
                 else:
-                    idx = _find_clause_pattern(text)
+                    if appendix_target:
+                        _apat = re.escape(appendix_target) if '.' in appendix_target else r'附录\s*' + re.escape(appendix_target) + r'(?!\w)'
+                        _am = re.search(r'(?m)^#*\s*' + _apat, text)
+                        idx = _am.start() if _am else -1
+                    else:
+                        idx = _find_clause_pattern(text)
                     if idx >= 0:
                         result = text[max(0, idx-200):min(len(text), idx+2000)].strip()
                         self._last_source_file = fname
