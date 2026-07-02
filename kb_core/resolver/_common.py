@@ -152,12 +152,10 @@ _CODE_TOKEN_RE = re.compile(
 def parse_standard_code(token):
     """将字符串解析为结构化编码 {prefix, number, year, is_rec}, 无匹配返回 None。
 
-    v9.x: 匹配改用 code_norm._CODE_RE 唯一真源, 修复旧 _CODE_TOKEN_RE 的
-    /T 丢 T (GB/T→GB) 与下划线形式 (GB_T) 解析失败。prefix 为不含 T 的基前缀,
-    is_rec 携带推荐标记; canonicalize_code 据 is_rec 补 T。
-    v2 接管 (2026-07, v1 退役): 改用 code_norm._FAMILY_RE (含 RISN / T-前缀写法,
-    v1 _CODE_RE 漏的族), 并对 T/CECS 前缀写法显式识别。canonicalize_code 委托
-    code_norm.normalize_code 保证单一真源。
+    用 code_norm._FAMILY_RE 定位 (含 RISN / T-前缀写法), 拆出 prefix/is_rec/
+    number/year。canonicalize_code 委托 code_norm.normalize_code 保证单一真源。
+    注: 生产路径 normalize_code_token 已直接调 normalize_code, 本函数仅供需要
+    结构化字段 (is_rec/year) 的少数调用; 守护 _parse_canon 反映生产路径。
     """
     if not token or not isinstance(token, str):
         return None

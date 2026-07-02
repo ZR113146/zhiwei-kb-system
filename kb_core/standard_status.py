@@ -10,11 +10,10 @@ import os
 import re
 from datetime import datetime
 
-# 标准编号归一化真源已抽到 kb_core.code_norm (零依赖, 全项目唯一真源)。
-# 此处 re-export 保持向后兼容: 现有 `from kb_core.standard_status import
-# normalize_code/official_code/extract_standard` 及内部调用不变。
+# 标准编号归一化真源在 kb_core.code_norm (零依赖, 全项目唯一真源)。
+# 此处 re-export 保持向后兼容: `from kb_core.standard_status import
+# normalize_code/official_code/extract_standard` 不变。
 from kb_core.code_norm import (  # noqa: F401  (re-export)
-    _CODE_RE,
     normalize_code,
     official_code,
     extract_standard,

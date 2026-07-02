@@ -4,49 +4,35 @@
 本模块只做纯字符串语法层面的标准编号处理, 零内部依赖 (仅 re),
 可被 kb_core / pipeline / plan_writer 任意模块安全导入 (无循环导入风险)。
 
+实现: 分层解析器 v2 — _tokenize 把原始写法切成显式字段 {prefix, t, number, year}
+(推荐性 T 独立成 token, 不夹在前缀后缀里), _canonicalize 按族规则统一到 canonical。
+族表 _FAMILY_RE 显式建模各前缀 (含 RISN / T-CECS 前缀 / DB 地方标准省码)。
+
 四个契约, 职责互不重叠:
-  normalize_code(raw)   -> canonical: 前缀+编号, 去年份/去分隔符, /T·_T→T
-                           'GB/T 50720-2011' / 'GB_T50720' -> 'GBT50720'
-  extract_standard(raw) -> 从任意文本/文件名抽出结构化 dict
-                           (standard_code / display_code / official_code /
-                            standard_name / year)
-  official_code(raw)    -> 人类可读官方形: 'GB_T 50720-2011' -> 'GB/T 50720-2011'
+  normalize_code(raw)            -> canonical: 'GB/T 50720-2011' -> 'GBT50720'
+  normalize_code_with_year(raw)  -> canonical+year: 'GBT50720-2011' (入库去重用)
+  official_code(raw)             -> 官方形: 'GB_T 50720-2011' -> 'GB/T 50720-2011'
+  extract_standard(raw)          -> 结构化 dict (standard_code/display_code/
+                                     official_code/standard_name/year)
 
 历史坑位 (回归测试 eval/code_norm_consistency.py 锚定, 勿再退化):
   - 下划线形式 'GB_T50720' 必须能解析 (入库文件名把 '/' 映射为 '_')
   - 年份必须先剥离再去横杠, 否则 '50720-2011' 会粘成 '507202011'
   - '/T' 形式不能丢 T (不能把 'GB/T50720' 归一成 'GB50720')
+  - RISN 族 (RISN-TG026) / T-CECS 前缀 (T/CECS 1000) / DB 粘写 (DB323700) 必须识别
 """
 
 import re
-
-# 前缀显式枚举所有分隔符变体 (GB_T|GBT|GB, CJJ_T|..., DB\d{2}_T|...),
-# 使下划线形式 (入库产物) 与斜杠/紧凑形式统一可解析。
-_CODE_RE = re.compile(
-    r"(TCECS|CECS|CJJ_T|CJJT|CJJ|CJ_T|CJT|CJ|JGJ_T|JGJT|JGJ|GB_T|GBT|GB|JTG_T|JTGT|JTG|JC_T|JCT|JC|DB\d{2}_T|DB\d{2}T|DB\d{2}|DB)"
-    r"[\s_/-]*(?:T[\s_/-]*)?([A-Z]?\d+(?:\.\d+)?)"
-    r"(?:[\s_-]*(19\d{2}|20\d{2}))?",
-    re.IGNORECASE,
-)
-
-
 def normalize_code(raw):
-    """规范形: 前缀+编号, 去年份, 去分隔符, /T·_T→T。
-
-    v2 接管 (2026-07, v1 退役): 纯分层解析器 _normalize_v2, 不再 v1 单正则兜底。
-    v2 已对存量 126 有码零回退 + 外部锚定子集 (samr evidence) 验证; 修了 v1 不认的
-    RISN / T-CECS 前缀 / DB 粘写。v1 _CODE_RE 仍保留供 official_code/extract_standard
-    的历史兼容路径已全部下线 (见各函数 v2 实现); _CODE_RE 仅留作 v2 _tokenize 的
-    族识别底层 (被 _FAMILY_RE 取代), 不再被生产函数直接调用。
-    回滚 = git revert。"""
+    """规范形: 前缀+编号, 去年份, 去分隔符, /T·_T→T。分层解析器 v2 实现。
+    例: 'GB/T 50720-2011' / 'GB_T50720' -> 'GBT50720'; 'DB323700' -> 'DB32T3700'。"""
     if not raw:
         return ""
     return _normalize_v2(raw)
 
 
 def normalize_code_with_year(raw):
-    """归一码保留年份, 形如 GBT50720-2011。用于入库去重 (同号不同年版视为不同标准)。
-    v2 接管 (2026-07): 委托 _normalize_v2_with_year, 不再用 _CODE_RE。"""
+    """归一码保留年份, 形如 GBT50720-2011。用于入库去重 (同号不同年版视为不同标准)。"""
     if not raw:
         return ""
     return _normalize_v2_with_year(raw)
@@ -55,7 +41,6 @@ def normalize_code_with_year(raw):
 def official_code(raw):
     """人类可读官方形, 同时保持 standard_code 文件安全。
 
-    v2 接管 (2026-07): 用 _tokenize 拆字段后按族重组官方形, 不再用 _CODE_RE。
     例: GB_T 50107-2010 -> GB/T 50107-2010; JGJ_T 23-2011 -> JGJ/T 23-2011;
         DB32_T 3700-2019 -> DB32/T 3700-2019; T/CECS 1000 -> TCECS 1000;
         RISN-TG026-2020 -> RISN-TG026-2020。
@@ -91,8 +76,9 @@ def official_code(raw):
 def extract_standard(raw):
     """从任意文本/文件名抽出结构化标准信息, 无匹配返回 None。
 
-    v2 接管 (2026-07): 用 _FAMILY_RE 定位编号 token (含 v1 _CODE_RE 漏的 RISN /
-    T-前缀写法), 归一化全部走 _tokenize/_canonicalize。"""
+    用 _FAMILY_RE 定位编号 token (含 RISN / T-前缀写法), 归一化走 _tokenize/
+    _canonicalize。standard_name 取编号 token 之后的文本 (去文件名后缀/seg 前缀)。
+    """
     text = str(raw or "")
     # T/CECS 前缀写法: _FAMILY_RE 不直接认 "T/CECS", 先规范成 TCECS 形定位
     m_tprefix = re.match(r"^T\s*/\s*(CECS|CJJ|JGJ|GB|JTG|JC|DB)\b", text, re.IGNORECASE)
@@ -127,14 +113,12 @@ def extract_standard(raw):
 
 
 # ============================================================================
-# v2 — 分层解析器 (与 v1 并存, 不替换; 守护网双轨比对后再切换)。
-# 设计目标: 把"推荐性 T"独立成 token, 族规则显式建模 (RISN/T-CECS/DB省码 ),
-#           杜绝单正则补丁越补越脆。当前用于 eval/code_norm_consistency 双轨验证,
-#           尚未被 normalize_code 调用 (切换在第3步, 由守护证明 v2 修裂≥1且回退0)。
+# 分层解析器: _tokenize (词法, T 独立成 token) + _canonicalize (族规则统一)。
+# 设计: 推荐性 T 独立成 token (不夹在前缀后缀), 族规则显式建模 (RISN/T-CECS/
+#       DB 省码), 杜绝单正则补丁越补越脆。全部 4 个生产函数走此实现。
 # ============================================================================
 
-# 族表: 前缀识别 (含 v1 漏的 RISN 与 T-前缀写法)。
-#   写法变体按优先级: 长/具体的在前 (避免 TCECS 被 CECS 抢匹配)。
+# 族表: 前缀识别 (长/具体的在前, 避免 TCECS 被 CECS 抢匹配)。
 #   推荐(T)族: 写成 <PREFIX>T 的归一后缀; T 可来自 /T/_T/末尾T/T-前缀。
 #   DB 族: 含 2 位省码, 写法可为 DB<省><标> (粘写) 或 DB<省>/T <标> (分割)。
 #   RISN 族: 中国建筑标准设计研究院 (建筑标准设计), 形如 RISN-TG026 / RISN-TG<号>。
@@ -144,15 +128,13 @@ _FAMILY_RE = re.compile(
     r"|RISN)",
     re.IGNORECASE,
 )
-# 推荐性族 (有 /T 形式的): 归一时追加 T 到前缀。
+# 推荐性族 (有 /T 形式): 归一时追加 T 到前缀 (在 _tokenize 拆末尾T时判定)。
 _RECOMMENDED_FAMILIES = {"TCECS", "CECS", "CJJ", "CJ", "JGJ", "GB", "JTG", "JC", "DB", "RISN"}
-# 但这些族本身已含 T (已是推荐形), 不再追加:
-_ALREADY_T = {"TCECS", "CJJT", "CJT", "JGJT", "GBT", "JTGT", "JCT", "DBT"}
 
 
 def _tokenize(raw):
-    """把原始写法切成显式字段 {prefix, t, number, sub, year}。
-    推荐性 T 独立成字段 (从 /T · _T · 末尾T · 或 RISN 默认推荐? 否) 解析, 不夹在前缀里。
+    """词法层: 把原始写法切成显式字段 {prefix, t, number, sub, year}。
+    推荐性 T 独立成 t 字段 (从 /T · _T · 末尾T · T-前缀 解析), 不夹在前缀里。
     返回 None 表示无法识别为标准编号。"""
     if not raw:
         return None
