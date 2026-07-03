@@ -712,11 +712,11 @@ class KBResolver(LegacySearchMixin, NamingMixin, ClauseReadMixin, QueryClassifie
 
         # T1: 条款级语义精定位 — 命中文件内用句向量找回答查询的具体条款 (正文优先)
         _qvec = self._get_query_vector(keywords)
-        results = self._refine_clause_targets(results, keywords, qvec=_qvec)
+        results = self._refine_clause_targets(results, keywords, qvec=_qvec, top_n=15)
 
         # T2: 本地 clause 重排 (确定性底座, 与下方 DeepSeek rerank 并存)
-        # 窗口与精炼一致 (top-5): 让文件内真正回答查询的条款上浮
-        results = self._clause_rerank(results, top_k=5)
+        # 窗口与精炼一致: 让文件内真正回答查询的条款上浮
+        results = self._clause_rerank(results, top_k=15)
 
         # v8.1: C 层 — DeepSeek listwise 重排。本地优先: 当 clause 信号已就位,
         # 本地重排为权威, 跳过较慢且不稳的网络 rerank; 仅在无 clause 信号时降级使用。
