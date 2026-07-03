@@ -120,20 +120,28 @@ class ClauseRefineMixin:
         return results
 
     def _rewrite_head_scores(self, reordered_head):
-        """重排后保持 score 与新位置单调一致: 把窗口内原有 score 降序重新分配到新顺序。
+        """重排后回写 score: 用 clause_sim 归一化 × 原始融合分, 而非按排名重分。
 
-        重排器 (clause / LLM) 按自己的维度决定顺序后, score 若不回写, 下游纯 score 排序
-        与可信度 (依赖 score) 会与展示顺序矛盾。此处让排第一的拿窗口最高分, 依次递减,
-        使 rank / score / confidence 三者同源。原始 score 存入 _pre_rerank_score 备查。
+        旧逻辑 (bug): 把窗口内原始 score 降序池按新排名位置分配 → top1 拿池最高分,
+        与该结果的 clause_sim / 融合分无关。这让多路融合分被抹掉 (PPR/BM25 的差异
+        在 rewrite 后消失), 且 top3 的 rewrite 分与 top4+ 的原始分体系断裂 (top5 原始
+        235→被压成 199, 比 top3 的 209 低, 但其融合分本最高)。
+
+        新逻辑: score = pre_rerank × clause_sim 归一。排序仍由 _clause_rerank 的
+        clause_sim 决定 (精准的在前), 但 score 反映 clause_sim × 融合分的组合 —
+        体系连续 (top3→top4 不翻回), 融合分仍有影响 (同 clause_sim 下高融合分排前)。
+        原始 score 存入 _pre_rerank_score 备查。
 
         v9.0 修 B2: 原缺 self 形参, 被 self._rewrite_head_scores([list]) 调用时
         list 错位传给 reordered_head 之外、self 占位 → TypeError, 致 _clause_rerank
         一旦触发重排就崩 (静默失效, 因 top-k 长期无 _clause_sim 而从未真正执行)。"""
-        pool = sorted((r.get('score', 0) for r in reordered_head), reverse=True)
-        for new_pos, result in enumerate(reordered_head):
+        max_sim = max((r.get('_clause_sim', 0) for r in reordered_head), default=1.0) or 1.0
+        for result in reordered_head:
             if '_pre_rerank_score' not in result:
                 result['_pre_rerank_score'] = result.get('score', 0)
-            result['score'] = pool[new_pos]
+            sim = result.get('_clause_sim', 0) or 0
+            # 归一 sim 到 [0,1], 乘原始融合分 → 语义越相关分越高, 融合分仍参与
+            result['score'] = round(result['_pre_rerank_score'] * (sim / max_sim), 4)
         return reordered_head
 
     def _clause_rerank(self, results, top_k=3):
