@@ -94,3 +94,4 @@ eval/reports/archive/
 *.egg-link
 build/
 dist/
+contracts/term_map_v3.bak.json
