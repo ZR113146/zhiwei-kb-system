@@ -388,7 +388,7 @@ def phase_c(session, embed_clauses=False):
             # 浮动标签评分: 根据搜索日志更新文件标签
             scorer = os.path.join(SCRIPTS_DIR, 'tag_scorer.py')
             if os.path.exists(scorer):
-                subprocess.run([sys.executable, scorer], capture_output=True, timeout=60)
+                subprocess.run([sys.executable, scorer, '--apply'], capture_output=True, timeout=60, cwd=SCRIPTS_DIR)
     finally:
         subprocess.run(['cmd', '/c', f'icacls {KB_JSON_DIR} /deny {user}:(D,DC)'], capture_output=True)
 

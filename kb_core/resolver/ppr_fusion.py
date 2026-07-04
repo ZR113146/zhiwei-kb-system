@@ -56,7 +56,13 @@ class PprFusionMixin:
             }
         return trace
 
-    def _hydrate_nl_candidates(self, candidates):
+    def _hydrate_nl_candidates(self, candidates, qvec=None):
+        """为缺文本的候选补全 heading/text。PPR 候选 (heading=文件名) 走 fallback。
+
+        v10.0: fallback 从"取第一个非 TOC 章节"改为语义精定位 ——
+        用 qvec 在该文件的所有条款向量中找最匹配的条款, 确保 PPR 候选
+        的 heading 是真实条款号而非粗略章节名。
+        """
         self._ensure_search_cache_loaded()
         index = (self._search_cache or {}).get('index', {})
         for candidate in candidates:
@@ -66,11 +72,6 @@ class PprFusionMixin:
             if fname not in index or not index[fname]:
                 continue
             sections = index[fname]
-            # Pick the section whose heading matches the candidate's existing
-            # heading (the clause it actually hit), so heading and text stay
-            # from the SAME section. Only when the candidate has no usable
-            # heading do we fall back to the first substantive non-TOC section —
-            # and then we update BOTH heading and text from that one section.
             cand_heading = candidate.get('heading', '') or ''
             cand_pos = candidate.get('pos')
             section = None
@@ -85,20 +86,22 @@ class PprFusionMixin:
                         section = s
                         break
             if section is None:
-                # Genuine fallback: no heading/pos to anchor. Pick first
-                # substantive non-TOC section and use it for BOTH fields, so
-                # heading and text can never diverge.
-                section = sections[0]
-                for alt in sections[:10]:
-                    heading = alt.get('heading', '')
-                    if re.search(r'(?:……\s*\d{1,4}|\s{2,}\d{1,4})\s*$', heading):
-                        continue
-                    heading_norm = re.sub(r'\s+', '', heading)
-                    if re.match(r'^(?:[1-9]\d*\.?\s*)?(?:总\s*则|General|基本规定|一般要求|术语和符号|术语和定义|符号|范围|Scope|规范性引用文件|引用标准)$', heading_norm):
-                        continue
-                    if alt.get('length', 0) >= 100:
-                        section = alt
-                        break
+                # v10.0: 语义精定位 fallback (替代原"取第一个非 TOC 章节")。
+                if qvec is not None:
+                    section = self._semantic_best_section(fname, sections, qvec)
+                if section is None:
+                    # 向量不可用 → 回退原 heuristic
+                    section = sections[0]
+                    for alt in sections[:10]:
+                        heading = alt.get('heading', '')
+                        if re.search(r'(?:……\s*\d{1,4}|\s{2,}\d{1,4})\s*$', heading):
+                            continue
+                        heading_norm = re.sub(r'\s+', '', heading)
+                        if re.match(r'^(?:[1-9]\d*\.?\s*)?(?:总\s*则|General|基本规定|一般要求|术语和符号|术语和定义|符号|范围|Scope|规范性引用文件|引用标准)$', heading_norm):
+                            continue
+                        if alt.get('length', 0) >= 100:
+                            section = alt
+                            break
                 candidate['heading'] = section.get('heading', '')[:80]
             fpath = os.path.join(KB_MD_DIR, fname)
             if os.path.exists(fpath):
@@ -110,4 +113,27 @@ class PprFusionMixin:
                     candidate['pos'] = pos
                 except (KeyError, TypeError):
                     pass
+            # v10.0: 从 heading 提取结构化条款号
+            if 'clause_number' not in candidate:
+                m = re.match(r'^(\d+(?:\.\d+)*)\s', candidate.get('heading', ''))
+                if m:
+                    candidate['clause_number'] = m.group(1)
         return candidates
+
+    def _semantic_best_section(self, fname, sections, qvec):
+        """在文件的条款向量中找与 qvec 语义最相似的条款 section。返回 section dict 或 None。"""
+        try:
+            cs = self._ensure_clause_searcher()
+            if cs is None:
+                return None
+            hits = cs.search_clauses(qvec, top_k=1, file_filter=fname, min_similarity=0.45)
+            if not hits:
+                return None
+            best = hits[0]
+            target_heading = best.get('heading', '')
+            for s in sections:
+                if s.get('heading', '') == target_heading:
+                    return s
+        except Exception:
+            pass
+        return None

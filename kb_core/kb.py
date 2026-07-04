@@ -354,6 +354,15 @@ class KB:
         t0 = _time.time()
         results = r.search(query, max_results=mr, vector_weight=vw, project_standards=project_standards,
                           must=must, must_not=must_not, prefer=prefer)
+        # v10.0: 零结果自动反馈采集 — 无消费方改动即可激活
+        if not results:
+            try:
+                r.record_feedback({
+                    'type': 'zero_result',
+                    'query': query,
+                })
+            except Exception:
+                pass
         if support_guard:
             try:
                 from kb_core.support_guard import annotate_results

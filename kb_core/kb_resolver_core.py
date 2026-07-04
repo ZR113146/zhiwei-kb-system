@@ -690,8 +690,9 @@ class KBResolver(LegacySearchMixin, NamingMixin, ClauseReadMixin, QueryClassifie
             return []
 
         # Stage 2 prep: 为 PPR 候选补充章节标题作为语义素材
-        # (前500字是前言/目录, 章节标题才是核心技术词)
-        candidates = self._hydrate_nl_candidates(candidates)
+        # v10.0: 传 qvec 使 fallback 走语义精定位而非取首章节
+        _qvec_hydrate = self._get_query_vector(keywords)
+        candidates = self._hydrate_nl_candidates(candidates, qvec=_qvec_hydrate)
 
         # Stage 2: 融合分排序
         candidates.sort(key=lambda x: x.get('score', 0), reverse=True)

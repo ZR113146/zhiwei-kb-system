@@ -224,6 +224,10 @@ class LegacySearchMixin:
                                 file_best_result['tag_boost'] = True
                     file_best_result['score'] = round(file_best_score, 1)
                     file_best_result['hits'] = file_total_hits
+                    # v10.0: 从 heading 提取结构化条款号 (供下游候选精定位)
+                    clause_match = re.match(r'^(\d+(?:\.\d+)*)\s', heading)
+                    if clause_match:
+                        file_best_result['clause_number'] = clause_match.group(1)
                     results.append(file_best_result)
 
             if vector_boosts:

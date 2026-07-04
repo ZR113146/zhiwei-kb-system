@@ -1,1 +1,2 @@
-[]
+{"type": "zero_result", "query": "TEST_NOT_FOUND_QUERY", "ts": "2026-07-04T13:38:33.754071"}
+{"type": "zero_result", "query": "MANUAL_TEST_NOT_FOUND", "ts": "2026-07-04T13:44:36.417215"}
