@@ -1,9 +1,9 @@
 {
-  "timestamp": "2026-06-04 08:42:26",
+  "timestamp": "2026-07-05 18:41:25",
   "search": {
-    "match_rate": 0.9423,
-    "recall_pair": 0.9423,
-    "mrr": 0.8974,
+    "match_rate": 0.9231,
+    "recall_pair": 0.9231,
+    "mrr": 0.8093,
     "zero_result_rate": 0.0,
     "total_queries": 52,
     "non_image_queries": 52
@@ -11,25 +11,25 @@
   "ppr": {
     "disambiguation": {
       "total": 8,
-      "hits": 7,
-      "rate": 0.875
+      "hits": 8,
+      "rate": 1.0
     },
     "multi_hop": {
       "total": 7,
-      "hits": 6,
-      "rate": 0.8571
+      "hits": 7,
+      "rate": 1.0
     },
     "rare_terms": {
       "total": 8,
-      "hits": 4,
-      "rate": 0.5
+      "hits": 3,
+      "rate": 0.375
     },
     "graph_health": {
       "n_terms": 65651,
-      "n_files": 168,
-      "total_nodes": 65819,
-      "edges": 829335,
-      "avg_out_degree": 12.632480845683995
+      "n_files": 177,
+      "total_nodes": 65828,
+      "edges": 816906,
+      "avg_out_degree": 12.443161566465095
     }
   }
 }
