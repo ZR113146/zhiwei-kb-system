@@ -297,10 +297,15 @@ def api_clause(code: str=Query(...), clause: str=Query(...), pos: int=Query(0)):
                 if c['number'] != clause:
                     continue
                 cp = c.get('pos', 0)
-                if abs(cp - pos) < 100:
-                    best = c
-                    break
-                if best is None or abs(cp - pos) < abs(best.get('pos', 0) - pos):
+                close = abs(cp - pos) < 100
+                if close:
+                    # 同号双份 (norm + commentary) 优先 normative
+                    ctype = c.get('type', '')
+                    btype = best.get('type', '') if best else ''
+                    _tp = {'normative': 0, 'commentary': 1, 'appendix': 2, 'reference': 3}
+                    if best is None or _tp.get(ctype, 9) < _tp.get(btype, 9) or abs(cp - pos) < abs(best.get('pos', 0) - pos):
+                        best = c
+                elif best is None or abs(cp - pos) < abs(best.get('pos', 0) - pos):
                     best = c
             if best:
                 fpath = os.path.join(KB_DIR, fname)

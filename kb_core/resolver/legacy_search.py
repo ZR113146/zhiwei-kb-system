@@ -209,6 +209,8 @@ class LegacySearchMixin:
                         file_best_result = {
                             'file': fname, 'heading': heading,
                             'hits': raw_hits, 'text': segment[:2000],
+                            'pos': sec.get('pos', 0),
+                            'type': sec.get('type', ''),
                         }
 
                 if file_best_result:
