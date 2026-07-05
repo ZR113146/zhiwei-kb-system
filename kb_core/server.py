@@ -285,7 +285,11 @@ def api_changelog():
 def api_clause(code: str=Query(...), clause: str=Query(...), pos: int=Query(0)):
     ci = load_clause_index()
     if not ci: return JSONResponse({'error':'no index'},404)
-    clean_code = code.replace(' ','').replace('-','').replace('_','/')
+    # 将用户传入的原始code(如 GB50208-2011)归一到规范形(GB50208)
+    # 与 clause_index 的 std_code 对齐, 确保 lookup/index-fallback 能匹配
+    from kb_core.code_norm import normalize_code as _api_nc
+    _normalized_code = _api_nc(code) if code else ''
+    clean_code = _normalized_code or code.replace(' ','').replace('-','').replace('_','/')
     # 如果有 pos，按位置精确匹配 (处理罗马数字同名歧义)
     if pos > 0:
         for fname, data in ci['index'].items():
