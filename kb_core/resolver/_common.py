@@ -48,7 +48,7 @@ def _load_paths():
 
 INDEX_PATH, KB_MD_DIR, KB_JSON_DIR, SEARCH_INDEX = _load_paths()
 DEFAULT_SEARCH_TUNING = {
-    'score_threshold': 10.0,
+    'score_threshold': 5.0,
     'legacy_score_multiplier': 1.5,
     'ppr_score_divisor': 40.0,
     'vector_boost_multiplier': 5.0,

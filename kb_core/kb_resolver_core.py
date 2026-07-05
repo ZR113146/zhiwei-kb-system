@@ -616,8 +616,11 @@ class KBResolver(LegacySearchMixin, NamingMixin, ClauseReadMixin, QueryClassifie
         _results = self._assign_confidence(_results)
 
         # v8.0: 最低分数阈值 — 过滤无意义查询的 BM25 噪音
-        # BM25-only 结果通常 4-8 分, 合法结果 ≥20
-        _results = [r for r in _results if r.get('score', 0) >= 10.0]
+        # BM25-only 结果通常 4-8 分, 合法结果 ≥20。
+        # 改为 5.0 (原 10.0): 10.0 是 early-PPR 时代的保守值, 现在 PPR + clause_refine
+        # 精排之后新候选轨道得分 30+, 旧 legacy 最低 22.9, 10 防线不生效但也不挡。
+        # 降到 5.0 只拦 BM25 4-8 的纯噪音, 同时给将来权重调整留容错空间。
+        _results = [r for r in _results if r.get('score', 0) >= 5.0]
         _results = _results[:max_results]
         self._cache_search_results(cache_key, _results)
         return _results
